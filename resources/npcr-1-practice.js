@@ -47,6 +47,106 @@
   };
   const L = () => labels[langNow()];
 
+  const OPTION_SCAFFOLDS = {
+    "上课":{py:"shàng kè",es:"tener clase / asistir a clase",icon:"📚"},
+    "买东西":{py:"mǎi dōngxi",es:"comprar cosas",icon:"🛍️"},
+    "买衣服":{py:"mǎi yīfu",es:"comprar ropa",icon:"👕"},
+    "人数":{py:"rénshù",es:"número de personas",icon:"👥"},
+    "你叫什么名字？":{py:"Nǐ jiào shénme míngzi?",es:"¿Cómo te llamas?",icon:"👤"},
+    "你忙不忙？":{py:"Nǐ máng bu máng?",es:"¿Estás ocupado/a?",icon:"💼"},
+    "你怎么样？":{py:"Nǐ zěnmeyàng?",es:"¿Cómo estás?",icon:"🙂"},
+    "你是哪国人？":{py:"Nǐ shì nǎ guó rén?",es:"¿De qué país eres?",icon:"🌍"},
+    "初次见面":{py:"chūcì jiànmiàn",es:"conocer a alguien por primera vez",icon:"🤝"},
+    "动词":{py:"dòngcí",es:"verbo",icon:"🔤"},
+    "吃饭":{py:"chī fàn",es:"comer",icon:"🍚"},
+    "哥哥":{py:"gēge",es:"hermano mayor",icon:"👨"},
+    "国籍":{py:"guójí",es:"nacionalidad",icon:"🌍"},
+    "地点":{py:"dìdiǎn",es:"lugar",icon:"📍"},
+    "地点词":{py:"dìdiǎn cí",es:"palabra de lugar",icon:"📍"},
+    "大":{py:"dà",es:"grande",icon:"↔️"},
+    "天气清凉舒适":{py:"tiānqì qīngliáng shūshì",es:"tiempo fresco y agradable",icon:"🌤️"},
+    "好":{py:"hǎo",es:"bien / bueno",icon:"👍"},
+    "妹妹":{py:"mèimei",es:"hermana menor",icon:"👧"},
+    "姓名":{py:"xìngmíng",es:"nombre y apellido",icon:"🪪"},
+    "家庭成员的量词":{py:"jiātíng chéngyuán de liàngcí",es:"clasificador para miembros de la familia",icon:"👨‍👩‍👧"},
+    "小":{py:"xiǎo",es:"pequeño/a",icon:"↔️"},
+    "工作":{py:"gōngzuò",es:"trabajo / profesión",icon:"💼"},
+    "年长的姐姐":{py:"niánzhǎng de jiějie",es:"hermana mayor",icon:"👩"},
+    "年龄":{py:"niánlíng",es:"edad",icon:"🎂"},
+    "日期":{py:"rìqī",es:"fecha",icon:"📅"},
+    "时间":{py:"shíjiān",es:"tiempo / hora",icon:"🕐"},
+    "时间单位":{py:"shíjiān dānwèi",es:"unidad de tiempo",icon:"⏱️"},
+    "时间词":{py:"shíjiān cí",es:"expresión temporal",icon:"🕐"},
+    "母亲":{py:"mǔqīn",es:"madre",icon:"👩"},
+    "看病":{py:"kàn bìng",es:"ir al médico / recibir consulta",icon:"🩺"},
+    "空气很脏":{py:"kōngqì hěn zāng",es:"el aire está muy contaminado",icon:"🌫️"},
+    "衣服尺码":{py:"yīfu chǐmǎ",es:"talla de ropa",icon:"📏"},
+    "货币单位":{py:"huòbì dānwèi",es:"unidad monetaria",icon:"💴"},
+    "贵":{py:"guì",es:"caro/a",icon:"💰"},
+    "送给别人":{py:"sòng gěi biérén",es:"regalárselo a otra persona",icon:"🎁"},
+    "道别":{py:"dàobié",es:"despedirse",icon:"👋"},
+    "重量单位":{py:"zhòngliàng dānwèi",es:"unidad de peso",icon:"⚖️"},
+    "问时间":{py:"wèn shíjiān",es:"preguntar la hora",icon:"🕐"},
+    "问路":{py:"wèn lù",es:"preguntar cómo llegar",icon:"🗺️"},
+    "非常寒冷":{py:"fēicháng hánlěng",es:"extremadamente frío",icon:"🥶"},
+    "非常炎热":{py:"fēicháng yánrè",es:"extremadamente caluroso",icon:"🥵"}
+  };
+
+  const PINYIN_PREF_KEY = "npcr1PracticeShowPinyinV1";
+  let showOptionPinyin = true;
+  try {
+    const savedPinyinPreference = localStorage.getItem(PINYIN_PREF_KEY);
+    if (savedPinyinPreference !== null) {
+      showOptionPinyin = savedPinyinPreference !== "false";
+    }
+  } catch (error) {}
+
+  function optionScaffold(option) {
+    return OPTION_SCAFFOLDS[String(option).trim()] || null;
+  }
+
+  function optionContent(option) {
+    const scaffold = optionScaffold(option);
+    if (!scaffold) return `<span class="option-main">${escapeHtml(option)}</span>`;
+
+    return `
+      <span class="option-scaffold-layout">
+        <span class="option-scaffold-icon" aria-hidden="true">${scaffold.icon}</span>
+        <span class="option-scaffold-copy">
+          <span class="option-main">${escapeHtml(option)}</span>
+          <span class="option-pinyin${showOptionPinyin ? "" : " practice-hidden"}">${escapeHtml(scaffold.py)}</span>
+          <span class="option-spanish">${escapeHtml(scaffold.es)}</span>
+        </span>
+      </span>`;
+  }
+
+  function updatePracticePinyinToggle() {
+    const button = el("practicePinyinToggle");
+    if (!button) return;
+    const zh = showOptionPinyin ? "隐藏选项拼音" : "显示选项拼音";
+    const es = showOptionPinyin ? "Ocultar pinyin" : "Mostrar pinyin";
+    button.dataset.zh = zh;
+    button.dataset.es = es;
+    button.textContent = langNow() === "zh" ? zh : es;
+    document.querySelectorAll(".option-pinyin").forEach(node => {
+      node.classList.toggle("practice-hidden", !showOptionPinyin);
+    });
+  }
+
+  function installPracticePinyinToggle() {
+    const button = el("practicePinyinToggle");
+    if (!button) return;
+    button.addEventListener("click", () => {
+      showOptionPinyin = !showOptionPinyin;
+      try {
+        localStorage.setItem(PINYIN_PREF_KEY, String(showOptionPinyin));
+      } catch (error) {}
+      updatePracticePinyinToggle();
+    });
+    updatePracticePinyinToggle();
+  }
+
+
   function saveProductBackup(){
     let saved=false;
     const payload=JSON.stringify(state.products||{});
@@ -185,7 +285,7 @@
 
   function renderChoice(q,card){
     baseCard(q,card);const grid=document.createElement('div');grid.className='choice-grid';
-    q.options.forEach((opt,i)=>{const b=document.createElement('button');b.type='button';b.className='choice-option';b.textContent=opt;b.onclick=()=>{
+    q.options.forEach((opt,i)=>{const b=document.createElement('button');b.type='button';b.className='choice-option';b.innerHTML=optionContent(opt);b.onclick=()=>{
       if(itemState().done)return;
       if(i===q.answer){b.classList.add('correct');markCorrect(q);renderFeedback('good',`<strong>${escapeHtml(L().correct)}</strong><br>${escapeHtml(t(q.explanation))}`);[...grid.children].forEach(x=>x.disabled=true);showNext();}
       else{b.classList.add('wrong');setTimeout(()=>b.classList.remove('wrong'),450);markWrong(q);renderFeedback('bad',escapeHtml(L().wrong));}
@@ -196,7 +296,7 @@
     const play=document.createElement('button');play.type='button';play.className='practice-button primary';play.textContent=`▶ ${L().play}`;play.onclick=()=>speak(q.speech);sound.appendChild(play);
     const tip=document.createElement('span');tip.className='question-subtitle';tip.textContent=L().listenTip;sound.appendChild(tip);card.appendChild(sound);
     const grid=document.createElement('div');grid.className='choice-grid';
-    q.options.forEach((opt,i)=>{const b=document.createElement('button');b.type='button';b.className='choice-option';b.textContent=opt;b.onclick=()=>{
+    q.options.forEach((opt,i)=>{const b=document.createElement('button');b.type='button';b.className='choice-option';b.innerHTML=optionContent(opt);b.onclick=()=>{
       if(itemState().done)return;
       if(i===q.answer){b.classList.add('correct');markCorrect(q);renderFeedback('good',`<strong>${escapeHtml(L().correct)}</strong><br>${escapeHtml(t(q.explanation))}`);[...grid.children].forEach(x=>x.disabled=true);showNext();}
       else{b.classList.add('wrong');setTimeout(()=>b.classList.remove('wrong'),450);markWrong(q);renderFeedback('bad',escapeHtml(L().wrong));}
@@ -219,7 +319,7 @@
     const win=document.createElement('div');win.className='dialogue-window';const hist=document.createElement('div');hist.className='dialogue-history';
     ds.history.forEach(h=>{const b=document.createElement('div');b.className='bubble '+h.who;b.textContent=h.text;hist.appendChild(b);});
     const step=q.steps[ds.step];if(step){const a=document.createElement('div');a.className='bubble';a.textContent=step.line;hist.appendChild(a);}win.appendChild(hist);
-    if(step){const choices=document.createElement('div');choices.className='choice-grid';step.options.forEach((opt,i)=>{const b=document.createElement('button');b.type='button';b.className='choice-option';b.textContent=opt;b.onclick=()=>{
+    if(step){const choices=document.createElement('div');choices.className='choice-grid';step.options.forEach((opt,i)=>{const b=document.createElement('button');b.type='button';b.className='choice-option';b.innerHTML=optionContent(opt);b.onclick=()=>{
       if(i===step.answer){clearFeedback();ds.history.push({who:'other',text:step.line},{who:'user',text:opt});ds.step++;if(ds.step>=q.steps.length){if(ds.eligible){session.score++;session.categoryHits.dialogue++;state.stats.dialogue++;}itemState().done=true;renderDialogue(q,card);renderFeedback('good',escapeHtml(langNow()==='zh'?'对话完成，交流很自然。':'Diálogo completado de forma natural.'));}else renderDialogue(q,card);}else{ds.eligible=false;markWrong({id:null,category:'dialogue'});renderFeedback('bad',escapeHtml(t(step.feedback)));}
     };choices.appendChild(b);});win.appendChild(choices);}else{const end=document.createElement('div');end.className='product-card';end.textContent=langNow()==='zh'?'对话任务完成。':'Diálogo completado.';win.appendChild(end);const next=document.createElement('button');next.className='practice-button primary';next.textContent=L().next;next.onclick=()=>{session.dialogueState=null;nextItem();};win.appendChild(next);}card.appendChild(win);
   }
@@ -452,6 +552,7 @@
   el('modeRandom').onclick=startRandom;
   el('modeErrors').onclick=startErrors;
   el('modeAchievements').onclick=renderAchievements;
+  installPracticePinyinToggle();
   document.querySelectorAll('[data-practice-home]').forEach(b=>b.onclick=renderHome);
   el('backToLessons').onclick=()=>{if(session?.mode==='lesson'){renderRoute();showView('lessonPicker');}else renderHome();};
   el('retryButton').onclick=()=>{};

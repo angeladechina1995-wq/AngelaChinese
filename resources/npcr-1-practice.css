@@ -220,3 +220,97 @@
   font:inherit;
   cursor:pointer;
 }
+
+
+/* 第六十七版：初学者选项脚手架 */
+.option-scaffold-note{
+  margin:-8px 0 17px;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.55
+}
+.scaffold-toggle{
+  white-space:nowrap
+}
+.choice-option{
+  display:block
+}
+.option-scaffold-layout{
+  display:grid;
+  grid-template-columns:38px minmax(0,1fr);
+  gap:12px;
+  align-items:center
+}
+.option-scaffold-icon{
+  display:grid;
+  place-items:center;
+  width:36px;
+  height:36px;
+  border-radius:11px;
+  background:var(--card);
+  font-size:20px;
+  box-shadow:inset 0 0 0 1px var(--line)
+}
+.option-scaffold-copy{
+  display:block;
+  min-width:0
+}
+.option-main{
+  display:block;
+  color:var(--text);
+  font-size:17px;
+  font-weight:900;
+  line-height:1.35
+}
+.option-pinyin{
+  display:block;
+  margin-top:3px;
+  color:var(--red);
+  font-size:12px;
+  font-weight:700;
+  line-height:1.35
+}
+.option-spanish{
+  display:block;
+  margin-top:3px;
+  color:var(--muted);
+  font-size:12px;
+  font-weight:600;
+  line-height:1.4
+}
+.choice-option.correct .option-scaffold-icon{
+  background:color-mix(in srgb,#4d8b62 16%,var(--card))
+}
+.choice-option.wrong .option-scaffold-icon{
+  background:color-mix(in srgb,#bd5147 16%,var(--card))
+}
+@media(max-width:760px){
+  .exercise-topbar{
+    grid-template-columns:auto 1fr
+  }
+  #practicePinyinToggle{
+    grid-column:1/-1;
+    width:100%
+  }
+  .exercise-topbar>[data-practice-home]{
+    grid-column:1/-1
+  }
+}
+@media(max-width:520px){
+  .choice-option{
+    min-height:82px;
+    padding:14px
+  }
+  .option-scaffold-layout{
+    grid-template-columns:34px minmax(0,1fr);
+    gap:10px
+  }
+  .option-scaffold-icon{
+    width:32px;
+    height:32px;
+    font-size:18px
+  }
+  .option-main{
+    font-size:17px
+  }
+}
