@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>第一课 · 汉字</title>
+<link href="../course.css" rel="stylesheet"/>
+<style>
+.intro p{max-width:800px;color:var(--muted)}
+.content-section{margin-top:28px;padding:26px;border:1px solid var(--line);border-radius:24px;background:var(--card)}
+.content-section h2{margin-top:0;font:600 30px/1.2 Georgia,"Noto Serif SC",serif}
+.info-box{padding:18px;border-left:4px solid var(--red);border-radius:10px;background:var(--soft)}
+.relation-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+.relation-grid article{padding:17px;border:1px solid var(--line);border-radius:16px;background:var(--bg)}
+.relation-grid strong,.relation-grid span{display:block}
+.relation-grid span{margin-top:6px;color:var(--muted)}
+.radical-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.radical-card{display:grid;grid-template-columns:75px 1fr;gap:15px;padding:18px;border:1px solid var(--line);border-radius:18px;background:var(--bg)}
+.radical{font:600 55px/1 Georgia,"Noto Serif SC",serif}
+.radical-card strong,.radical-card span{display:block}
+.radical-card span,.radical-card small{color:var(--muted)}
+.radical-card p{margin:8px 0}
+.basic-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.char-card{padding:18px;border:1px solid var(--line);border-radius:18px;background:var(--bg);text-align:center}
+.big-char{font:600 62px/1.1 Georgia,"Noto Serif SC",serif}
+.char-card strong,.char-card span,.char-card small{display:block}
+.char-card strong{color:var(--red)}.char-card span{margin-top:5px}.char-card small{color:var(--muted)}
+.table-shell{overflow-x:auto}
+.char-table{width:100%;min-width:720px;border-collapse:collapse}
+.char-table th,.char-table td{padding:13px 15px;border-bottom:1px solid var(--line);text-align:left}
+.char-table th{background:var(--soft)}.big-inline{font-size:30px}.pinyin{color:var(--red);font-weight:800}
+@media(max-width:760px){.relation-grid,.basic-grid,.radical-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.relation-grid,.basic-grid,.radical-grid{grid-template-columns:1fr}}
+
+.verified-intro{max-width:900px;color:var(--muted)}
+.verified-source-note{
+  display:flex;flex-wrap:wrap;gap:8px 14px;margin:16px 0 22px;padding:14px 16px;
+  border-left:4px solid var(--red);border-radius:10px;background:var(--soft);
+  color:var(--muted);font-size:13px
+}
+.verified-source-note strong{color:var(--text)}
+.verified-stroke-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.verified-stroke-card{
+  padding:22px;border:1px solid var(--line);border-radius:22px;background:var(--bg)
+}
+.verified-card-head{
+  display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:18px
+}
+.verified-card-head h3{
+  margin:0;font:600 58px/1 Georgia,"Noto Serif SC",serif
+}
+.verified-card-head p{margin:6px 0 0;color:var(--red);font-weight:800}
+.verified-meta{display:grid;gap:5px;color:var(--muted);font-size:13px;text-align:right}
+.verified-stage{display:grid;grid-template-columns:250px 1fr;gap:20px;align-items:start}
+.verified-canvas{
+  display:grid;place-items:center;padding:10px;border:1px solid var(--line);
+  border-radius:18px;background:var(--card)
+}
+.verified-canvas svg{display:block;width:230px;height:230px}
+.guide-line,.guide-diagonal{
+  stroke:#d8d2c8;stroke-width:5;stroke-dasharray:22 16
+}
+.guide-diagonal{opacity:.55}
+.stroke-outline{fill:var(--text);opacity:.10}
+.stroke-fill{fill:var(--red);opacity:0;transition:opacity .12s ease}
+.stroke-fill.visible{opacity:1}
+.stroke-fill.current{filter:brightness(1.05)}
+.verified-controls{display:grid;gap:16px}
+.verified-counter{
+  padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--card)
+}
+.verified-counter strong{margin:0 5px;font-size:24px;color:var(--red)}
+.verified-buttons{display:flex;flex-wrap:wrap;gap:9px}
+.verified-buttons button{
+  padding:9px 13px;border:1px solid var(--line);border-radius:999px;
+  background:var(--card);color:var(--text);font-weight:800;cursor:pointer
+}
+.verified-buttons button.primary{background:var(--red);color:#fff;border-color:var(--red)}
+.verified-buttons button:disabled{opacity:.4;cursor:not-allowed}
+.verified-words{
+  padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--card)
+}
+.verified-words strong{display:block;margin-bottom:8px}
+.verified-words div{display:flex;flex-wrap:wrap;gap:8px}
+.verified-words span{padding:6px 10px;border-radius:999px;background:var(--soft);font-size:13px}
+@media(max-width:980px){
+  .verified-stroke-grid{grid-template-columns:1fr}
+}
+@media(max-width:620px){
+  .verified-stage{grid-template-columns:1fr}
+  .verified-card-head{display:block}
+  .verified-meta{margin-top:12px;text-align:left}
+  .verified-canvas svg{width:min(100%,280px);height:auto}
+}
+
+
+.character-group-title{
+  margin:30px 0 16px;
+  font:600 27px/1.2 Georgia,"Noto Serif SC",serif
+}
+.review-title{
+  margin-top:44px;
+  padding-top:28px;
+  border-top:1px solid var(--line)
+}
+.review-note{
+  margin:-7px 0 18px;
+  color:var(--muted)
+}
+</style>
+</head>
+<body>
+<header>
+<a class="brand" href="../index.html">
+<span class="logo">汉</span>
+<span>
+<b data-es="Aula de Chino con Ángela" data-zh="Ángela的汉语课堂">Ángela的汉语课堂</b>
+<small data-es="Aprender chino y comprender su cultura" data-zh="学中文，也理解中国文化">学中文，也理解中国文化</small>
+</span>
+</a>
+<div class="tools">
+<button id="lang" type="button">ES</button>
+<button id="theme" type="button">☾</button>
+</div>
+</header>
+<main>
+<a class="back" href="../courses/npcr-1-lesson-1.html">← <span data-es="Volver a la lección 1" data-zh="返回第一课">返回第一课</span></a>
+<section class="intro">
+<p class="kicker" data-es="Lección 1" data-zh="第一课">第一课</p>
+<h1 data-es="Caracteres chinos" data-zh="汉字">汉字</h1>
+<p data-es="Esta página presenta componentes, relaciones entre trazos, radicales frecuentes, caracteres básicos y caracteres clave de los textos." data-zh="本页包括汉字部件、笔画关系、常见偏旁、基本汉字以及课文重点汉字。">
+      本页包括汉字部件、笔画关系、常见偏旁、基本汉字以及课文重点汉字。
+    </p>
+</section>
+<section class="content-section">
+<h2 data-es="1. Componentes y relaciones entre trazos" data-zh="一、汉字部件与笔画关系">一、汉字部件与笔画关系</h2>
+<div class="info-box" data-es="Los caracteres modernos pueden analizarse como trazos, componentes y caracteres completos. Algunos componentes pueden ser caracteres independientes, como 木; otros solo aparecen dentro de otro carácter. Reconocerlos facilita la comprensión y la memoria." data-zh="现代汉字可以从笔画、部件和整字三个层面分析。一个部件有时可以独立成字，如“木”；有时只能作为汉字的一部分。认识部件有助于理解和记忆汉字。">
+      现代汉字可以从笔画、部件和整字三个层面分析。一个部件有时可以独立成字，如“木”；有时只能作为汉字的一部分。认识部件有助于理解和记忆汉字。
+    </div>
+<div class="relation-grid">
+<article><strong data-es="Separados" data-zh="相离">相离</strong><span>八 / 儿 / 二 / 小</span></article>
+<article><strong data-es="Se cruzan" data-zh="相交">相交</strong><span>十 / 大 / 九 / 夫</span></article>
+<article><strong data-es="Se tocan" data-zh="相接">相接</strong><span>厂 / 丁 / 人 / 山</span></article>
+</div>
+</section>
+<section class="content-section">
+<h2 data-es="2. Radicales frecuentes" data-zh="二、常见偏旁">二、常见偏旁</h2>
+<div class="radical-grid">
+<article class="radical-card">
+<div class="radical">亻</div>
+<div>
+<strong>dānrénpáng</strong>
+<span>2 trazos</span>
+<p>relacionado con la persona</p>
+<small>你、他</small>
+</div>
+</article>
+<article class="radical-card">
+<div class="radical">讠</div>
+<div>
+<strong>yánzìpáng</strong>
+<span>2 trazos</span>
+<p>relacionado con el habla</p>
+<small>认、识</small>
+</div>
+</article>
+<article class="radical-card">
+<div class="radical">木</div>
+<div>
+<strong>mùzìpáng</strong>
+<span>4 trazos</span>
+<p>relacionado con la madera o los árboles</p>
+<small>林、样</small>
+</div>
+</article>
+<article class="radical-card">
+<div class="radical">辶</div>
+<div>
+<strong>zǒuzhīpáng</strong>
+<span>3 trazos</span>
+<p>relacionado con el movimiento o el desplazamiento</p>
+<small>进、近</small>
+</div>
+</article>
+</div>
+</section>
+<section class="content-section">
+<h2 data-es="3. Caracteres básicos" data-zh="三、基本汉字">三、基本汉字</h2>
+<div class="basic-grid">
+<article class="char-card">
+<div class="big-char">力</div>
+<strong>lì</strong>
+<span>fuerza</span>
+<small>2 <span data-es="trazos" data-zh="画">画</span></small>
+</article>
+<article class="char-card">
+<div class="big-char">生</div>
+<strong>shēng</strong>
+<span>nacer; vida</span>
+<small>5 <span data-es="trazos" data-zh="画">画</span></small>
+</article>
+<article class="char-card">
+<div class="big-char">言</div>
+<strong>yán</strong>
+<span>habla; palabra</span>
+<small>7 <span data-es="trazos" data-zh="画">画</span></small>
+</article>
+<article class="char-card">
+<div class="big-char">人</div>
+<strong>rén</strong>
+<span>persona</span>
+<small>2 <span data-es="trazos" data-zh="画">画</span></small>
+</article>
+<article class="char-card">
+<div class="big-char">木</div>
+<strong>mù</strong>
+<span>madera; árbol</span>
+<small>4 <span data-es="trazos" data-zh="画">画</span></small>
+</article>
+<article class="char-card">
+<div class="big-char">羊</div>
+<strong>yáng</strong>
+<span>oveja</span>
+<small>6 <span data-es="trazos" data-zh="画">画</span></small>
+</article>
+<article class="char-card">
+<div class="big-char">井</div>
+<strong>jǐng</strong>
+<span>pozo</span>
+<small>4 <span data-es="trazos" data-zh="画">画</span></small>
+</article>
+<article class="char-card">
+<div class="big-char">土</div>
+<strong>tǔ</strong>
+<span>tierra</span>
+<small>3 <span data-es="trazos" data-zh="画">画</span></small>
+</article>
+</div>
+</section>
+<section class="content-section">
+<h2 data-es="4. Caracteres clave de los textos" data-zh="四、课文重点汉字">四、课文重点汉字</h2>
+<div class="table-shell">
+<table class="char-table">
+<thead><tr>
+<th data-es="Carácter" data-zh="汉字">汉字</th>
+<th>pīnyīn</th>
+<th data-es="Estructura" data-zh="结构/部件">结构/部件</th>
+<th data-es="Trazos" data-zh="笔画">笔画</th>
+<th data-es="Significado" data-zh="意义">意义</th>
+</tr></thead>
+<tbody>
+<tr>
+<td class="big-inline">叫</td><td class="pinyin">jiào</td>
+<td>口 + 丩</td><td>5</td><td>llamarse</td>
+</tr>
+<tr>
+<td class="big-inline">姓</td><td class="pinyin">xìng</td>
+<td>女 + 生</td><td>8</td><td>apellido / apellidarse</td>
+</tr>
+<tr>
+<td class="big-inline">么</td><td class="pinyin">me</td>
+<td>丿 + 厶</td><td>3</td><td>componente de 什么</td>
+</tr>
+<tr>
+<td class="big-inline">名</td><td class="pinyin">míng</td>
+<td>夕 + 口</td><td>6</td><td>nombre</td>
+</tr>
+<tr>
+<td class="big-inline">最</td><td class="pinyin">zuì</td>
+<td>由多个部件组合</td><td>12</td><td>lo más; muy</td>
+</tr>
+<tr>
+<td class="big-inline">近</td><td class="pinyin">jìn</td>
+<td>斤 + 辶</td><td>7</td><td>cerca; reciente</td>
+</tr>
+<tr>
+<td class="big-inline">认</td><td class="pinyin">rèn</td>
+<td>讠 + 人</td><td>4</td><td>reconocer</td>
+</tr>
+<tr>
+<td class="big-inline">识</td><td class="pinyin">shi</td>
+<td>讠 + 只</td><td>7</td><td>conocer; identificar</td>
+</tr>
+<tr>
+<td class="big-inline">样</td><td class="pinyin">yàng</td>
+<td>木 + 羊</td><td>10</td><td>forma; manera</td>
+</tr>
+<tr>
+<td class="big-inline">林</td><td class="pinyin">lín</td>
+<td>木 + 木</td><td>8</td><td>bosque; apellido Lin</td>
+</tr>
+<tr>
+<td class="big-inline">进</td><td class="pinyin">jìn</td>
+<td>井 + 辶</td><td>7</td><td>entrar</td>
+</tr>
+<tr>
+<td class="big-inline">坐</td><td class="pinyin">zuò</td>
+<td>人 + 人 + 土</td><td>7</td><td>sentarse</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section class="content-section verified-stroke-section">
+<h2 data-es="5. Escritura paso a paso (Lección 1 completa)" data-zh="五、逐笔书写展示（第一课完整版）">五、逐笔书写展示（第一课完整版）</h2>
+<p class="verified-intro" data-es="Se incluyen los 12 caracteres clave de la primera lección. El gris muestra el contorno completo y el rojo los trazos ya revelados." data-zh="按照教材第一课汉字栏目，加入12个课文重点汉字。灰色为完整字形轮廓，红色为已经显示的笔画。">
+    按照教材第一课汉字栏目，加入12个课文重点汉字。灰色为完整字形轮廓，红色为已经显示的笔画。
+  </p>
+<div class="verified-source-note">
+<strong data-es="Datos de trazos" data-zh="逐笔数据">逐笔数据</strong>
+<span>Hanzi Writer Data / Make Me a Hanzi（Arphic Public License）</span>
+</div>
+<h3 class="character-group-title" data-es="Caracteres clave de los textos (12)" data-zh="课文重点汉字（12）">课文重点汉字（12）</h3>
+<div class="verified-stroke-grid">
+<article class="verified-stroke-card" data-char="叫" data-total="5">
+<div class="verified-card-head">
+<div>
+<h3>叫</h3>
+<p>jiào</p>
+</div>
+<div class="verified-meta">
+<span>llamarse; llamar</span>
+<span data-es="Radical: 口" data-zh="部首：口">部首：口</span>
+<span data-es="Estructura: estructura izquierda-derecha" data-zh="结构：左右结构">结构：左右结构</span>
+<span data-es="Trazos: 5" data-zh="笔画：5">笔画：5</span>
+</div>
+</div>
+<div class="verified-stage">
+<div class="verified-canvas">
+<svg aria-label="叫逐笔展示" viewbox="0 0 1024 1024">
+<line class="guide-line" x1="64" x2="960" y1="512" y2="512"></line>
+<line class="guide-line" x1="512" x2="512" y1="64" y2="960"></line>
+<line class="guide-diagonal" x1="96" x2="928" y1="96" y2="928"></line>
+<line class="guide-diagonal" x1="928" x2="96" y1="96" y2="928"></line>
+<g transform="translate(0,900) scale(1,-1)">
+<path class="stroke-outline" d="M 205 585 Q 192 592 164 598 Q 151 602 147 596 Q 140 590 148 573 Q 181 494 194 366 Q 195 327 216 301 Q 232 277 239 293 Q 248 315 244 357 L 240 391 Q 221 524 220 557 C 219 579 219 579 205 585 Z"></path><path class="stroke-outline" d="M 396 421 Q 414 533 448 566 Q 464 587 448 603 Q 369 654 312 621 Q 258 600 205 585 C 176 577 191 548 220 557 Q 227 558 237 563 Q 345 590 349 586 Q 361 576 360 552 Q 353 479 341 421 C 335 392 391 391 396 421 Z"></path><path class="stroke-outline" d="M 244 357 Q 388 385 410 389 Q 420 390 421 400 Q 421 407 396 421 C 376 432 370 430 341 421 Q 283 402 240 391 C 211 383 215 351 244 357 Z"></path><path class="stroke-outline" d="M 773 477 Q 671 461 595 434 Q 573 428 578 453 Q 584 529 590 607 Q 593 634 582 649 Q 564 668 537 682 Q 524 688 513 685 Q 501 679 510 659 Q 544 586 535 512 Q 528 442 500 409 Q 481 388 490 374 Q 503 358 523 346 Q 539 339 549 348 Q 576 381 706 420 Q 757 433 769 431 Q 770 432 773 432 C 803 435 803 482 773 477 Z"></path><path class="stroke-outline" d="M 771 2 Q 777 -26 785 -37 Q 791 -44 799 -42 Q 817 -33 823 34 Q 833 137 831 238 Q 827 323 831 657 Q 831 703 845 768 Q 848 787 832 798 Q 795 823 779 826 Q 764 830 746 821 Q 736 811 745 800 Q 751 787 758 776 Q 774 746 775 703 Q 776 606 773 477 L 773 432 Q 767 48 771 2 Z"></path>
+<path class="stroke-fill" d="M 205 585 Q 192 592 164 598 Q 151 602 147 596 Q 140 590 148 573 Q 181 494 194 366 Q 195 327 216 301 Q 232 277 239 293 Q 248 315 244 357 L 240 391 Q 221 524 220 557 C 219 579 219 579 205 585 Z" data-stroke="1"></path><path class="stroke-fill" d="M 396 421 Q 414 533 448 566 Q 464 587 448 603 Q 369 654 312 621 Q 258 600 205 585 C 176 577 191 548 220 557 Q 227 558 237 563 Q 345 590 349 586 Q 361 576 360 552 Q 353 479 341 421 C 335 392 391 391 396 421 Z" data-stroke="2"></path><path class="stroke-fill" d="M 244 357 Q 388 385 410 389 Q 420 390 421 400 Q 421 407 396 421 C 376 432 370 430 341 421 Q 283 402 240 391 C 211 383 215 351 244 357 Z" data-stroke="3"></path><path class="stroke-fill" d="M 773 477 Q 671 461 595 434 Q 573 428 578 453 Q 584 529 590 607 Q 593 634 582 649 Q 564 668 537 682 Q 524 688 513 685 Q 501 679 510 659 Q 544 586 535 512 Q 528 442 500 409 Q 481 388 490 374 Q 503 358 523 346 Q 539 339 549 348 Q 576 381 706 420 Q 757 433 769 431 Q 770 432 773 432 C 803 435 803 482 773 477 Z" data-stroke="4"></path><path class="stroke-fill" d="M 771 2 Q 777 -26 785 -37 Q 791 -44 799 -42 Q 817 -33 823 34 Q 833 137 831 238 Q 827 323 831 657 Q 831 703 845 768 Q 848 787 832 798 Q 795 823 779 826 Q 764 830 746 821 Q 736 811 745 800 Q 751 787 758 776 Q 774 746 775 703 Q 776 606 773 477 L 773 432 Q 767 48 771 2 Z" data-stroke="5"></path>
+</g>
+</svg>
+</div>
+<div class="verified-controls">
+<div class="verified-counter">
+<span data-es="Mostrados" data-zh="已显示">已显示</span>
+<strong class="verified-current">0</strong>
+<span>/ 5</span>
+</div>
+<div class="verified-buttons">
+<button class="verified-prev" data-es="Anterior" data-zh="上一笔" type="button">上一笔</button>
+<button class="verified-reset" data-es="Reiniciar" data-zh="重新开始" type="button">重新开始</button>
+<button class="verified-next primary" data-es="Siguiente" data-zh="下一笔" type="button">下一笔</button>
+<button class="verified-all" data-es="Mostrar todo" data-zh="显示全部" type="button">显示全部</button>
+</div>
+<div class="verified-words">
+<strong data-es="Palabras" data-zh="组词">组词</strong>
+<div><span>我叫</span><span>他叫</span><span>叫什么</span></div>
+</div>
+</div>
+</div>
+</article><article class="verified-stroke-card" data-char="姓" data-total="8">
+<div class="verified-card-head">
+<div>
+<h3>姓</h3>
+<p>xìng</p>
+</div>
+<div class="verified-meta">
+<span>apellido; apellidarse</span>
+<span data-es="Radical: 女" data-zh="部首：女">部首：女</span>
+<span data-es="Estructura: estructura izquierda-derecha" data-zh="结构：左右结构">结构：左右结构</span>
+<span data-es="Trazos: 8" data-zh="笔画：8">笔画：8</span>
+</div>
+</div>
+<div class="verified-stage">
+<div class="verified-canvas">
+<svg aria-label="姓逐笔展示" viewbox="0 0 1024 1024">
+<line class="guide-line" x1="64" x2="960" y1="512" y2="512"></line>
+<line class="guide-line" x1="512" x2="512" y1="64" y2="960"></line>
+<line class="guide-diagonal" x1="96" x2="928" y1="96" y2="928"></line>
+<line class="guide-diagonal" x1="928" x2="96" y1="96" y2="928"></line>
+<g transform="translate(0,900) scale(1,-1)">
+<path class="stroke-outline" d="M 335 184 Q 426 121 429 119 Q 438 120 442 132 Q 448 144 439 174 Q 430 204 366 231 L 321 249 Q 293 261 255 274 Q 236 281 235 300 Q 253 355 270 410 L 282 450 Q 309 546 332 644 Q 342 692 360 716 Q 373 738 365 751 Q 352 769 305 797 Q 284 809 268 800 Q 255 793 265 777 Q 299 726 239 442 L 229 398 Q 202 320 191 299 Q 182 275 205 259 Q 254 238 296 210 L 335 184 Z"></path><path class="stroke-outline" d="M 296 210 Q 290 204 285 196 Q 257 160 208 126 Q 196 119 181 109 Q 165 99 149 88 Q 136 79 147 76 Q 222 70 327 174 Q 330 180 335 184 L 366 231 Q 396 273 415 347 Q 436 437 452 462 Q 462 480 446 489 Q 403 528 375 520 Q 362 517 366 501 Q 373 488 375 471 L 374 441 Q 373 429 372 415 Q 366 340 321 249 L 296 210 Z"></path><path class="stroke-outline" d="M 375 471 Q 329 461 282 450 L 239 442 Q 175 430 105 416 Q 83 412 47 415 Q 34 415 31 406 Q 28 393 36 385 Q 55 367 85 346 Q 95 342 107 349 Q 179 391 229 398 L 270 410 Q 319 426 374 441 C 403 449 404 477 375 471 Z"></path><path class="stroke-outline" d="M 553 467 Q 557 476 561 483 Q 576 519 590 547 Q 597 560 583 570 Q 541 594 519 587 Q 509 583 513 571 Q 537 508 464 385 Q 455 373 451 363 Q 447 348 459 355 Q 493 367 543 448 L 553 467 Z"></path><path class="stroke-outline" d="M 709 454 Q 844 490 848 493 Q 855 500 851 509 Q 844 519 816 526 Q 785 530 710 501 L 657 486 Q 608 476 556 468 Q 553 468 553 467 C 524 461 521 460 543 448 Q 544 448 547 446 Q 586 422 644 439 Q 648 440 656 441 L 709 454 Z"></path><path class="stroke-outline" d="M 705 272 Q 747 282 791 290 Q 825 297 831 303 Q 840 310 835 320 Q 828 332 798 339 Q 774 343 706 323 L 654 308 Q 608 299 554 294 Q 517 287 543 270 Q 583 249 654 262 L 705 272 Z"></path><path class="stroke-outline" d="M 702 108 Q 703 193 705 272 L 706 323 Q 707 390 709 454 L 710 501 Q 719 696 729 721 Q 742 743 727 756 Q 690 784 660 794 Q 644 797 629 785 Q 623 778 630 765 Q 660 714 659 654 Q 658 572 657 486 L 656 441 Q 655 377 654 308 L 654 262 Q 654 184 654 102 C 654 72 702 78 702 108 Z"></path><path class="stroke-outline" d="M 654 102 Q 560 92 453 78 Q 431 77 447 59 Q 460 46 479 39 Q 500 33 516 38 Q 645 72 946 72 Q 965 72 971 80 Q 977 92 960 106 Q 906 146 843 132 Q 785 123 702 108 L 654 102 Z"></path>
+<path class="stroke-fill" d="M 335 184 Q 426 121 429 119 Q 438 120 442 132 Q 448 144 439 174 Q 430 204 366 231 L 321 249 Q 293 261 255 274 Q 236 281 235 300 Q 253 355 270 410 L 282 450 Q 309 546 332 644 Q 342 692 360 716 Q 373 738 365 751 Q 352 769 305 797 Q 284 809 268 800 Q 255 793 265 777 Q 299 726 239 442 L 229 398 Q 202 320 191 299 Q 182 275 205 259 Q 254 238 296 210 L 335 184 Z" data-stroke="1"></path><path class="stroke-fill" d="M 296 210 Q 290 204 285 196 Q 257 160 208 126 Q 196 119 181 109 Q 165 99 149 88 Q 136 79 147 76 Q 222 70 327 174 Q 330 180 335 184 L 366 231 Q 396 273 415 347 Q 436 437 452 462 Q 462 480 446 489 Q 403 528 375 520 Q 362 517 366 501 Q 373 488 375 471 L 374 441 Q 373 429 372 415 Q 366 340 321 249 L 296 210 Z" data-stroke="2"></path><path class="stroke-fill" d="M 375 471 Q 329 461 282 450 L 239 442 Q 175 430 105 416 Q 83 412 47 415 Q 34 415 31 406 Q 28 393 36 385 Q 55 367 85 346 Q 95 342 107 349 Q 179 391 229 398 L 270 410 Q 319 426 374 441 C 403 449 404 477 375 471 Z" data-stroke="3"></path><path class="stroke-fill" d="M 553 467 Q 557 476 561 483 Q 576 519 590 547 Q 597 560 583 570 Q 541 594 519 587 Q 509 583 513 571 Q 537 508 464 385 Q 455 373 451 363 Q 447 348 459 355 Q 493 367 543 448 L 553 467 Z" data-stroke="4"></path><path class="stroke-fill" d="M 709 454 Q 844 490 848 493 Q 855 500 851 509 Q 844 519 816 526 Q 785 530 710 501 L 657 486 Q 608 476 556 468 Q 553 468 553 467 C 524 461 521 460 543 448 Q 544 448 547 446 Q 586 422 644 439 Q 648 440 656 441 L 709 454 Z" data-stroke="5"></path><path class="stroke-fill" d="M 705 272 Q 747 282 791 290 Q 825 297 831 303 Q 840 310 835 320 Q 828 332 798 339 Q 774 343 706 323 L 654 308 Q 608 299 554 294 Q 517 287 543 270 Q 583 249 654 262 L 705 272 Z" data-stroke="6"></path><path class="stroke-fill" d="M 702 108 Q 703 193 705 272 L 706 323 Q 707 390 709 454 L 710 501 Q 719 696 729 721 Q 742 743 727 756 Q 690 784 660 794 Q 644 797 629 785 Q 623 778 630 765 Q 660 714 659 654 Q 658 572 657 486 L 656 441 Q 655 377 654 308 L 654 262 Q 654 184 654 102 C 654 72 702 78 702 108 Z" data-stroke="7"></path><path class="stroke-fill" d="M 654 102 Q 560 92 453 78 Q 431 77 447 59 Q 460 46 479 39 Q 500 33 516 38 Q 645 72 946 72 Q 965 72 971 80 Q 977 92 960 106 Q 906 146 843 132 Q 785 123 702 108 L 654 102 Z" data-stroke="8"></path>
+</g>
+</svg>
+</div>
+<div class="verified-controls">
+<div class="verified-counter">
+<span data-es="Mostrados" data-zh="已显示">已显示</span>
+<strong class="verified-current">0</strong>
+<span>/ 8</span>
+</div>
+<div class="verified-buttons">
+<button class="verified-prev" data-es="Anterior" data-zh="上一笔" type="button">上一笔</button>
+<button class="verified-reset" data-es="Reiniciar" data-zh="重新开始" type="button">重新开始</button>
+<button class="verified-next primary" data-es="Siguiente" data-zh="下一笔" type="button">下一笔</button>
+<button class="verified-all" data-es="Mostrar todo" data-zh="显示全部" type="button">显示全部</button>
+</div>
+<div class="verified-words">
+<strong data-es="Palabras" data-zh="组词">组词</strong>
+<div><span>姓王</span><span>姓马</span><span>你姓什么</span></div>
+</div>
+</div>
+</div>
+</article>
+<article class="verified-stroke-card" data-char="么" data-total="3">
+<div class="verified-card-head">
+<div>
+<h3>么</h3>
+<p>me</p>
+</div>
+<div class="verified-meta">
+<span>sufijo en 什么、怎么</span>
+<span data-es="Radical: 丿" data-zh="部首：丿">部首：丿</span>
+<span data-es="Estructura: carácter independiente" data-zh="结构：独体字">结构：独体字</span>
+<span data-es="Trazos: 3" data-zh="笔画：3">笔画：3</span>
+</div>
+</div>
+<div class="verified-stage">
+<div class="verified-canvas">
+<svg aria-label="么逐笔展示" viewbox="0 0 1024 1024">
+<line class="guide-line" x1="64" x2="960" y1="512" y2="512"></line>
+<line class="guide-line" x1="512" x2="512" y1="64" y2="960"></line>
+<line class="guide-diagonal" x1="96" x2="928" y1="96" y2="928"></line>
+<line class="guide-diagonal" x1="928" x2="96" y1="96" y2="928"></line>
+<g transform="translate(0,900) scale(1,-1)">
+<path class="stroke-outline" d="M 464 772 Q 476 682 334 526 Q 256 448 174 381 Q 164 375 176 372 Q 263 387 398 520 Q 401 524 405 528 Q 456 583 534 696 Q 544 711 552 717 Q 559 721 559 734 Q 558 744 544 759 Q 505 795 471 788 Q 461 787 464 772 Z"></path><path class="stroke-outline" d="M 727 196 Q 574 180 407 145 Q 391 139 386 144 Q 382 153 397 172 Q 644 446 695 491 Q 713 501 707 518 Q 701 536 644 574 Q 625 587 611 584 Q 593 580 597 551 Q 603 515 574 472 Q 498 343 376 218 Q 342 178 273 142 Q 252 129 256 114 Q 260 92 290 62 Q 302 46 321 58 Q 390 107 741 166 Q 742 166 744 166 C 774 171 757 199 727 196 Z"></path><path class="stroke-outline" d="M 744 166 Q 807 61 814 57 Q 823 53 834 62 Q 850 72 848 123 Q 849 192 672 329 Q 665 336 658 324 Q 654 309 663 296 Q 694 251 727 196 L 744 166 Z"></path>
+<path class="stroke-fill" d="M 464 772 Q 476 682 334 526 Q 256 448 174 381 Q 164 375 176 372 Q 263 387 398 520 Q 401 524 405 528 Q 456 583 534 696 Q 544 711 552 717 Q 559 721 559 734 Q 558 744 544 759 Q 505 795 471 788 Q 461 787 464 772 Z" data-stroke="1"></path><path class="stroke-fill" d="M 727 196 Q 574 180 407 145 Q 391 139 386 144 Q 382 153 397 172 Q 644 446 695 491 Q 713 501 707 518 Q 701 536 644 574 Q 625 587 611 584 Q 593 580 597 551 Q 603 515 574 472 Q 498 343 376 218 Q 342 178 273 142 Q 252 129 256 114 Q 260 92 290 62 Q 302 46 321 58 Q 390 107 741 166 Q 742 166 744 166 C 774 171 757 199 727 196 Z" data-stroke="2"></path><path class="stroke-fill" d="M 744 166 Q 807 61 814 57 Q 823 53 834 62 Q 850 72 848 123 Q 849 192 672 329 Q 665 336 658 324 Q 654 309 663 296 Q 694 251 727 196 L 744 166 Z" data-stroke="3"></path>
+</g>
+</svg>
+</div>
+<div class="verified-controls">
+<div class="verified-counter">
+<span data-es="Mostrados" data-zh="已显示">已显示</span>
+<strong class="verified-current">0</strong>
+<span>/ 3</span>
+</div>
+<div class="verified-buttons">
+<button class="verified-prev" data-es="Anterior" data-zh="上一笔" type="button">上一笔</button>
+<button class="verified-reset" data-es="Reiniciar" data-zh="重新开始" type="button">重新开始</button>
+<button class="verified-next primary" data-es="Siguiente" data-zh="下一笔" type="button">下一笔</button>
+<button class="verified-all" data-es="Mostrar todo" data-zh="显示全部" type="button">显示全部</button>
+</div>
+<div class="verified-words">
+<strong data-es="Palabras" data-zh="组词">组词</strong>
+<div><span>什么</span><span>怎么</span><span>那么</span></div>
+</div>
+</div>
+</div>
+</article>
+<article class="verified-stroke-card" data-char="名" data-total="6">
+<div class="verified-card-head">
+<div>
+<h3>名</h3>
+<p>míng</p>
+</div>
+<div class="verified-meta">
+<span>nombre</span>
+<span data-es="Radical: 口" data-zh="部首：口">部首：口</span>
+<span data-es="Estructura: estructura superior-inferior" data-zh="结构：上下结构">结构：上下结构</span>
+<span data-es="Trazos: 6" data-zh="笔画：6">笔画：6</span>
+</div>
+</div>
+<div class="verified-stage">
+<div class="verified-canvas">
+<svg aria-label="名逐笔展示" viewbox="0 0 1024 1024">
+<line class="guide-line" x1="64" x2="960" y1="512" y2="512"></line>
+<line class="guide-line" x1="512" x2="512" y1="64" y2="960"></line>
+<line class="guide-diagonal" x1="96" x2="928" y1="96" y2="928"></line>
+<line class="guide-diagonal" x1="928" x2="96" y1="96" y2="928"></line>
+<g transform="translate(0,900) scale(1,-1)">
+<path class="stroke-outline" d="M 493 696 Q 527 736 560 768 Q 573 780 561 797 Q 522 839 496 842 Q 483 841 483 826 Q 477 714 306 577 Q 284 571 235 528 Q 225 515 241 516 Q 275 516 347 563 L 360 571 Q 424 616 471 670 L 493 696 Z"></path><path class="stroke-outline" d="M 376 277 Q 536 421 691 621 Q 713 649 751 677 Q 767 687 762 697 Q 761 707 698 736 Q 680 746 635 724 Q 578 708 493 696 C 463 692 441 674 471 670 Q 498 657 614 679 Q 633 683 639 675 Q 643 668 629 648 Q 544 503 400 361 Q 279 243 47 82 Q 31 70 46 69 Q 82 69 200 143 Q 293 204 358 262 L 376 277 Z"></path><path class="stroke-outline" d="M 347 563 Q 347 554 415 477 Q 419 471 426 464 Q 436 451 450 451 Q 460 450 465 461 Q 471 473 466 500 Q 462 530 371 568 Q 365 571 360 571 C 343 573 343 573 347 563 Z"></path><path class="stroke-outline" d="M 417 266 Q 405 272 376 277 C 349 282 349 282 358 262 Q 359 258 362 253 Q 393 183 407 69 Q 410 35 428 12 Q 446 -10 451 5 Q 455 15 456 31 L 454 70 Q 448 88 431 229 C 427 259 427 262 417 266 Z"></path><path class="stroke-outline" d="M 756 100 Q 790 199 833 231 Q 854 252 838 273 Q 789 315 745 326 Q 729 329 713 323 Q 602 284 417 266 C 387 263 401 225 431 229 Q 434 229 684 267 Q 712 273 723 260 Q 735 248 730 224 Q 715 158 697 105 C 688 77 746 72 756 100 Z"></path><path class="stroke-outline" d="M 456 31 Q 462 31 469 32 Q 566 48 772 58 Q 785 59 786 69 Q 787 78 756 100 C 739 113 727 110 697 105 Q 561 80 454 70 C 424 67 426 29 456 31 Z"></path>
+<path class="stroke-fill" d="M 493 696 Q 527 736 560 768 Q 573 780 561 797 Q 522 839 496 842 Q 483 841 483 826 Q 477 714 306 577 Q 284 571 235 528 Q 225 515 241 516 Q 275 516 347 563 L 360 571 Q 424 616 471 670 L 493 696 Z" data-stroke="1"></path><path class="stroke-fill" d="M 376 277 Q 536 421 691 621 Q 713 649 751 677 Q 767 687 762 697 Q 761 707 698 736 Q 680 746 635 724 Q 578 708 493 696 C 463 692 441 674 471 670 Q 498 657 614 679 Q 633 683 639 675 Q 643 668 629 648 Q 544 503 400 361 Q 279 243 47 82 Q 31 70 46 69 Q 82 69 200 143 Q 293 204 358 262 L 376 277 Z" data-stroke="2"></path><path class="stroke-fill" d="M 347 563 Q 347 554 415 477 Q 419 471 426 464 Q 436 451 450 451 Q 460 450 465 461 Q 471 473 466 500 Q 462 530 371 568 Q 365 571 360 571 C 343 573 343 573 347 563 Z" data-stroke="3"></path><path class="stroke-fill" d="M 417 266 Q 405 272 376 277 C 349 282 349 282 358 262 Q 359 258 362 253 Q 393 183 407 69 Q 410 35 428 12 Q 446 -10 451 5 Q 455 15 456 31 L 454 70 Q 448 88 431 229 C 427 259 427 262 417 266 Z" data-stroke="4"></path><path class="stroke-fill" d="M 756 100 Q 790 199 833 231 Q 854 252 838 273 Q 789 315 745 326 Q 729 329 713 323 Q 602 284 417 266 C 387 263 401 225 431 229 Q 434 229 684 267 Q 712 273 723 260 Q 735 248 730 224 Q 715 158 697 105 C 688 77 746 72 756 100 Z" data-stroke="5"></path><path class="stroke-fill" d="M 456 31 Q 462 31 469 32 Q 566 48 772 58 Q 785 59 786 69 Q 787 78 756 100 C 739 113 727 110 697 105 Q 561 80 454 70 C 424 67 426 29 456 31 Z" data-stroke="6"></path>
+</g>
+</svg>
+</div>
+<div class="verified-controls">
+<div class="verified-counter">
+<span data-es="Mostrados" data-zh="已显示">已显示</span>
+<strong class="verified-current">0</strong>
+<span>/ 6</span>
+</div>
+<div class="verified-buttons">
+<button class="verified-prev" data-es="Anterior" data-zh="上一笔" type="button">上一笔</button>
+<button class="verified-reset" data-es="Reiniciar" data-zh="重新开始" type="button">重新开始</button>
+<button class="verified-next primary" data-es="Siguiente" data-zh="下一笔" type="button">下一笔</button>
+<button class="verified-all" data-es="Mostrar todo" data-zh="显示全部" type="button">显示全部</button>
+</div>
+<div class="verified-words">
+<strong data-es="Palabras" data-zh="组词">组词</strong>
+<div><span>名字</span><span>姓名</span><span>有名</span></div>
+</div>
+</div>
+</div>
+</article>
+<article class="verified-stroke-card" data-char="最" data-total="12">
+<div class="verified-card-head">
+<div>
+<h3>最</h3>
+<p>zuì</p>
+</div>
+<div class="verified-meta">
+<span>lo más; el más</span>
+<span data-es="Radical: 曰" data-zh="部首：曰">部首：曰</span>
+<span data-es="Estructura: estructura superior-inferior" data-zh="结构：上下结构">结构：上下结构</span>
+<span data-es="Trazos: 12" data-zh="笔画：12">笔画：12</span>
+</div>
+</div>
+<div class="verified-stage">
+<div class="verified-canvas">
+<svg aria-label="最逐笔展示" viewbox="0 0 1024 1024">
+<line class="guide-line" x1="64" x2="960" y1="512" y2="512"></line>
+<line class="guide-line" x1="512" x2="512" y1="64" y2="960"></line>
+<line class="guide-diagonal" x1="96" x2="928" y1="96" y2="928"></line>
+<line class="guide-diagonal" x1="928" x2="96" y1="96" y2="928"></line>
+<g transform="translate(0,900) scale(1,-1)">
+<path class="stroke-outline" d="M 386 772 Q 376 779 341 784 Q 331 787 327 782 Q 321 776 329 761 Q 357 704 373 610 Q 376 582 393 563 Q 409 542 414 557 Q 417 567 418 581 L 417 605 Q 416 612 415 619 Q 411 641 407 658 L 403 682 Q 396 719 394 739 C 391 769 390 770 386 772 Z"></path><path class="stroke-outline" d="M 581 596 Q 597 571 612 561 Q 622 554 638 573 Q 651 592 683 693 Q 693 723 716 746 Q 729 756 719 771 Q 704 787 665 815 Q 650 824 576 808 Q 570 808 458 786 Q 419 779 386 772 C 357 766 366 729 394 739 Q 394 740 396 741 Q 466 760 590 778 Q 618 782 627 773 Q 636 760 634 748 Q 610 640 598 628 C 584 601 581 596 581 596 Z"></path><path class="stroke-outline" d="M 407 658 Q 416 664 580 684 Q 599 687 593 698 Q 584 710 563 714 Q 536 718 403 682 C 374 674 379 648 407 658 Z"></path><path class="stroke-outline" d="M 418 581 Q 422 580 431 581 Q 515 591 581 596 C 611 598 626 616 598 628 Q 592 631 586 632 Q 568 635 417 605 C 388 599 388 583 418 581 Z"></path><path class="stroke-outline" d="M 461 479 Q 575 497 811 497 Q 830 497 835 506 Q 841 516 824 530 Q 773 569 711 554 Q 537 524 164 473 Q 143 472 159 455 Q 172 442 190 436 Q 209 432 226 436 Q 239 440 255 444 L 294 452 Q 354 467 420 474 L 461 479 Z"></path><path class="stroke-outline" d="M 255 444 Q 265 428 269 328 Q 269 271 270 169 C 270 139 306 149 307 179 Q 308 216 309 251 L 309 280 Q 310 316 311 347 L 311 376 Q 311 395 313 415 Q 319 431 294 452 C 272 472 244 472 255 444 Z"></path><path class="stroke-outline" d="M 470 111 Q 470 157 470 201 L 469 231 Q 469 400 477 454 Q 477 466 461 479 C 440 501 411 503 420 474 Q 436 440 430 251 Q 429 235 428 217 L 426 181 Q 416 58 412 45 Q 403 14 434 -34 Q 444 -50 451 -54 Q 461 -55 466 -43 Q 475 -18 471 98 L 470 111 Z"></path><path class="stroke-outline" d="M 311 347 Q 363 363 403 371 Q 422 375 414 386 Q 404 396 382 398 Q 352 401 311 376 C 285 361 282 338 311 347 Z"></path><path class="stroke-outline" d="M 309 251 Q 363 267 403 275 Q 422 279 413 290 Q 403 300 382 302 Q 357 303 309 280 C 282 267 280 243 309 251 Z"></path><path class="stroke-outline" d="M 470 201 Q 492 211 509 223 Q 522 230 522 240 Q 516 246 504 243 Q 486 239 469 231 L 428 217 Q 370 199 307 179 L 270 169 Q 189 151 170 150 Q 157 149 155 139 Q 154 126 162 118 Q 184 102 218 83 Q 228 80 240 89 Q 273 113 426 181 L 470 201 Z"></path><path class="stroke-outline" d="M 678 198 Q 741 324 743 329 Q 750 360 777 387 Q 796 403 783 417 Q 770 427 738 439 Q 714 446 688 431 Q 663 421 628 409 Q 594 399 535 389 Q 522 388 517 381 Q 513 374 531 367 Q 567 354 615 369 Q 661 388 670 389 Q 694 388 688 361 Q 673 280 641 232 L 619 202 Q 564 144 471 112 Q 470 112 470 111 C 445 101 445 101 471 98 Q 556 83 649 166 L 678 198 Z"></path><path class="stroke-outline" d="M 649 166 Q 743 58 779 52 Q 857 49 919 57 Q 950 61 949 69 Q 946 78 801 123 Q 741 147 678 198 L 641 232 Q 608 262 577 297 Q 546 331 517 332 Q 502 333 499 328 Q 498 324 510 313 Q 549 289 619 202 L 649 166 Z"></path>
+<path class="stroke-fill" d="M 386 772 Q 376 779 341 784 Q 331 787 327 782 Q 321 776 329 761 Q 357 704 373 610 Q 376 582 393 563 Q 409 542 414 557 Q 417 567 418 581 L 417 605 Q 416 612 415 619 Q 411 641 407 658 L 403 682 Q 396 719 394 739 C 391 769 390 770 386 772 Z" data-stroke="1"></path><path class="stroke-fill" d="M 581 596 Q 597 571 612 561 Q 622 554 638 573 Q 651 592 683 693 Q 693 723 716 746 Q 729 756 719 771 Q 704 787 665 815 Q 650 824 576 808 Q 570 808 458 786 Q 419 779 386 772 C 357 766 366 729 394 739 Q 394 740 396 741 Q 466 760 590 778 Q 618 782 627 773 Q 636 760 634 748 Q 610 640 598 628 C 584 601 581 596 581 596 Z" data-stroke="2"></path><path class="stroke-fill" d="M 407 658 Q 416 664 580 684 Q 599 687 593 698 Q 584 710 563 714 Q 536 718 403 682 C 374 674 379 648 407 658 Z" data-stroke="3"></path><path class="stroke-fill" d="M 418 581 Q 422 580 431 581 Q 515 591 581 596 C 611 598 626 616 598 628 Q 592 631 586 632 Q 568 635 417 605 C 388 599 388 583 418 581 Z" data-stroke="4"></path><path class="stroke-fill" d="M 461 479 Q 575 497 811 497 Q 830 497 835 506 Q 841 516 824 530 Q 773 569 711 554 Q 537 524 164 473 Q 143 472 159 455 Q 172 442 190 436 Q 209 432 226 436 Q 239 440 255 444 L 294 452 Q 354 467 420 474 L 461 479 Z" data-stroke="5"></path><path class="stroke-fill" d="M 255 444 Q 265 428 269 328 Q 269 271 270 169 C 270 139 306 149 307 179 Q 308 216 309 251 L 309 280 Q 310 316 311 347 L 311 376 Q 311 395 313 415 Q 319 431 294 452 C 272 472 244 472 255 444 Z" data-stroke="6"></path><path class="stroke-fill" d="M 470 111 Q 470 157 470 201 L 469 231 Q 469 400 477 454 Q 477 466 461 479 C 440 501 411 503 420 474 Q 436 440 430 251 Q 429 235 428 217 L 426 181 Q 416 58 412 45 Q 403 14 434 -34 Q 444 -50 451 -54 Q 461 -55 466 -43 Q 475 -18 471 98 L 470 111 Z" data-stroke="7"></path><path class="stroke-fill" d="M 311 347 Q 363 363 403 371 Q 422 375 414 386 Q 404 396 382 398 Q 352 401 311 376 C 285 361 282 338 311 347 Z" data-stroke="8"></path><path class="stroke-fill" d="M 309 251 Q 363 267 403 275 Q 422 279 413 290 Q 403 300 382 302 Q 357 303 309 280 C 282 267 280 243 309 251 Z" data-stroke="9"></path><path class="stroke-fill" d="M 470 201 Q 492 211 509 223 Q 522 230 522 240 Q 516 246 504 243 Q 486 239 469 231 L 428 217 Q 370 199 307 179 L 270 169 Q 189 151 170 150 Q 157 149 155 139 Q 154 126 162 118 Q 184 102 218 83 Q 228 80 240 89 Q 273 113 426 181 L 470 201 Z" data-stroke="10"></path><path class="stroke-fill" d="M 678 198 Q 741 324 743 329 Q 750 360 777 387 Q 796 403 783 417 Q 770 427 738 439 Q 714 446 688 431 Q 663 421 628 409 Q 594 399 535 389 Q 522 388 517 381 Q 513 374 531 367 Q 567 354 615 369 Q 661 388 670 389 Q 694 388 688 361 Q 673 280 641 232 L 619 202 Q 564 144 471 112 Q 470 112 470 111 C 445 101 445 101 471 98 Q 556 83 649 166 L 678 198 Z" data-stroke="11"></path><path class="stroke-fill" d="M 649 166 Q 743 58 779 52 Q 857 49 919 57 Q 950 61 949 69 Q 946 78 801 123 Q 741 147 678 198 L 641 232 Q 608 262 577 297 Q 546 331 517 332 Q 502 333 499 328 Q 498 324 510 313 Q 549 289 619 202 L 649 166 Z" data-stroke="12"></path>
+</g>
+</svg>
+</div>
+<div class="verified-controls">
+<div class="verified-counter">
+<span data-es="Mostrados" data-zh="已显示">已显示</span>
+<strong class="verified-current">0</strong>
+<span>/ 12</span>
+</div>
+<div class="verified-buttons">
+<button class="verified-prev" data-es="Anterior" data-zh="上一笔" type="button">上一笔</button>
+<button class="verified-reset" data-es="Reiniciar" data-zh="重新开始" type="button">重新开始</button>
+<button class="verified-next primary" data-es="Siguiente" data-zh="下一笔" type="button">下一笔</button>
+<button class="verified-all" data-es="Mostrar todo" data-zh="显示全部" type="button">显示全部</button>
+</div>
+<div class="verified-words">
+<strong data-es="Palabras" data-zh="组词">组词</strong>
+<div><span>最近</span><span>最好</span><span>最忙</span></div>
+</div>
+</div>
+</div>
+</article>
+<article class="verified-stroke-card" data-char="近" data-total="7">
+<div class="verified-card-head">
+<div>
+<h3>近</h3>
+<p>jìn</p>
+</div>
+<div class="verified-meta">
+<span>cerca; reciente</span>
+<span data-es="Radical: 辶" data-zh="部首：辶">部首：辶</span>
+<span data-es="Estructura: estructura semi-envolvente" data-zh="结构：半包围结构">结构：半包围结构</span>
+<span data-es="Trazos: 7" data-zh="笔画：7">笔画：7</span>
+</div>
+</div>
+<div class="verified-stage">
+<div class="verified-canvas">
+<svg aria-label="近逐笔展示" viewbox="0 0 1024 1024">
+<line class="guide-line" x1="64" x2="960" y1="512" y2="512"></line>
+<line class="guide-line" x1="512" x2="512" y1="64" y2="960"></line>
+<line class="guide-diagonal" x1="96" x2="928" y1="96" y2="928"></line>
+<line class="guide-diagonal" x1="928" x2="96" y1="96" y2="928"></line>
+<g transform="translate(0,900) scale(1,-1)">
+<path class="stroke-outline" d="M 548 647 Q 567 654 593 663 Q 642 678 679 697 Q 724 718 764 728 Q 780 729 785 738 Q 788 750 775 760 Q 753 776 706 791 Q 690 798 676 795 Q 669 791 669 780 Q 669 753 537 669 C 512 653 520 637 548 647 Z"></path><path class="stroke-outline" d="M 538 507 Q 542 553 543 609 Q 547 643 548 647 C 550 663 550 663 537 669 Q 536 670 532 672 Q 483 694 467 691 Q 446 687 463 665 Q 493 625 480 450 Q 474 405 456 352 Q 438 304 371 228 Q 356 215 353 208 Q 352 201 364 202 Q 397 202 457 266 Q 523 344 535 478 L 538 507 Z"></path><path class="stroke-outline" d="M 707 501 Q 761 511 853 517 Q 895 517 902 527 Q 906 539 890 550 Q 832 589 777 564 Q 737 555 679 539 Q 612 524 538 507 C 509 500 506 487 535 478 Q 556 469 597 477 Q 622 486 655 492 L 707 501 Z"></path><path class="stroke-outline" d="M 680 126 Q 684 104 691 95 Q 695 88 703 90 Q 715 99 722 152 Q 722 359 737 463 Q 740 479 728 488 Q 716 495 707 501 C 682 517 644 520 655 492 Q 670 452 672 446 Q 675 364 675 234 Q 676 153 680 126 Z"></path><path class="stroke-outline" d="M 257 718 Q 282 694 309 665 Q 324 649 342 650 Q 354 650 360 665 Q 367 681 357 716 Q 348 749 253 773 Q 235 777 228 775 Q 222 771 223 756 Q 227 743 257 718 Z"></path><path class="stroke-outline" d="M 299 190 Q 312 199 319 216 Q 331 255 292 321 Q 262 381 345 470 Q 367 488 348 504 Q 329 520 294 535 Q 272 548 254 532 Q 221 510 179 495 Q 122 474 104 478 Q 97 478 95 473 Q 94 469 101 464 Q 143 443 243 479 Q 253 482 261 470 Q 282 448 259 420 Q 211 375 253 304 Q 280 249 279 224 Q 279 206 273 192 C 265 163 278 169 299 190 Z"></path><path class="stroke-outline" d="M 273 192 Q 233 193 192 181 Q 149 166 85 162 Q 78 162 74 153 Q 70 146 79 136 Q 95 117 119 105 Q 131 98 150 112 Q 231 166 308 148 Q 374 132 506 68 Q 722 -40 816 -22 Q 817 -21 820 -21 Q 883 -2 937 35 Q 961 50 936 50 Q 707 50 530 109 Q 461 133 381 167 Q 341 186 299 190 L 273 192 Z"></path>
+<path class="stroke-fill" d="M 548 647 Q 567 654 593 663 Q 642 678 679 697 Q 724 718 764 728 Q 780 729 785 738 Q 788 750 775 760 Q 753 776 706 791 Q 690 798 676 795 Q 669 791 669 780 Q 669 753 537 669 C 512 653 520 637 548 647 Z" data-stroke="1"></path><path class="stroke-fill" d="M 538 507 Q 542 553 543 609 Q 547 643 548 647 C 550 663 550 663 537 669 Q 536 670 532 672 Q 483 694 467 691 Q 446 687 463 665 Q 493 625 480 450 Q 474 405 456 352 Q 438 304 371 228 Q 356 215 353 208 Q 352 201 364 202 Q 397 202 457 266 Q 523 344 535 478 L 538 507 Z" data-stroke="2"></path><path class="stroke-fill" d="M 707 501 Q 761 511 853 517 Q 895 517 902 527 Q 906 539 890 550 Q 832 589 777 564 Q 737 555 679 539 Q 612 524 538 507 C 509 500 506 487 535 478 Q 556 469 597 477 Q 622 486 655 492 L 707 501 Z" data-stroke="3"></path><path class="stroke-fill" d="M 680 126 Q 684 104 691 95 Q 695 88 703 90 Q 715 99 722 152 Q 722 359 737 463 Q 740 479 728 488 Q 716 495 707 501 C 682 517 644 520 655 492 Q 670 452 672 446 Q 675 364 675 234 Q 676 153 680 126 Z" data-stroke="4"></path><path class="stroke-fill" d="M 257 718 Q 282 694 309 665 Q 324 649 342 650 Q 354 650 360 665 Q 367 681 357 716 Q 348 749 253 773 Q 235 777 228 775 Q 222 771 223 756 Q 227 743 257 718 Z" data-stroke="5"></path><path class="stroke-fill" d="M 299 190 Q 312 199 319 216 Q 331 255 292 321 Q 262 381 345 470 Q 367 488 348 504 Q 329 520 294 535 Q 272 548 254 532 Q 221 510 179 495 Q 122 474 104 478 Q 97 478 95 473 Q 94 469 101 464 Q 143 443 243 479 Q 253 482 261 470 Q 282 448 259 420 Q 211 375 253 304 Q 280 249 279 224 Q 279 206 273 192 C 265 163 278 169 299 190 Z" data-stroke="6"></path><path class="stroke-fill" d="M 273 192 Q 233 193 192 181 Q 149 166 85 162 Q 78 162 74 153 Q 70 146 79 136 Q 95 117 119 105 Q 131 98 150 112 Q 231 166 308 148 Q 374 132 506 68 Q 722 -40 816 -22 Q 817 -21 820 -21 Q 883 -2 937 35 Q 961 50 936 50 Q 707 50 530 109 Q 461 133 381 167 Q 341 186 299 190 L 273 192 Z" data-stroke="7"></path>
+</g>
+</svg>
+</div>
+<div class="verified-controls">
+<div class="verified-counter">
+<span data-es="Mostrados" data-zh="已显示">已显示</span>
+<strong class="verified-current">0</strong>
+<span>/ 7</span>
+</div>
+<div class="verified-buttons">
+<button class="verified-prev" data-es="Anterior" data-zh="上一笔" type="button">上一笔</button>
+<button class="verified-reset" data-es="Reiniciar" data-zh="重新开始" type="button">重新开始</button>
+<button class="verified-next primary" data-es="Siguiente" data-zh="下一笔" type="button">下一笔</button>
+<button class="verified-all" data-es="Mostrar todo" data-zh="显示全部" type="button">显示全部</button>
+</div>
+<div class="verified-words">
+<strong data-es="Palabras" data-zh="组词">组词</strong>
+<div><span>最近</span><span>附近</span><span>近来</span></div>
+</div>
+</div>
+</div>
+</article>
+<article class="verified-stroke-card" data-char="认" data-total="4">
+<div class="verified-card-head">
+<div>
+<h3>认</h3>
+<p>rèn</p>
+</div>
+<div class="verified-meta">
+<span>reconocer; admitir</span>
+<span data-es="Radical: 讠" data-zh="部首：讠">部首：讠</span>
+<span data-es="Estructura: estructura izquierda-derecha" data-zh="结构：左右结构">结构：左右结构</span>
+<span data-es="Trazos: 4" data-zh="笔画：4">笔画：4</span>
+</div>
+</div>
+<div class="verified-stage">
+<div class="verified-canvas">
+<svg aria-label="认逐笔展示" viewbox="0 0 1024 1024">
+<line class="guide-line" x1="64" x2="960" y1="512" y2="512"></line>
+<line class="guide-line" x1="512" x2="512" y1="64" y2="960"></line>
+<line class="guide-diagonal" x1="96" x2="928" y1="96" y2="928"></line>
+<line class="guide-diagonal" x1="928" x2="96" y1="96" y2="928"></line>
+<g transform="translate(0,900) scale(1,-1)">
+<path class="stroke-outline" d="M 278 734 Q 309 709 343 678 Q 359 665 375 665 Q 387 666 392 680 Q 398 696 387 729 Q 380 751 345 767 Q 263 795 248 787 Q 242 783 244 769 Q 248 756 278 734 Z"></path><path class="stroke-outline" d="M 127 476 Q 75 463 47 461 Q 32 462 29 454 Q 25 447 36 438 Q 73 413 112 424 Q 241 476 252 473 Q 253 473 255 471 Q 265 464 258 436 Q 252 256 215 146 Q 196 115 237 60 Q 247 47 258 53 Q 267 60 279 84 Q 321 130 407 208 Q 420 218 418 226 Q 417 235 405 226 Q 366 207 327 182 Q 272 142 285 207 Q 286 271 313 427 Q 317 452 342 475 Q 355 485 345 498 Q 335 514 295 534 Q 283 541 265 530 Q 177 488 127 476 Z"></path><path class="stroke-outline" d="M 629 390 Q 630 409 634 427 Q 656 649 676 693 Q 685 708 672 721 Q 648 742 605 755 Q 578 764 568 756 Q 558 749 566 735 Q 623 633 568 327 Q 538 195 463 119 Q 415 76 338 32 Q 325 25 324 19 Q 325 15 338 15 Q 354 9 398 25 Q 542 70 598 240 Q 611 285 621 340 L 629 390 Z"></path><path class="stroke-outline" d="M 621 340 Q 765 28 817 20 Q 890 13 952 6 Q 979 3 980 9 Q 983 16 955 34 Q 823 106 782 155 Q 701 254 629 390 C 615 416 608 367 621 340 Z"></path>
+<path class="stroke-fill" d="M 278 734 Q 309 709 343 678 Q 359 665 375 665 Q 387 666 392 680 Q 398 696 387 729 Q 380 751 345 767 Q 263 795 248 787 Q 242 783 244 769 Q 248 756 278 734 Z" data-stroke="1"></path><path class="stroke-fill" d="M 127 476 Q 75 463 47 461 Q 32 462 29 454 Q 25 447 36 438 Q 73 413 112 424 Q 241 476 252 473 Q 253 473 255 471 Q 265 464 258 436 Q 252 256 215 146 Q 196 115 237 60 Q 247 47 258 53 Q 267 60 279 84 Q 321 130 407 208 Q 420 218 418 226 Q 417 235 405 226 Q 366 207 327 182 Q 272 142 285 207 Q 286 271 313 427 Q 317 452 342 475 Q 355 485 345 498 Q 335 514 295 534 Q 283 541 265 530 Q 177 488 127 476 Z" data-stroke="2"></path><path class="stroke-fill" d="M 629 390 Q 630 409 634 427 Q 656 649 676 693 Q 685 708 672 721 Q 648 742 605 755 Q 578 764 568 756 Q 558 749 566 735 Q 623 633 568 327 Q 538 195 463 119 Q 415 76 338 32 Q 325 25 324 19 Q 325 15 338 15 Q 354 9 398 25 Q 542 70 598 240 Q 611 285 621 340 L 629 390 Z" data-stroke="3"></path><path class="stroke-fill" d="M 621 340 Q 765 28 817 20 Q 890 13 952 6 Q 979 3 980 9 Q 983 16 955 34 Q 823 106 782 155 Q 701 254 629 390 C 615 416 608 367 621 340 Z" data-stroke="4"></path>
+</g>
+</svg>
+</div>
+<div class="verified-controls">
+<div class="verified-counter">
+<span data-es="Mostrados" data-zh="已显示">已显示</span>
+<strong class="verified-current">0</strong>
+<span>/ 4</span>
+</div>
+<div class="verified-buttons">
+<button class="verified-prev" data-es="Anterior" data-zh="上一笔" type="button">上一笔</button>
+<button class="verified-reset" data-es="Reiniciar" data-zh="重新开始" type="button">重新开始</button>
+<button class="verified-next primary" data-es="Siguiente" data-zh="下一笔" type="button">下一笔</button>
+<button class="verified-all" data-es="Mostrar todo" data-zh="显示全部" type="button">显示全部</button>
+</div>
+<div class="verified-words">
+<strong data-es="Palabras" data-zh="组词">组词</strong>
+<div><span>认识</span><span>认字</span><span>认真</span></div>
+</div>
+</div>
+</div>
+</article>
+<article class="verified-stroke-card" data-char="识" data-total="7">
+<div class="verified-card-head">
+<div>
+<h3>识</h3>
+<p>shi</p>
+</div>
+<div class="verified-meta">
+<span>conocer; identificar</span>
+<span data-es="Radical: 讠" data-zh="部首：讠">部首：讠</span>
+<span data-es="Estructura: estructura izquierda-derecha" data-zh="结构：左右结构">结构：左右结构</span>
+<span data-es="Trazos: 7" data-zh="笔画：7">笔画：7</span>
+</div>
+</div>
+<div class="verified-stage">
+<div class="verified-canvas">
+<svg aria-label="识逐笔展示" viewbox="0 0 1024 1024">
+<line class="guide-line" x1="64" x2="960" y1="512" y2="512"></line>
+<line class="guide-line" x1="512" x2="512" y1="64" y2="960"></line>
+<line class="guide-diagonal" x1="96" x2="928" y1="96" y2="928"></line>
+<line class="guide-diagonal" x1="928" x2="96" y1="96" y2="928"></line>
+<g transform="translate(0,900) scale(1,-1)">
+<path class="stroke-outline" d="M 305 756 Q 336 732 371 703 Q 387 690 404 692 Q 416 693 420 708 Q 424 724 412 757 Q 405 778 369 792 Q 285 817 272 807 Q 266 803 269 789 Q 273 776 305 756 Z"></path><path class="stroke-outline" d="M 157 502 Q 105 486 78 485 Q 63 485 60 478 Q 56 469 68 461 Q 90 446 107 444 Q 125 440 246 496 Q 274 509 283 501 Q 292 495 284 390 Q 281 278 250 177 Q 232 147 276 93 Q 288 80 297 87 Q 306 94 317 119 Q 357 171 440 259 Q 453 271 450 278 Q 449 287 437 277 Q 397 250 356 221 Q 310 182 319 239 Q 318 303 342 459 Q 346 484 370 508 Q 383 518 373 531 Q 361 547 322 566 Q 310 572 292 561 Q 207 516 157 502 Z"></path><path class="stroke-outline" d="M 528 624 Q 516 631 485 637 Q 472 641 469 636 Q 462 630 470 613 Q 503 534 518 408 Q 519 371 540 344 Q 558 322 563 337 Q 567 350 568 370 L 566 406 Q 551 484 539 590 C 536 620 535 621 528 624 Z"></path><path class="stroke-outline" d="M 787 440 Q 815 557 856 593 Q 875 614 858 633 Q 839 648 782 675 Q 761 684 738 674 Q 657 643 528 624 C 498 619 509 586 539 590 Q 548 590 722 621 Q 741 625 749 617 Q 762 605 759 580 Q 747 501 730 439 C 722 410 780 411 787 440 Z"></path><path class="stroke-outline" d="M 568 370 Q 578 369 590 371 Q 659 387 807 399 Q 819 400 820 410 Q 820 419 788 440 L 787 440 L 730 439 Q 636 417 566 406 C 536 401 538 371 568 370 Z"></path><path class="stroke-outline" d="M 545 261 Q 523 182 373 53 Q 351 37 379 41 Q 448 47 570 174 Q 573 181 619 227 Q 629 240 627 249 Q 623 262 597 270 Q 567 280 555 277 Q 548 276 545 261 Z"></path><path class="stroke-outline" d="M 719 257 Q 779 188 848 90 Q 863 66 878 59 Q 888 56 897 67 Q 913 79 905 129 Q 896 199 724 290 Q 715 297 711 284 Q 708 269 719 257 Z"></path>
+<path class="stroke-fill" d="M 305 756 Q 336 732 371 703 Q 387 690 404 692 Q 416 693 420 708 Q 424 724 412 757 Q 405 778 369 792 Q 285 817 272 807 Q 266 803 269 789 Q 273 776 305 756 Z" data-stroke="1"></path><path class="stroke-fill" d="M 157 502 Q 105 486 78 485 Q 63 485 60 478 Q 56 469 68 461 Q 90 446 107 444 Q 125 440 246 496 Q 274 509 283 501 Q 292 495 284 390 Q 281 278 250 177 Q 232 147 276 93 Q 288 80 297 87 Q 306 94 317 119 Q 357 171 440 259 Q 453 271 450 278 Q 449 287 437 277 Q 397 250 356 221 Q 310 182 319 239 Q 318 303 342 459 Q 346 484 370 508 Q 383 518 373 531 Q 361 547 322 566 Q 310 572 292 561 Q 207 516 157 502 Z" data-stroke="2"></path><path class="stroke-fill" d="M 528 624 Q 516 631 485 637 Q 472 641 469 636 Q 462 630 470 613 Q 503 534 518 408 Q 519 371 540 344 Q 558 322 563 337 Q 567 350 568 370 L 566 406 Q 551 484 539 590 C 536 620 535 621 528 624 Z" data-stroke="3"></path><path class="stroke-fill" d="M 787 440 Q 815 557 856 593 Q 875 614 858 633 Q 839 648 782 675 Q 761 684 738 674 Q 657 643 528 624 C 498 619 509 586 539 590 Q 548 590 722 621 Q 741 625 749 617 Q 762 605 759 580 Q 747 501 730 439 C 722 410 780 411 787 440 Z" data-stroke="4"></path><path class="stroke-fill" d="M 568 370 Q 578 369 590 371 Q 659 387 807 399 Q 819 400 820 410 Q 820 419 788 440 L 787 440 L 730 439 Q 636 417 566 406 C 536 401 538 371 568 370 Z" data-stroke="5"></path><path class="stroke-fill" d="M 545 261 Q 523 182 373 53 Q 351 37 379 41 Q 448 47 570 174 Q 573 181 619 227 Q 629 240 627 249 Q 623 262 597 270 Q 567 280 555 277 Q 548 276 545 261 Z" data-stroke="6"></path><path class="stroke-fill" d="M 719 257 Q 779 188 848 90 Q 863 66 878 59 Q 888 56 897 67 Q 913 79 905 129 Q 896 199 724 290 Q 715 297 711 284 Q 708 269 719 257 Z" data-stroke="7"></path>
+</g>
+</svg>
+</div>
+<div class="verified-controls">
+<div class="verified-counter">
+<span data-es="Mostrados" data-zh="已显示">已显示</span>
+<strong class="verified-current">0</strong>
+<span>/ 7</span>
+</div>
+<div class="verified-buttons">
+<button class="verified-prev" data-es="Anterior" data-zh="上一笔" type="button">上一笔</button>
+<button class="verified-reset" data-es="Reiniciar" data-zh="重新开始" type="button">重新开始</button>
+<button class="verified-next primary" data-es="Siguiente" data-zh="下一笔" type="button">下一笔</button>
+<button class="verified-all" data-es="Mostrar todo" data-zh="显示全部" type="button">显示全部</button>
+</div>
+<div class="verified-words">
+<strong data-es="Palabras" data-zh="组词">组词</strong>
+<div><span>认识</span><span>知识</span><span>识字</span></div>
+</div>
+</div>
+</div>
+</article>
+<article class="verified-stroke-card" data-char="样" data-total="10">
+<div class="verified-card-head">
+<div>
+<h3>样</h3>
+<p>yàng</p>
+</div>
+<div class="verified-meta">
+<span>forma; manera</span>
+<span data-es="Radical: 木" data-zh="部首：木">部首：木</span>
+<span data-es="Estructura: estructura izquierda-derecha" data-zh="结构：左右结构">结构：左右结构</span>
+<span data-es="Trazos: 10" data-zh="笔画：10">笔画：10</span>
+</div>
+</div>
+<div class="verified-stage">
+<div class="verified-canvas">
+<svg aria-label="样逐笔展示" viewbox="0 0 1024 1024">
+<line class="guide-line" x1="64" x2="960" y1="512" y2="512"></line>
+<line class="guide-line" x1="512" x2="512" y1="64" y2="960"></line>
+<line class="guide-diagonal" x1="96" x2="928" y1="96" y2="928"></line>
+<line class="guide-diagonal" x1="928" x2="96" y1="96" y2="928"></line>
+<g transform="translate(0,900) scale(1,-1)">
+<path class="stroke-outline" d="M 327 535 Q 408 565 409 565 Q 416 572 412 581 Q 405 591 375 597 Q 350 601 329 591 L 286 573 Q 177 537 106 525 Q 72 516 98 502 Q 144 481 193 498 Q 230 508 271 519 L 327 535 Z"></path><path class="stroke-outline" d="M 325 450 Q 325 490 327 535 L 329 591 Q 330 684 349 746 Q 358 761 355 774 Q 348 784 294 817 Q 272 833 251 819 Q 247 815 252 799 Q 285 750 285 701 Q 285 641 286 573 L 282 419 Q 278 337 277 250 Q 273 172 251 101 Q 239 58 265 2 Q 271 -16 279 -19 Q 285 -26 292 -17 Q 299 -13 310 7 Q 320 32 319 62 Q 318 104 324 418 L 325 450 Z"></path><path class="stroke-outline" d="M 271 519 Q 219 372 50 142 Q 44 132 56 131 Q 62 130 72 139 Q 201 254 282 419 C 347 549 281 547 271 519 Z"></path><path class="stroke-outline" d="M 324 418 Q 400 342 408 339 L 411 339 Q 420 338 425 349 Q 429 361 425 385 Q 422 404 394 422 Q 334 450 325 450 C 295 455 303 439 324 418 Z"></path><path class="stroke-outline" d="M 505 717 Q 526 695 548 670 Q 560 657 574 657 Q 584 657 589 669 Q 593 682 588 710 Q 581 737 504 761 Q 491 765 484 763 Q 480 759 480 748 Q 481 738 505 717 Z"></path><path class="stroke-outline" d="M 724 787 Q 700 742 650 673 Q 646 666 651 659 Q 658 658 666 663 Q 754 742 798 773 Q 814 780 810 790 Q 803 805 782 822 Q 761 838 739 838 Q 724 837 727 817 Q 731 804 724 787 Z"></path><path class="stroke-outline" d="M 637 553 Q 797 592 803 597 Q 812 604 807 613 Q 800 623 772 630 Q 745 636 656 604 Q 539 577 496 572 Q 462 565 487 550 Q 526 529 583 541 L 637 553 Z"></path><path class="stroke-outline" d="M 660 404 Q 690 413 772 423 Q 782 422 790 435 Q 791 445 769 455 Q 736 473 664 450 Q 663 450 661 449 L 607 435 Q 550 426 491 415 Q 464 411 486 395 Q 514 374 556 382 Q 578 388 607 393 L 660 404 Z"></path><path class="stroke-outline" d="M 657 258 Q 750 273 907 273 Q 928 274 932 283 Q 938 296 920 309 Q 860 351 799 331 Q 741 319 658 302 L 606 293 Q 507 277 396 259 Q 374 256 391 239 Q 422 212 473 224 Q 533 242 605 251 L 657 258 Z"></path><path class="stroke-outline" d="M 606 -31 Q 612 -56 618 -65 Q 624 -72 631 -70 Q 649 -58 652 -3 Q 656 45 657 258 L 658 302 Q 658 348 660 404 L 661 449 Q 664 483 672 511 Q 675 529 661 538 Q 648 548 637 553 C 611 568 572 569 583 541 Q 605 490 607 435 L 607 393 Q 607 347 606 293 L 605 251 Q 599 37 606 -31 Z"></path>
+<path class="stroke-fill" d="M 327 535 Q 408 565 409 565 Q 416 572 412 581 Q 405 591 375 597 Q 350 601 329 591 L 286 573 Q 177 537 106 525 Q 72 516 98 502 Q 144 481 193 498 Q 230 508 271 519 L 327 535 Z" data-stroke="1"></path><path class="stroke-fill" d="M 325 450 Q 325 490 327 535 L 329 591 Q 330 684 349 746 Q 358 761 355 774 Q 348 784 294 817 Q 272 833 251 819 Q 247 815 252 799 Q 285 750 285 701 Q 285 641 286 573 L 282 419 Q 278 337 277 250 Q 273 172 251 101 Q 239 58 265 2 Q 271 -16 279 -19 Q 285 -26 292 -17 Q 299 -13 310 7 Q 320 32 319 62 Q 318 104 324 418 L 325 450 Z" data-stroke="2"></path><path class="stroke-fill" d="M 271 519 Q 219 372 50 142 Q 44 132 56 131 Q 62 130 72 139 Q 201 254 282 419 C 347 549 281 547 271 519 Z" data-stroke="3"></path><path class="stroke-fill" d="M 324 418 Q 400 342 408 339 L 411 339 Q 420 338 425 349 Q 429 361 425 385 Q 422 404 394 422 Q 334 450 325 450 C 295 455 303 439 324 418 Z" data-stroke="4"></path><path class="stroke-fill" d="M 505 717 Q 526 695 548 670 Q 560 657 574 657 Q 584 657 589 669 Q 593 682 588 710 Q 581 737 504 761 Q 491 765 484 763 Q 480 759 480 748 Q 481 738 505 717 Z" data-stroke="5"></path><path class="stroke-fill" d="M 724 787 Q 700 742 650 673 Q 646 666 651 659 Q 658 658 666 663 Q 754 742 798 773 Q 814 780 810 790 Q 803 805 782 822 Q 761 838 739 838 Q 724 837 727 817 Q 731 804 724 787 Z" data-stroke="6"></path><path class="stroke-fill" d="M 637 553 Q 797 592 803 597 Q 812 604 807 613 Q 800 623 772 630 Q 745 636 656 604 Q 539 577 496 572 Q 462 565 487 550 Q 526 529 583 541 L 637 553 Z" data-stroke="7"></path><path class="stroke-fill" d="M 660 404 Q 690 413 772 423 Q 782 422 790 435 Q 791 445 769 455 Q 736 473 664 450 Q 663 450 661 449 L 607 435 Q 550 426 491 415 Q 464 411 486 395 Q 514 374 556 382 Q 578 388 607 393 L 660 404 Z" data-stroke="8"></path><path class="stroke-fill" d="M 657 258 Q 750 273 907 273 Q 928 274 932 283 Q 938 296 920 309 Q 860 351 799 331 Q 741 319 658 302 L 606 293 Q 507 277 396 259 Q 374 256 391 239 Q 422 212 473 224 Q 533 242 605 251 L 657 258 Z" data-stroke="9"></path><path class="stroke-fill" d="M 606 -31 Q 612 -56 618 -65 Q 624 -72 631 -70 Q 649 -58 652 -3 Q 656 45 657 258 L 658 302 Q 658 348 660 404 L 661 449 Q 664 483 672 511 Q 675 529 661 538 Q 648 548 637 553 C 611 568 572 569 583 541 Q 605 490 607 435 L 607 393 Q 607 347 606 293 L 605 251 Q 599 37 606 -31 Z" data-stroke="10"></path>
+</g>
+</svg>
+</div>
+<div class="verified-controls">
+<div class="verified-counter">
+<span data-es="Mostrados" data-zh="已显示">已显示</span>
+<strong class="verified-current">0</strong>
+<span>/ 10</span>
+</div>
+<div class="verified-buttons">
+<button class="verified-prev" data-es="Anterior" data-zh="上一笔" type="button">上一笔</button>
+<button class="verified-reset" data-es="Reiniciar" data-zh="重新开始" type="button">重新开始</button>
+<button class="verified-next primary" data-es="Siguiente" data-zh="下一笔" type="button">下一笔</button>
+<button class="verified-all" data-es="Mostrar todo" data-zh="显示全部" type="button">显示全部</button>
+</div>
+<div class="verified-words">
+<strong data-es="Palabras" data-zh="组词">组词</strong>
+<div><span>怎么样</span><span>一样</span><span>样子</span></div>
+</div>
+</div>
+</div>
+</article>
+<article class="verified-stroke-card" data-char="林" data-total="8">
+<div class="verified-card-head">
+<div>
+<h3>林</h3>
+<p>lín</p>
+</div>
+<div class="verified-meta">
+<span>bosque; apellido Lin</span>
+<span data-es="Radical: 木" data-zh="部首：木">部首：木</span>
+<span data-es="Estructura: estructura izquierda-derecha" data-zh="结构：左右结构">结构：左右结构</span>
+<span data-es="Trazos: 8" data-zh="笔画：8">笔画：8</span>
+</div>
+</div>
+<div class="verified-stage">
+<div class="verified-canvas">
+<svg aria-label="林逐笔展示" viewbox="0 0 1024 1024">
+<line class="guide-line" x1="64" x2="960" y1="512" y2="512"></line>
+<line class="guide-line" x1="512" x2="512" y1="64" y2="960"></line>
+<line class="guide-diagonal" x1="96" x2="928" y1="96" y2="928"></line>
+<line class="guide-diagonal" x1="928" x2="96" y1="96" y2="928"></line>
+<g transform="translate(0,900) scale(1,-1)">
+<path class="stroke-outline" d="M 326 494 Q 431 521 435 525 Q 444 532 439 541 Q 432 551 404 559 Q 362 565 328 545 L 283 531 Q 178 507 117 500 Q 81 494 107 478 Q 144 457 226 474 Q 244 478 265 481 L 326 494 Z"></path><path class="stroke-outline" d="M 324 419 Q 324 455 326 494 L 328 545 Q 328 654 349 726 Q 364 751 334 771 Q 319 783 294 797 Q 272 815 251 799 Q 247 795 252 779 Q 282 734 283 661 Q 283 597 283 531 L 279 401 Q 270 212 270 210 Q 263 170 251 129 Q 239 86 265 30 Q 271 12 279 9 Q 285 2 292 10 Q 320 34 319 90 Q 318 127 323 393 L 324 419 Z"></path><path class="stroke-outline" d="M 265 481 Q 210 346 58 149 Q 54 139 64 138 Q 88 138 193 265 Q 239 320 279 401 C 332 506 277 509 265 481 Z"></path><path class="stroke-outline" d="M 323 393 Q 378 338 399 336 Q 411 336 416 353 Q 417 365 407 383 Q 397 398 374 405 Q 340 418 324 419 C 294 422 302 414 323 393 Z"></path><path class="stroke-outline" d="M 659 526 Q 834 574 840 577 Q 849 587 844 595 Q 835 608 804 614 Q 771 620 739 606 Q 699 591 659 577 L 613 563 Q 553 550 489 540 Q 450 533 479 515 Q 524 491 587 509 Q 590 510 598 511 L 659 526 Z"></path><path class="stroke-outline" d="M 658 483 Q 658 505 659 526 L 659 577 Q 659 688 680 761 Q 693 788 668 806 Q 652 818 621 837 Q 596 855 575 838 Q 569 834 576 817 Q 610 768 611 716 Q 612 646 613 563 L 611 432 Q 608 204 593 136 Q 572 49 592 7 Q 593 0 598 -9 Q 605 -28 613 -31 Q 620 -38 628 -29 Q 635 -25 646 -3 Q 656 22 656 56 Q 655 101 657 437 L 658 483 Z"></path><path class="stroke-outline" d="M 598 511 Q 570 444 532 383 Q 487 313 383 185 Q 377 175 388 174 Q 394 173 403 181 Q 530 283 611 432 C 667 533 610 539 598 511 Z"></path><path class="stroke-outline" d="M 657 437 Q 718 332 797 220 Q 813 199 844 198 Q 947 195 981 199 Q 991 200 992 205 Q 993 209 980 218 Q 829 296 770 360 Q 716 415 658 483 C 638 506 642 463 657 437 Z"></path>
+<path class="stroke-fill" d="M 326 494 Q 431 521 435 525 Q 444 532 439 541 Q 432 551 404 559 Q 362 565 328 545 L 283 531 Q 178 507 117 500 Q 81 494 107 478 Q 144 457 226 474 Q 244 478 265 481 L 326 494 Z" data-stroke="1"></path><path class="stroke-fill" d="M 324 419 Q 324 455 326 494 L 328 545 Q 328 654 349 726 Q 364 751 334 771 Q 319 783 294 797 Q 272 815 251 799 Q 247 795 252 779 Q 282 734 283 661 Q 283 597 283 531 L 279 401 Q 270 212 270 210 Q 263 170 251 129 Q 239 86 265 30 Q 271 12 279 9 Q 285 2 292 10 Q 320 34 319 90 Q 318 127 323 393 L 324 419 Z" data-stroke="2"></path><path class="stroke-fill" d="M 265 481 Q 210 346 58 149 Q 54 139 64 138 Q 88 138 193 265 Q 239 320 279 401 C 332 506 277 509 265 481 Z" data-stroke="3"></path><path class="stroke-fill" d="M 323 393 Q 378 338 399 336 Q 411 336 416 353 Q 417 365 407 383 Q 397 398 374 405 Q 340 418 324 419 C 294 422 302 414 323 393 Z" data-stroke="4"></path><path class="stroke-fill" d="M 659 526 Q 834 574 840 577 Q 849 587 844 595 Q 835 608 804 614 Q 771 620 739 606 Q 699 591 659 577 L 613 563 Q 553 550 489 540 Q 450 533 479 515 Q 524 491 587 509 Q 590 510 598 511 L 659 526 Z" data-stroke="5"></path><path class="stroke-fill" d="M 658 483 Q 658 505 659 526 L 659 577 Q 659 688 680 761 Q 693 788 668 806 Q 652 818 621 837 Q 596 855 575 838 Q 569 834 576 817 Q 610 768 611 716 Q 612 646 613 563 L 611 432 Q 608 204 593 136 Q 572 49 592 7 Q 593 0 598 -9 Q 605 -28 613 -31 Q 620 -38 628 -29 Q 635 -25 646 -3 Q 656 22 656 56 Q 655 101 657 437 L 658 483 Z" data-stroke="6"></path><path class="stroke-fill" d="M 598 511 Q 570 444 532 383 Q 487 313 383 185 Q 377 175 388 174 Q 394 173 403 181 Q 530 283 611 432 C 667 533 610 539 598 511 Z" data-stroke="7"></path><path class="stroke-fill" d="M 657 437 Q 718 332 797 220 Q 813 199 844 198 Q 947 195 981 199 Q 991 200 992 205 Q 993 209 980 218 Q 829 296 770 360 Q 716 415 658 483 C 638 506 642 463 657 437 Z" data-stroke="8"></path>
+</g>
+</svg>
+</div>
+<div class="verified-controls">
+<div class="verified-counter">
+<span data-es="Mostrados" data-zh="已显示">已显示</span>
+<strong class="verified-current">0</strong>
+<span>/ 8</span>
+</div>
+<div class="verified-buttons">
+<button class="verified-prev" data-es="Anterior" data-zh="上一笔" type="button">上一笔</button>
+<button class="verified-reset" data-es="Reiniciar" data-zh="重新开始" type="button">重新开始</button>
+<button class="verified-next primary" data-es="Siguiente" data-zh="下一笔" type="button">下一笔</button>
+<button class="verified-all" data-es="Mostrar todo" data-zh="显示全部" type="button">显示全部</button>
+</div>
+<div class="verified-words">
+<strong data-es="Palabras" data-zh="组词">组词</strong>
+<div><span>林娜</span><span>树林</span><span>森林</span></div>
+</div>
+</div>
+</div>
+</article>
+<article class="verified-stroke-card" data-char="进" data-total="7">
+<div class="verified-card-head">
+<div>
+<h3>进</h3>
+<p>jìn</p>
+</div>
+<div class="verified-meta">
+<span>entrar</span>
+<span data-es="Radical: 辶" data-zh="部首：辶">部首：辶</span>
+<span data-es="Estructura: estructura semi-envolvente" data-zh="结构：半包围结构">结构：半包围结构</span>
+<span data-es="Trazos: 7" data-zh="笔画：7">笔画：7</span>
+</div>
+</div>
+<div class="verified-stage">
+<div class="verified-canvas">
+<svg aria-label="进逐笔展示" viewbox="0 0 1024 1024">
+<line class="guide-line" x1="64" x2="960" y1="512" y2="512"></line>
+<line class="guide-line" x1="512" x2="512" y1="64" y2="960"></line>
+<line class="guide-diagonal" x1="96" x2="928" y1="96" y2="928"></line>
+<line class="guide-diagonal" x1="928" x2="96" y1="96" y2="928"></line>
+<g transform="translate(0,900) scale(1,-1)">
+<path class="stroke-outline" d="M 703 564 Q 716 568 733 570 Q 782 580 790 587 Q 800 594 795 604 Q 788 616 758 624 Q 730 631 703 621 L 659 607 Q 619 597 578 586 Q 568 585 557 581 L 510 574 Q 471 570 431 566 Q 394 560 419 542 Q 455 523 511 527 L 556 535 Q 607 545 661 556 L 703 564 Z"></path><path class="stroke-outline" d="M 704 398 Q 866 404 871 409 Q 871 410 872 411 Q 876 421 861 435 Q 810 471 746 454 Q 725 450 704 444 L 661 436 Q 577 424 545 416 L 500 409 Q 445 403 387 393 Q 368 390 382 375 Q 395 362 413 358 Q 423 357 488 368 L 537 378 Q 597 393 661 395 L 704 398 Z"></path><path class="stroke-outline" d="M 557 581 Q 557 620 559 658 Q 563 676 545 683 Q 502 702 490 698 Q 474 694 488 676 Q 506 649 510 574 L 511 527 Q 511 458 500 409 L 488 368 Q 487 367 487 364 Q 471 316 406 241 Q 394 228 391 222 Q 390 215 400 217 Q 436 221 485 283 Q 512 317 537 378 L 545 416 Q 551 455 556 535 L 557 581 Z"></path><path class="stroke-outline" d="M 644 236 Q 635 200 659 147 Q 665 131 672 129 Q 678 123 684 130 Q 691 134 700 153 Q 707 175 707 202 Q 706 229 704 398 L 704 444 Q 703 499 703 564 L 703 621 Q 704 688 716 734 Q 723 747 721 760 Q 714 767 665 797 Q 644 812 626 797 Q 622 793 628 779 Q 653 742 656 704 Q 657 659 659 607 L 661 556 Q 661 498 661 436 L 661 395 Q 661 299 644 236 Z"></path><path class="stroke-outline" d="M 259 720 Q 284 695 311 666 Q 324 650 342 650 Q 354 650 361 665 Q 367 681 358 714 Q 354 735 322 750 Q 249 781 232 775 Q 226 771 227 757 Q 231 744 259 720 Z"></path><path class="stroke-outline" d="M 314 173 Q 335 200 325 246 Q 318 267 292 309 Q 270 348 304 405 Q 323 439 342 459 Q 363 478 344 493 Q 323 509 288 523 Q 266 536 248 518 Q 214 493 168 475 Q 107 450 87 453 Q 80 454 78 449 Q 77 443 85 439 Q 128 421 240 464 Q 249 468 258 457 Q 279 435 257 408 Q 206 357 252 295 Q 291 229 284 176 C 282 146 299 147 314 173 Z"></path><path class="stroke-outline" d="M 284 176 Q 236 179 188 162 Q 149 147 91 141 Q 84 141 81 133 Q 78 126 87 116 Q 103 97 128 86 Q 140 79 158 94 Q 231 148 305 134 Q 371 121 504 65 Q 733 -37 817 -7 Q 878 15 931 54 Q 953 70 930 70 Q 708 61 560 98 Q 479 120 377 156 Q 346 169 314 173 L 284 176 Z"></path>
+<path class="stroke-fill" d="M 703 564 Q 716 568 733 570 Q 782 580 790 587 Q 800 594 795 604 Q 788 616 758 624 Q 730 631 703 621 L 659 607 Q 619 597 578 586 Q 568 585 557 581 L 510 574 Q 471 570 431 566 Q 394 560 419 542 Q 455 523 511 527 L 556 535 Q 607 545 661 556 L 703 564 Z" data-stroke="1"></path><path class="stroke-fill" d="M 704 398 Q 866 404 871 409 Q 871 410 872 411 Q 876 421 861 435 Q 810 471 746 454 Q 725 450 704 444 L 661 436 Q 577 424 545 416 L 500 409 Q 445 403 387 393 Q 368 390 382 375 Q 395 362 413 358 Q 423 357 488 368 L 537 378 Q 597 393 661 395 L 704 398 Z" data-stroke="2"></path><path class="stroke-fill" d="M 557 581 Q 557 620 559 658 Q 563 676 545 683 Q 502 702 490 698 Q 474 694 488 676 Q 506 649 510 574 L 511 527 Q 511 458 500 409 L 488 368 Q 487 367 487 364 Q 471 316 406 241 Q 394 228 391 222 Q 390 215 400 217 Q 436 221 485 283 Q 512 317 537 378 L 545 416 Q 551 455 556 535 L 557 581 Z" data-stroke="3"></path><path class="stroke-fill" d="M 644 236 Q 635 200 659 147 Q 665 131 672 129 Q 678 123 684 130 Q 691 134 700 153 Q 707 175 707 202 Q 706 229 704 398 L 704 444 Q 703 499 703 564 L 703 621 Q 704 688 716 734 Q 723 747 721 760 Q 714 767 665 797 Q 644 812 626 797 Q 622 793 628 779 Q 653 742 656 704 Q 657 659 659 607 L 661 556 Q 661 498 661 436 L 661 395 Q 661 299 644 236 Z" data-stroke="4"></path><path class="stroke-fill" d="M 259 720 Q 284 695 311 666 Q 324 650 342 650 Q 354 650 361 665 Q 367 681 358 714 Q 354 735 322 750 Q 249 781 232 775 Q 226 771 227 757 Q 231 744 259 720 Z" data-stroke="5"></path><path class="stroke-fill" d="M 314 173 Q 335 200 325 246 Q 318 267 292 309 Q 270 348 304 405 Q 323 439 342 459 Q 363 478 344 493 Q 323 509 288 523 Q 266 536 248 518 Q 214 493 168 475 Q 107 450 87 453 Q 80 454 78 449 Q 77 443 85 439 Q 128 421 240 464 Q 249 468 258 457 Q 279 435 257 408 Q 206 357 252 295 Q 291 229 284 176 C 282 146 299 147 314 173 Z" data-stroke="6"></path><path class="stroke-fill" d="M 284 176 Q 236 179 188 162 Q 149 147 91 141 Q 84 141 81 133 Q 78 126 87 116 Q 103 97 128 86 Q 140 79 158 94 Q 231 148 305 134 Q 371 121 504 65 Q 733 -37 817 -7 Q 878 15 931 54 Q 953 70 930 70 Q 708 61 560 98 Q 479 120 377 156 Q 346 169 314 173 L 284 176 Z" data-stroke="7"></path>
+</g>
+</svg>
+</div>
+<div class="verified-controls">
+<div class="verified-counter">
+<span data-es="Mostrados" data-zh="已显示">已显示</span>
+<strong class="verified-current">0</strong>
+<span>/ 7</span>
+</div>
+<div class="verified-buttons">
+<button class="verified-prev" data-es="Anterior" data-zh="上一笔" type="button">上一笔</button>
+<button class="verified-reset" data-es="Reiniciar" data-zh="重新开始" type="button">重新开始</button>
+<button class="verified-next primary" data-es="Siguiente" data-zh="下一笔" type="button">下一笔</button>
+<button class="verified-all" data-es="Mostrar todo" data-zh="显示全部" type="button">显示全部</button>
+</div>
+<div class="verified-words">
+<strong data-es="Palabras" data-zh="组词">组词</strong>
+<div><span>请进</span><span>进去</span><span>进来</span></div>
+</div>
+</div>
+</div>
+</article>
+<article class="verified-stroke-card" data-char="坐" data-total="7">
+<div class="verified-card-head">
+<div>
+<h3>坐</h3>
+<p>zuò</p>
+</div>
+<div class="verified-meta">
+<span>sentarse</span>
+<span data-es="Radical: 土" data-zh="部首：土">部首：土</span>
+<span data-es="Estructura: estructura superior-inferior" data-zh="结构：上下结构">结构：上下结构</span>
+<span data-es="Trazos: 7" data-zh="笔画：7">笔画：7</span>
+</div>
+</div>
+<div class="verified-stage">
+<div class="verified-canvas">
+<svg aria-label="坐逐笔展示" viewbox="0 0 1024 1024">
+<line class="guide-line" x1="64" x2="960" y1="512" y2="512"></line>
+<line class="guide-line" x1="512" x2="512" y1="64" y2="960"></line>
+<line class="guide-diagonal" x1="96" x2="928" y1="96" y2="928"></line>
+<line class="guide-diagonal" x1="928" x2="96" y1="96" y2="928"></line>
+<g transform="translate(0,900) scale(1,-1)">
+<path class="stroke-outline" d="M 304 468 Q 314 487 325 506 Q 350 558 376 602 Q 386 615 371 628 Q 328 658 304 652 Q 294 649 297 636 Q 313 525 198 385 Q 189 381 148 328 Q 141 312 156 318 Q 175 322 202 346 Q 254 394 291 448 L 304 468 Z"></path><path class="stroke-outline" d="M 291 448 Q 292 447 295 445 Q 338 420 392 379 Q 408 366 421 365 Q 428 365 432 374 Q 439 387 423 419 Q 410 447 349 461 Q 324 465 304 468 C 274 472 267 466 291 448 Z"></path><path class="stroke-outline" d="M 690 483 Q 709 514 725 547 Q 749 596 771 637 Q 780 650 764 664 Q 718 692 694 687 Q 684 683 687 669 Q 708 573 607 431 Q 594 425 564 376 Q 557 360 572 366 Q 608 378 675 462 L 690 483 Z"></path><path class="stroke-outline" d="M 675 462 Q 676 461 680 459 Q 732 428 797 380 Q 813 365 828 364 Q 835 365 840 375 Q 849 388 830 423 Q 817 457 746 473 Q 712 480 690 483 C 660 487 649 477 675 462 Z"></path><path class="stroke-outline" d="M 540 234 Q 598 244 660 253 Q 717 263 725 271 Q 735 278 731 288 Q 724 300 694 309 Q 664 316 633 306 Q 587 293 542 281 L 497 271 Q 419 258 332 253 Q 295 249 320 230 Q 360 206 434 217 Q 464 223 496 226 L 540 234 Z"></path><path class="stroke-outline" d="M 536 82 Q 537 160 540 234 L 542 281 Q 545 441 548 592 Q 554 653 560 693 Q 569 729 574 754 Q 578 767 554 784 Q 512 806 484 810 Q 465 814 456 804 Q 447 795 457 778 Q 497 717 497 676 Q 504 484 497 271 L 496 226 Q 492 154 488 77 C 486 47 536 52 536 82 Z"></path><path class="stroke-outline" d="M 488 77 Q 349 67 187 53 Q 163 52 180 31 Q 216 -5 258 4 Q 493 61 882 38 Q 882 39 885 38 Q 907 37 914 46 Q 921 59 902 76 Q 841 127 773 111 Q 679 98 536 82 L 488 77 Z"></path>
+<path class="stroke-fill" d="M 304 468 Q 314 487 325 506 Q 350 558 376 602 Q 386 615 371 628 Q 328 658 304 652 Q 294 649 297 636 Q 313 525 198 385 Q 189 381 148 328 Q 141 312 156 318 Q 175 322 202 346 Q 254 394 291 448 L 304 468 Z" data-stroke="1"></path><path class="stroke-fill" d="M 291 448 Q 292 447 295 445 Q 338 420 392 379 Q 408 366 421 365 Q 428 365 432 374 Q 439 387 423 419 Q 410 447 349 461 Q 324 465 304 468 C 274 472 267 466 291 448 Z" data-stroke="2"></path><path class="stroke-fill" d="M 690 483 Q 709 514 725 547 Q 749 596 771 637 Q 780 650 764 664 Q 718 692 694 687 Q 684 683 687 669 Q 708 573 607 431 Q 594 425 564 376 Q 557 360 572 366 Q 608 378 675 462 L 690 483 Z" data-stroke="3"></path><path class="stroke-fill" d="M 675 462 Q 676 461 680 459 Q 732 428 797 380 Q 813 365 828 364 Q 835 365 840 375 Q 849 388 830 423 Q 817 457 746 473 Q 712 480 690 483 C 660 487 649 477 675 462 Z" data-stroke="4"></path><path class="stroke-fill" d="M 540 234 Q 598 244 660 253 Q 717 263 725 271 Q 735 278 731 288 Q 724 300 694 309 Q 664 316 633 306 Q 587 293 542 281 L 497 271 Q 419 258 332 253 Q 295 249 320 230 Q 360 206 434 217 Q 464 223 496 226 L 540 234 Z" data-stroke="5"></path><path class="stroke-fill" d="M 536 82 Q 537 160 540 234 L 542 281 Q 545 441 548 592 Q 554 653 560 693 Q 569 729 574 754 Q 578 767 554 784 Q 512 806 484 810 Q 465 814 456 804 Q 447 795 457 778 Q 497 717 497 676 Q 504 484 497 271 L 496 226 Q 492 154 488 77 C 486 47 536 52 536 82 Z" data-stroke="6"></path><path class="stroke-fill" d="M 488 77 Q 349 67 187 53 Q 163 52 180 31 Q 216 -5 258 4 Q 493 61 882 38 Q 882 39 885 38 Q 907 37 914 46 Q 921 59 902 76 Q 841 127 773 111 Q 679 98 536 82 L 488 77 Z" data-stroke="7"></path>
+</g>
+</svg>
+</div>
+<div class="verified-controls">
+<div class="verified-counter">
+<span data-es="Mostrados" data-zh="已显示">已显示</span>
+<strong class="verified-current">0</strong>
+<span>/ 7</span>
+</div>
+<div class="verified-buttons">
+<button class="verified-prev" data-es="Anterior" data-zh="上一笔" type="button">上一笔</button>
+<button class="verified-reset" data-es="Reiniciar" data-zh="重新开始" type="button">重新开始</button>
+<button class="verified-next primary" data-es="Siguiente" data-zh="下一笔" type="button">下一笔</button>
+<button class="verified-all" data-es="Mostrar todo" data-zh="显示全部" type="button">显示全部</button>
+</div>
+<div class="verified-words">
+<strong data-es="Palabras" data-zh="组词">组词</strong>
+<div><span>请坐</span><span>坐下</span><span>坐车</span></div>
+</div>
+</div>
+</div>
+</article>
+</div>
+<h3 class="character-group-title review-title" data-es="Caracteres de repaso (2)" data-zh="复习字（2）">复习字（2）</h3>
+<p class="review-note" data-es="«你» y «好» aparecieron en las lecciones preparatorias de fonética y se mantienen aquí para repasar." data-zh="“你、好”已在语音预备课中出现，这里保留用于复习。">
+    “你、好”已在语音预备课中出现，这里保留用于复习。
+  </p>
+<div class="verified-stroke-grid">
+<article class="verified-stroke-card" data-char="你" data-total="7">
+<div class="verified-card-head">
+<div>
+<h3>你</h3>
+<p>nǐ</p>
+</div>
+<div class="verified-meta">
+<span>tú; usted</span>
+<span data-es="Radical: 亻" data-zh="部首：亻">部首：亻</span>
+<span data-es="Estructura: estructura izquierda-derecha" data-zh="结构：左右结构">结构：左右结构</span>
+<span data-es="Trazos: 7" data-zh="笔画：7">笔画：7</span>
+</div>
+</div>
+<div class="verified-stage">
+<div class="verified-canvas">
+<svg aria-label="你逐笔展示" viewbox="0 0 1024 1024">
+<line class="guide-line" x1="64" x2="960" y1="512" y2="512"></line>
+<line class="guide-line" x1="512" x2="512" y1="64" y2="960"></line>
+<line class="guide-diagonal" x1="96" x2="928" y1="96" y2="928"></line>
+<line class="guide-diagonal" x1="928" x2="96" y1="96" y2="928"></line>
+<g transform="translate(0,900) scale(1,-1)">
+<path class="stroke-outline" d="M 272 567 Q 306 613 342 669 Q 370 718 395 743 Q 405 753 400 769 Q 396 782 365 808 Q 337 827 316 828 Q 297 827 305 802 Q 318 769 306 741 Q 267 647 207 560 Q 150 476 72 385 Q 60 375 58 367 Q 54 355 70 358 Q 82 359 109 384 Q 155 421 213 493 Q 226 509 241 527 L 272 567 Z"></path><path class="stroke-outline" d="M 241 527 Q 262 506 258 375 Q 258 374 258 370 Q 254 253 221 135 Q 215 114 224 80 Q 236 44 248 32 Q 267 16 279 44 Q 294 86 294 134 Q 303 420 314 485 Q 321 515 295 543 Q 289 549 272 567 C 251 589 227 553 241 527 Z"></path><path class="stroke-outline" d="M 521 560 Q 561 621 602 708 Q 620 751 638 773 Q 645 786 639 799 Q 633 811 602 830 Q 572 846 554 843 Q 535 839 546 817 Q 561 795 552 757 Q 513 619 407 448 Q 398 436 397 430 Q 394 418 409 423 Q 439 432 503 532 L 521 560 Z"></path><path class="stroke-outline" d="M 503 532 Q 527 510 555 520 Q 795 608 782 549 Q 783 543 743 468 Q 736 458 741 453 Q 745 447 756 459 Q 852 532 894 549 Q 904 552 905 561 Q 906 574 876 592 Q 852 605 828 621 Q 800 637 783 630 Q 686 590 521 560 C 492 555 479 550 503 532 Z"></path><path class="stroke-outline" d="M 568 72 Q 531 81 494 91 Q 482 94 483 86 Q 484 79 494 71 Q 569 7 596 -33 Q 611 -49 626 -36 Q 659 -3 661 82 Q 655 149 655 345 Q 656 382 667 407 Q 676 426 659 439 Q 634 461 604 470 Q 585 477 577 469 Q 571 462 582 447 Q 619 384 603 127 Q 597 82 589 74 Q 582 67 568 72 Z"></path><path class="stroke-outline" d="M 444 320 Q 419 262 385 208 Q 364 180 381 144 Q 388 128 409 139 Q 460 181 468 264 Q 472 295 467 319 Q 463 328 456 328 Q 449 327 444 320 Z"></path><path class="stroke-outline" d="M 738 307 Q 789 249 847 168 Q 860 146 876 139 Q 885 138 893 146 Q 908 159 900 204 Q 891 264 743 338 Q 734 345 731 332 Q 728 319 738 307 Z"></path>
+<path class="stroke-fill" d="M 272 567 Q 306 613 342 669 Q 370 718 395 743 Q 405 753 400 769 Q 396 782 365 808 Q 337 827 316 828 Q 297 827 305 802 Q 318 769 306 741 Q 267 647 207 560 Q 150 476 72 385 Q 60 375 58 367 Q 54 355 70 358 Q 82 359 109 384 Q 155 421 213 493 Q 226 509 241 527 L 272 567 Z" data-stroke="1"></path><path class="stroke-fill" d="M 241 527 Q 262 506 258 375 Q 258 374 258 370 Q 254 253 221 135 Q 215 114 224 80 Q 236 44 248 32 Q 267 16 279 44 Q 294 86 294 134 Q 303 420 314 485 Q 321 515 295 543 Q 289 549 272 567 C 251 589 227 553 241 527 Z" data-stroke="2"></path><path class="stroke-fill" d="M 521 560 Q 561 621 602 708 Q 620 751 638 773 Q 645 786 639 799 Q 633 811 602 830 Q 572 846 554 843 Q 535 839 546 817 Q 561 795 552 757 Q 513 619 407 448 Q 398 436 397 430 Q 394 418 409 423 Q 439 432 503 532 L 521 560 Z" data-stroke="3"></path><path class="stroke-fill" d="M 503 532 Q 527 510 555 520 Q 795 608 782 549 Q 783 543 743 468 Q 736 458 741 453 Q 745 447 756 459 Q 852 532 894 549 Q 904 552 905 561 Q 906 574 876 592 Q 852 605 828 621 Q 800 637 783 630 Q 686 590 521 560 C 492 555 479 550 503 532 Z" data-stroke="4"></path><path class="stroke-fill" d="M 568 72 Q 531 81 494 91 Q 482 94 483 86 Q 484 79 494 71 Q 569 7 596 -33 Q 611 -49 626 -36 Q 659 -3 661 82 Q 655 149 655 345 Q 656 382 667 407 Q 676 426 659 439 Q 634 461 604 470 Q 585 477 577 469 Q 571 462 582 447 Q 619 384 603 127 Q 597 82 589 74 Q 582 67 568 72 Z" data-stroke="5"></path><path class="stroke-fill" d="M 444 320 Q 419 262 385 208 Q 364 180 381 144 Q 388 128 409 139 Q 460 181 468 264 Q 472 295 467 319 Q 463 328 456 328 Q 449 327 444 320 Z" data-stroke="6"></path><path class="stroke-fill" d="M 738 307 Q 789 249 847 168 Q 860 146 876 139 Q 885 138 893 146 Q 908 159 900 204 Q 891 264 743 338 Q 734 345 731 332 Q 728 319 738 307 Z" data-stroke="7"></path>
+</g>
+</svg>
+</div>
+<div class="verified-controls">
+<div class="verified-counter">
+<span data-es="Mostrados" data-zh="已显示">已显示</span>
+<strong class="verified-current">0</strong>
+<span>/ 7</span>
+</div>
+<div class="verified-buttons">
+<button class="verified-prev" data-es="Anterior" data-zh="上一笔" type="button">上一笔</button>
+<button class="verified-reset" data-es="Reiniciar" data-zh="重新开始" type="button">重新开始</button>
+<button class="verified-next primary" data-es="Siguiente" data-zh="下一笔" type="button">下一笔</button>
+<button class="verified-all" data-es="Mostrar todo" data-zh="显示全部" type="button">显示全部</button>
+</div>
+<div class="verified-words">
+<strong data-es="Palabras" data-zh="组词">组词</strong>
+<div><span>你好</span><span>你们</span><span>你的</span></div>
+</div>
+</div>
+</div>
+</article><article class="verified-stroke-card" data-char="好" data-total="6">
+<div class="verified-card-head">
+<div>
+<h3>好</h3>
+<p>hǎo</p>
+</div>
+<div class="verified-meta">
+<span>bueno/a; bien</span>
+<span data-es="Radical: 女" data-zh="部首：女">部首：女</span>
+<span data-es="Estructura: estructura izquierda-derecha" data-zh="结构：左右结构">结构：左右结构</span>
+<span data-es="Trazos: 6" data-zh="笔画：6">笔画：6</span>
+</div>
+</div>
+<div class="verified-stage">
+<div class="verified-canvas">
+<svg aria-label="好逐笔展示" viewbox="0 0 1024 1024">
+<line class="guide-line" x1="64" x2="960" y1="512" y2="512"></line>
+<line class="guide-line" x1="512" x2="512" y1="64" y2="960"></line>
+<line class="guide-diagonal" x1="96" x2="928" y1="96" y2="928"></line>
+<line class="guide-diagonal" x1="928" x2="96" y1="96" y2="928"></line>
+<g transform="translate(0,900) scale(1,-1)">
+<path class="stroke-outline" d="M 330 202 Q 361 175 399 134 Q 415 119 424 118 Q 433 118 439 128 Q 446 138 442 170 Q 435 206 361 247 L 319 270 Q 292 286 258 304 Q 237 314 240 335 Q 261 393 281 453 L 293 492 Q 317 568 337 644 Q 347 690 366 715 Q 379 737 373 750 Q 360 769 313 797 Q 294 810 276 801 Q 263 794 273 778 Q 303 733 247 486 L 236 442 Q 218 373 195 336 Q 185 314 206 296 Q 254 268 294 233 L 330 202 Z"></path><path class="stroke-outline" d="M 294 233 Q 287 226 281 217 Q 250 180 196 143 Q 183 134 165 124 Q 149 114 133 104 Q 120 95 131 92 Q 212 86 327 199 Q 328 200 330 202 L 361 247 Q 406 322 421 385 Q 449 488 463 510 Q 473 526 458 537 Q 416 576 387 569 Q 374 565 378 550 Q 387 531 387 507 L 385 481 Q 384 469 382 455 Q 375 376 319 270 L 294 233 Z"></path><path class="stroke-outline" d="M 387 507 Q 341 501 293 492 L 247 486 Q 183 479 115 468 Q 94 465 61 471 Q 48 471 45 462 Q 41 450 49 441 Q 68 422 96 400 Q 106 396 118 402 Q 190 436 236 442 L 281 453 Q 320 463 362 474 Q 372 478 385 481 C 414 489 417 511 387 507 Z"></path><path class="stroke-outline" d="M 671 521 Q 788 635 822 648 Q 843 655 835 672 Q 831 688 760 725 Q 739 735 716 725 Q 661 703 575 676 Q 553 669 498 669 Q 473 669 482 648 Q 491 635 511 623 Q 544 605 578 627 Q 597 636 691 676 Q 706 682 719 673 Q 732 664 726 649 Q 693 595 655 531 C 640 505 649 500 671 521 Z"></path><path class="stroke-outline" d="M 717 430 Q 702 497 671 521 L 655 531 Q 648 535 640 538 Q 618 547 608 540 Q 595 533 608 519 Q 645 491 653 444 Q 656 434 659 421 L 668 384 Q 701 204 658 103 Q 643 76 607 83 Q 576 89 548 94 Q 536 97 542 85 Q 546 78 564 65 Q 604 31 618 5 Q 628 -14 645 -11 Q 660 -10 687 17 Q 775 107 726 391 L 717 430 Z"></path><path class="stroke-outline" d="M 726 391 Q 783 397 947 397 Q 966 398 971 406 Q 977 416 960 430 Q 909 467 848 454 Q 793 445 717 430 L 659 421 Q 562 409 452 393 Q 431 392 447 375 Q 460 362 478 357 Q 497 351 514 356 Q 586 375 668 384 L 726 391 Z"></path>
+<path class="stroke-fill" d="M 330 202 Q 361 175 399 134 Q 415 119 424 118 Q 433 118 439 128 Q 446 138 442 170 Q 435 206 361 247 L 319 270 Q 292 286 258 304 Q 237 314 240 335 Q 261 393 281 453 L 293 492 Q 317 568 337 644 Q 347 690 366 715 Q 379 737 373 750 Q 360 769 313 797 Q 294 810 276 801 Q 263 794 273 778 Q 303 733 247 486 L 236 442 Q 218 373 195 336 Q 185 314 206 296 Q 254 268 294 233 L 330 202 Z" data-stroke="1"></path><path class="stroke-fill" d="M 294 233 Q 287 226 281 217 Q 250 180 196 143 Q 183 134 165 124 Q 149 114 133 104 Q 120 95 131 92 Q 212 86 327 199 Q 328 200 330 202 L 361 247 Q 406 322 421 385 Q 449 488 463 510 Q 473 526 458 537 Q 416 576 387 569 Q 374 565 378 550 Q 387 531 387 507 L 385 481 Q 384 469 382 455 Q 375 376 319 270 L 294 233 Z" data-stroke="2"></path><path class="stroke-fill" d="M 387 507 Q 341 501 293 492 L 247 486 Q 183 479 115 468 Q 94 465 61 471 Q 48 471 45 462 Q 41 450 49 441 Q 68 422 96 400 Q 106 396 118 402 Q 190 436 236 442 L 281 453 Q 320 463 362 474 Q 372 478 385 481 C 414 489 417 511 387 507 Z" data-stroke="3"></path><path class="stroke-fill" d="M 671 521 Q 788 635 822 648 Q 843 655 835 672 Q 831 688 760 725 Q 739 735 716 725 Q 661 703 575 676 Q 553 669 498 669 Q 473 669 482 648 Q 491 635 511 623 Q 544 605 578 627 Q 597 636 691 676 Q 706 682 719 673 Q 732 664 726 649 Q 693 595 655 531 C 640 505 649 500 671 521 Z" data-stroke="4"></path><path class="stroke-fill" d="M 717 430 Q 702 497 671 521 L 655 531 Q 648 535 640 538 Q 618 547 608 540 Q 595 533 608 519 Q 645 491 653 444 Q 656 434 659 421 L 668 384 Q 701 204 658 103 Q 643 76 607 83 Q 576 89 548 94 Q 536 97 542 85 Q 546 78 564 65 Q 604 31 618 5 Q 628 -14 645 -11 Q 660 -10 687 17 Q 775 107 726 391 L 717 430 Z" data-stroke="5"></path><path class="stroke-fill" d="M 726 391 Q 783 397 947 397 Q 966 398 971 406 Q 977 416 960 430 Q 909 467 848 454 Q 793 445 717 430 L 659 421 Q 562 409 452 393 Q 431 392 447 375 Q 460 362 478 357 Q 497 351 514 356 Q 586 375 668 384 L 726 391 Z" data-stroke="6"></path>
+</g>
+</svg>
+</div>
+<div class="verified-controls">
+<div class="verified-counter">
+<span data-es="Mostrados" data-zh="已显示">已显示</span>
+<strong class="verified-current">0</strong>
+<span>/ 6</span>
+</div>
+<div class="verified-buttons">
+<button class="verified-prev" data-es="Anterior" data-zh="上一笔" type="button">上一笔</button>
+<button class="verified-reset" data-es="Reiniciar" data-zh="重新开始" type="button">重新开始</button>
+<button class="verified-next primary" data-es="Siguiente" data-zh="下一笔" type="button">下一笔</button>
+<button class="verified-all" data-es="Mostrar todo" data-zh="显示全部" type="button">显示全部</button>
+</div>
+<div class="verified-words">
+<strong data-es="Palabras" data-zh="组词">组词</strong>
+<div><span>你好</span><span>很好</span><span>好朋友</span></div>
+</div>
+</div>
+</div>
+</article>
+</div>
+</section>
+</main>
+<footer><span>© 2026 Ángela</span><span>Aula de Chino</span></footer>
+<script src="../course.js"></script>
+<script>
+document.querySelectorAll(".verified-stroke-card").forEach((card) => {
+  const strokes = Array.from(card.querySelectorAll(".stroke-fill"));
+  const current = card.querySelector(".verified-current");
+  const previousButton = card.querySelector(".verified-prev");
+  const nextButton = card.querySelector(".verified-next");
+  const resetButton = card.querySelector(".verified-reset");
+  const allButton = card.querySelector(".verified-all");
+  let shown = 0;
+
+  function render() {
+    strokes.forEach((stroke, index) => {
+      stroke.classList.toggle("visible", index < shown);
+      stroke.classList.toggle("current", index === shown - 1);
+    });
+    current.textContent = String(shown);
+    previousButton.disabled = shown === 0;
+    resetButton.disabled = shown === 0;
+    nextButton.disabled = shown === strokes.length;
+    allButton.disabled = shown === strokes.length;
+  }
+
+  previousButton.addEventListener("click", () => {
+    shown = Math.max(0, shown - 1);
+    render();
+  });
+
+  nextButton.addEventListener("click", () => {
+    shown = Math.min(strokes.length, shown + 1);
+    render();
+  });
+
+  resetButton.addEventListener("click", () => {
+    shown = 0;
+    render();
+  });
+
+  allButton.addEventListener("click", () => {
+    shown = strokes.length;
+    render();
+  });
+
+  render();
+});
+</script>
+</body>
+</html>

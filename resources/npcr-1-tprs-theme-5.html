@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>一起准备节日 · 初学者情景推理</title>
+<link href="../course.css" rel="stylesheet"/>
+<link href="npcr-1-tprs.css" rel="stylesheet"/>
+</head>
+<body class="world-five-demo">
+<header>
+<a class="brand" href="../index.html">
+<span class="logo">汉</span>
+<span>
+<b data-es="Aula de Chino con Ángela" data-zh="Ángela的汉语课堂">Ángela的汉语课堂</b>
+<small data-es="Aprender chino y comprender su cultura" data-zh="学中文，也理解中国文化">学中文，也理解中国文化</small>
+</span>
+</a>
+<div class="tools">
+<button id="lang" type="button">ES</button>
+<button id="theme" type="button">☾</button>
+</div>
+</header>
+<main class="game-shell">
+<a class="back" href="npcr-1-review.html">← <span data-es="Volver a las historias" data-zh="返回情景推理馆">返回情景推理馆</span></a>
+<section class="game-hero">
+<span class="game-kicker" data-es="Lecciones 9–10 · Historia de una celebración" data-zh="第9—10课 · 初学者节日故事">第9—10课 · 初学者节日故事</span>
+<h1 data-es="Prepara una celebración con tus amigos" data-zh="一起准备节日">一起准备节日</h1>
+<p data-es="Se acerca la celebración. Usa las pistas sobre el tiempo, el transporte, los regalos y los mensajes para reconstruir lo ocurrido y ayudar a tu amigo a prepararlo todo." data-zh="节日快到了。根据天气、交通、礼物和短信，还原事情发生的顺序，帮助朋友完成节日前的准备。">节日快到了。根据天气、交通、礼物和短信，还原事情发生的顺序，帮助朋友完成节日前的准备。</p>
+<section class="beginner-mission-card holiday-mission-card"><div class="beginner-mission-icon holiday-mission-icon">节</div><div class="beginner-mission-copy"><small data-es="Hoy solo hay una misión" data-zh="今天只有一个任务">今天只有一个任务</small><strong data-es="Ayudar a tu amigo a preparar la celebración" data-zh="帮助朋友准备节日">帮助朋友准备节日</strong><p data-es="Escucha → Encuentra pistas temporales → Ordena → Completa el plan" data-zh="听故事 → 找时间线索 → 排顺序 → 完成节日计划">听故事 → 找时间线索 → 排顺序 → 完成节日计划</p></div><div class="beginner-case-chip holiday-case-chip"><span data-es="Misión festiva" data-zh="节日任务">节日任务</span><b>05</b></div></section><div class="game-goals">
+<span data-es="Llamar a alguien" data-zh="给……打电话">给……打电话</span><span data-es="Comprar regalos" data-zh="买礼物">买礼物</span><span data-es="Ir en metro" data-zh="坐地铁去……">坐地铁去……</span><span data-es="Cambio del tiempo" data-zh="天气变了">天气变了</span><button aria-pressed="false" class="pinyin-toggle" data-es="Mostrar pinyin" data-zh="显示拼音" id="pinyinToggle" type="button">显示拼音</button>
+</div>
+</section>
+<nav class="game-stepper">
+<div aria-disabled="false" aria-label="第1阶段" class="game-step active" data-es="1 Escucha" data-step-indicator="1" data-zh="1 听节日故事" role="button" tabindex="0">1 听节日故事</div>
+<div aria-disabled="true" aria-label="第2阶段" class="game-step" data-es="2 Busca pistas" data-step-indicator="2" data-zh="2 找时间线索" role="button" tabindex="-1">2 找时间线索</div>
+<div aria-disabled="true" aria-label="第3阶段" class="game-step" data-es="3 Ordena" data-step-indicator="3" data-zh="3 排事件顺序" role="button" tabindex="-1">3 排事件顺序</div>
+<div aria-disabled="true" aria-label="第4阶段" class="game-step" data-es="4 Ayuda" data-step-indicator="4" data-zh="4 帮朋友决定" role="button" tabindex="-1">4 帮朋友决定</div>
+<div aria-disabled="true" aria-label="第5阶段" class="game-step" data-es="5 Plan" data-step-indicator="5" data-zh="5 做计划卡" role="button" tabindex="-1">5 做计划卡</div>
+</nav>
+<section class="game-panel" id="panel1">
+<div class="game-panel-head">
+<div><p class="kicker" data-es="Paso 1 · Escucha" data-zh="第一步 · 听">第一步 · 听</p><h2 data-es="Escucha primero una historia antes de la celebración" data-zh="先听一个节日前的故事">先听一个节日前的故事</h2><p data-es="No necesitas entenderlo todo. Fíjate en el tiempo, el transporte, el lugar, el regalo y la llamada." data-zh="不用全部看懂。注意天气、交通、地点、礼物和电话。">不用全部看懂。注意天气、交通、地点、礼物和电话。</p></div>
+<div class="panel-number">01</div>
+</div>
+<div class="story-box">
+<p id="holidayStory">十二月二十四号，天气突然冷了，也下雪了。丁力波早上出门，晚上才回宿舍。桌上有一张地铁票、一张王府井商店的礼物小票，还有哥哥发来的短信：“给妈妈打电话。”大为问：“今天到底发生了什么？”</p>
+<div class="story-actions">
+<button class="speak-button" data-speech-target="holidayStory" type="button">▶</button>
+<button class="game-button primary" data-es="Ya he escuchado. Buscar pistas temporales →" data-zh="我听完了，开始找时间线索 →" id="startHolidayMystery" type="button">我听完了，开始找时间线索 →</button>
+</div>
+</div>
+</section>
+<section class="game-panel" hidden="" id="panel2">
+<div class="game-panel-head">
+<div><p class="kicker" data-es="Paso 2 · Busca" data-zh="第二步 · 找">第二步 · 找</p><h2 data-es="Elige qué pista temporal quieres consultar" data-zh="选择你想查看的时间线索">选择你想查看的时间线索</h2><p data-es="Cada pista te ayuda a saber cuándo ocurrió algo." data-zh="每点一条线索，就会知道事情发生在什么时候。">每点一条线索，就会知道事情发生在什么时候。</p></div>
+<div class="panel-number">02</div>
+</div>
+<div class="holiday-timeline-progress"><div class="timeline-progress-head"><div><small data-es="Pistas temporales encontradas" data-zh="已经找到的时间线索">已经找到的时间线索</small><strong id="holidayEvidenceText">0 / 6</strong></div><span data-es="Encuentra al menos 5 pistas" data-zh="至少找到5条线索">至少找到5条线索</span></div><div class="holiday-timeline-track"><span id="holidayEvidenceBar"></span><i></i><i></i><i></i><i></i><i></i></div></div><div class="question-grid">
+<button class="question-button" data-question="weather" type="button"><strong data-pinyin="Tiānqì zěnme le?">天气怎么了？</strong><span>＋</span></button>
+<button class="question-button" data-question="place" type="button"><strong data-pinyin="Lìbō qù nǎr le?">力波去哪儿了？</strong><span>＋</span></button>
+<button class="question-button" data-question="transport" type="button"><strong data-pinyin="Tā zěnme qù de?">他怎么去的？</strong><span>＋</span></button>
+<button class="question-button" data-question="purpose" type="button"><strong data-pinyin="Tā qù zuò shénme?">他去做什么？</strong><span>＋</span></button>
+<button class="question-button" data-question="message" type="button"><strong data-pinyin="Shéi ràng tā gěi māma dǎ diànhuà?">谁让他给妈妈打电话？</strong><span>＋</span></button>
+<button class="question-button" data-question="brother" type="button"><strong data-pinyin="Dìdi huí Jiānádà le ma?">弟弟回加拿大了吗？</strong><span>＋</span></button>
+</div>
+<div class="clue-board" id="holidayClueBoard"></div>
+<div class="game-actions">
+<button class="game-button primary" disabled="" id="openTimelines" type="button">查看四种顺序 →</button>
+<span id="holidayClueCounter">已收集0/6条线索</span>
+</div>
+</section>
+<section class="game-panel" hidden="" id="panel3">
+<div class="game-panel-head">
+<div><p class="kicker" data-es="Paso 3 · Ordena" data-zh="第三步 · 排">第三步 · 排</p><h2 data-es="Reconstruye el orden de los acontecimientos" data-zh="根据线索还原事件顺序">根据线索还原事件顺序</h2><p data-es="Primero observa el cambio del tiempo y después el viaje, la compra, el mensaje y la llamada." data-zh="先看天气变化，再看出行、购物、短信和电话。">先看天气变化，再看出行、购物、短信和电话。</p></div>
+<div class="panel-number">03</div>
+</div>
+<div class="timeline-choice-grid">
+<article class="timeline-option">
+<h3>顺序B</h3>
+<ol class="timeline-list">
+<li data-pinyin="Tā gěi māma dǎ diànhuà le.">他先给妈妈打电话了。</li>
+<li data-pinyin="Tiānqì lěng le.">天气后来冷了。</li>
+<li data-pinyin="Tā qù yīyuàn kànbìng.">他去医院看病。</li>
+<li data-pinyin="Tā mǎi le píngguǒ.">他买了苹果。</li>
+</ol>
+<button class="game-button timeline-choice" data-timeline="B" type="button">选择顺序B</button>
+</article>
+<article class="timeline-option">
+<h3>顺序C</h3>
+<ol class="timeline-list">
+<li data-pinyin="Tiānqì lěng le.">天气冷了。</li>
+<li data-pinyin="Tā kāichē qù Tiān'ānmén.">他开车去天安门。</li>
+<li data-pinyin="Tā kàn le zhǎnlǎn.">他看了展览。</li>
+<li data-pinyin="Māma ràng tā gěi gēge dǎ diànhuà.">妈妈让他给哥哥打电话。</li>
+</ol>
+<button class="game-button timeline-choice" data-timeline="C" type="button">选择顺序C</button>
+</article>
+<article class="timeline-option">
+<h3>顺序A</h3>
+<ol class="timeline-list">
+<li data-pinyin="Tiānqì lěng le, yě xiàxuě le.">天气冷了，也下雪了。</li>
+<li data-pinyin="Lìbō zuò dìtiě qù Wángfǔjǐng.">力波坐地铁去王府井。</li>
+<li data-pinyin="Tā gěi bàba māma mǎi le Shèngdànjié lǐwù.">他给爸爸妈妈买了圣诞节礼物。</li>
+<li data-pinyin="Gēge fā duǎnxìn ràng tā gěi māma dǎ diànhuà.">哥哥发短信让他给妈妈打电话。</li>
+<li data-pinyin="Tā gěi māma dǎ diànhuà le.">他给妈妈打电话了。</li>
+</ol>
+<button class="game-button timeline-choice" data-timeline="A" type="button">选择顺序A</button>
+</article><article class="timeline-option">
+<h3>顺序D</h3>
+<ol class="timeline-list">
+<li data-pinyin="Tiānqì rè le.">天气热了。</li>
+<li data-pinyin="Tā zuò fēijī qù Wángfǔjǐng.">他坐飞机去王府井。</li>
+<li data-pinyin="Tā gěi péngyou mǎi le yào.">他给朋友买了药。</li>
+<li data-pinyin="Dìdi ràng tā gěi lǎoshī dǎ diànhuà.">弟弟让他给老师打电话。</li>
+</ol>
+<button class="game-button timeline-choice" data-timeline="D" type="button">选择顺序D</button>
+</article>
+</div>
+<div class="game-feedback" id="timelineFeedback">选择一种顺序。</div>
+<div class="identity-reveal" hidden="" id="holidayRecap">
+<article class="profile-card compact-profile" id="holidaySolvedCard">
+<div class="profile-card-topline">
+<span class="profile-file-number">事件档案 · 05</span>
+<span class="profile-solved-stamp">✓ 时间线已还原</span>
+</div>
+<div class="profile-card-body">
+<div class="profile-portrait-column">
+<div aria-hidden="true" class="profile-avatar-large">节</div>
+<span class="profile-role-badge">节日前事件</span>
+</div>
+<div class="profile-information">
+<p class="profile-eyebrow">HOLIDAY EVENT FILE</p>
+<h3 class="profile-name">力波的圣诞节前一天</h3>
+<p class="profile-subtitle">节日前准备事件已经还原</p>
+<dl class="profile-data-grid">
+<div><dt>天气</dt><dd>天气冷了，也下雪了</dd></div>
+<div><dt>交通</dt><dd>坐地铁</dd></div>
+<div><dt>地点</dt><dd>王府井</dd></div>
+<div><dt>礼物对象</dt><dd>爸爸妈妈</dd></div>
+<div><dt>收到的短信</dt><dd>哥哥发来的短信</dd></div>
+<div><dt>后来做的事</dt><dd>给妈妈打电话</dd></div>
+</dl>
+</div>
+</div>
+<div class="profile-conclusion">
+<span class="profile-conclusion-mark">✓</span>
+<div><small>最终结论</small><strong>力波坐地铁去王府井买礼物，回来以后看到哥哥的短信，于是给妈妈打电话了。</strong></div>
+</div>
+</article>
+<div class="profile-summary-strip">
+<strong>故事复述</strong>
+<p id="holidayRecapText">天气冷了，也下雪了。力波坐地铁去王府井，给爸爸妈妈买了圣诞节礼物。回来以后，他看到哥哥的短信。哥哥让他给妈妈打电话，所以他给妈妈打电话了。</p>
+</div>
+<div class="game-actions">
+<button class="speak-button" data-speech-target="holidayRecapText" type="button">▶</button>
+<button class="game-button" id="printHolidaySolvedCard" type="button">打印事件档案</button>
+<button class="game-button primary" id="startHolidayQuiz" type="button">进入节日确认 →</button>
+</div>
+</div>
+</section>
+<section class="game-panel" hidden="" id="panel4">
+<div class="game-panel-head">
+<div><p class="kicker" data-es="Paso 4 · Ayuda" data-zh="第四步 · 帮">第四步 · 帮</p><h2 data-es="Ayuda a tu amigo a tomar decisiones antes de la celebración" data-zh="帮助朋友完成节日前的决定">帮助朋友完成节日前的决定</h2><p data-es="En cada situación debes ayudar a tu amigo a seguir preparándose usando chino." data-zh="每个场景都需要你用中文帮助朋友继续准备。">每个场景都需要你用中文帮助朋友继续准备。</p></div>
+<div class="panel-number">04</div>
+</div>
+<div class="quiz-card">
+<div class="quiz-progress" id="holidayQuizProgress">1 / 8</div><div class="communicative-scene-card holiday-scene-card" id="holidaySceneCard"><div class="scene-icon" id="holidaySceneIcon">🎄</div><div class="scene-copy"><small id="holidaySceneLabel">场景一 · 天气变了</small><strong id="holidaySceneWho">朋友准备出门买礼物。</strong><p id="holidayScenePrompt">他看见外面下雪了。</p></div></div>
+<h3 class="quiz-question" id="holidayQuizQuestion"></h3>
+<div class="quiz-options" id="holidayQuizOptions"></div>
+<div class="game-feedback" id="holidayQuizFeedback">选择一个答案。</div>
+<div class="game-actions"><button class="game-button primary" disabled="" id="nextHolidayQuiz" type="button">下一题 →</button></div>
+</div>
+</section>
+<section class="game-panel" hidden="" id="panel5">
+<div class="game-panel-head">
+<div><p class="kicker" data-es="Paso 5 · Crea" data-zh="第五步 · 做">第五步 · 做</p><h2 data-es="Crea mi tarjeta de plan festivo" data-zh="建立我的节日计划卡">建立我的节日计划卡</h2><p data-es="Elige la celebración, el tiempo, el transporte, el regalo y la llamada para crear una tarjeta que se pueda escuchar e imprimir." data-zh="选择节日、天气、交通、礼物和电话安排，生成一张可以朗读和打印的计划卡。">选择节日、天气、交通、礼物和电话安排，生成一张可以朗读和打印的计划卡。</p></div>
+<div class="panel-number">05</div>
+</div>
+<div class="final-form">
+<div class="final-field"><label data-pinyin="Shénme jiérì?" for="planFestival">什么节日？</label><select id="planFestival"><option value="">请选择</option><option value="圣诞节">圣诞节</option><option value="春节">春节</option></select></div>
+<div class="final-field"><label data-pinyin="Tiānqì zěnme le?" for="planWeather">天气怎么了？</label><select id="planWeather"><option value="">请选择</option><option value="天气冷了，也下雪了">天气冷了，也下雪了</option><option value="天气暖和了">天气暖和了</option><option value="天气凉快了">天气凉快了</option></select></div>
+<div class="final-field"><label data-pinyin="Nǐ zěnme qù?" for="planTransport">你怎么去？</label><select id="planTransport"><option value="">请选择</option><option value="坐地铁">坐地铁</option><option value="坐公共汽车">坐公共汽车</option><option value="打车">打车</option></select></div>
+<div class="final-field"><label data-pinyin="Nǐ qù nǎr?" for="planPlace">你去哪儿？</label><select id="planPlace"><option value="">请选择</option><option value="王府井">王府井</option><option value="天安门">天安门</option><option value="博物馆">博物馆</option><option value="朋友家">朋友家</option></select></div>
+<div class="final-field"><label data-pinyin="Nǐ gěi shéi mǎi lǐwù?" for="planRecipient">你给谁买礼物？</label><select id="planRecipient"><option value="">请选择</option><option value="妈妈">妈妈</option><option value="爸爸妈妈">爸爸妈妈</option><option value="朋友">朋友</option><option value="老师">老师</option></select></div>
+<div class="final-field"><label data-pinyin="Mǎi shénme lǐwù?" for="planGift">买什么礼物？</label><select id="planGift"><option value="">请选择</option><option value="一本书">一本书</option><option value="一件衣服">一件衣服</option><option value="一个小汽车">一个小汽车</option><option value="一盒点心">一盒点心</option></select></div>
+<div class="final-field"><label data-pinyin="Shéi ràng nǐ dǎ diànhuà?" for="planCaller">谁让你打电话？</label><select id="planCaller"><option value="">请选择</option><option value="哥哥">哥哥</option><option value="妈妈">妈妈</option><option value="朋友">朋友</option></select></div>
+<div class="final-field"><label data-pinyin="Gěi shéi dǎ diànhuà?" for="planCallTo">给谁打电话？</label><select id="planCallTo"><option value="">请选择</option><option value="妈妈">妈妈</option><option value="外婆">外婆</option><option value="朋友">朋友</option></select></div>
+</div>
+<div class="game-actions">
+<button class="game-button primary" id="generateHolidayCard" type="button">生成节日计划卡</button>
+<button class="game-button" id="resetHolidayTheme" type="button">重新开始故事</button>
+</div>
+<div class="profile-output-wrapper" hidden="" id="holidayFinalCard">
+<article class="profile-card compact-profile" id="printableHolidayCard">
+<div class="profile-card-topline">
+<span class="profile-file-number">我的节日计划卡</span>
+<span class="profile-level-chip">Theme 05</span>
+</div>
+<div class="profile-card-body">
+<div class="profile-portrait-column">
+<div aria-hidden="true" class="profile-avatar-large personal-avatar">节</div>
+<span class="profile-role-badge">节日计划</span>
+</div>
+<div class="profile-information">
+<p class="profile-eyebrow">HOLIDAY PLAN CARD</p>
+<h3 class="profile-name"><span id="holidayFestivalValue">—</span></h3>
+<p class="profile-subtitle">节日前安排与祝福</p>
+<dl class="profile-data-grid">
+<div><dt>天气</dt><dd><span id="holidayWeatherValue">—</span></dd></div>
+<div><dt>交通</dt><dd><span id="holidayTransportValue">—</span></dd></div>
+<div><dt>地点</dt><dd><span id="holidayPlaceValue">—</span></dd></div>
+<div><dt>给谁买礼物</dt><dd><span id="holidayRecipientValue">—</span></dd></div>
+<div><dt>礼物</dt><dd><span id="holidayGiftValue">—</span></dd></div>
+<div><dt>谁让我打电话</dt><dd><span id="holidayCallerValue">—</span> → <span id="holidayCallToValue">—</span></dd></div>
+</dl>
+</div>
+</div>
+<section class="profile-self-introduction">
+<small>完整节日计划</small>
+<p id="holidayFinalText"></p>
+<span class="learning-pinyin final-card-pinyin" id="holidayFinalPinyin"></span>
+</section>
+<div class="profile-completion-seal">
+<span>福</span>
+<div><strong>计划卡已建立</strong><small>Ángela的汉语课堂 · 主题05</small></div>
+</div>
+</article>
+<small class="profile-save-note">这张卡已经保存在当前浏览器中。</small>
+<div class="game-actions">
+<button class="game-button" id="speakHolidayCard" type="button">听一遍</button>
+<button class="game-button" id="copyHolidayCard" type="button">复制中文</button>
+<button class="game-button" id="printHolidayCard" type="button">打印计划卡</button>
+<a class="game-button primary" href="npcr-1-review.html">返回主题馆 →</a>
+</div>
+</div>
+<div class="result-box" hidden="" id="holidayThemeResult"><div class="world-achievement-badge holiday-achievement-badge"><span class="world-achievement-icon holiday-achievement-icon">福</span><div><small data-es="Título obtenido" data-zh="获得称号">获得称号</small><strong data-es="Planificador de celebraciones" data-zh="节日计划师">节日计划师</strong></div></div>
+<div class="result-stars" id="holidayResultStars">★★★</div>
+<h3>主题5完成！</h3><p id="holidayResultMessage"></p>
+</div>
+</section>
+</main>
+<footer><span>© 2026 Ángela</span><span>Aula de Chino</span></footer>
+<script src="../course.js"></script>
+<script src="npcr-1-tprs-pinyin.js"></script>
+<script src="npcr-1-tprs-theme5.js"></script>
+</body>
+</html>

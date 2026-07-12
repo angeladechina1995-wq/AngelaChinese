@@ -1,0 +1,10 @@
+第四课与第五课真人录音清单
+
+npcr-1-lesson-4-text-1.mp3: 96.18 秒
+npcr-1-lesson-4-vocab-1.mp3: 67.42 秒
+npcr-1-lesson-4-text-2.mp3: 94.08 秒
+npcr-1-lesson-4-vocab-2.mp3: 67.49 秒
+npcr-1-lesson-5-text-1.mp3: 113.78 秒
+npcr-1-lesson-5-vocab-1.mp3: 90.82 秒
+npcr-1-lesson-5-text-2.mp3: 89.19 秒
+npcr-1-lesson-5-vocab-2.mp3: 45.55 秒

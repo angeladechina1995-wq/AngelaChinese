@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>找到新同学 · 初学者情景推理</title>
+<link href="../course.css" rel="stylesheet"/>
+<link href="npcr-1-tprs.css" rel="stylesheet"/>
+</head>
+<body class="world-one-demo">
+<header>
+<a class="brand" href="../index.html">
+<span class="logo">汉</span>
+<span>
+<b data-es="Aula de Chino con Ángela" data-zh="Ángela的汉语课堂">Ángela的汉语课堂</b>
+<small data-es="Aprender chino y comprender su cultura" data-zh="学中文，也理解中国文化">学中文，也理解中国文化</small>
+</span>
+</a>
+<div class="tools">
+<button id="lang" type="button">ES</button>
+<button id="theme" type="button">☾</button>
+</div>
+</header>
+<main class="game-shell">
+<a class="back" href="npcr-1-review.html">←
+    <span data-es="Volver a las historias" data-zh="返回情景推理馆">返回情景推理馆</span>
+</a>
+<section class="game-hero">
+<span class="game-kicker" data-es="Lecciones 1–2 · Historia para principiantes" data-zh="第1—2课 · 初学者故事">第1—2课 · 初学者故事</span>
+<h1 data-es="Encuentra a la estudiante nueva" data-zh="找到新同学">找到新同学</h1>
+<p data-es="Ha llegado una estudiante nueva. Haz cuatro preguntas sencillas y descubre quién es." data-zh="一位新同学来到了汉语班。问四个简单问题，收集线索，找出她是谁。">一位新同学来到了汉语班。问四个简单问题，收集线索，找出她是谁。</p>
+<section class="beginner-mission-card">
+<div class="beginner-mission-icon">找</div>
+<div class="beginner-mission-copy">
+<small>本关只做一件事</small>
+<strong>找到正确的新同学</strong>
+<p>听故事 → 问问题 → 看线索 → 选人物</p>
+</div>
+<div class="beginner-case-chip"><span>调查档案</span><b>001</b></div>
+</section><div class="game-goals">
+<span data-es="Preguntar nombre y país" data-zh="问姓名和国籍">问姓名和国籍</span>
+<span data-es="吗／是不是／哪国人" data-zh="吗／是不是／哪国人">吗／是不是／哪国人</span>
+<span data-es="会不会／一点儿" data-zh="会不会／一点儿">会不会／一点儿</span>
+<span data-es="也: misma situación" data-zh="也：相同情况">也：相同情况</span>
+<button aria-pressed="false" class="pinyin-toggle" data-es="Mostrar pinyin" data-zh="显示拼音" id="pinyinToggle" type="button">显示拼音</button></div>
+</section>
+<nav aria-label="游戏步骤" class="game-stepper">
+<div aria-disabled="false" aria-label="第1阶段" class="game-step active" data-es="1 Historia" data-step-indicator="1" data-zh="1 听故事" role="button" tabindex="0">1 听故事</div>
+<div aria-disabled="true" aria-label="第2阶段" class="game-step" data-es="2 Pistas" data-step-indicator="2" data-zh="2 问问题" role="button" tabindex="-1">2 问问题</div>
+<div aria-disabled="true" aria-label="第3阶段" class="game-step" data-es="3 Identificar" data-step-indicator="3" data-zh="3 选人物" role="button" tabindex="-1">3 选人物</div>
+<div aria-disabled="true" aria-label="第4阶段" class="game-step" data-es="4 Confirmar" data-step-indicator="4" data-zh="4 再确认" role="button" tabindex="-1">4 再确认</div>
+<div aria-disabled="true" aria-label="第5阶段" class="game-step" data-es="5 Mi versión" data-step-indicator="5" data-zh="5 做我的卡" role="button" tabindex="-1">5 做我的卡</div>
+</nav>
+<section class="game-panel" id="panel1">
+<div class="game-panel-head">
+<div>
+<p class="kicker" data-es="Introducción" data-zh="故事导入">第一步 · 听</p>
+<h2 data-es="La profesora solo recuerda cuatro cosas" data-zh="老师只记得四件事">先听一个很短的故事</h2>
+<p data-es="Escucha primero la historia y decide qué debes preguntar." data-zh="先听故事，再决定应该问老师什么问题。">不用全部看懂。先听人物、国家和语言信息。</p>
+</div>
+<div class="panel-number">01</div>
+</div>
+<div class="story-box">
+<p id="introStory">今天学校来了一位新同学。她第一次来中国，第一次来我们的汉语班。老师想介绍她，可是老师突然忘了她的名字。桌上有四张学生卡。老师说：“你们问我问题吧，我们一起找出她是谁。”</p>
+<div class="story-actions">
+<button aria-label="朗读故事" class="game-button audio-control-button" data-es="▶ Escuchar historia" data-speech-target="introStory" data-zh="▶ 播放故事" id="playIntroStory" type="button">▶ 播放故事</button><button class="game-button audio-control-button secondary-audio" data-es="■ Detener" data-zh="■ 停止朗读" id="stopIntroStory" type="button">■ 停止朗读</button>
+<button class="game-button primary" data-es="Empezar a preguntar →" data-zh="我听完了，开始问问题 →" id="startMystery" type="button">我听完了，开始问问题 →</button>
+</div>
+</div>
+</section>
+<section class="game-panel" hidden="" id="panel2">
+<div class="game-panel-head">
+<div>
+<p class="kicker" data-es="Preguntas repetidas TPRS" data-zh="TPRS重复提问">第二步 · 问</p>
+<h2 data-es="¿Qué quieres preguntar primero?" data-zh="你想先问什么？">选择你想问的问题</h2>
+<p data-es="Pulsa una pregunta y la profesora responderá. Debes reunir al menos tres pistas antes de ver los perfiles." data-zh="点击问题，老师会回答。至少收集三条线索后，才可以查看学生档案。">每点一个问题，就会得到一条中文线索。</p>
+</div>
+<div class="panel-number">02</div>
+</div>
+<div class="case-progress-card">
+<div><small>已经找到的线索</small><strong id="caseEvidenceText">0 / 4</strong></div>
+<div class="case-progress-track"><span id="caseEvidenceBar"></span></div>
+<span class="case-progress-tip">点击问题，老师会回答</span>
+</div><div class="question-grid">
+<button class="question-button" data-question="countryYesNo" type="button">
+<strong data-pinyin="Tā shì bu shì Měiguó rén?">她是不是美国人？</strong><span>＋</span>
+</button>
+<button class="question-button" data-question="country" type="button">
+<strong data-pinyin="Tā shì nǎ guó rén?">她是哪国人？</strong><span>＋</span>
+</button>
+<button class="question-button" data-question="language" type="button">
+<strong data-pinyin="Tā huì bu huì shuō Hànyǔ?">她会不会说汉语？</strong><span>＋</span>
+</button>
+<button class="question-button" data-question="food" type="button">
+<strong data-pinyin="Tā xǐhuan chī shénme?">她喜欢吃什么？</strong><span>＋</span>
+</button>
+</div>
+<div class="clue-board" id="clueBoard"></div>
+<div class="game-actions">
+<button class="game-button primary" data-es="Ver los cuatro perfiles →" data-zh="查看四张学生卡 →" disabled="" id="openFiles" type="button">
+        查看四张学生卡 →
+      </button>
+<span data-es="0/4 pistas" data-zh="已收集0/4条线索" id="clueCounter">已收集0/4条线索</span>
+</div>
+</section>
+<section class="game-panel" hidden="" id="panel3">
+<div class="game-panel-head">
+<div>
+<p class="kicker" data-es="Deducción de identidad" data-zh="人物推理">第三步 · 选</p>
+<h2 data-es="¿Qué perfil pertenece a la estudiante nueva?" data-zh="哪一张是新同学的学生卡？">根据线索选择新同学</h2>
+<p data-es="Decide según las respuestas anteriores. Si te equivocas, verás qué dato no coincide." data-zh="根据刚才的回答进行判断。选错也没关系，系统会告诉你哪条信息不符合。">比较国籍、语言和饮食信息。</p>
+</div>
+<div class="panel-number">03</div>
+</div>
+<div class="candidate-grid">
+<article class="candidate-card">
+<div class="candidate-head"><div class="candidate-avatar">玛</div><h3 data-pinyin="Mǎlì">玛丽</h3></div>
+<div class="candidate-facts">
+<span data-pinyin="Yīngguó rén">英国人</span><span data-pinyin="Bú huì shuō Hànyǔ">不会说汉语</span><span data-pinyin="Xǐhuan chī bāozi, xǐhuan hē kāfēi">喜欢吃包子，喜欢喝咖啡</span>
+</div>
+<button class="game-button candidate-choice" data-candidate="mary" data-es="Elegir a María" data-zh="选择玛丽" type="button">选择玛丽</button>
+</article>
+<article class="candidate-card">
+<div class="candidate-head"><div class="candidate-avatar">安</div><h3 data-pinyin="Ānnà">安娜</h3></div>
+<div class="candidate-facts">
+<span data-pinyin="Xībānyá rén">西班牙人</span><span data-pinyin="Huì shuō yìdiǎnr Hànyǔ">会说一点儿汉语</span><span data-pinyin="Xǐhuan chī jiǎozi, xǐhuan hē chá">喜欢吃饺子，喜欢喝茶</span>
+</div>
+<button class="game-button candidate-choice" data-candidate="anna" data-es="Elegir a Ana" data-zh="选择安娜" type="button">选择安娜</button>
+</article><article class="candidate-card">
+<div class="candidate-head"><div class="candidate-avatar">大</div><h3 data-pinyin="Dàwèi">大卫</h3></div>
+<div class="candidate-facts">
+<span data-pinyin="Měiguó rén">美国人</span><span data-pinyin="Huì shuō Hànyǔ">会说汉语</span><span data-pinyin="Xǐhuan chī miàntiáo, xǐhuan hē chá">喜欢吃面条，喜欢喝茶</span>
+</div>
+<button class="game-button candidate-choice" data-candidate="david" data-es="Elegir a David" data-zh="选择大卫" type="button">选择大卫</button>
+</article>
+<article class="candidate-card">
+<div class="candidate-head"><div class="candidate-avatar">山</div><h3 data-pinyin="Shāntián">山田</h3></div>
+<div class="candidate-facts">
+<span data-pinyin="Rìběn rén">日本人</span><span data-pinyin="Huì shuō yìdiǎnr Hànyǔ">会说一点儿汉语</span><span data-pinyin="Xǐhuan chī mǐfàn, xǐhuan hē shuǐ">喜欢吃米饭，喜欢喝水</span>
+</div>
+<button class="game-button candidate-choice" data-candidate="yamada" data-es="Elegir a Yamada" data-zh="选择山田" type="button">选择山田</button>
+</article>
+</div>
+<div class="game-feedback" data-es="Elige un perfil." data-zh="选择一张学生卡。" id="candidateFeedback">选择一张学生卡。</div>
+<div class="identity-reveal" hidden="" id="storyRecap">
+<article class="profile-card solved-profile-card" id="annaProfileCard">
+<div class="profile-card-topline">
+<span class="profile-file-number" data-es="Expediente · 01" data-zh="人物档案 · 01">人物档案 · 01</span>
+<span class="profile-solved-stamp" data-es="✓ Identidad confirmada" data-zh="✓ 推理成立">✓ 推理成立</span>
+</div>
+<div class="profile-card-body">
+<div class="profile-portrait-column">
+<div aria-hidden="true" class="profile-avatar-large">安</div>
+<span class="profile-role-badge" data-es="Nueva alumna de chino" data-zh="汉语班新同学">汉语班新同学</span>
+</div>
+<div class="profile-information">
+<p class="profile-eyebrow">NEW STUDENT PROFILE</p>
+<h3 class="profile-name">
+          安娜
+          <span class="learning-pinyin profile-name-pinyin">Ānnà</span>
+</h3>
+<p class="profile-subtitle" data-es="Estudiante internacional · Nivel inicial" data-zh="国际学生 · 初级汉语学习者">
+          国际学生 · 初级汉语学习者
+        </p>
+<dl class="profile-data-grid">
+<div>
+<dt data-es="Nacionalidad" data-zh="国籍">国籍</dt>
+<dd data-pinyin="Xībānyá rén">西班牙人</dd>
+</div>
+<div>
+<dt data-es="Nivel de chino" data-zh="汉语能力">汉语能力</dt>
+<dd data-pinyin="Huì shuō yìdiǎnr Hànyǔ">会说一点儿汉语</dd>
+</div>
+<div>
+<dt data-es="Le gusta comer" data-zh="喜欢吃">喜欢吃</dt>
+<dd data-pinyin="Jiǎozi">饺子</dd>
+</div>
+<div>
+<dt data-es="Le gusta beber" data-zh="喜欢喝">喜欢喝</dt>
+<dd data-pinyin="Chá">茶</dd>
+</div>
+</dl>
+</div>
+</div>
+<section class="profile-evidence-section">
+<div class="profile-section-title">
+<span data-es="Pistas decisivas" data-zh="关键证据">关键证据</span>
+<small data-es="Las cuatro pistas coinciden" data-zh="四条信息完全吻合">四条信息完全吻合</small>
+</div>
+<div class="profile-evidence-list">
+<span data-pinyin="Bú shì Měiguó rén">不是美国人</span>
+<span data-pinyin="Shì Xībānyá rén">是西班牙人</span>
+<span data-pinyin="Huì shuō yìdiǎnr Hànyǔ">会说一点儿汉语</span>
+<span data-pinyin="Xǐhuan chī jiǎozi, xǐhuan hē chá">喜欢吃饺子，喜欢喝茶</span>
+</div>
+</section>
+<div class="profile-conclusion">
+<span class="profile-conclusion-mark">✓</span>
+<div>
+<small data-es="Conclusión final" data-zh="最终结论">最终结论</small>
+<strong data-es="Ana es la nueva estudiante que buscábamos." data-zh="安娜就是我们要找的新同学。">
+          安娜就是我们要找的新同学。
+        </strong>
+</div>
+</div>
+</article>
+<div class="profile-story-strip">
+<strong data-es="Resumen de la historia" data-zh="故事复述">故事复述</strong>
+<p id="recapText">新同学叫安娜。她不是美国人，她是西班牙人。她会说一点儿汉语。她喜欢吃饺子，喜欢喝茶。</p>
+</div>
+<div class="game-actions">
+<button aria-label="朗读总结" class="game-button audio-control-button" data-es="▶ Escuchar resumen" data-speech-target="recapText" data-zh="▶ 播放复述" id="playRecapStory" type="button">▶ 播放复述</button><button class="game-button audio-control-button secondary-audio" data-es="■ Detener" data-zh="■ 停止朗读" id="stopRecapStory" type="button">■ 停止朗读</button>
+<button class="game-button" data-es="Imprimir expediente" data-zh="打印人物档案" id="printAnnaProfile" type="button">打印人物档案</button>
+<button class="game-button primary" data-es="Pasar a la confirmación →" data-zh="进入重复确认 →" id="startQuiz" type="button">进入重复确认 →</button>
+</div>
+</div>
+</section>
+<section class="game-panel" hidden="" id="panel4">
+<div class="game-panel-head">
+<div>
+<p class="kicker" data-es="Preguntas en círculo" data-zh="循环提问">第四步 · 确认</p>
+<h2 data-es="La profesora vuelve a preguntar" data-zh="老师再问一遍">用简单问题再确认一次</h2>
+<p data-es="Las preguntas repiten la misma información central. La repetición hace familiares las estructuras." data-zh="这些问题会重复同一组核心信息。重复不是机械背诵，而是让句型变得熟悉。">每次只选一个答案。答错后可以看到解释。</p>
+</div>
+<div class="panel-number">04</div>
+</div>
+<div class="quiz-card">
+<div class="quiz-progress" id="quizProgress">1 / 6</div>
+<h3 class="quiz-question" id="quizQuestion"></h3>
+<div class="quiz-options" id="quizOptions"></div>
+<div class="game-feedback" data-es="Elige una respuesta." data-zh="选择一个答案。" id="quizFeedback">选择一个答案。</div>
+<div class="game-actions">
+<button class="game-button primary" data-es="Siguiente →" data-zh="下一题 →" disabled="" id="nextQuiz" type="button">下一题 →</button>
+</div>
+</div>
+</section>
+<section class="game-panel" hidden="" id="panel5">
+<div class="game-panel-head">
+<div>
+<p class="kicker" data-es="Personalización TPRS" data-zh="TPRS个性化">第五步 · 说</p>
+<h2 data-es="Ahora crea tu propio perfil" data-zh="现在建立你的人物档案">建立我的人物卡</h2>
+<p data-es="Completa tus datos con las mismas estructuras y genera una auténtica tarjeta de perfil, no solo un párrafo." data-zh="使用相同句型填写个人信息，系统会生成一张真正的人物卡，而不是只有一段文字。">选择自己的信息，生成一张可以朗读和打印的人物卡。</p>
+</div>
+<div class="panel-number">05</div>
+</div>
+<div class="final-form">
+<div class="final-field">
+<label data-es="Tu nombre chino" data-pinyin="Nǐ de Zhōngwén míngzi" data-zh="你的中文名字" for="myName">你的中文名字</label>
+<input id="myName" maxlength="20" placeholder="例如：安娜" type="text"/>
+</div>
+<div class="final-field">
+<label data-es="¿De qué país eres?" data-pinyin="Nǐ shì nǎ guó rén?" data-zh="你是哪国人？" for="myCountry">你是哪国人？</label>
+<select id="myCountry">
+<option value="">请选择</option>
+<option value="中国">中国</option>
+<option value="西班牙">西班牙</option>
+<option value="美国">美国</option>
+<option value="英国">英国</option>
+<option value="法国">法国</option>
+<option value="德国">德国</option>
+<option value="日本">日本</option>
+<option value="韩国">韩国</option>
+<option value="加拿大">加拿大</option>
+<option value="俄罗斯">俄罗斯</option>
+<option value="澳大利亚">澳大利亚</option>
+</select>
+</div>
+<div class="final-field">
+<label data-es="¿Qué te gusta comer?" data-pinyin="Nǐ xǐhuan chī shénme?" data-zh="你喜欢吃什么？" for="myFood">你喜欢吃什么？</label>
+<select id="myFood">
+<option value="">请选择</option>
+<option value="饺子">饺子</option>
+<option value="包子">包子</option>
+<option value="面条">面条</option>
+<option value="米饭">米饭</option>
+<option value="点心">点心</option>
+</select>
+</div>
+<div class="final-field">
+<label data-es="¿Qué te gusta beber?" data-pinyin="Nǐ xǐhuan hē shénme?" data-zh="你喜欢喝什么？" for="myDrink">你喜欢喝什么？</label>
+<select id="myDrink">
+<option value="">请选择</option>
+<option value="茶">茶</option>
+<option value="咖啡">咖啡</option>
+<option value="水">水</option>
+<option value="牛奶">牛奶</option>
+<option value="豆浆">豆浆</option>
+<option value="橙汁">橙汁</option>
+</select>
+</div>
+</div>
+<div class="game-actions">
+<button class="game-button primary" data-es="Generar mi perfil" data-zh="生成我的人物卡" id="generateMyCard" type="button">生成我的人物卡</button>
+<button class="game-button" data-es="Reiniciar la historia" data-zh="重新开始故事" id="resetTheme" type="button">重新开始故事</button>
+</div>
+<div class="profile-output-wrapper" hidden="" id="myFinalCard">
+<article class="profile-card personal-profile-card" id="printablePersonalProfile">
+<div class="profile-card-topline">
+<span class="profile-file-number" data-es="Mi tarjeta de perfil" data-zh="我的人物卡">我的人物卡</span>
+<span class="profile-level-chip">A1 · 汉语学习者</span>
+</div>
+<div class="profile-card-body">
+<div class="profile-portrait-column">
+<div aria-hidden="true" class="profile-avatar-large personal-avatar" id="myAvatarInitial">我</div>
+<span class="profile-role-badge" data-es="Miembro de la clase" data-zh="汉语班成员">汉语班成员</span>
+</div>
+<div class="profile-information">
+<p class="profile-eyebrow">MY CHINESE PROFILE</p>
+<h3 class="profile-name">
+<span id="myCardName">—</span>
+<span class="learning-pinyin profile-name-pinyin" id="myCardNamePinyin"></span>
+</h3>
+<p class="profile-subtitle" data-es="Estudiante internacional de chino" data-zh="国际汉语学习者">国际汉语学习者</p>
+<dl class="profile-data-grid">
+<div>
+<dt data-es="Nacionalidad" data-zh="国籍">国籍</dt>
+<dd>
+<span id="myCardCountry">—</span>
+<span class="learning-pinyin" id="myCardCountryPinyin"></span>
+</dd>
+</div>
+<div>
+<dt data-es="Nivel de chino" data-zh="汉语能力">汉语能力</dt>
+<dd>
+<span data-es="Habla un poco de chino" data-zh="会说一点儿汉语">会说一点儿汉语</span>
+<span class="learning-pinyin">Huì shuō yìdiǎnr Hànyǔ</span>
+</dd>
+</div>
+<div>
+<dt data-es="Le gusta comer" data-zh="喜欢吃">喜欢吃</dt>
+<dd>
+<span id="myCardFood">—</span>
+<span class="learning-pinyin" id="myCardFoodPinyin"></span>
+</dd>
+</div>
+<div>
+<dt data-es="Le gusta beber" data-zh="喜欢喝">喜欢喝</dt>
+<dd>
+<span id="myCardDrink">—</span>
+<span class="learning-pinyin" id="myCardDrinkPinyin"></span>
+</dd>
+</div>
+</dl>
+</div>
+</div>
+<section class="profile-evidence-section personal-keywords">
+<div class="profile-section-title">
+<span data-es="Mis palabras clave en chino" data-zh="我的汉语关键词">我的汉语关键词</span>
+<small data-es="Presentación con estructuras de las lecciones 1 y 2" data-zh="用第一、二课的句型介绍自己">
+          用第一、二课的句型介绍自己
+        </small>
+</div>
+<div class="profile-evidence-list">
+<span data-pinyin="Wǒ jiào…">我叫……</span>
+<span data-pinyin="Wǒ shì…rén">我是……人</span>
+<span data-pinyin="Wǒ huì shuō yìdiǎnr Hànyǔ">我会说一点儿汉语</span>
+<span data-pinyin="Wǒ xǐhuan…">我喜欢……</span>
+</div>
+</section>
+<div class="profile-self-introduction">
+<small data-es="Presentación completa" data-zh="完整自我介绍">完整自我介绍</small>
+<p id="myFinalText"></p>
+<span class="learning-pinyin final-card-pinyin" id="myFinalPinyin"></span>
+</div>
+<div class="profile-completion-seal">
+<span>汉</span>
+<div>
+<strong data-es="Perfil completado" data-zh="人物卡已建立">人物卡已建立</strong>
+<small data-es="Aula de Chino con Ángela · Tema 01" data-zh="Ángela的汉语课堂 · 主题01">
+          Ángela的汉语课堂 · 主题01
+        </small>
+</div>
+</div>
+</article>
+<small class="profile-save-note" data-es="Esta tarjeta se ha guardado en este navegador." data-zh="这张人物卡已经保存在当前浏览器中。">
+    这张人物卡已经保存在当前浏览器中。
+  </small>
+<div class="game-actions">
+<button class="game-button" data-es="Escuchar" data-zh="听一遍" id="speakMyCard" type="button">听一遍</button>
+<button class="game-button" data-es="Copiar chino" data-zh="复制中文" id="copyMyCard" type="button">复制中文</button>
+<button class="game-button" data-es="Imprimir tarjeta" data-zh="打印人物卡" id="printMyProfile" type="button">打印人物卡</button>
+<a class="game-button primary" data-es="Volver a los temas →" data-zh="返回主题馆 →" href="npcr-1-review.html">返回主题馆 →</a>
+</div>
+</div>
+<div class="result-box" hidden="" id="themeResult"><div class="world-achievement-badge">
+<span class="world-achievement-icon">章</span>
+<div><small>获得称号</small><strong>身份调查员</strong></div>
+</div>
+<div class="result-stars" id="resultStars">★★★</div>
+<h3 data-es="¡Tema 1 completado!" data-zh="主题1完成！">主题1完成！</h3>
+<p id="resultMessage"></p>
+</div>
+</section>
+</main>
+<footer><span>© 2026 Ángela</span><span>Aula de Chino</span></footer>
+<script src="../course.js"></script>
+<script src="npcr-1-tprs-pinyin.js"></script><script src="npcr-1-tprs-theme1.js"></script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>第1课 · 语法</title>
+<link href="../course.css" rel="stylesheet"/>
+<style>
+.grammar-intro{
+  margin:22px 0 28px;padding:24px;border:1px solid var(--line);
+  border-radius:24px;background:var(--card)
+}
+.grammar-intro p{max-width:850px;color:var(--muted)}
+.grammar-summary{
+  display:flex;flex-wrap:wrap;gap:8px;margin-top:16px
+}
+.grammar-summary a{
+  padding:7px 11px;border-radius:999px;background:var(--soft);
+  font-size:13px;font-weight:800
+}
+.grammar-list{display:grid;gap:20px}
+.grammar-card{
+  scroll-margin-top:20px;padding:26px;border:1px solid var(--line);
+  border-radius:24px;background:var(--card)
+}
+.grammar-head{
+  display:grid;grid-template-columns:48px 1fr;gap:15px;align-items:start
+}
+.grammar-number{
+  display:grid;place-items:center;width:42px;height:42px;border-radius:14px;
+  background:var(--soft);color:var(--red);font-weight:900
+}
+.grammar-head h2{margin:0;font-size:27px}
+.grammar-es-title{margin:5px 0 0;color:var(--muted);font-size:14px}
+.formula{
+  margin:18px 0;padding:15px 17px;border-left:4px solid var(--red);
+  border-radius:10px;background:var(--soft);font-size:18px;font-weight:900
+}
+.explanation{line-height:1.8}
+.example-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0
+}
+.example-card{
+  padding:16px;border:1px solid var(--line);border-radius:17px;background:var(--bg)
+}
+.example-zh{font-size:18px;font-weight:900}
+.example-py{margin-top:6px;color:var(--red);font-size:13px;font-weight:700}
+.example-es{margin-top:6px;color:var(--muted);font-size:13px}
+.warning{
+  margin:16px 0;padding:14px 16px;border-radius:14px;background:var(--soft)
+}
+.warning strong{color:var(--red)}
+.self-check{
+  margin-top:15px;border-top:1px dashed var(--line)
+}
+.self-check summary{
+  padding:14px 0 7px;color:var(--red);font-weight:900;cursor:pointer
+}
+.answer{
+  margin:8px 0 0;padding:12px 14px;border-radius:12px;background:var(--bg);
+  font-weight:800
+}
+.page-nav{
+  display:flex;justify-content:space-between;gap:12px;margin-top:24px
+}
+.page-nav a{
+  padding:10px 15px;border:1px solid var(--line);border-radius:999px;
+  background:var(--card);font-weight:800
+}
+@media(max-width:780px){
+  .example-grid{grid-template-columns:1fr}
+  .grammar-card{padding:20px}
+}
+
+.grammar-page-badge{
+  display:inline-block;
+  margin-bottom:12px;
+  padding:7px 12px;
+  border-radius:999px;
+  background:var(--red);
+  color:#fff;
+  font-size:13px;
+  font-weight:900
+}
+</style>
+</head>
+<body>
+<header>
+<a class="brand" href="../index.html">
+<span class="logo">汉</span>
+<span>
+<b data-es="Aula de Chino con Ángela" data-zh="Ángela的汉语课堂">Ángela的汉语课堂</b>
+<small data-es="Aprender chino y comprender su cultura" data-zh="学中文，也理解中国文化">学中文，也理解中国文化</small>
+</span>
+</a>
+<div class="tools">
+<button id="lang" type="button">ES</button>
+<button id="theme" type="button">☾</button>
+</div>
+</header>
+<main>
+<a class="back" href="../courses/npcr-1-lesson-1.html">←
+    <span data-es="Volver a la lección 1" data-zh="返回第1课">返回第1课</span>
+</a>
+<section class="grammar-intro"><div class="grammar-page-badge" data-es="Gramática de esta lección" data-zh="本课语法板块">本课语法板块</div>
+<p class="kicker" data-es="Lección 1 · Gramática" data-zh="第1课 · 语法">第1课 · 语法</p>
+<h1 data-es="Gramática de la lección 1" data-zh="语法：你最近怎么样">语法：你最近怎么样</h1>
+<p data-es="La página sigue el orden gramatical del manual. Cada punto incluye estructura, uso, ejemplos, errores frecuentes y una comprobación con respuesta desplegable." data-zh="本页按照教材语法顺序整理。每个语法点包含结构、用法、例句、易错提醒和一个可以展开查看答案的小检查。">
+       本页按照教材语法顺序整理。每个语法点包含结构、用法、例句、易错提醒和一个可以展开查看答案的小检查。
+    </p>
+<nav class="grammar-summary"><a data-es="Preguntas de sí/no con «吗»" data-zh="用“吗”的是非问句" href="#grammar-1">用“吗”的是非问句</a><a data-es="Oración con predicado adjetival" data-zh="形容词谓语句" href="#grammar-2">形容词谓语句</a><a data-es="Posición del adverbio «也»" data-zh="副词“也”的位置" href="#grammar-3">副词“也”的位置</a><a data-es="Orden básico de la oración china" data-zh="汉语的基本语序" href="#grammar-4">汉语的基本语序</a></nav>
+</section>
+<section class="grammar-list">
+<article class="grammar-card" id="grammar-1">
+<div class="grammar-head">
+<div class="grammar-number">1</div>
+<div>
+<h2 data-es="Preguntas de sí/no con «吗»" data-zh="用“吗”的是非问句">用“吗”的是非问句</h2>
+<p class="grammar-es-title">Preguntas de sí/no con «吗»</p>
+</div>
+</div>
+<div class="formula">陈述句 + 吗？</div>
+<p class="explanation" data-es="Añadir «吗» al final de una oración enunciativa la convierte en una pregunta de sí/no. La respuesta suele repetir el predicado en forma afirmativa o negativa." data-zh="在陈述句末尾加“吗”，可以把陈述句变成一般疑问句。回答时通常重复谓语的肯定形式或否定形式。">在陈述句末尾加“吗”，可以把陈述句变成一般疑问句。回答时通常重复谓语的肯定形式或否定形式。</p>
+<div class="example-grid">
+<div class="example-card">
+<div class="example-zh">你忙吗？——我很忙。</div>
+<div class="example-py">Nǐ máng ma? — Wǒ hěn máng.</div>
+<div class="example-es">¿Estás ocupado/a? — Sí, mucho.</div>
+</div>
+<div class="example-card">
+<div class="example-zh">林娜在吗？——她不在。</div>
+<div class="example-py">Lín Nà zài ma? — Tā bú zài.</div>
+<div class="example-es">¿Está Lin Na? — No está.</div>
+</div>
+<div class="example-card">
+<div class="example-zh">你叫马大为吗？——是。</div>
+<div class="example-py">Nǐ jiào Mǎ Dàwéi ma? — Shì.</div>
+<div class="example-es">¿Te llamas Ma Dawei? — Sí.</div>
+</div>
+</div>
+<div class="warning">
+<strong data-es="Atención" data-zh="易错提醒">易错提醒</strong>
+<p data-es="En una pregunta con «吗» no se añade además un pronombre interrogativo: × 你叫什么名字吗？" data-zh="“吗”问句中不再使用疑问代词。不能说：× 你叫什么名字吗？">“吗”问句中不再使用疑问代词。不能说：× 你叫什么名字吗？</p>
+</div>
+<details class="self-check">
+<summary data-es="Comprueba: Convierte «他很忙。» en pregunta con «吗»." data-zh="小检查：把“他很忙。”改成“吗”问句。">小检查：把“他很忙。”改成“吗”问句。</summary>
+<p class="answer"><span data-es="Respuesta: " data-zh="答案：">答案：</span>他忙吗？</p>
+</details>
+</article>
+<article class="grammar-card" id="grammar-2">
+<div class="grammar-head">
+<div class="grammar-number">2</div>
+<div>
+<h2 data-es="Oración con predicado adjetival" data-zh="形容词谓语句">形容词谓语句</h2>
+<p class="grammar-es-title">Oración con predicado adjetival</p>
+</div>
+</div>
+<div class="formula">主语 +（很 / 也很 / 不 / 不太）+ 形容词</div>
+<p class="explanation" data-es="En chino un adjetivo puede funcionar directamente como predicado sin «是». En una afirmación neutral suele aparecer «很», que no siempre significa un grado muy alto." data-zh="汉语形容词可以直接作谓语，一般不需要“是”。没有其他副词时，肯定句常在形容词前加“很”；这里的“很”不一定表示很高程度。">汉语形容词可以直接作谓语，一般不需要“是”。没有其他副词时，肯定句常在形容词前加“很”；这里的“很”不一定表示很高程度。</p>
+<div class="example-grid">
+<div class="example-card">
+<div class="example-zh">我很好。</div>
+<div class="example-py">Wǒ hěn hǎo.</div>
+<div class="example-es">Estoy bien.</div>
+</div>
+<div class="example-card">
+<div class="example-zh">大为也很好。</div>
+<div class="example-py">Dàwéi yě hěn hǎo.</div>
+<div class="example-es">Dawei también está bien.</div>
+</div>
+<div class="example-card">
+<div class="example-zh">林娜不太忙。</div>
+<div class="example-py">Lín Nà bú tài máng.</div>
+<div class="example-es">Lin Na no está demasiado ocupada.</div>
+</div>
+</div>
+<div class="warning">
+<strong data-es="Atención" data-zh="易错提醒">易错提醒</strong>
+<p data-es="No se usa «是» delante del adjetivo en una afirmación normal: × 我是很好 → 我很好。" data-zh="不能按西语或英语结构说：× 我是很好。普通陈述应说“我很好”。">不能按西语或英语结构说：× 我是很好。普通陈述应说“我很好”。</p>
+</div>
+<details class="self-check">
+<summary data-es="Comprueba: Elige la oración correcta: A. 我是很忙。 B. 我很忙。" data-zh="小检查：选择正确句子：A. 我是很忙。 B. 我很忙。">小检查：选择正确句子：A. 我是很忙。 B. 我很忙。</summary>
+<p class="answer"><span data-es="Respuesta: " data-zh="答案：">答案：</span>B. 我很忙。</p>
+</details>
+</article>
+<article class="grammar-card" id="grammar-3">
+<div class="grammar-head">
+<div class="grammar-number">3</div>
+<div>
+<h2 data-es="Posición del adverbio «也»" data-zh="副词“也”的位置">副词“也”的位置</h2>
+<p class="grammar-es-title">Posición del adverbio «也»</p>
+</div>
+</div>
+<div class="formula">主语 + 也 + 动词 / 形容词</div>
+<p class="explanation" data-es="«也» significa «también» y se coloca después del sujeto y antes del verbo o adjetivo. En negativo aparece antes de «不»." data-zh="“也”表示“同样、也”，放在主语之后、谓语动词或形容词之前。在否定句中，“也”放在“不”前面。">“也”表示“同样、也”，放在主语之后、谓语动词或形容词之前。在否定句中，“也”放在“不”前面。</p>
+<div class="example-grid">
+<div class="example-card">
+<div class="example-zh">我也姓林。</div>
+<div class="example-py">Wǒ yě xìng Lín.</div>
+<div class="example-es">Yo también me apellido Lin.</div>
+</div>
+<div class="example-card">
+<div class="example-zh">他也很高兴。</div>
+<div class="example-py">Tā yě hěn gāoxìng.</div>
+<div class="example-es">Él también está muy contento.</div>
+</div>
+<div class="example-card">
+<div class="example-zh">力波也不忙。</div>
+<div class="example-py">Lìbō yě bù máng.</div>
+<div class="example-es">Libo tampoco está ocupado.</div>
+</div>
+</div>
+<div class="warning">
+<strong data-es="Atención" data-zh="易错提醒">易错提醒</strong>
+<p data-es="Orden incorrecto: × 也我很好; × 我很好也。" data-zh="语序不能是：× 也我很好；× 我很好也。">语序不能是：× 也我很好；× 我很好也。</p>
+</div>
+<details class="self-check">
+<summary data-es="Comprueba: Ordena: 也 / 我 / 很 / 高兴" data-zh="小检查：排序：也 / 我 / 很 / 高兴">小检查：排序：也 / 我 / 很 / 高兴</summary>
+<p class="answer"><span data-es="Respuesta: " data-zh="答案：">答案：</span>我也很高兴。</p>
+</details>
+</article>
+<article class="grammar-card" id="grammar-4">
+<div class="grammar-head">
+<div class="grammar-number">4</div>
+<div>
+<h2 data-es="Orden básico de la oración china" data-zh="汉语的基本语序">汉语的基本语序</h2>
+<p class="grammar-es-title">Orden básico de la oración china</p>
+</div>
+</div>
+<div class="formula">主语（话题）+ 谓语（说明）</div>
+<p class="explanation" data-es="El chino depende mucho del orden de palabras. Normalmente aparece primero el sujeto o tema y después el predicado que aporta la información." data-zh="汉语主要依靠语序表达语法关系。一般先说主语或话题，再用谓语说明主语。谓语可以是动词短语，也可以是形容词短语。">汉语主要依靠语序表达语法关系。一般先说主语或话题，再用谓语说明主语。谓语可以是动词短语，也可以是形容词短语。</p>
+<div class="example-grid">
+<div class="example-card">
+<div class="example-zh">我很忙。</div>
+<div class="example-py">Wǒ hěn máng.</div>
+<div class="example-es">Estoy muy ocupado/a.</div>
+</div>
+<div class="example-card">
+<div class="example-zh">他姓宋。</div>
+<div class="example-py">Tā xìng Sòng.</div>
+<div class="example-es">Él se apellida Song.</div>
+</div>
+<div class="example-card">
+<div class="example-zh">林娜最近很好。</div>
+<div class="example-py">Lín Nà zuìjìn hěn hǎo.</div>
+<div class="example-es">Lin Na está muy bien últimamente.</div>
+</div>
+</div>
+<div class="warning">
+<strong data-es="Atención" data-zh="易错提醒">易错提醒</strong>
+<p data-es="En el nivel inicial no conviene desplazar libremente adverbios como «也、很、不» siguiendo el orden del español." data-zh="初级阶段不要随意按照西语语序移动“也、很、不”等副词。">初级阶段不要随意按照西语语序移动“也、很、不”等副词。</p>
+</div>
+<details class="self-check">
+<summary data-es="Comprueba: ¿Qué aparece normalmente primero, el sujeto o el predicado?" data-zh="小检查：哪一个通常在前：主语还是谓语？">小检查：哪一个通常在前：主语还是谓语？</summary>
+<p class="answer"><span data-es="Respuesta: " data-zh="答案：">答案：</span>主语（或话题）通常在前。</p>
+</details>
+</article>
+</section>
+<div class="page-nav">
+<a href="../courses/npcr-1-lesson-1.html">← 第1课目录</a>
+<a href="npcr-1-lesson-1-characters.html">汉字 →</a>
+</div>
+</main>
+<footer><span>© 2026 Ángela</span><span>Aula de Chino</span></footer>
+<script src="../course.js"></script>
+</body>
+</html>

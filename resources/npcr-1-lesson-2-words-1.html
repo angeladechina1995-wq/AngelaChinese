@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>第二课 · 生词1</title><link href="../course.css" rel="stylesheet"/>
+<style>
+.page-intro p{max-width:780px;color:var(--muted)}.vocab-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.vocab-card{padding:22px;border:1px solid var(--line);border-radius:24px;background:var(--card)}.word-head{display:grid;grid-template-columns:34px 38px 1fr;gap:10px}.index{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--soft);color:var(--red);font-size:12px;font-weight:900}.word-audio,.example-audio{display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;background:var(--soft);color:var(--red);cursor:pointer}.word-audio{width:34px;height:34px}.example-audio{width:30px;height:30px}.word-head h2{margin:0;font:600 34px/1.1 Georgia,"Noto Serif SC",serif}.pinyin{margin:4px 0 0;color:var(--red);font-weight:800}.word-meta{display:flex;gap:8px 14px;margin:16px 0;padding:12px 14px;border-radius:14px;background:var(--soft)}.word-meta span{color:var(--muted);font-size:13px}.examples-details{margin-top:14px;border-top:1px solid var(--line)}.examples-details summary{display:flex;align-items:center;gap:9px;padding:14px 0 8px;color:var(--red);font-weight:900;cursor:pointer;list-style:none}.examples-details summary::-webkit-details-marker{display:none}.examples-details summary::before{content:"＋";display:grid;place-items:center;width:24px;height:24px;border:1px solid var(--line);border-radius:50%;background:var(--soft)}.examples-details[open] summary::before{content:"−"}.examples-list{display:grid;gap:12px;margin:0;padding:0;list-style:none}.example-item{display:grid;grid-template-columns:32px 1fr;gap:10px;padding:12px 0;border-top:1px dashed var(--line)}.example-zh{font-size:18px;font-weight:800}.example-py{color:var(--red);font-size:14px}.example-es{color:var(--muted);font-size:14px}.tools-row{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0 26px}.tools-row button{padding:9px 14px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--text);font-weight:800;cursor:pointer}body.hide-pinyin .example-py{display:none}body.hide-spanish .example-es{display:none}@media(max-width:820px){.vocab-grid{grid-template-columns:1fr}}
+
+.vocab-audio-note{
+  margin:10px 0 20px;
+  padding:12px 15px;
+  border-left:4px solid var(--red);
+  border-radius:10px;
+  background:var(--soft);
+  color:var(--muted);
+  font-size:13px
+}
+.audio-speed{
+  padding:9px 12px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:var(--card);
+  color:var(--text);
+  font-weight:800
+}
+.status{
+  min-height:20px;
+  margin:8px 0 15px;
+  color:var(--muted);
+  font-size:13px
+}
+
+.open-supplementary-link{
+  display:inline-flex;
+  align-items:center;
+  min-height:40px;
+  padding:9px 14px;
+  border:1px solid var(--red);
+  border-radius:999px;
+  background:var(--red);
+  color:#fff;
+  font-weight:900
+}
+</style></head><body>
+<header>
+<a class="brand" href="../index.html">
+<span class="logo">汉</span>
+<span>
+<b data-es="Aula de Chino con Ángela" data-zh="Ángela的汉语课堂">Ángela的汉语课堂</b>
+<small data-es="Aprender chino y comprender su cultura" data-zh="学中文，也理解中国文化">学中文，也理解中国文化</small>
+</span>
+</a>
+<div class="tools">
+<button id="lang" type="button">ES</button>
+<button id="theme" type="button">☾</button>
+</div>
+</header>
+<main>
+<a class="back" href="../courses/npcr-1-lesson-2.html">← 第二课</a><section class="page-intro"><p class="kicker">第二课 · 课文1</p><h1 data-es="Lección 2 · Vocabulario 1" data-zh="第二课 · 生词1">第二课 · 生词1</h1><p data-es="Cada palabra incluye tres ejemplos ocultos por defecto." data-zh="每个生词配有三个默认隐藏的例句。">每个生词配有三个默认隐藏的例句。</p></section>
+<div class="tools-row"><button id="togglePinyin">隐藏例句拼音</button><button id="toggleSpanish">隐藏西语翻译</button><button id="playWords">▶ 连续朗读生词</button><button data-es="⏸ Pausar/continuar" data-zh="⏸ 暂停/继续" id="pauseWords" type="button">⏸ 暂停/继续</button><select aria-label="生词录音速度" class="audio-speed" id="vocabSpeed"><option value="0.7">0.7×</option><option value="0.85">0.85×</option><option selected="" value="1">1×</option><option value="1.15">1.15×</option></select><button id="stopAudio">■ 停止</button><a class="open-supplementary-link" data-es="＋ Vocabulario adicional" data-zh="＋ 补充词汇" href="npcr-1-lesson-2-supplementary.html">＋ 补充词汇</a></div><p class="vocab-audio-note" data-es="La grabación humana del vocabulario ya está incluida. «Reproducir palabras» usa el MP3; cada palabra y ejemplo usa la voz china del navegador." data-zh="真人生词录音已经加入。“连续朗读生词”播放真人录音；单个生词和例句仍使用浏览器普通话朗读。">真人生词录音已经加入。“连续朗读生词”播放真人录音；单个生词和例句仍使用浏览器普通话朗读。</p><div class="status" id="status"></div><audio id="humanVocabAudio" preload="metadata"><source src="../audio/npcr-1-lesson-2-vocab-1.mp3" type="audio/mpeg"/></audio>
+<section class="vocab-grid">
+<article class="vocab-card">
+<div class="word-head"><span class="index">1</span><button class="word-audio" data-speech="老师">▶</button><div><h2>老师</h2><p class="pinyin">lǎoshī</p></div></div>
+<div class="word-meta"><span>名词 · sust.</span><strong>profesor/a</strong></div>
+<details class="examples-details"><summary><span data-es="Ver tres ejemplos" data-zh="查看三个例句">查看三个例句</span></summary><ol class="examples-list"><li class="example-item"><button class="example-audio" data-speech="陈老师很好。">▶</button><div><div class="example-zh">陈老师很好。</div><div class="example-py">Chén lǎoshī hěn hǎo.</div><div class="example-es">La profesora Chen es muy amable.</div></div></li><li class="example-item"><button class="example-audio" data-speech="老师在北京。">▶</button><div><div class="example-zh">老师在北京。</div><div class="example-py">Lǎoshī zài Běijīng.</div><div class="example-es">El profesor está en Pekín.</div></div></li><li class="example-item"><button class="example-audio" data-speech="老师，早上好！">▶</button><div><div class="example-zh">老师，早上好！</div><div class="example-py">Lǎoshī, zǎoshang hǎo!</div><div class="example-es">¡Buenos días, profesor/a!</div></div></li></ol></details>
+</article>
+<article class="vocab-card">
+<div class="word-head"><span class="index">2</span><button class="word-audio" data-speech="早上">▶</button><div><h2>早上</h2><p class="pinyin">zǎoshang</p></div></div>
+<div class="word-meta"><span>名词 · sust.</span><strong>mañana; por la mañana</strong></div>
+<details class="examples-details"><summary><span data-es="Ver tres ejemplos" data-zh="查看三个例句">查看三个例句</span></summary><ol class="examples-list"><li class="example-item"><button class="example-audio" data-speech="早上好！">▶</button><div><div class="example-zh">早上好！</div><div class="example-py">Zǎoshang hǎo!</div><div class="example-es">¡Buenos días!</div></div></li><li class="example-item"><button class="example-audio" data-speech="我早上学习汉语。">▶</button><div><div class="example-zh">我早上学习汉语。</div><div class="example-py">Wǒ zǎoshang xuéxí Hànyǔ.</div><div class="example-es">Estudio chino por la mañana.</div></div></li><li class="example-item"><button class="example-audio" data-speech="他早上很忙。">▶</button><div><div class="example-zh">他早上很忙。</div><div class="example-py">Tā zǎoshang hěn máng.</div><div class="example-es">Él está muy ocupado por la mañana.</div></div></li></ol></details>
+</article>
+<article class="vocab-card">
+<div class="word-head"><span class="index">3</span><button class="word-audio" data-speech="你们">▶</button><div><h2>你们</h2><p class="pinyin">nǐmen</p></div></div>
+<div class="word-meta"><span>代词 · pron.</span><strong>vosotros/as; ustedes</strong></div>
+<details class="examples-details"><summary><span data-es="Ver tres ejemplos" data-zh="查看三个例句">查看三个例句</span></summary><ol class="examples-list"><li class="example-item"><button class="example-audio" data-speech="你们好！">▶</button><div><div class="example-zh">你们好！</div><div class="example-py">Nǐmen hǎo!</div><div class="example-es">¡Hola a todos!</div></div></li><li class="example-item"><button class="example-audio" data-speech="你们是哪国人？">▶</button><div><div class="example-zh">你们是哪国人？</div><div class="example-py">Nǐmen shì nǎ guó rén?</div><div class="example-es">¿De qué país sois?</div></div></li><li class="example-item"><button class="example-audio" data-speech="你们学习汉语吗？">▶</button><div><div class="example-zh">你们学习汉语吗？</div><div class="example-py">Nǐmen xuéxí Hànyǔ ma?</div><div class="example-es">¿Estudiáis chino?</div></div></li></ol></details>
+</article>
+<article class="vocab-card">
+<div class="word-head"><span class="index">4</span><button class="word-audio" data-speech="这">▶</button><div><h2>这</h2><p class="pinyin">zhè</p></div></div>
+<div class="word-meta"><span>代词 · pron.</span><strong>esto; este/a</strong></div>
+<details class="examples-details"><summary><span data-es="Ver tres ejemplos" data-zh="查看三个例句">查看三个例句</span></summary><ol class="examples-list"><li class="example-item"><button class="example-audio" data-speech="这是马大为。">▶</button><div><div class="example-zh">这是马大为。</div><div class="example-py">Zhè shì Mǎ Dàwéi.</div><div class="example-es">Este es Ma Dawei.</div></div></li><li class="example-item"><button class="example-audio" data-speech="这是什么？">▶</button><div><div class="example-zh">这是什么？</div><div class="example-py">Zhè shì shénme?</div><div class="example-es">¿Qué es esto?</div></div></li><li class="example-item"><button class="example-audio" data-speech="这是我朋友。">▶</button><div><div class="example-zh">这是我朋友。</div><div class="example-py">Zhè shì wǒ péngyou.</div><div class="example-es">Este es mi amigo.</div></div></li></ol></details>
+</article>
+<article class="vocab-card">
+<div class="word-head"><span class="index">5</span><button class="word-audio" data-speech="是">▶</button><div><h2>是</h2><p class="pinyin">shì</p></div></div>
+<div class="word-meta"><span>动词 · v.</span><strong>ser</strong></div>
+<details class="examples-details"><summary><span data-es="Ver tres ejemplos" data-zh="查看三个例句">查看三个例句</span></summary><ol class="examples-list"><li class="example-item"><button class="example-audio" data-speech="我是美国人。">▶</button><div><div class="example-zh">我是美国人。</div><div class="example-py">Wǒ shì Měiguórén.</div><div class="example-es">Soy estadounidense.</div></div></li><li class="example-item"><button class="example-audio" data-speech="他是我朋友。">▶</button><div><div class="example-zh">他是我朋友。</div><div class="example-py">Tā shì wǒ péngyou.</div><div class="example-es">Él es mi amigo.</div></div></li><li class="example-item"><button class="example-audio" data-speech="这是点心。">▶</button><div><div class="example-zh">这是点心。</div><div class="example-py">Zhè shì diǎnxin.</div><div class="example-es">Esto es un aperitivo.</div></div></li></ol></details>
+</article>
+<article class="vocab-card">
+<div class="word-head"><span class="index">6</span><button class="word-audio" data-speech="朋友">▶</button><div><h2>朋友</h2><p class="pinyin">péngyou</p></div></div>
+<div class="word-meta"><span>名词 · sust.</span><strong>amigo/a</strong></div>
+<details class="examples-details"><summary><span data-es="Ver tres ejemplos" data-zh="查看三个例句">查看三个例句</span></summary><ol class="examples-list"><li class="example-item"><button class="example-audio" data-speech="他是我朋友。">▶</button><div><div class="example-zh">他是我朋友。</div><div class="example-py">Tā shì wǒ péngyou.</div><div class="example-es">Él es mi amigo.</div></div></li><li class="example-item"><button class="example-audio" data-speech="我朋友学习汉语。">▶</button><div><div class="example-zh">我朋友学习汉语。</div><div class="example-py">Wǒ péngyou xuéxí Hànyǔ.</div><div class="example-es">Mi amigo estudia chino.</div></div></li><li class="example-item"><button class="example-audio" data-speech="这是你朋友吗？">▶</button><div><div class="example-zh">这是你朋友吗？</div><div class="example-py">Zhè shì nǐ péngyou ma?</div><div class="example-es">¿Este es tu amigo?</div></div></li></ol></details>
+</article>
+<article class="vocab-card">
+<div class="word-head"><span class="index">7</span><button class="word-audio" data-speech="刚">▶</button><div><h2>刚</h2><p class="pinyin">gāng</p></div></div>
+<div class="word-meta"><span>副词 · adv.</span><strong>acabar de; justo</strong></div>
+<details class="examples-details"><summary><span data-es="Ver tres ejemplos" data-zh="查看三个例句">查看三个例句</span></summary><ol class="examples-list"><li class="example-item"><button class="example-audio" data-speech="他刚到北京。">▶</button><div><div class="example-zh">他刚到北京。</div><div class="example-py">Tā gāng dào Běijīng.</div><div class="example-es">Acaba de llegar a Pekín.</div></div></li><li class="example-item"><button class="example-audio" data-speech="我刚认识他。">▶</button><div><div class="example-zh">我刚认识他。</div><div class="example-py">Wǒ gāng rènshi tā.</div><div class="example-es">Acabo de conocerlo.</div></div></li><li class="example-item"><button class="example-audio" data-speech="老师刚到。">▶</button><div><div class="example-zh">老师刚到。</div><div class="example-py">Lǎoshī gāng dào.</div><div class="example-es">El profesor acaba de llegar.</div></div></li></ol></details>
+</article>
+<article class="vocab-card">
+<div class="word-head"><span class="index">8</span><button class="word-audio" data-speech="到">▶</button><div><h2>到</h2><p class="pinyin">dào</p></div></div>
+<div class="word-meta"><span>动词 · v.</span><strong>llegar a</strong></div>
+<details class="examples-details"><summary><span data-es="Ver tres ejemplos" data-zh="查看三个例句">查看三个例句</span></summary><ol class="examples-list"><li class="example-item"><button class="example-audio" data-speech="他到北京了。">▶</button><div><div class="example-zh">他到北京了。</div><div class="example-py">Tā dào Běijīng le.</div><div class="example-es">Ha llegado a Pekín.</div></div></li><li class="example-item"><button class="example-audio" data-speech="老师刚到。">▶</button><div><div class="example-zh">老师刚到。</div><div class="example-py">Lǎoshī gāng dào.</div><div class="example-es">El profesor acaba de llegar.</div></div></li><li class="example-item"><button class="example-audio" data-speech="我早上到学校。">▶</button><div><div class="example-zh">我早上到学校。</div><div class="example-py">Wǒ zǎoshang dào xuéxiào.</div><div class="example-es">Llego a la escuela por la mañana.</div></div></li></ol></details>
+</article>
+<article class="vocab-card">
+<div class="word-head"><span class="index">9</span><button class="word-audio" data-speech="您">▶</button><div><h2>您</h2><p class="pinyin">nín</p></div></div>
+<div class="word-meta"><span>代词 · pron.</span><strong>usted (forma cortés)</strong></div>
+<details class="examples-details"><summary><span data-es="Ver tres ejemplos" data-zh="查看三个例句">查看三个例句</span></summary><ol class="examples-list"><li class="example-item"><button class="example-audio" data-speech="您好！">▶</button><div><div class="example-zh">您好！</div><div class="example-py">Nín hǎo!</div><div class="example-es">¡Hola! (forma cortés)</div></div></li><li class="example-item"><button class="example-audio" data-speech="您贵姓？">▶</button><div><div class="example-zh">您贵姓？</div><div class="example-py">Nín guìxìng?</div><div class="example-es">¿Cuál es su apellido?</div></div></li><li class="example-item"><button class="example-audio" data-speech="认识您很高兴。">▶</button><div><div class="example-zh">认识您很高兴。</div><div class="example-py">Rènshi nín hěn gāoxìng.</div><div class="example-es">Encantado/a de conocerle.</div></div></li></ol></details>
+</article>
+<article class="vocab-card">
+<div class="word-head"><span class="index">10</span><button class="word-audio" data-speech="贵姓">▶</button><div><h2>贵姓</h2><p class="pinyin">guìxìng</p></div></div>
+<div class="word-meta"><span>expresión cortés</span><strong>apellido honorable; ¿cuál es su apellido?</strong></div>
+<details class="examples-details"><summary><span data-es="Ver tres ejemplos" data-zh="查看三个例句">查看三个例句</span></summary><ol class="examples-list"><li class="example-item"><button class="example-audio" data-speech="请问，您贵姓？">▶</button><div><div class="example-zh">请问，您贵姓？</div><div class="example-py">Qǐngwèn, nín guìxìng?</div><div class="example-es">Disculpe, ¿cuál es su apellido?</div></div></li><li class="example-item"><button class="example-audio" data-speech="老师，您贵姓？">▶</button><div><div class="example-zh">老师，您贵姓？</div><div class="example-py">Lǎoshī, nín guìxìng?</div><div class="example-es">Profesor/a, ¿cuál es su apellido?</div></div></li><li class="example-item"><button class="example-audio" data-speech="您贵姓？我姓王。">▶</button><div><div class="example-zh">您贵姓？我姓王。</div><div class="example-py">Nín guìxìng? Wǒ xìng Wáng.</div><div class="example-es">¿Cuál es su apellido? Me apellido Wang.</div></div></li></ol></details>
+</article>
+<article class="vocab-card">
+<div class="word-head"><span class="index">11</span><button class="word-audio" data-speech="哪">▶</button><div><h2>哪</h2><p class="pinyin">nǎ</p></div></div>
+<div class="word-meta"><span>pronombre interrogativo</span><strong>cuál; qué</strong></div>
+<details class="examples-details"><summary><span data-es="Ver tres ejemplos" data-zh="查看三个例句">查看三个例句</span></summary><ol class="examples-list"><li class="example-item"><button class="example-audio" data-speech="你是哪国人？">▶</button><div><div class="example-zh">你是哪国人？</div><div class="example-py">Nǐ shì nǎ guó rén?</div><div class="example-es">¿De qué país eres?</div></div></li><li class="example-item"><button class="example-audio" data-speech="哪是你的朋友？">▶</button><div><div class="example-zh">哪是你的朋友？</div><div class="example-py">Nǎ shì nǐ de péngyou?</div><div class="example-es">¿Cuál es tu amigo?</div></div></li><li class="example-item"><button class="example-audio" data-speech="你学习哪国语言？">▶</button><div><div class="example-zh">你学习哪国语言？</div><div class="example-py">Nǐ xuéxí nǎ guó yǔyán?</div><div class="example-es">¿Qué idioma estudias?</div></div></li></ol></details>
+</article>
+<article class="vocab-card">
+<div class="word-head"><span class="index">12</span><button class="word-audio" data-speech="国">▶</button><div><h2>国</h2><p class="pinyin">guó</p></div></div>
+<div class="word-meta"><span>名词 · sust.</span><strong>país; nación</strong></div>
+<details class="examples-details"><summary><span data-es="Ver tres ejemplos" data-zh="查看三个例句">查看三个例句</span></summary><ol class="examples-list"><li class="example-item"><button class="example-audio" data-speech="你是哪国人？">▶</button><div><div class="example-zh">你是哪国人？</div><div class="example-py">Nǐ shì nǎ guó rén?</div><div class="example-es">¿De qué país eres?</div></div></li><li class="example-item"><button class="example-audio" data-speech="中国很大。">▶</button><div><div class="example-zh">中国很大。</div><div class="example-py">Zhōngguó hěn dà.</div><div class="example-es">China es muy grande.</div></div></li><li class="example-item"><button class="example-audio" data-speech="美国人学习汉语。">▶</button><div><div class="example-zh">美国人学习汉语。</div><div class="example-py">Měiguórén xuéxí Hànyǔ.</div><div class="example-es">Los estadounidenses estudian chino.</div></div></li></ol></details>
+</article>
+<article class="vocab-card">
+<div class="word-head"><span class="index">13</span><button class="word-audio" data-speech="人">▶</button><div><h2>人</h2><p class="pinyin">rén</p></div></div>
+<div class="word-meta"><span>名词 · sust.</span><strong>persona; gente</strong></div>
+<details class="examples-details"><summary><span data-es="Ver tres ejemplos" data-zh="查看三个例句">查看三个例句</span></summary><ol class="examples-list"><li class="example-item"><button class="example-audio" data-speech="我是中国人。">▶</button><div><div class="example-zh">我是中国人。</div><div class="example-py">Wǒ shì Zhōngguórén.</div><div class="example-es">Soy chino/a.</div></div></li><li class="example-item"><button class="example-audio" data-speech="他是北京人。">▶</button><div><div class="example-zh">他是北京人。</div><div class="example-py">Tā shì Běijīngrén.</div><div class="example-es">Él es de Pekín.</div></div></li><li class="example-item"><button class="example-audio" data-speech="这是什么人？">▶</button><div><div class="example-zh">这是什么人？</div><div class="example-py">Zhè shì shénme rén?</div><div class="example-es">¿Quién es esta persona?</div></div></li></ol></details>
+</article>
+<article class="vocab-card">
+<div class="word-head"><span class="index">14</span><button class="word-audio" data-speech="学习">▶</button><div><h2>学习</h2><p class="pinyin">xuéxí</p></div></div>
+<div class="word-meta"><span>动词 · v.</span><strong>estudiar; aprender</strong></div>
+<details class="examples-details"><summary><span data-es="Ver tres ejemplos" data-zh="查看三个例句">查看三个例句</span></summary><ol class="examples-list"><li class="example-item"><button class="example-audio" data-speech="我学习汉语。">▶</button><div><div class="example-zh">我学习汉语。</div><div class="example-py">Wǒ xuéxí Hànyǔ.</div><div class="example-es">Estudio chino.</div></div></li><li class="example-item"><button class="example-audio" data-speech="你学习什么？">▶</button><div><div class="example-zh">你学习什么？</div><div class="example-py">Nǐ xuéxí shénme?</div><div class="example-es">¿Qué estudias?</div></div></li><li class="example-item"><button class="example-audio" data-speech="他们也学习汉语。">▶</button><div><div class="example-zh">他们也学习汉语。</div><div class="example-py">Tāmen yě xuéxí Hànyǔ.</div><div class="example-es">Ellos también estudian chino.</div></div></li></ol></details>
+</article>
+<article class="vocab-card">
+<div class="word-head"><span class="index">15</span><button class="word-audio" data-speech="汉语">▶</button><div><h2>汉语</h2><p class="pinyin">Hànyǔ</p></div></div>
+<div class="word-meta"><span>名词 · sust.</span><strong>lengua china; mandarín</strong></div>
+<details class="examples-details"><summary><span data-es="Ver tres ejemplos" data-zh="查看三个例句">查看三个例句</span></summary><ol class="examples-list"><li class="example-item"><button class="example-audio" data-speech="我学习汉语。">▶</button><div><div class="example-zh">我学习汉语。</div><div class="example-py">Wǒ xuéxí Hànyǔ.</div><div class="example-es">Estudio chino.</div></div></li><li class="example-item"><button class="example-audio" data-speech="汉语很好听。">▶</button><div><div class="example-zh">汉语很好听。</div><div class="example-py">Hànyǔ hěn hǎotīng.</div><div class="example-es">El chino suena muy bien.</div></div></li><li class="example-item"><button class="example-audio" data-speech="老师教汉语。">▶</button><div><div class="example-zh">老师教汉语。</div><div class="example-py">Lǎoshī jiāo Hànyǔ.</div><div class="example-es">El profesor enseña chino.</div></div></li></ol></details>
+</article>
+<article class="vocab-card">
+<div class="word-head"><span class="index">16</span><button class="word-audio" data-speech="再见">▶</button><div><h2>再见</h2><p class="pinyin">zàijiàn</p></div></div>
+<div class="word-meta"><span>expresión</span><strong>adiós; hasta luego</strong></div>
+<details class="examples-details"><summary><span data-es="Ver tres ejemplos" data-zh="查看三个例句">查看三个例句</span></summary><ol class="examples-list"><li class="example-item"><button class="example-audio" data-speech="老师，再见！">▶</button><div><div class="example-zh">老师，再见！</div><div class="example-py">Lǎoshī, zàijiàn!</div><div class="example-es">¡Adiós, profesor/a!</div></div></li><li class="example-item"><button class="example-audio" data-speech="明天见，再见！">▶</button><div><div class="example-zh">明天见，再见！</div><div class="example-py">Míngtiān jiàn, zàijiàn!</div><div class="example-es">Hasta mañana, adiós.</div></div></li><li class="example-item"><button class="example-audio" data-speech="好，再见！">▶</button><div><div class="example-zh">好，再见！</div><div class="example-py">Hǎo, zàijiàn!</div><div class="example-es">De acuerdo, ¡hasta luego!</div></div></li></ol></details>
+</article>
+<article class="vocab-card">
+<div class="word-head"><span class="index">17</span><button class="word-audio" data-speech="陈">▶</button><div><h2>陈</h2><p class="pinyin">Chén</p></div></div>
+<div class="word-meta"><span>专名 · nombre propio</span><strong>Chen, apellido chino</strong></div>
+<details class="examples-details"><summary><span data-es="Ver tres ejemplos" data-zh="查看三个例句">查看三个例句</span></summary><ol class="examples-list"><li class="example-item"><button class="example-audio" data-speech="我姓陈。">▶</button><div><div class="example-zh">我姓陈。</div><div class="example-py">Wǒ xìng Chén.</div><div class="example-es">Me apellido Chen.</div></div></li><li class="example-item"><button class="example-audio" data-speech="陈老师很好。">▶</button><div><div class="example-zh">陈老师很好。</div><div class="example-py">Chén lǎoshī hěn hǎo.</div><div class="example-es">La profesora Chen es muy amable.</div></div></li><li class="example-item"><button class="example-audio" data-speech="你认识陈老师吗？">▶</button><div><div class="example-zh">你认识陈老师吗？</div><div class="example-py">Nǐ rènshi Chén lǎoshī ma?</div><div class="example-es">¿Conoces a la profesora Chen?</div></div></li></ol></details>
+</article>
+<article class="vocab-card">
+<div class="word-head"><span class="index">18</span><button class="word-audio" data-speech="北京">▶</button><div><h2>北京</h2><p class="pinyin">Běijīng</p></div></div>
+<div class="word-meta"><span>专名 · nombre propio</span><strong>Pekín</strong></div>
+<details class="examples-details"><summary><span data-es="Ver tres ejemplos" data-zh="查看三个例句">查看三个例句</span></summary><ol class="examples-list"><li class="example-item"><button class="example-audio" data-speech="他刚到北京。">▶</button><div><div class="example-zh">他刚到北京。</div><div class="example-py">Tā gāng dào Běijīng.</div><div class="example-es">Acaba de llegar a Pekín.</div></div></li><li class="example-item"><button class="example-audio" data-speech="北京很大。">▶</button><div><div class="example-zh">北京很大。</div><div class="example-py">Běijīng hěn dà.</div><div class="example-es">Pekín es muy grande.</div></div></li><li class="example-item"><button class="example-audio" data-speech="我朋友是北京人。">▶</button><div><div class="example-zh">我朋友是北京人。</div><div class="example-py">Wǒ péngyou shì Běijīngrén.</div><div class="example-es">Mi amigo es de Pekín.</div></div></li></ol></details>
+</article>
+<article class="vocab-card">
+<div class="word-head"><span class="index">19</span><button class="word-audio" data-speech="美国">▶</button><div><h2>美国</h2><p class="pinyin">Měiguó</p></div></div>
+<div class="word-meta"><span>专名 · nombre propio</span><strong>Estados Unidos</strong></div>
+<details class="examples-details"><summary><span data-es="Ver tres ejemplos" data-zh="查看三个例句">查看三个例句</span></summary><ol class="examples-list"><li class="example-item"><button class="example-audio" data-speech="我是美国人。">▶</button><div><div class="example-zh">我是美国人。</div><div class="example-py">Wǒ shì Měiguórén.</div><div class="example-es">Soy estadounidense.</div></div></li><li class="example-item"><button class="example-audio" data-speech="美国很大。">▶</button><div><div class="example-zh">美国很大。</div><div class="example-py">Měiguó hěn dà.</div><div class="example-es">Estados Unidos es muy grande.</div></div></li><li class="example-item"><button class="example-audio" data-speech="他从美国来。">▶</button><div><div class="example-zh">他从美国来。</div><div class="example-py">Tā cóng Měiguó lái.</div><div class="example-es">Él viene de Estados Unidos.</div></div></li></ol></details>
+</article></section></main>
+<footer><span>© 2026 Ángela</span><span>Aula de Chino</span></footer>
+<script src="../course.js"></script>
+<script>
+const vocabWords = [...document.querySelectorAll(".word-audio")]
+  .map(button => button.dataset.speech)
+  .filter(Boolean);
+
+const humanVocabAudio = document.getElementById("humanVocabAudio");
+const statusBox = document.getElementById("status");
+const speedSelect = document.getElementById("vocabSpeed");
+let pinyinHidden = false;
+let spanishHidden = false;
+
+function currentLanguage(){
+  return typeof language !== "undefined" ? language : "zh";
+}
+
+function getChineseVoice(){
+  const voices = speechSynthesis.getVoices();
+  return voices.find(v => /^zh-CN/i.test(v.lang))
+      || voices.find(v => /^zh/i.test(v.lang))
+      || null;
+}
+
+function stopHumanAudio(){
+  if(!humanVocabAudio) return;
+  humanVocabAudio.pause();
+  humanVocabAudio.currentTime = 0;
+}
+
+function stopEverything(){
+  stopHumanAudio();
+  speechSynthesis.cancel();
+}
+
+function speakChinese(text, rate = 0.82){
+  stopEverything();
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = "zh-CN";
+  utterance.rate = rate;
+  const selectedVoice = getChineseVoice();
+  if(selectedVoice) utterance.voice = selectedVoice;
+  speechSynthesis.speak(utterance);
+}
+
+document.querySelectorAll(".word-audio,.example-audio").forEach(button => {
+  button.addEventListener("click", () => speakChinese(button.dataset.speech));
+});
+
+document.getElementById("togglePinyin").addEventListener("click", () => {
+  pinyinHidden = !pinyinHidden;
+  document.body.classList.toggle("hide-pinyin", pinyinHidden);
+  const button = document.getElementById("togglePinyin");
+  button.textContent = currentLanguage() === "zh"
+    ? (pinyinHidden ? "显示例句拼音" : "隐藏例句拼音")
+    : (pinyinHidden ? "Mostrar pinyin" : "Ocultar pinyin");
+});
+
+document.getElementById("toggleSpanish").addEventListener("click", () => {
+  spanishHidden = !spanishHidden;
+  document.body.classList.toggle("hide-spanish", spanishHidden);
+  const button = document.getElementById("toggleSpanish");
+  button.textContent = currentLanguage() === "zh"
+    ? (spanishHidden ? "显示西语翻译" : "隐藏西语翻译")
+    : (spanishHidden ? "Mostrar traducción" : "Ocultar traducción");
+});
+
+document.getElementById("playWords").addEventListener("click", async () => {
+  stopEverything();
+
+  if(humanVocabAudio){
+    humanVocabAudio.playbackRate = Number(speedSelect.value);
+    try{
+      await humanVocabAudio.play();
+      statusBox.textContent = currentLanguage() === "zh"
+        ? "正在播放真人生词录音。"
+        : "Reproduciendo la grabación humana del vocabulario.";
+      return;
+    }catch(error){
+      // 没有可用MP3时自动改用浏览器普通话。
+    }
+  }
+
+  const utterance = new SpeechSynthesisUtterance(vocabWords.join("。"));
+  utterance.lang = "zh-CN";
+  utterance.rate = Number(speedSelect.value) * 0.72;
+  const selectedVoice = getChineseVoice();
+  if(selectedVoice) utterance.voice = selectedVoice;
+  utterance.onstart = () => {
+    statusBox.textContent = currentLanguage() === "zh"
+      ? "正在使用浏览器普通话朗读全部生词。"
+      : "Usando la voz china del navegador.";
+  };
+  utterance.onend = () => {
+    statusBox.textContent = currentLanguage() === "zh"
+      ? "朗读结束。"
+      : "Reproducción finalizada.";
+  };
+  speechSynthesis.speak(utterance);
+});
+
+document.getElementById("pauseWords").addEventListener("click", async () => {
+  if(humanVocabAudio && !humanVocabAudio.paused){
+    humanVocabAudio.pause();
+    statusBox.textContent = currentLanguage() === "zh" ? "已暂停。" : "Pausado.";
+    return;
+  }
+
+  if(humanVocabAudio && humanVocabAudio.currentTime > 0 && !humanVocabAudio.ended){
+    try{
+      await humanVocabAudio.play();
+      statusBox.textContent = currentLanguage() === "zh" ? "继续播放。" : "Reanudado.";
+      return;
+    }catch(error){}
+  }
+
+  if(speechSynthesis.paused){
+    speechSynthesis.resume();
+  }else if(speechSynthesis.speaking){
+    speechSynthesis.pause();
+  }
+});
+
+document.getElementById("stopAudio").addEventListener("click", () => {
+  stopEverything();
+  statusBox.textContent = currentLanguage() === "zh"
+    ? "已停止。"
+    : "Reproducción detenida.";
+});
+
+speedSelect.addEventListener("change", () => {
+  if(humanVocabAudio){
+    humanVocabAudio.playbackRate = Number(speedSelect.value);
+  }
+});
+
+if(humanVocabAudio){
+  humanVocabAudio.addEventListener("ended", () => {
+    statusBox.textContent = currentLanguage() === "zh"
+      ? "真人录音播放结束。"
+      : "La grabación ha terminado.";
+  });
+}
+</script></body></html>

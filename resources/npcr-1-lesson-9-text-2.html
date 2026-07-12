@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>课文2：怎么去博物馆</title><link href="../course.css" rel="stylesheet"/><style>.text-shell{max-width:980px;margin:0 auto}.text-toolbar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;margin:25px 0;padding:18px 20px;border:1px solid var(--line);border-radius:22px;background:var(--card)}.toolbar-group{display:flex;flex-wrap:wrap;align-items:center;gap:10px}.switch-wrap{display:flex;align-items:center;gap:10px;font-weight:800}.switch{position:relative;width:54px;height:30px;border:0;border-radius:999px;background:#c9cbd0;cursor:pointer}.switch::after{content:"";position:absolute;top:4px;left:4px;width:22px;height:22px;border-radius:50%;background:white;box-shadow:0 1px 4px rgba(0,0,0,.25);transition:.2s}.switch.active{background:#3478f6}.switch.active::after{transform:translateX(24px)}.audio-button{padding:10px 15px;border:1px solid var(--line);border-radius:999px;background:var(--soft);color:var(--text);font-weight:800;cursor:pointer}.audio-button.primary{background:var(--red);color:white;border-color:var(--red)}.speed-select{padding:9px 10px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--text)}.audio-note,.status{width:100%;color:var(--muted);font-size:12px}.text-card{padding:clamp(22px,5vw,52px);border:1px solid var(--line);border-radius:26px;background:var(--card)}.context{margin:0 0 32px;padding-bottom:22px;border-bottom:1px solid var(--line);color:var(--muted)}.context span{display:block;margin-top:3px;font-size:13px}.dialogue-list{display:grid;gap:20px}.dialogue-line{display:grid;grid-template-columns:38px 1fr;gap:12px;padding-bottom:18px;border-bottom:1px dashed var(--line)}.dialogue-line:last-child{border-bottom:0}.line-audio{display:grid;place-items:center;width:34px;height:34px;border:1px solid var(--line);border-radius:50%;background:var(--soft);color:var(--red);cursor:pointer}.chinese-line{font-size:clamp(26px,3.5vw,43px);line-height:1.5}.speaker{font-weight:800;text-decoration:underline dotted;text-underline-offset:8px}.pinyin-line{margin-top:7px;font-size:clamp(16px,2vw,23px)}.speaker-pinyin{font-weight:700}body.pinyin-hidden .pinyin-line{display:none}.nav-row{display:flex;justify-content:space-between;gap:14px;margin-top:22px}.nav-row a{padding:11px 16px;border:1px solid var(--line);border-radius:999px;background:var(--card);font-weight:800}@media(max-width:600px){.toolbar-group{width:100%}.chinese-line{font-size:29px}.nav-row{display:grid}}
+.translation-toggle{
+  padding:10px 15px;
+  border:1px solid var(--red);
+  border-radius:999px;
+  background:var(--red);
+  color:#fff;
+  font-weight:900;
+  cursor:pointer
+}
+.translation-line{
+  margin-top:9px;
+  padding:10px 13px;
+  border-left:3px solid var(--red);
+  border-radius:8px;
+  background:var(--soft);
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.55
+}
+body.translation-hidden .translation-line{display:none}
+.translation-note{
+  width:100%;
+  margin:0;
+  color:var(--muted);
+  font-size:12px
+}
+
+.official-video-card{
+  display:grid;
+  grid-template-columns:64px 1fr auto;
+  gap:16px;
+  align-items:center;
+  margin:18px 0 24px;
+  padding:18px 20px;
+  border:1px solid var(--line);
+  border-radius:20px;
+  background:var(--card)
+}
+.official-video-icon{
+  display:grid;
+  place-items:center;
+  width:54px;
+  height:54px;
+  border-radius:16px;
+  background:color-mix(in srgb,var(--red) 12%,transparent);
+  color:var(--red);
+  font-size:24px
+}
+.official-video-copy h2{
+  margin:0 0 6px;
+  font-size:18px
+}
+.official-video-copy p{
+  margin:0;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.55
+}
+.official-video-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:42px;
+  padding:10px 15px;
+  border:1px solid var(--red);
+  border-radius:999px;
+  background:var(--red);
+  color:#fff;
+  font-weight:900;
+  text-decoration:none;
+  white-space:nowrap
+}
+.official-video-legal{
+  grid-column:2 / -1;
+  margin-top:-4px!important;
+  font-size:11px!important
+}
+@media(max-width:720px){
+  .official-video-card{
+    grid-template-columns:52px 1fr
+  }
+  .official-video-link{
+    grid-column:1/-1;
+    width:100%
+  }
+  .official-video-legal{
+    grid-column:1/-1
+  }
+}
+</style></head><body class="translation-hidden"><header><a class="brand" href="../index.html"><span class="logo">汉</span><span><b data-es="Aula de Chino con Ángela" data-zh="Ángela的汉语课堂">Ángela的汉语课堂</b><small data-es="Aprender chino y comprender su cultura" data-zh="学中文，也理解中国文化">学中文，也理解中国文化</small></span></a><div class="tools"><button id="lang" type="button">ES</button><button id="theme" type="button">☾</button></div></header><main class="text-shell"><a class="back" href="../courses/npcr-1-lesson-9.html">← 返回第9课</a><p class="kicker">第9课 · 课文2</p><h1 data-es="Texto 2: Cómo ir al museo" data-zh="课文2：怎么去博物馆">课文2：怎么去博物馆</h1><section class="text-toolbar"><div class="toolbar-group"><div class="switch-wrap"><button class="switch active" id="pinyinSwitch" type="button"></button><span>pīnyīn</span></div><button aria-expanded="false" class="translation-toggle" data-es="Mostrar traducción" data-zh="显示翻译" id="translationToggle" type="button">显示翻译</button></div><div class="toolbar-group"><button class="audio-button primary" id="playAll">▶ 播放课文</button><button class="audio-button" id="pauseAudio">⏸ 暂停/继续</button><button class="audio-button" id="stopAudio">■ 停止</button><select class="speed-select" id="speed"><option value=".7">0.7×</option><option value=".85">0.85×</option><option selected="" value="1">1×</option><option value="1.15">1.15×</option></select></div><p class="audio-note">真人课文录音已经加入；逐句按钮使用浏览器普通话朗读。</p><p class="translation-note" data-es="La traducción española está oculta por defecto; pulsa «Mostrar traducción» para verla frase por frase." data-zh="西班牙语翻译默认隐藏，点击“显示翻译”即可逐句查看。">西班牙语翻译默认隐藏，点击“显示翻译”即可逐句查看。</p><div class="status" id="status"></div></section><section aria-label="出版社官方课文视频" class="official-video-card">
+<div aria-hidden="true" class="official-video-icon">▶</div>
+<div class="official-video-copy">
+<h2 data-es="Vídeo oficial de la editorial" data-zh="出版社官方课文视频">出版社官方课文视频</h2>
+<p data-es="El vídeo no está alojado en este sitio. El botón abre la página oficial de recursos de Beijing Language and Culture University Press." data-zh="视频不存放在本站。点击按钮后，将前往北京语言大学出版社官方资源页面观看。">
+      视频不存放在本站。点击按钮后，将前往北京语言大学出版社官方资源页面观看。
+    </p>
+</div>
+<a class="official-video-link" data-es="Ver en la web oficial ↗" data-zh="前往出版社官网观看 ↗" href="https://www.blcup.com/MobileResource?rid=0cfd9049-98da-4b83-8868-de76d8fb10fe" referrerpolicy="no-referrer" rel="noopener noreferrer external" target="_blank">
+    前往出版社官网观看 ↗
+  </a>
+<p class="official-video-legal" data-es="Este sitio solo enlaza la página oficial; no copia, aloja ni redistribuye el vídeo. Los derechos y condiciones de uso dependen de la editorial." data-zh="本站仅提供官方页面链接，不复制、不托管、不重新发布视频。视频版权及使用规则以出版社官方说明为准。">
+    本站仅提供官方页面链接，不复制、不托管、不重新发布视频。视频版权及使用规则以出版社官方说明为准。
+  </p>
+</section><audio id="humanAudio" preload="metadata"><source src="../audio/npcr-1-lesson-9-text-2.mp3" type="audio/mpeg"/></audio><section class="text-card"><p class="context"><strong data-es="Song Hua y Lin Na planean ir a una exposición y comparan taxi, metro y autobús." data-zh="宋华和林娜商量去博物馆看展览，并比较打车、地铁和公共汽车。">宋华和林娜商量去博物馆看展览，并比较打车、地铁和公共汽车。</strong><span>Song Hua y Lin Na planean ir a una exposición y comparan taxi, metro y autobús.</span></p><div class="dialogue-list"><article class="dialogue-line" data-speech="宋华：听说博物馆有个很好的展览，咱们今天去看，怎么样？"><button class="line-audio" type="button">▶</button><div><div class="chinese-line"><span class="speaker">宋华：</span>听说博物馆有个很好的展览，咱们今天去看，怎么样？</div><div class="pinyin-line"><span class="speaker-pinyin">sòng huá:</span> tīng shuō bó wùguǎn yǒu gè hěn hǎo de zhǎn lǎn， zán men jīn tiān qù kàn， zěn me yàng？</div><div class="translation-line" lang="es">He oído que hay una exposición muy buena en el museo. ¿Qué te parece si vamos hoy?</div></div></article><article class="dialogue-line" data-speech="林娜：好啊。今天我也有时间了，咱们一起去看。现在几点了？"><button class="line-audio" type="button">▶</button><div><div class="chinese-line"><span class="speaker">林娜：</span>好啊。今天我也有时间了，咱们一起去看。现在几点了？</div><div class="pinyin-line"><span class="speaker-pinyin">lín nà:</span> hǎo a. jīn tiān wǒ yě yǒu shí jiān le， zán men yī qǐ qù kàn. xiàn zài jǐ diǎnle？</div><div class="translation-line" lang="es">Bien. Hoy yo también tengo tiempo, así que vamos juntos. ¿Qué hora es?</div></div></article><article class="dialogue-line" data-speech="宋华：快十点了。"><button class="line-audio" type="button">▶</button><div><div class="chinese-line"><span class="speaker">宋华：</span>快十点了。</div><div class="pinyin-line"><span class="speaker-pinyin">sòng huá:</span> kuài shí diǎnle.</div><div class="translation-line" lang="es">Casi las diez.</div></div></article><article class="dialogue-line" data-speech="林娜：咱们什么时候去？"><button class="line-audio" type="button">▶</button><div><div class="chinese-line"><span class="speaker">林娜：</span>咱们什么时候去？</div><div class="pinyin-line"><span class="speaker-pinyin">lín nà:</span> zán men shén me shí hòu qù？</div><div class="translation-line" lang="es">¿Cuándo vamos?</div></div></article><article class="dialogue-line" data-speech="宋华：现在去，好吗？"><button class="line-audio" type="button">▶</button><div><div class="chinese-line"><span class="speaker">宋华：</span>现在去，好吗？</div><div class="pinyin-line"><span class="speaker-pinyin">sòng huá:</span> xiàn zài qù， hǎo ma？</div><div class="translation-line" lang="es">Ahora, ¿vale?</div></div></article><article class="dialogue-line" data-speech="林娜：现在？好吧。博物馆在天安门，咱们怎么去？我朋友有车，咱们能开车去吗？"><button class="line-audio" type="button">▶</button><div><div class="chinese-line"><span class="speaker">林娜：</span>现在？好吧。博物馆在天安门，咱们怎么去？我朋友有车，咱们能开车去吗？</div><div class="pinyin-line"><span class="speaker-pinyin">lín nà:</span> xiàn zài？ hǎo ba. bó wùguǎn zài tiān ān mén， zán men zěn me qù？ wǒ péng yǒu yǒu chē， zán men néng kāi chē qù ma？</div><div class="translation-line" lang="es">¿Ahora? De acuerdo. El museo está en Tian'anmen. ¿Cómo vamos? Un amigo mío tiene coche, ¿podemos ir en coche?</div></div></article><article class="dialogue-line" data-speech="宋华：我不会开车。你呢？"><button class="line-audio" type="button">▶</button><div><div class="chinese-line"><span class="speaker">宋华：</span>我不会开车。你呢？</div><div class="pinyin-line"><span class="speaker-pinyin">sòng huá:</span> wǒ bù huì kāi chē. nǐ ne？</div><div class="translation-line" lang="es">Yo no sé conducir. ¿Y tú?</div></div></article><article class="dialogue-line" data-speech="林娜：我会开车。可是我没有中国驾照，在这儿不能开。咱们打车去吧。"><button class="line-audio" type="button">▶</button><div><div class="chinese-line"><span class="speaker">林娜：</span>我会开车。可是我没有中国驾照，在这儿不能开。咱们打车去吧。</div><div class="pinyin-line"><span class="speaker-pinyin">lín nà:</span> wǒ huì kāi chē. kě shìwǒ méi yǒu zhōng guó jià zhào， zài zhè ér bù néng kāi. zán men dǎ chē qù ba.</div><div class="translation-line" lang="es">Yo sí, pero no tengo permiso de conducir chino y aquí no puedo conducir. Vamos en taxi.</div></div></article><article class="dialogue-line" data-speech="宋华：现在路上可能堵车。打车去可能很慢，也不便宜。咱们坐地铁和公共汽车，怎么样？"><button class="line-audio" type="button">▶</button><div><div class="chinese-line"><span class="speaker">宋华：</span>现在路上可能堵车。打车去可能很慢，也不便宜。咱们坐地铁和公共汽车，怎么样？</div><div class="pinyin-line"><span class="speaker-pinyin">sòng huá:</span> xiàn zài lù shàng kě néng dǔ chē. dǎ chē qù kě néng hěn màn， yě bù biàn yí. zán men zuò de tiě hé gōng gòng qìchē， zěn me yàng？</div><div class="translation-line" lang="es">Ahora puede haber atasco. En taxi quizá tardemos mucho y tampoco será barato. ¿Qué te parece si vamos en metro y autobús?</div></div></article><article class="dialogue-line" data-speech="林娜：好啊。先坐九六一路公共汽车到苹果园。在苹果园换地铁一号线到天安门。"><button class="line-audio" type="button">▶</button><div><div class="chinese-line"><span class="speaker">林娜：</span>好啊。先坐九六一路公共汽车到苹果园。在苹果园换地铁一号线到天安门。</div><div class="pinyin-line"><span class="speaker-pinyin">lín nà:</span> hǎo a. xiān zuò jiǔ liù yī lù gōng gòng qìchē dào píng guǒ yuán. zài píng guǒ yuán huàn de tiě yī hào xiàndào tiān ān mén.</div><div class="translation-line" lang="es">Bien. Primero tomamos el autobús 961 hasta Pingguoyuan. Allí cambiamos a la línea 1 del metro hasta Tian'anmen.</div></div></article><article class="dialogue-line" data-speech="宋华：咱们几点能到？"><button class="line-audio" type="button">▶</button><div><div class="chinese-line"><span class="speaker">宋华：</span>咱们几点能到？</div><div class="pinyin-line"><span class="speaker-pinyin">sòng huá:</span> zán men jǐ diǎnnéng dào？</div><div class="translation-line" lang="es">¿A qué hora podremos llegar?</div></div></article><article class="dialogue-line" data-speech="林娜：十二点能到。别着急。"><button class="line-audio" type="button">▶</button><div><div class="chinese-line"><span class="speaker">林娜：</span>十二点能到。别着急。</div><div class="pinyin-line"><span class="speaker-pinyin">lín nà:</span> shí èr diǎnnéng dào. bié zhe jí.</div><div class="translation-line" lang="es">A las doce. No tengas prisa.</div></div></article><article class="dialogue-line" data-speech="宋华：我不着急，可是我的肚子有点儿着急。"><button class="line-audio" type="button">▶</button><div><div class="chinese-line"><span class="speaker">宋华：</span>我不着急，可是我的肚子有点儿着急。</div><div class="pinyin-line"><span class="speaker-pinyin">sòng huá:</span> wǒ bù zhe jí， kě shìwǒ de dù zǐ yǒu diǎnér zhe jí.</div><div class="translation-line" lang="es">No tengo prisa, pero mi estómago sí.</div></div></article><article class="dialogue-line" data-speech="林娜：对，我也饿了。咱们可以先吃点儿点心。"><button class="line-audio" type="button">▶</button><div><div class="chinese-line"><span class="speaker">林娜：</span>对，我也饿了。咱们可以先吃点儿点心。</div><div class="pinyin-line"><span class="speaker-pinyin">lín nà:</span> duì， wǒ yě è le. zán men kě yǐ xiān chī diǎnér diǎnxīn.</div><div class="translation-line" lang="es">Es verdad, yo también tengo hambre. Podemos comer primero algo de dim sum.</div></div></article></div></section><div class="nav-row"><a href="../courses/npcr-1-lesson-9.html">← 第9课</a><a href="npcr-1-lesson-9-text-1.html">课文1 →</a></div></main><footer><span>© 2026 Ángela</span><span>Aula de Chino</span></footer><script src="../course.js"></script><script>const body=document.body,pinyinSwitch=document.getElementById('pinyinSwitch'),humanAudio=document.getElementById('humanAudio'),speed=document.getElementById('speed'),statusBox=document.getElementById('status');const fullText=document.querySelector('.dialogue-list').innerText;function voice(){const vs=speechSynthesis.getVoices();return vs.find(v=>/^zh-CN/i.test(v.lang))||vs.find(v=>/^zh/i.test(v.lang))||null}function speak(text){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang='zh-CN';u.rate=Number(speed.value);const v=voice();if(v)u.voice=v;speechSynthesis.speak(u)}function stopAll(){humanAudio.pause();humanAudio.currentTime=0;speechSynthesis.cancel()}pinyinSwitch.onclick=()=>{const h=body.classList.toggle('pinyin-hidden');pinyinSwitch.classList.toggle('active',!h)};document.getElementById('playAll').onclick=async()=>{stopAll();humanAudio.playbackRate=Number(speed.value);try{await humanAudio.play();statusBox.textContent='正在播放真人课文录音。'}catch(e){speak(fullText);statusBox.textContent='正在使用浏览器普通话朗读。'}};document.getElementById('pauseAudio').onclick=async()=>{if(!humanAudio.paused){humanAudio.pause();return}if(humanAudio.currentTime>0&&!humanAudio.ended){try{await humanAudio.play();return}catch(e){}}if(speechSynthesis.paused)speechSynthesis.resume();else if(speechSynthesis.speaking)speechSynthesis.pause()};document.getElementById('stopAudio').onclick=stopAll;speed.onchange=()=>humanAudio.playbackRate=Number(speed.value);document.querySelectorAll('.line-audio').forEach(b=>b.onclick=()=>speak(b.closest('.dialogue-line').dataset.speech));</script><script data-translation-script="true">
+const translationToggle = document.getElementById("translationToggle");
+let translationsHidden = true;
+
+function updateTranslationToggle(){
+  if(!translationToggle) return;
+  const zhText = translationsHidden ? "显示翻译" : "隐藏翻译";
+  const esText = translationsHidden ? "Mostrar traducción" : "Ocultar traducción";
+  translationToggle.dataset.zh = zhText;
+  translationToggle.dataset.es = esText;
+  translationToggle.textContent =
+    (typeof language !== "undefined" && language === "es") ? esText : zhText;
+  translationToggle.setAttribute("aria-expanded", String(!translationsHidden));
+}
+
+if(translationToggle){
+  translationToggle.addEventListener("click", () => {
+    translationsHidden = !translationsHidden;
+    document.body.classList.toggle("translation-hidden", translationsHidden);
+    updateTranslationToggle();
+  });
+  updateTranslationToggle();
+}
+</script></body></html>

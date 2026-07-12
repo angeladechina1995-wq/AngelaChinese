@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>第8课 · 补充词汇</title>
+<link href="../course.css" rel="stylesheet"/>
+<style>
+.supp-intro{
+  margin:22px 0 20px;
+  padding:24px;
+  border:1px solid var(--line);
+  border-radius:24px;
+  background:var(--card)
+}
+.supp-intro p{max-width:850px;color:var(--muted)}
+.supp-toolbar{
+  position:sticky;
+  top:8px;
+  z-index:5;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:9px;
+  margin:18px 0;
+  padding:14px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:color-mix(in srgb,var(--card) 94%,transparent);
+  backdrop-filter:blur(10px)
+}
+.supp-toolbar button,.supp-toolbar select,.supp-toolbar input{
+  min-height:40px;
+  padding:9px 13px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:var(--card);
+  color:var(--text);
+  font-weight:800
+}
+.supp-toolbar button{cursor:pointer}
+.supp-toolbar button.primary{background:var(--red);border-color:var(--red);color:#fff}
+.supp-search{flex:1;min-width:210px;font-weight:500!important}
+.supp-note,.supp-status{color:var(--muted);font-size:13px}
+.supp-status{min-height:20px;margin:5px 0 16px}
+.supp-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px
+}
+.supp-card{
+  display:grid;
+  grid-template-columns:36px 42px 1fr;
+  gap:12px;
+  padding:20px;
+  border:1px solid var(--line);
+  border-radius:22px;
+  background:var(--card)
+}
+.supp-number{
+  display:grid;
+  place-items:center;
+  width:32px;height:32px;
+  border-radius:50%;
+  background:var(--soft);
+  color:var(--red);
+  font-size:12px;font-weight:900
+}
+.supp-audio,.collocation-audio{
+  display:grid;
+  place-items:center;
+  border:1px solid var(--line);
+  background:var(--soft);
+  color:var(--red);
+  cursor:pointer
+}
+.supp-audio{width:38px;height:38px;border-radius:50%}
+.supp-word h2{
+  margin:0;
+  font:600 33px/1.15 Georgia,"Noto Serif SC",serif
+}
+.supp-pinyin{margin:5px 0 0;color:var(--red);font-weight:800}
+.supp-meta{
+  grid-column:1/-1;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:8px 13px;
+  padding:12px 14px;
+  border-radius:14px;
+  background:var(--soft)
+}
+.supp-pos{color:var(--muted);font-size:12px}
+.supp-meaning{font-weight:900}
+.collocations{
+  grid-column:1/-1;
+  padding-top:4px
+}
+.collocations strong{
+  display:block;
+  margin-bottom:8px;
+  font-size:13px
+}
+.collocation-list{display:flex;flex-wrap:wrap;gap:8px}
+.collocation-audio{
+  display:inline-flex;
+  gap:7px;
+  padding:7px 10px;
+  border-radius:999px;
+  font-weight:800
+}
+.collocation-audio::before{content:"▶";font-size:10px}
+.empty-collocation{color:var(--muted);font-size:13px}
+.lesson-links{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  gap:10px;
+  margin-top:25px
+}
+.lesson-links a{
+  padding:10px 15px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:var(--card);
+  font-weight:800
+}
+body.hide-supp-pinyin .supp-pinyin{display:none}
+body.hide-supp-spanish .supp-meaning{display:none}
+@media(max-width:780px){
+  .supp-grid{grid-template-columns:1fr}
+  .supp-toolbar{position:static}
+}
+
+.real-audio-badge{
+  display:inline-block;
+  margin-bottom:12px;
+  padding:7px 12px;
+  border-radius:999px;
+  background:var(--red);
+  color:#fff;
+  font-size:13px;
+  font-weight:900
+}
+</style>
+</head>
+<body>
+<header>
+<a class="brand" href="../index.html">
+<span class="logo">汉</span>
+<span>
+<b data-es="Aula de Chino con Ángela" data-zh="Ángela的汉语课堂">Ángela的汉语课堂</b>
+<small data-es="Aprender chino y comprender su cultura" data-zh="学中文，也理解中国文化">学中文，也理解中国文化</small>
+</span>
+</a>
+<div class="tools">
+<button id="lang" type="button">ES</button>
+<button id="theme" type="button">☾</button>
+</div>
+</header>
+<main>
+<a class="back" href="../courses/npcr-1-lesson-8.html">←
+    <span data-es="Volver a la lección 8" data-zh="返回第8课">返回第8课</span>
+</a>
+<section class="supp-intro"><div class="real-audio-badge" data-es="✓ Audio humano del manual" data-zh="✓ 教材真人录音">✓ 教材真人录音</div>
+<p class="kicker" data-es="Lección 8 · Vocabulario" data-zh="第8课 · 生词板块">第8课 · 生词板块</p>
+<h1 data-es="Vocabulario adicional: Me encuentro mal en todo el cuerpo" data-zh="补充词汇：我全身都不舒服">
+      补充词汇：我全身都不舒服
+    </h1>
+<p data-es="Contenido organizado según la tabla de vocabulario adicional del manual: 17 palabras con pinyin, categoría, significado en español y combinaciones del libro." data-zh="按照教材“补充词语”表整理，共17个词。每个词提供拼音、词性、西班牙语释义和教材搭配。">
+       按照教材“补充词语”表整理，共17个词。每个词提供拼音、词性、西班牙语释义和教材搭配。
+    </p>
+</section>
+<section class="supp-toolbar">
+<input class="supp-search" id="suppSearch" placeholder="搜索汉字、拼音或西语 / Buscar" type="search"/>
+<button data-es="Ocultar pinyin" data-zh="隐藏拼音" id="toggleSuppPinyin" type="button">隐藏拼音</button>
+<button data-es="Ocultar español" data-zh="隐藏西语" id="toggleSuppSpanish" type="button">隐藏西语</button>
+<button class="primary" data-es="▶ Reproducir" data-zh="▶ 连续朗读" id="playSupp" type="button">▶ 连续朗读</button>
+<button data-es="⏸ Pausar/continuar" data-zh="⏸ 暂停/继续" id="pauseSupp" type="button">⏸ 暂停/继续</button>
+<select aria-label="补充词汇朗读速度" id="suppSpeed">
+<option value="0.7">0.7×</option>
+<option value="0.85">0.85×</option>
+<option selected="" value="1">1×</option>
+<option value="1.15">1.15×</option>
+</select>
+<button data-es="■ Detener" data-zh="■ 停止" id="stopSupp" type="button">■ 停止</button>
+</section>
+<p class="supp-note" data-es="La grabación humana del vocabulario adicional ya está incluida. Pulsa «Reproducir» para escucharla; los botones de palabras y combinaciones siguen usando la voz china del navegador." data-zh="教材真人补充词汇录音已经加入。点击“连续朗读”即可播放；单个词语和搭配按钮仍使用浏览器普通话朗读。">教材真人补充词汇录音已经加入。点击“连续朗读”即可播放；单个词语和搭配按钮仍使用浏览器普通话朗读。</p>
+<div class="supp-status" id="suppStatus"></div>
+<audio id="humanSupplementaryAudio" preload="metadata">
+<source src="../audio/npcr-1-lesson-8-supplementary.mp3" type="audio/mpeg"/>
+</audio>
+<section class="supp-grid">
+<article class="supp-card" data-search="眼睛 yǎnjing ojo; ojos 名词 sustantivo 大眼睛 眼睛小" data-word="眼睛">
+<div class="supp-number">1</div>
+<button aria-label="朗读眼睛" class="supp-audio" data-speech="眼睛" type="button">▶</button>
+<div class="supp-word">
+<h2>眼睛</h2>
+<p class="supp-pinyin">yǎnjing</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="sustantivo" data-zh="名词">名词</span>
+<span class="supp-meaning">ojo; ojos</span>
+</div>
+<div class="collocations">
+<strong data-es="Combinaciones del manual" data-zh="教材常用搭配">教材常用搭配</strong>
+<div class="collocation-list"><button class="collocation-audio" data-speech="大眼睛" type="button">大眼睛</button><button class="collocation-audio" data-speech="眼睛小" type="button">眼睛小</button></div>
+</div>
+</article>
+<article class="supp-card" data-search="牙 yá diente 名词 sustantivo 牙疼" data-word="牙">
+<div class="supp-number">2</div>
+<button aria-label="朗读牙" class="supp-audio" data-speech="牙" type="button">▶</button>
+<div class="supp-word">
+<h2>牙</h2>
+<p class="supp-pinyin">yá</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="sustantivo" data-zh="名词">名词</span>
+<span class="supp-meaning">diente</span>
+</div>
+<div class="collocations">
+<strong data-es="Combinaciones del manual" data-zh="教材常用搭配">教材常用搭配</strong>
+<div class="collocation-list"><button class="collocation-audio" data-speech="牙疼" type="button">牙疼</button></div>
+</div>
+</article>
+<article class="supp-card" data-search="胃 wèi estómago 名词 sustantivo 胃不舒服" data-word="胃">
+<div class="supp-number">3</div>
+<button aria-label="朗读胃" class="supp-audio" data-speech="胃" type="button">▶</button>
+<div class="supp-word">
+<h2>胃</h2>
+<p class="supp-pinyin">wèi</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="sustantivo" data-zh="名词">名词</span>
+<span class="supp-meaning">estómago</span>
+</div>
+<div class="collocations">
+<strong data-es="Combinaciones del manual" data-zh="教材常用搭配">教材常用搭配</strong>
+<div class="collocation-list"><button class="collocation-audio" data-speech="胃不舒服" type="button">胃不舒服</button></div>
+</div>
+</article>
+<article class="supp-card" data-search="脖子 bózi cuello 名词 sustantivo" data-word="脖子">
+<div class="supp-number">4</div>
+<button aria-label="朗读脖子" class="supp-audio" data-speech="脖子" type="button">▶</button>
+<div class="supp-word">
+<h2>脖子</h2>
+<p class="supp-pinyin">bózi</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="sustantivo" data-zh="名词">名词</span>
+<span class="supp-meaning">cuello</span>
+</div>
+<div class="collocations">
+<span class="empty-collocation" data-es="El manual no ofrece una combinación fija para esta palabra." data-zh="本词在教材表中未列固定搭配。">
+                本词在教材表中未列固定搭配。
+              </span>
+</div>
+</article>
+<article class="supp-card" data-search="胳膊 gēbo brazo 名词 sustantivo" data-word="胳膊">
+<div class="supp-number">5</div>
+<button aria-label="朗读胳膊" class="supp-audio" data-speech="胳膊" type="button">▶</button>
+<div class="supp-word">
+<h2>胳膊</h2>
+<p class="supp-pinyin">gēbo</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="sustantivo" data-zh="名词">名词</span>
+<span class="supp-meaning">brazo</span>
+</div>
+<div class="collocations">
+<span class="empty-collocation" data-es="El manual no ofrece una combinación fija para esta palabra." data-zh="本词在教材表中未列固定搭配。">
+                本词在教材表中未列固定搭配。
+              </span>
+</div>
+</article>
+<article class="supp-card" data-search="腰 yāo cintura; parte baja de la espalda 名词 sustantivo" data-word="腰">
+<div class="supp-number">6</div>
+<button aria-label="朗读腰" class="supp-audio" data-speech="腰" type="button">▶</button>
+<div class="supp-word">
+<h2>腰</h2>
+<p class="supp-pinyin">yāo</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="sustantivo" data-zh="名词">名词</span>
+<span class="supp-meaning">cintura; parte baja de la espalda</span>
+</div>
+<div class="collocations">
+<span class="empty-collocation" data-es="El manual no ofrece una combinación fija para esta palabra." data-zh="本词在教材表中未列固定搭配。">
+                本词在教材表中未列固定搭配。
+              </span>
+</div>
+</article>
+<article class="supp-card" data-search="腿 tuǐ pierna 名词 sustantivo" data-word="腿">
+<div class="supp-number">7</div>
+<button aria-label="朗读腿" class="supp-audio" data-speech="腿" type="button">▶</button>
+<div class="supp-word">
+<h2>腿</h2>
+<p class="supp-pinyin">tuǐ</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="sustantivo" data-zh="名词">名词</span>
+<span class="supp-meaning">pierna</span>
+</div>
+<div class="collocations">
+<span class="empty-collocation" data-es="El manual no ofrece una combinación fija para esta palabra." data-zh="本词在教材表中未列固定搭配。">
+                本词在教材表中未列固定搭配。
+              </span>
+</div>
+</article>
+<article class="supp-card" data-search="发烧 fāshāo tener fiebre 动宾短语 verbo-objeto 有点儿发烧 不发烧" data-word="发烧">
+<div class="supp-number">8</div>
+<button aria-label="朗读发烧" class="supp-audio" data-speech="发烧" type="button">▶</button>
+<div class="supp-word">
+<h2>发烧</h2>
+<p class="supp-pinyin">fāshāo</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="verbo-objeto" data-zh="动宾短语">动宾短语</span>
+<span class="supp-meaning">tener fiebre</span>
+</div>
+<div class="collocations">
+<strong data-es="Combinaciones del manual" data-zh="教材常用搭配">教材常用搭配</strong>
+<div class="collocation-list"><button class="collocation-audio" data-speech="有点儿发烧" type="button">有点儿发烧</button><button class="collocation-audio" data-speech="不发烧" type="button">不发烧</button></div>
+</div>
+</article>
+<article class="supp-card" data-search="拉肚子 lā dùzi tener diarrea 动宾短语 verbo-objeto 不拉肚子" data-word="拉肚子">
+<div class="supp-number">9</div>
+<button aria-label="朗读拉肚子" class="supp-audio" data-speech="拉肚子" type="button">▶</button>
+<div class="supp-word">
+<h2>拉肚子</h2>
+<p class="supp-pinyin">lā dùzi</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="verbo-objeto" data-zh="动宾短语">动宾短语</span>
+<span class="supp-meaning">tener diarrea</span>
+</div>
+<div class="collocations">
+<strong data-es="Combinaciones del manual" data-zh="教材常用搭配">教材常用搭配</strong>
+<div class="collocation-list"><button class="collocation-audio" data-speech="不拉肚子" type="button">不拉肚子</button></div>
+</div>
+</article>
+<article class="supp-card" data-search="感冒 gǎnmào resfriarse; tener un resfriado 动词 verbo 有点儿感冒" data-word="感冒">
+<div class="supp-number">10</div>
+<button aria-label="朗读感冒" class="supp-audio" data-speech="感冒" type="button">▶</button>
+<div class="supp-word">
+<h2>感冒</h2>
+<p class="supp-pinyin">gǎnmào</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="verbo" data-zh="动词">动词</span>
+<span class="supp-meaning">resfriarse; tener un resfriado</span>
+</div>
+<div class="collocations">
+<strong data-es="Combinaciones del manual" data-zh="教材常用搭配">教材常用搭配</strong>
+<div class="collocation-list"><button class="collocation-audio" data-speech="有点儿感冒" type="button">有点儿感冒</button></div>
+</div>
+</article>
+<article class="supp-card" data-search="急诊 jízhěn urgencias; servicio de urgencias 名词 sustantivo 挂急诊" data-word="急诊">
+<div class="supp-number">11</div>
+<button aria-label="朗读急诊" class="supp-audio" data-speech="急诊" type="button">▶</button>
+<div class="supp-word">
+<h2>急诊</h2>
+<p class="supp-pinyin">jízhěn</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="sustantivo" data-zh="名词">名词</span>
+<span class="supp-meaning">urgencias; servicio de urgencias</span>
+</div>
+<div class="collocations">
+<strong data-es="Combinaciones del manual" data-zh="教材常用搭配">教材常用搭配</strong>
+<div class="collocation-list"><button class="collocation-audio" data-speech="挂急诊" type="button">挂急诊</button></div>
+</div>
+</article>
+<article class="supp-card" data-search="外科 wàikē cirugía; servicio de cirugía 名词 sustantivo" data-word="外科">
+<div class="supp-number">12</div>
+<button aria-label="朗读外科" class="supp-audio" data-speech="外科" type="button">▶</button>
+<div class="supp-word">
+<h2>外科</h2>
+<p class="supp-pinyin">wàikē</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="sustantivo" data-zh="名词">名词</span>
+<span class="supp-meaning">cirugía; servicio de cirugía</span>
+</div>
+<div class="collocations">
+<span class="empty-collocation" data-es="El manual no ofrece una combinación fija para esta palabra." data-zh="本词在教材表中未列固定搭配。">
+                本词在教材表中未列固定搭配。
+              </span>
+</div>
+</article>
+<article class="supp-card" data-search="西药 xīyào medicina occidental 名词 sustantivo 吃西药" data-word="西药">
+<div class="supp-number">13</div>
+<button aria-label="朗读西药" class="supp-audio" data-speech="西药" type="button">▶</button>
+<div class="supp-word">
+<h2>西药</h2>
+<p class="supp-pinyin">xīyào</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="sustantivo" data-zh="名词">名词</span>
+<span class="supp-meaning">medicina occidental</span>
+</div>
+<div class="collocations">
+<strong data-es="Combinaciones del manual" data-zh="教材常用搭配">教材常用搭配</strong>
+<div class="collocation-list"><button class="collocation-audio" data-speech="吃西药" type="button">吃西药</button></div>
+</div>
+</article>
+<article class="supp-card" data-search="透视 tòushì hacerse una radiografía 动词 verbo 要不要透视" data-word="透视">
+<div class="supp-number">14</div>
+<button aria-label="朗读透视" class="supp-audio" data-speech="透视" type="button">▶</button>
+<div class="supp-word">
+<h2>透视</h2>
+<p class="supp-pinyin">tòushì</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="verbo" data-zh="动词">动词</span>
+<span class="supp-meaning">hacerse una radiografía</span>
+</div>
+<div class="collocations">
+<strong data-es="Combinaciones del manual" data-zh="教材常用搭配">教材常用搭配</strong>
+<div class="collocation-list"><button class="collocation-audio" data-speech="要不要透视" type="button">要不要透视</button></div>
+</div>
+</article>
+<article class="supp-card" data-search="针灸 zhēnjiǔ acupuntura y moxibustión 名词 sustantivo 要针灸 不用针灸" data-word="针灸">
+<div class="supp-number">15</div>
+<button aria-label="朗读针灸" class="supp-audio" data-speech="针灸" type="button">▶</button>
+<div class="supp-word">
+<h2>针灸</h2>
+<p class="supp-pinyin">zhēnjiǔ</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="sustantivo" data-zh="名词">名词</span>
+<span class="supp-meaning">acupuntura y moxibustión</span>
+</div>
+<div class="collocations">
+<strong data-es="Combinaciones del manual" data-zh="教材常用搭配">教材常用搭配</strong>
+<div class="collocation-list"><button class="collocation-audio" data-speech="要针灸" type="button">要针灸</button><button class="collocation-audio" data-speech="不用针灸" type="button">不用针灸</button></div>
+</div>
+</article>
+<article class="supp-card" data-search="大便 dàbiàn heces; deposiciones 名词 sustantivo 化验大便" data-word="大便">
+<div class="supp-number">16</div>
+<button aria-label="朗读大便" class="supp-audio" data-speech="大便" type="button">▶</button>
+<div class="supp-word">
+<h2>大便</h2>
+<p class="supp-pinyin">dàbiàn</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="sustantivo" data-zh="名词">名词</span>
+<span class="supp-meaning">heces; deposiciones</span>
+</div>
+<div class="collocations">
+<strong data-es="Combinaciones del manual" data-zh="教材常用搭配">教材常用搭配</strong>
+<div class="collocation-list"><button class="collocation-audio" data-speech="化验大便" type="button">化验大便</button></div>
+</div>
+</article>
+<article class="supp-card" data-search="小便 xiǎobiàn orina 名词 sustantivo 化验小便" data-word="小便">
+<div class="supp-number">17</div>
+<button aria-label="朗读小便" class="supp-audio" data-speech="小便" type="button">▶</button>
+<div class="supp-word">
+<h2>小便</h2>
+<p class="supp-pinyin">xiǎobiàn</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="sustantivo" data-zh="名词">名词</span>
+<span class="supp-meaning">orina</span>
+</div>
+<div class="collocations">
+<strong data-es="Combinaciones del manual" data-zh="教材常用搭配">教材常用搭配</strong>
+<div class="collocation-list"><button class="collocation-audio" data-speech="化验小便" type="button">化验小便</button></div>
+</div>
+</article>
+</section>
+<nav class="lesson-links">
+<a href="npcr-1-lesson-7-supplementary.html">← 第7课补充词汇</a>
+<a href="../courses/npcr-1-lesson-8.html">第8课目录</a>
+<a href="npcr-1-lesson-9-supplementary.html">第9课补充词汇 →</a>
+</nav>
+</main>
+<footer><span>© 2026 Ángela</span><span>Aula de Chino</span></footer>
+<script src="../course.js"></script>
+<script>
+const cards = [...document.querySelectorAll(".supp-card")];
+const words = cards.map(card => card.dataset.word);
+const humanAudio = document.getElementById("humanSupplementaryAudio");
+const speedSelect = document.getElementById("suppSpeed");
+const statusBox = document.getElementById("suppStatus");
+const searchInput = document.getElementById("suppSearch");
+let pinyinHidden = false;
+let spanishHidden = false;
+
+function currentLanguage(){
+  return typeof language !== "undefined" ? language : "zh";
+}
+function chineseVoice(){
+  const voices = speechSynthesis.getVoices();
+  return voices.find(v => /^zh-CN/i.test(v.lang))
+      || voices.find(v => /^zh/i.test(v.lang))
+      || null;
+}
+function stopAll(){
+  if(humanAudio){
+    humanAudio.pause();
+    humanAudio.currentTime = 0;
+  }
+  speechSynthesis.cancel();
+}
+function speak(text, rate = 0.82){
+  stopAll();
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = "zh-CN";
+  utterance.rate = rate;
+  const voice = chineseVoice();
+  if(voice) utterance.voice = voice;
+  speechSynthesis.speak(utterance);
+}
+document.querySelectorAll(".supp-audio,.collocation-audio").forEach(button => {
+  button.addEventListener("click", () => speak(button.dataset.speech));
+});
+document.getElementById("playSupp").addEventListener("click", async () => {
+  stopAll();
+  if(humanAudio){
+    humanAudio.playbackRate = Number(speedSelect.value);
+    try{
+      await humanAudio.play();
+      statusBox.textContent = currentLanguage() === "zh"
+        ? "正在播放真人补充词汇录音。"
+        : "Reproduciendo la grabación humana del vocabulario adicional.";
+      return;
+    }catch(error){}
+  }
+  const utterance = new SpeechSynthesisUtterance(words.join("。"));
+  utterance.lang = "zh-CN";
+  utterance.rate = Number(speedSelect.value) * 0.72;
+  const voice = chineseVoice();
+  if(voice) utterance.voice = voice;
+  utterance.onstart = () => statusBox.textContent =
+    currentLanguage() === "zh"
+      ? "暂未加入真人录音，正在使用浏览器普通话连续朗读。"
+      : "Todavía no hay MP3; se está usando la voz china del navegador.";
+  utterance.onend = () => statusBox.textContent =
+    currentLanguage() === "zh" ? "朗读结束。" : "Reproducción finalizada.";
+  speechSynthesis.speak(utterance);
+});
+document.getElementById("pauseSupp").addEventListener("click", async () => {
+  if(humanAudio && !humanAudio.paused){
+    humanAudio.pause();
+    return;
+  }
+  if(humanAudio && humanAudio.currentTime > 0 && !humanAudio.ended){
+    try{ await humanAudio.play(); return; }catch(error){}
+  }
+  if(speechSynthesis.paused) speechSynthesis.resume();
+  else if(speechSynthesis.speaking) speechSynthesis.pause();
+});
+document.getElementById("stopSupp").addEventListener("click", () => {
+  stopAll();
+  statusBox.textContent = currentLanguage() === "zh" ? "已停止。" : "Detenido.";
+});
+speedSelect.addEventListener("change", () => {
+  if(humanAudio) humanAudio.playbackRate = Number(speedSelect.value);
+});
+document.getElementById("toggleSuppPinyin").addEventListener("click", event => {
+  pinyinHidden = !pinyinHidden;
+  document.body.classList.toggle("hide-supp-pinyin", pinyinHidden);
+  event.currentTarget.textContent = currentLanguage() === "zh"
+    ? (pinyinHidden ? "显示拼音" : "隐藏拼音")
+    : (pinyinHidden ? "Mostrar pinyin" : "Ocultar pinyin");
+});
+document.getElementById("toggleSuppSpanish").addEventListener("click", event => {
+  spanishHidden = !spanishHidden;
+  document.body.classList.toggle("hide-supp-spanish", spanishHidden);
+  event.currentTarget.textContent = currentLanguage() === "zh"
+    ? (spanishHidden ? "显示西语" : "隐藏西语")
+    : (spanishHidden ? "Mostrar español" : "Ocultar español");
+});
+searchInput.addEventListener("input", () => {
+  const term = searchInput.value.trim().toLowerCase();
+  cards.forEach(card => {
+    card.hidden = term && !card.dataset.search.toLowerCase().includes(term);
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+第二课真人录音文件名：
+npcr-1-lesson-2-text-1.mp3
+npcr-1-lesson-2-text-2.mp3
+
+放入本 audio 文件夹后，网页会自动优先播放真人录音。

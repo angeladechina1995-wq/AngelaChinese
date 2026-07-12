@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>找到今天的寿星 · 初学者情景推理</title>
+<link href="../course.css" rel="stylesheet"/>
+<link href="npcr-1-tprs.css" rel="stylesheet"/>
+</head>
+<body class="world-two-demo">
+<header>
+<a class="brand" href="../index.html">
+<span class="logo">汉</span>
+<span>
+<b data-es="Aula de Chino con Ángela" data-zh="Ángela的汉语课堂">Ángela的汉语课堂</b>
+<small data-es="Aprender chino y comprender su cultura" data-zh="学中文，也理解中国文化">学中文，也理解中国文化</small>
+</span>
+</a>
+<div class="tools">
+<button id="lang" type="button">ES</button>
+<button id="theme" type="button">☾</button>
+</div>
+</header>
+<main class="game-shell">
+<a class="back" href="npcr-1-review.html">←
+    <span data-es="Volver a las historias" data-zh="返回情景推理馆">返回情景推理馆</span>
+</a>
+<section class="game-hero">
+<span class="game-kicker" data-es="Lecciones 3–5 · Historia de cumpleaños" data-zh="第3—5课 · 初学者生日故事">第3—5课 · 初学者生日故事</span>
+<h1 data-es="Encuentra a quien cumple años" data-zh="找到今天的寿星">找到今天的寿星</h1>
+<p data-es="Hay un regalo, una tarta y una tarjeta sin nombre. Haz unas preguntas sencillas y descubre quién cumple años." data-zh="桌上有礼物、蛋糕和一张没有名字的生日卡。问几个简单问题，找出今天是谁过生日。">桌上有礼物、蛋糕和一张没有名字的生日卡。问几个简单问题，找出今天是谁过生日。</p>
+<section class="beginner-mission-card birthday-mission-card">
+<div class="beginner-mission-icon birthday-mission-icon">寿</div>
+<div class="beginner-mission-copy">
+<small>本关只做一件事</small>
+<strong>找到今天的寿星</strong>
+<p>听故事 → 问日期和年龄 → 看人物卡 → 选寿星</p>
+</div>
+<div class="beginner-case-chip birthday-case-chip"><span>生日任务</span><b>02</b></div>
+</section><div class="game-goals">
+<span data-es="Hora" data-zh="几点有空">几点有空</span><span data-es="Familia" data-zh="家有几口人">家有几口人</span><span data-es="Edad" data-zh="今年多大">今年多大</span><span data-es="Fecha" data-zh="几月几号">几月几号</span><button aria-pressed="false" class="pinyin-toggle" data-es="Mostrar pinyin" data-zh="显示拼音" id="pinyinToggle" type="button">显示拼音</button></div>
+</section>
+<nav aria-label="游戏步骤" class="game-stepper">
+<div aria-disabled="false" aria-label="第1阶段" class="game-step active" data-es="1 Escucha" data-step-indicator="1" data-zh="1 听生日故事" role="button" tabindex="0">1 听生日故事</div>
+<div aria-disabled="true" aria-label="第2阶段" class="game-step" data-es="2 Pregunta" data-step-indicator="2" data-zh="2 问生日信息" role="button" tabindex="-1">2 问生日信息</div>
+<div aria-disabled="true" aria-label="第3阶段" class="game-step" data-es="3 Elige" data-step-indicator="3" data-zh="3 选寿星" role="button" tabindex="-1">3 选寿星</div>
+<div aria-disabled="true" aria-label="第4阶段" class="game-step" data-es="4 Confirma" data-step-indicator="4" data-zh="4 再确认" role="button" tabindex="-1">4 再确认</div>
+<div aria-disabled="true" aria-label="第5阶段" class="game-step" data-es="5 Invitación" data-step-indicator="5" data-zh="5 做邀请卡" role="button" tabindex="-1">5 做邀请卡</div>
+</nav>
+<section class="game-panel" id="panel1">
+<div class="game-panel-head">
+<div>
+<p class="kicker" data-es="Introducción" data-zh="故事导入">第一步 · 听</p>
+<h2 data-es="Una tarjeta sin nombre" data-zh="一张没有名字的生日卡">先听一个生日故事</h2>
+<p data-es="Escucha la historia y decide qué información debes preguntar." data-zh="先听故事，再决定应该向老师询问哪些信息。">不用全部看懂。注意日期、年龄、家庭人数和时间。</p>
+</div>
+<div class="panel-number">01</div>
+</div>
+<div class="story-box">
+<p id="birthdayStory">今天是五月十六号。老师走进教室，看见桌上有一个礼物、一盒蛋糕和一张没有名字的生日卡。卡上只写着：“晚上七点见！”班里有四个学生可能今天过生日。老师说：“你们问我问题吧，我们一起找出今天的寿星。”</p>
+<div class="story-actions">
+<button aria-label="朗读故事" class="speak-button" data-speech-target="birthdayStory" type="button">▶</button>
+<button class="game-button primary" data-es="Ya he escuchado. Preguntar →" data-zh="我听完了，开始问生日信息 →" id="startBirthdayMystery" type="button">我听完了，开始问生日信息 →</button>
+</div>
+</div>
+</section>
+<section class="game-panel" hidden="" id="panel2">
+<div class="game-panel-head">
+<div>
+<p class="kicker" data-es="Preguntas repetidas TPRS" data-zh="TPRS重复提问">第二步 · 问</p>
+<h2 data-es="¿Qué quieres saber?" data-zh="你想知道什么？">选择你想问的生日问题</h2>
+<p data-es="Debes reunir al menos cuatro pistas para abrir los cuatro perfiles." data-zh="至少收集四条线索，才能打开四位学生的档案。">每点一个问题，就会得到一条中文线索。</p>
+</div>
+<div class="panel-number">02</div>
+</div>
+<div class="case-progress-card birthday-progress-card">
+<div><small>已经找到的生日线索</small><strong id="birthdayEvidenceText">0 / 5</strong></div>
+<div class="case-progress-track birthday-progress-track"><span id="birthdayEvidenceBar"></span></div>
+<span class="case-progress-tip">至少找到4条线索</span>
+</div><div class="question-grid">
+<button class="question-button" data-question="date" type="button">
+<strong data-pinyin="Jīntiān jǐ yuè jǐ hào?">今天几月几号？</strong><span>＋</span>
+</button>
+<button class="question-button" data-question="age" type="button">
+<strong data-pinyin="Tā jīnnián duō dà?">她今年多大？</strong><span>＋</span>
+</button>
+<button class="question-button" data-question="family" type="button">
+<strong data-pinyin="Tā jiā yǒu jǐ kǒu rén?">她家有几口人？</strong><span>＋</span>
+</button>
+<button class="question-button" data-question="time" type="button">
+<strong data-pinyin="Tā wǎnshang jǐ diǎn yǒu kòng?">她晚上几点有空？</strong><span>＋</span>
+</button>
+<button class="question-button" data-question="gift" type="button">
+<strong data-pinyin="Tā gēge sòng tā shénme lǐwù?">她哥哥送她什么礼物？</strong><span>＋</span>
+</button>
+</div>
+<div class="clue-board" id="birthdayClueBoard"></div>
+<div class="game-actions">
+<button class="game-button primary" data-es="Ver los cuatro perfiles →" data-zh="查看四位学生 →" disabled="" id="openBirthdayFiles" type="button">查看四位学生 →</button>
+<span data-es="0/5 pistas" data-zh="已收集0/5条线索" id="birthdayClueCounter">已收集0/5条线索</span>
+</div>
+</section>
+<section class="game-panel" hidden="" id="panel3">
+<div class="game-panel-head">
+<div>
+<p class="kicker" data-es="Deducción de identidad" data-zh="人物推理">第三步 · 选</p>
+<h2 data-es="¿Quién cumple años hoy?" data-zh="今天的寿星是谁？">根据线索选择今天的寿星</h2>
+<p data-es="Cada estudiante tiene un dato diferente. Decide según la fecha, edad, familia y hora." data-zh="每位学生只有一项信息不同。根据日期、年龄、家庭人数和时间判断。">比较四位学生的生日、年龄、家庭人数和时间。</p>
+</div>
+<div class="panel-number">03</div>
+</div>
+<div class="candidate-grid">
+<article class="candidate-card">
+<div class="candidate-head"><div class="candidate-avatar">李</div><h3 data-pinyin="Lǐ Míng">李明</h3></div>
+<div class="candidate-facts">
+<span data-pinyin="Èrshíyī suì">二十一岁</span>
+<span data-pinyin="Jiālǐ yǒu sān kǒu rén">家里有三口人</span>
+<span data-pinyin="Shēngrì: wǔ yuè shíliù hào">生日：五月十六号</span>
+<span data-pinyin="Wǎnshang qī diǎn yǒu kòng">晚上七点有空</span>
+</div>
+<button class="game-button birthday-choice" data-candidate="liming" data-es="Elegir a Li Ming" data-zh="选择李明" type="button">选择李明</button>
+</article>
+<article class="candidate-card">
+<div class="candidate-head"><div class="candidate-avatar">安</div><h3 data-pinyin="Ānnà">安娜</h3></div>
+<div class="candidate-facts">
+<span data-pinyin="Èrshí suì">二十岁</span>
+<span data-pinyin="Jiālǐ yǒu sì kǒu rén">家里有四口人</span>
+<span data-pinyin="Shēngrì: wǔ yuè shíliù hào">生日：五月十六号</span>
+<span data-pinyin="Wǎnshang qī diǎn yǒu kòng">晚上七点有空</span>
+</div>
+<button class="game-button birthday-choice" data-candidate="anna" data-es="Elegir a Ana" data-zh="选择安娜" type="button">选择安娜</button>
+</article>
+<article class="candidate-card">
+<div class="candidate-head"><div class="candidate-avatar">王</div><h3 data-pinyin="Wáng Fāng">王芳</h3></div>
+<div class="candidate-facts">
+<span data-pinyin="Èrshíyī suì">二十一岁</span>
+<span data-pinyin="Jiālǐ yǒu sì kǒu rén">家里有四口人</span>
+<span data-pinyin="Shēngrì: wǔ yuè shíliù hào">生日：五月十六号</span>
+<span data-pinyin="Wǎnshang qī diǎn yǒu kòng">晚上七点有空</span>
+</div>
+<button class="game-button birthday-choice" data-candidate="wangfang" data-es="Elegir a Wang Fang" data-zh="选择王芳" type="button">选择王芳</button>
+</article><article class="candidate-card">
+<div class="candidate-head"><div class="candidate-avatar">大</div><h3 data-pinyin="Dàwèi">大卫</h3></div>
+<div class="candidate-facts">
+<span data-pinyin="Èrshíyī suì">二十一岁</span>
+<span data-pinyin="Jiālǐ yǒu sì kǒu rén">家里有四口人</span>
+<span data-pinyin="Shēngrì: wǔ yuè èrshí hào">生日：五月二十号</span>
+<span data-pinyin="Wǎnshang qī diǎn yǒu kòng">晚上七点有空</span>
+</div>
+<button class="game-button birthday-choice" data-candidate="david" data-es="Elegir a David" data-zh="选择大卫" type="button">选择大卫</button>
+</article>
+</div>
+<div class="game-feedback" data-es="Elige a un estudiante." data-zh="选择一位学生。" id="birthdayCandidateFeedback">选择一位学生。</div>
+<div class="identity-reveal" hidden="" id="birthdayRecap">
+<article class="profile-card compact-profile" id="birthdaySolvedCard">
+<div class="profile-card-topline">
+<span class="profile-file-number">人物档案 · 02</span>
+<span class="profile-solved-stamp">✓ 已找到寿星</span>
+</div>
+<div class="profile-card-body">
+<div class="profile-portrait-column">
+<div aria-hidden="true" class="profile-avatar-large">王</div>
+<span class="profile-role-badge">今天的寿星</span>
+</div>
+<div class="profile-information">
+<p class="profile-eyebrow">BIRTHDAY PROFILE</p>
+<h3 class="profile-name">王芳 <span class="learning-pinyin profile-name-pinyin">Wáng Fāng</span></h3>
+<p class="profile-subtitle">生日主题推理完成</p>
+<dl class="profile-data-grid">
+<div><dt>今天的日期</dt><dd>五月十六号</dd></div>
+<div><dt>生日</dt><dd>五月十六号</dd></div>
+<div><dt>年龄</dt><dd>二十一岁</dd></div>
+<div><dt>家里人数</dt><dd>四口人</dd></div>
+<div><dt>有空时间</dt><dd>晚上七点</dd></div>
+<div><dt>收到的礼物</dt><dd>一本汉语词典</dd></div>
+</dl>
+</div>
+</div>
+<section class="profile-evidence-section">
+<div class="profile-section-title"><span>关键证据</span><small>生日、年龄、时间和礼物全部吻合</small></div>
+<div class="profile-evidence-list">
+<span data-pinyin="Shēngrì shì wǔyuè shíliù hào">生日是五月十六号</span>
+<span data-pinyin="Jīnnián èrshíyī suì">今年二十一岁</span>
+<span data-pinyin="Wǎnshang qī diǎn yǒu kòng">晚上七点有空</span>
+<span data-pinyin="Gēge sòng tā yì běn Hànyǔ cídiǎn">哥哥送她一本汉语词典</span>
+</div>
+</section>
+<div class="profile-conclusion">
+<span class="profile-conclusion-mark">✓</span>
+<div><small>最终结论</small><strong>王芳就是今天的寿星。</strong></div>
+</div>
+</article>
+<div class="profile-summary-strip">
+<strong>故事复述</strong>
+<p id="birthdayRecapText">今天是五月十六号。王芳就是今天的寿星。她今年二十一岁，家里有四口人。她晚上七点有空，所以生日会晚上七点开始。她哥哥送她一本汉语词典。</p>
+</div>
+<div class="game-actions">
+<button aria-label="朗读总结" class="speak-button" data-speech-target="birthdayRecapText" type="button">▶</button>
+<button class="game-button" id="printBirthdaySolvedCard" type="button">打印人物档案</button>
+<button class="game-button primary" data-es="Pasar a la confirmación →" data-zh="进入生日确认 →" id="startBirthdayQuiz" type="button">进入生日确认 →</button>
+</div>
+</div>
+</section>
+<section class="game-panel" hidden="" id="panel4">
+<div class="game-panel-head">
+<div>
+<p class="kicker" data-es="Preguntas en círculo" data-zh="循环提问">第四步 · 确认</p>
+<h2 data-es="La profesora confirma los datos" data-zh="老师再问一遍生日信息">用简单问题再确认一次</h2>
+<p data-es="La misma información aparece con distintas preguntas para familiarizarte con fechas, horas y dobles objetos." data-zh="同一组信息会用不同问法重复出现，帮助你熟悉日期、时间和双宾语表达。">每次只选一个答案，答错后会看到解释。</p>
+</div>
+<div class="panel-number">04</div>
+</div>
+<div class="quiz-card">
+<div class="quiz-progress" id="birthdayQuizProgress">1 / 7</div>
+<h3 class="quiz-question" id="birthdayQuizQuestion"></h3>
+<div class="quiz-options" id="birthdayQuizOptions"></div>
+<div class="game-feedback" data-es="Elige una respuesta." data-zh="选择一个答案。" id="birthdayQuizFeedback">选择一个答案。</div>
+<div class="game-actions">
+<button class="game-button primary" data-es="Siguiente →" data-zh="下一题 →" disabled="" id="nextBirthdayQuiz" type="button">下一题 →</button>
+</div>
+</div>
+</section>
+<section class="game-panel" hidden="" id="panel5">
+<div class="game-panel-head">
+<div>
+<p class="kicker" data-es="Producción personalizada TPRS" data-zh="TPRS个性化输出">第五步 · 做</p>
+<h2 data-es="Escribe tu propia invitación" data-zh="写一张自己的生日邀请卡">建立我的生日邀请卡</h2>
+<p data-es="Usa las estructuras de fecha, hora y lugar para invitar a un amigo a tu fiesta." data-zh="使用故事中的日期、时间和地点句型，邀请一位朋友参加生日会。">选择日期、时间、地点和活动，生成一张可以朗读和打印的邀请卡。</p>
+</div>
+<div class="panel-number">05</div>
+</div>
+<div class="final-form">
+<div class="final-field">
+<label data-es="Tu nombre chino" data-pinyin="Nǐ de Zhōngwén míngzi" data-zh="你的中文名字" for="birthdayHost">你的中文名字</label>
+<input id="birthdayHost" maxlength="20" placeholder="例如：安娜" type="text"/>
+</div>
+<div class="final-field">
+<label data-es="¿A quién invitas?" data-pinyin="Nǐ xiǎng yāoqǐng shéi?" data-zh="你想邀请谁？" for="birthdayGuest">你想邀请谁？</label>
+<input id="birthdayGuest" maxlength="20" placeholder="例如：玛丽" type="text"/>
+</div>
+<div class="final-field">
+<label data-es="Fecha del cumpleaños" data-pinyin="Shēngrì rìqī" data-zh="生日日期" for="birthdayDate">生日日期</label>
+<select id="birthdayDate">
+<option value="">请选择</option>
+<option value="五月十六号">五月十六号</option>
+<option value="六月八号">六月八号</option>
+<option value="七月二十号">七月二十号</option>
+<option value="九月十二号">九月十二号</option>
+<option value="十二月二十五号">十二月二十五号</option>
+</select>
+</div>
+<div class="final-field">
+<label data-es="¿A qué hora empieza?" data-pinyin="Shēngrì huì jǐ diǎn kāishǐ?" data-zh="生日会几点开始？" for="birthdayTime">生日会几点开始？</label>
+<select id="birthdayTime">
+<option value="">请选择</option>
+<option value="下午三点">下午三点</option>
+<option value="下午五点">下午五点</option>
+<option value="晚上七点">晚上七点</option>
+<option value="晚上八点">晚上八点</option>
+</select>
+</div>
+<div class="final-field">
+<label data-es="¿Dónde es la fiesta?" data-pinyin="Shēngrì huì zài nǎr?" data-zh="生日会在哪儿？" for="birthdayPlace">生日会在哪儿？</label>
+<select id="birthdayPlace">
+<option value="">请选择</option>
+<option value="学生宿舍">学生宿舍</option>
+<option value="学校食堂">学校食堂</option>
+<option value="中国饭馆">中国饭馆</option>
+<option value="我家">我家</option>
+</select>
+</div>
+<div class="final-field">
+<label data-es="¿Qué haréis juntos?" data-pinyin="Dàjiā yìqǐ zuò shénme?" data-zh="大家一起做什么？" for="birthdayActivity">大家一起做什么？</label>
+<select id="birthdayActivity">
+<option value="">请选择</option>
+<option value="吃蛋糕">吃蛋糕</option>
+<option value="吃中国菜">吃中国菜</option>
+<option value="唱歌">唱歌</option>
+<option value="喝茶、聊天">喝茶、聊天</option>
+</select>
+</div>
+</div>
+<div class="game-actions">
+<button class="game-button primary" data-es="Generar invitación" data-zh="生成生日邀请卡" id="generateBirthdayCard" type="button">生成生日邀请卡</button>
+<button class="game-button" data-es="Reiniciar la historia" data-zh="重新开始故事" id="resetBirthdayTheme" type="button">重新开始故事</button>
+</div>
+<div class="profile-output-wrapper" hidden="" id="birthdayFinalCard">
+<article class="profile-card compact-profile" id="printableBirthdayCard">
+<div class="profile-card-topline">
+<span class="profile-file-number">我的生日邀请卡</span>
+<span class="profile-level-chip">Theme 02</span>
+</div>
+<div class="profile-card-body">
+<div class="profile-portrait-column">
+<div aria-hidden="true" class="profile-avatar-large personal-avatar">邀</div>
+<span class="profile-role-badge">生日邀请</span>
+</div>
+<div class="profile-information">
+<p class="profile-eyebrow">BIRTHDAY INVITATION</p>
+<h3 class="profile-name"><span id="birthdayCardGuest">—</span> <span class="learning-pinyin profile-name-pinyin" id="birthdayCardGuestPinyin"></span></h3>
+<p class="profile-subtitle">请你来参加我的生日会</p>
+<dl class="profile-data-grid">
+<div><dt>邀请人</dt><dd><span id="birthdayCardHost">—</span></dd></div>
+<div><dt>日期</dt><dd><span id="birthdayCardDate">—</span> <span class="learning-pinyin" id="birthdayCardDatePinyin"></span></dd></div>
+<div><dt>时间</dt><dd><span id="birthdayCardTime">—</span> <span class="learning-pinyin" id="birthdayCardTimePinyin"></span></dd></div>
+<div><dt>地点</dt><dd><span id="birthdayCardPlace">—</span> <span class="learning-pinyin" id="birthdayCardPlacePinyin"></span></dd></div>
+<div><dt>一起做什么</dt><dd><span id="birthdayCardActivity">—</span> <span class="learning-pinyin" id="birthdayCardActivityPinyin"></span></dd></div>
+<div><dt>主题</dt><dd>生日会</dd></div>
+</dl>
+</div>
+</div>
+<section class="profile-self-introduction">
+<small>完整邀请语</small>
+<p id="birthdayFinalText"></p>
+<span class="learning-pinyin final-card-pinyin" id="birthdayFinalPinyin"></span>
+</section>
+<div class="profile-completion-seal">
+<span>请</span>
+<div><strong>邀请卡已建立</strong><small>Ángela的汉语课堂 · 主题02</small></div>
+</div>
+</article>
+<small class="profile-save-note">这张邀请卡已经保存在当前浏览器中。</small>
+<div class="game-actions">
+<button class="game-button" data-es="Escuchar" data-zh="听一遍" id="speakBirthdayCard" type="button">听一遍</button>
+<button class="game-button" data-es="Copiar chino" data-zh="复制中文" id="copyBirthdayCard" type="button">复制中文</button>
+<button class="game-button" id="printBirthdayCard" type="button">打印邀请卡</button>
+<a class="game-button primary" data-es="Volver a los temas →" data-zh="返回主题馆 →" href="npcr-1-review.html">返回主题馆 →</a>
+</div>
+</div>
+<div class="result-box" hidden="" id="birthdayThemeResult"><div class="world-achievement-badge birthday-achievement-badge">
+<span class="world-achievement-icon birthday-achievement-icon">寿</span>
+<div><small>获得称号</small><strong>生日策划师</strong></div>
+</div>
+<div class="result-stars" id="birthdayResultStars">★★★</div>
+<h3 data-es="¡Tema 2 completado!" data-zh="主题2完成！">主题2完成！</h3>
+<p id="birthdayResultMessage"></p>
+</div>
+</section>
+</main>
+<footer><span>© 2026 Ángela</span><span>Aula de Chino</span></footer>
+<script src="../course.js"></script>
+<script src="npcr-1-tprs-pinyin.js"></script><script src="npcr-1-tprs-theme2.js"></script>
+</body>
+</html>

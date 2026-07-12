@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>第5课 · 语法</title>
+<link href="../course.css" rel="stylesheet"/>
+<style>
+.grammar-intro{
+  margin:22px 0 28px;padding:24px;border:1px solid var(--line);
+  border-radius:24px;background:var(--card)
+}
+.grammar-intro p{max-width:850px;color:var(--muted)}
+.grammar-summary{
+  display:flex;flex-wrap:wrap;gap:8px;margin-top:16px
+}
+.grammar-summary a{
+  padding:7px 11px;border-radius:999px;background:var(--soft);
+  font-size:13px;font-weight:800
+}
+.grammar-list{display:grid;gap:20px}
+.grammar-card{
+  scroll-margin-top:20px;padding:26px;border:1px solid var(--line);
+  border-radius:24px;background:var(--card)
+}
+.grammar-head{
+  display:grid;grid-template-columns:48px 1fr;gap:15px;align-items:start
+}
+.grammar-number{
+  display:grid;place-items:center;width:42px;height:42px;border-radius:14px;
+  background:var(--soft);color:var(--red);font-weight:900
+}
+.grammar-head h2{margin:0;font-size:27px}
+.grammar-es-title{margin:5px 0 0;color:var(--muted);font-size:14px}
+.formula{
+  margin:18px 0;padding:15px 17px;border-left:4px solid var(--red);
+  border-radius:10px;background:var(--soft);font-size:18px;font-weight:900
+}
+.explanation{line-height:1.8}
+.example-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0
+}
+.example-card{
+  padding:16px;border:1px solid var(--line);border-radius:17px;background:var(--bg)
+}
+.example-zh{font-size:18px;font-weight:900}
+.example-py{margin-top:6px;color:var(--red);font-size:13px;font-weight:700}
+.example-es{margin-top:6px;color:var(--muted);font-size:13px}
+.warning{
+  margin:16px 0;padding:14px 16px;border-radius:14px;background:var(--soft)
+}
+.warning strong{color:var(--red)}
+.self-check{
+  margin-top:15px;border-top:1px dashed var(--line)
+}
+.self-check summary{
+  padding:14px 0 7px;color:var(--red);font-weight:900;cursor:pointer
+}
+.answer{
+  margin:8px 0 0;padding:12px 14px;border-radius:12px;background:var(--bg);
+  font-weight:800
+}
+.page-nav{
+  display:flex;justify-content:space-between;gap:12px;margin-top:24px
+}
+.page-nav a{
+  padding:10px 15px;border:1px solid var(--line);border-radius:999px;
+  background:var(--card);font-weight:800
+}
+@media(max-width:780px){
+  .example-grid{grid-template-columns:1fr}
+  .grammar-card{padding:20px}
+}
+
+.grammar-page-badge{
+  display:inline-block;
+  margin-bottom:12px;
+  padding:7px 12px;
+  border-radius:999px;
+  background:var(--red);
+  color:#fff;
+  font-size:13px;
+  font-weight:900
+}
+</style>
+</head>
+<body>
+<header>
+<a class="brand" href="../index.html">
+<span class="logo">汉</span>
+<span>
+<b data-es="Aula de Chino con Ángela" data-zh="Ángela的汉语课堂">Ángela的汉语课堂</b>
+<small data-es="Aprender chino y comprender su cultura" data-zh="学中文，也理解中国文化">学中文，也理解中国文化</small>
+</span>
+</a>
+<div class="tools">
+<button id="lang" type="button">ES</button>
+<button id="theme" type="button">☾</button>
+</div>
+</header>
+<main>
+<a class="back" href="../courses/npcr-1-lesson-5.html">←
+    <span data-es="Volver a la lección 5" data-zh="返回第5课">返回第5课</span>
+</a>
+<section class="grammar-intro"><div class="grammar-page-badge" data-es="Gramática de esta lección" data-zh="本课语法板块">本课语法板块</div>
+<p class="kicker" data-es="Lección 5 · Gramática" data-zh="第5课 · 语法">第5课 · 语法</p>
+<h1 data-es="Gramática de la lección 5" data-zh="语法：祝你生日快乐">语法：祝你生日快乐</h1>
+<p data-es="La página sigue el orden gramatical del manual. Cada punto incluye estructura, uso, ejemplos, errores frecuentes y una comprobación con respuesta desplegable." data-zh="本页按照教材语法顺序整理。每个语法点包含结构、用法、例句、易错提醒和一个可以展开查看答案的小检查。">
+       本页按照教材语法顺序整理。每个语法点包含结构、用法、例句、易错提醒和一个可以展开查看答案的小检查。
+    </p>
+<nav class="grammar-summary"><a data-es="Años, meses, fechas y días de la semana" data-zh="年、月、日和星期的读法" href="#grammar-1">年、月、日和星期的读法</a><a data-es="Oración con predicado nominal" data-zh="名词谓语句" href="#grammar-2">名词谓语句</a><a data-es="Predicado verbal con dos objetos (1): «送、教»" data-zh="双宾语动词谓语句（1）：送、教" href="#grammar-3">双宾语动词谓语句（1）：送、教</a><a data-es="El adverbio «就» (1): énfasis" data-zh="副词“就”（1）：表示强调" href="#grammar-4">副词“就”（1）：表示强调</a><a data-es="Pregunta con entonación ascendente" data-zh="疑问语调句" href="#grammar-5">疑问语调句</a><a data-es="Resumen gramatical (1): componentes de la oración" data-zh="语法小结（1）：句子成分" href="#grammar-6">语法小结（1）：句子成分</a></nav>
+</section>
+<section class="grammar-list">
+<article class="grammar-card" id="grammar-1">
+<div class="grammar-head">
+<div class="grammar-number">1</div>
+<div>
+<h2 data-es="Años, meses, fechas y días de la semana" data-zh="年、月、日和星期的读法">年、月、日和星期的读法</h2>
+<p class="grammar-es-title">Años, meses, fechas y días de la semana</p>
+</div>
+</div>
+<div class="formula">年 + 月 + 日 / 号 + 星期 + 时段 + 钟点</div>
+<p class="explanation" data-es="Los años se leen cifra por cifra; los meses son «número + 月»; en la lengua hablada las fechas usan «号» y en escritura puede usarse «日». El orden temporal va de la unidad mayor a la menor." data-zh="年份逐位读数字；月份用“数字＋月”；日期口语常用“号”，书面语可用“日”；星期一至星期六用数字，星期日也可以说“星期天”。时间顺序从大单位到小单位。">年份逐位读数字；月份用“数字＋月”；日期口语常用“号”，书面语可用“日”；星期一至星期六用数字，星期日也可以说“星期天”。时间顺序从大单位到小单位。</p>
+<div class="example-grid">
+<div class="example-card">
+<div class="example-zh">二〇二六年七月十日</div>
+<div class="example-py">èr líng èr liù nián qī yuè shí rì</div>
+<div class="example-es">10 de julio de 2026.</div>
+</div>
+<div class="example-card">
+<div class="example-zh">这个星期日几号？</div>
+<div class="example-py">Zhège Xīngqīrì jǐ hào?</div>
+<div class="example-es">¿Qué fecha es este domingo?</div>
+</div>
+<div class="example-card">
+<div class="example-zh">十二月二十五日星期五晚上八点</div>
+<div class="example-py">shí'èr yuè èrshíwǔ rì Xīngqīwǔ wǎnshang bā diǎn</div>
+<div class="example-es">Viernes 25 de diciembre a las 20:00.</div>
+</div>
+</div>
+<div class="warning">
+<strong data-es="Atención" data-zh="易错提醒">易错提醒</strong>
+<p data-es="Los años suelen leerse cifra por cifra: 2026 = «二〇二六年», no «二千零二十六年»." data-zh="年份通常逐个数字读：2026读“二〇二六年”，不是“二千零二十六年”。">年份通常逐个数字读：2026读“二〇二六年”，不是“二千零二十六年”。</p>
+</div>
+<details class="self-check">
+<summary data-es="Comprueba: Escribe «miércoles, 8 de mayo» en chino." data-zh="小检查：写出“星期三，5月8号”。">小检查：写出“星期三，5月8号”。</summary>
+<p class="answer"><span data-es="Respuesta: " data-zh="答案：">答案：</span>五月八号，星期三。</p>
+</details>
+</article>
+<article class="grammar-card" id="grammar-2">
+<div class="grammar-head">
+<div class="grammar-number">2</div>
+<div>
+<h2 data-es="Oración con predicado nominal" data-zh="名词谓语句">名词谓语句</h2>
+<p class="grammar-es-title">Oración con predicado nominal</p>
+</div>
+</div>
+<div class="formula">主语 + 名词 / 数量短语</div>
+<p class="explanation" data-es="Para expresar edad, fecha, hora, etc., un nombre o sintagma numeral puede funcionar directamente como predicado sin «是». La negación suele usar «不是»." data-zh="表示年龄、日期、钟点等时，名词或数量短语可以直接作谓语，不需要“是”。否定形式一般使用“不是”。">表示年龄、日期、钟点等时，名词或数量短语可以直接作谓语，不需要“是”。否定形式一般使用“不是”。</p>
+<div class="example-grid">
+<div class="example-card">
+<div class="example-zh">他今年二十七岁。</div>
+<div class="example-py">Tā jīnnián èrshíqī suì.</div>
+<div class="example-es">Este año tiene 27 años.</div>
+</div>
+<div class="example-card">
+<div class="example-zh">今天十月二十七号。</div>
+<div class="example-py">Jīntiān shí yuè èrshíqī hào.</div>
+<div class="example-es">Hoy es 27 de octubre.</div>
+</div>
+<div class="example-card">
+<div class="example-zh">现在差五分十点。</div>
+<div class="example-py">Xiànzài chà wǔ fēn shí diǎn.</div>
+<div class="example-es">Ahora son las 9:55.</div>
+</div>
+</div>
+<div class="warning">
+<strong data-es="Atención" data-zh="易错提醒">易错提醒</strong>
+<p data-es="En una afirmación normal no se dice × «他今年是二十七岁», sino «他今年二十七岁»." data-zh="一般不说：× 他今年是二十七岁。普通陈述说“他今年二十七岁”。">一般不说：× 他今年是二十七岁。普通陈述说“他今年二十七岁”。</p>
+</div>
+<details class="self-check">
+<summary data-es="Comprueba: Elige: A. 我今年十九岁。 B. 我今年是十九岁。" data-zh="小检查：选择正确句子：A. 我今年十九岁。 B. 我今年是十九岁。">小检查：选择正确句子：A. 我今年十九岁。 B. 我今年是十九岁。</summary>
+<p class="answer"><span data-es="Respuesta: " data-zh="答案：">答案：</span>A. 我今年十九岁。</p>
+</details>
+</article>
+<article class="grammar-card" id="grammar-3">
+<div class="grammar-head">
+<div class="grammar-number">3</div>
+<div>
+<h2 data-es="Predicado verbal con dos objetos (1): «送、教»" data-zh="双宾语动词谓语句（1）：送、教">双宾语动词谓语句（1）：送、教</h2>
+<p class="grammar-es-title">Predicado verbal con dos objetos (1): «送、教»</p>
+</div>
+</div>
+<div class="formula">主语 + 送 / 教 + 人 + 事物 / 内容</div>
+<p class="explanation" data-es="Verbos como «送» y «教» pueden llevar dos objetos: el primero suele ser una persona y el segundo una cosa o contenido." data-zh="“送、教”等动词可以带两个宾语：第一个宾语通常是人，第二个宾语是事物或学习内容。">“送、教”等动词可以带两个宾语：第一个宾语通常是人，第二个宾语是事物或学习内容。</p>
+<div class="example-grid">
+<div class="example-card">
+<div class="example-zh">林娜送她哥哥一个大蛋糕。</div>
+<div class="example-py">Lín Nà sòng tā gēge yí ge dà dàngāo.</div>
+<div class="example-es">Lin Na regala a su hermano mayor una tarta grande.</div>
+</div>
+<div class="example-card">
+<div class="example-zh">她教我英语。</div>
+<div class="example-py">Tā jiāo wǒ Yīngyǔ.</div>
+<div class="example-es">Ella me enseña inglés.</div>
+</div>
+<div class="example-card">
+<div class="example-zh">他们教林娜说汉语。</div>
+<div class="example-py">Tāmen jiāo Lín Nà shuō Hànyǔ.</div>
+<div class="example-es">Ellos enseñan a Lin Na a hablar chino.</div>
+</div>
+</div>
+<div class="warning">
+<strong data-es="Atención" data-zh="易错提醒">易错提醒</strong>
+<p data-es="El orden normal es persona primero y cosa o contenido después." data-zh="双宾语的顺序通常是“人”在前、“事物或内容”在后。">双宾语的顺序通常是“人”在前、“事物或内容”在后。</p>
+</div>
+<details class="self-check">
+<summary data-es="Comprueba: Ordena: 我 / 老师 / 教 / 汉语" data-zh="小检查：排序：我 / 老师 / 教 / 汉语">小检查：排序：我 / 老师 / 教 / 汉语</summary>
+<p class="answer"><span data-es="Respuesta: " data-zh="答案：">答案：</span>老师教我汉语。</p>
+</details>
+</article>
+<article class="grammar-card" id="grammar-4">
+<div class="grammar-head">
+<div class="grammar-number">4</div>
+<div>
+<h2 data-es="El adverbio «就» (1): énfasis" data-zh="副词“就”（1）：表示强调">副词“就”（1）：表示强调</h2>
+<p class="grammar-es-title">El adverbio «就» (1): énfasis</p>
+</div>
+</div>
+<div class="formula">主语 + 就 + 是 / 动词 + 强调内容</div>
+<p class="explanation" data-es="«就» delante del verbo enfatiza el elemento siguiente, con el sentido de «precisamente, justamente»." data-zh="“就”放在动词前，可以强调紧随其后的成分，表示“正是、就是”。">“就”放在动词前，可以强调紧随其后的成分，表示“正是、就是”。</p>
+<div class="example-grid">
+<div class="example-card">
+<div class="example-zh">他就是我哥哥。</div>
+<div class="example-py">Tā jiù shì wǒ gēge.</div>
+<div class="example-es">Él es precisamente mi hermano mayor.</div>
+</div>
+<div class="example-card">
+<div class="example-zh">这就是寿面。</div>
+<div class="example-py">Zhè jiù shì shòumiàn.</div>
+<div class="example-es">Estos son precisamente los fideos de longevidad.</div>
+</div>
+<div class="example-card">
+<div class="example-zh">我来介绍一下，这就是陈老师。</div>
+<div class="example-py">Wǒ lái jièshào yíxià, zhè jiù shì Chén lǎoshī.</div>
+<div class="example-es">Voy a presentaros: esta es la profesora Chen.</div>
+</div>
+</div>
+<div class="warning">
+<strong data-es="Atención" data-zh="易错提醒">易错提醒</strong>
+<p data-es="En esta lección «就» se usa principalmente para enfatizar; otros usos se estudiarán más adelante." data-zh="本课“就”主要用于强调；其他表示时间早、条件结果等用法以后再学。">本课“就”主要用于强调；其他表示时间早、条件结果等用法以后再学。</p>
+</div>
+<details class="self-check">
+<summary data-es="Comprueba: Usa «就» para enfatizar: 那是马大为。" data-zh="小检查：用“就”强调：那是马大为。">小检查：用“就”强调：那是马大为。</summary>
+<p class="answer"><span data-es="Respuesta: " data-zh="答案：">答案：</span>那就是马大为。</p>
+</details>
+</article>
+<article class="grammar-card" id="grammar-5">
+<div class="grammar-head">
+<div class="grammar-number">5</div>
+<div>
+<h2 data-es="Pregunta con entonación ascendente" data-zh="疑问语调句">疑问语调句</h2>
+<p class="grammar-es-title">Pregunta con entonación ascendente</p>
+</div>
+</div>
+<div class="formula">陈述句语序 + ？（升调）</div>
+<p class="explanation" data-es="Una oración enunciativa puede convertirse en pregunta solo con entonación ascendente y signo de interrogación, sin «吗». Suele expresar sorpresa, duda o confirmación." data-zh="陈述句不用“吗”，只通过升调也可以构成疑问句。这种问句常表示惊讶、不确定或需要确认。">陈述句不用“吗”，只通过升调也可以构成疑问句。这种问句常表示惊讶、不确定或需要确认。</p>
+<div class="example-grid">
+<div class="example-card">
+<div class="example-zh">你认识我妹妹？</div>
+<div class="example-py">Nǐ rènshi wǒ mèimei?</div>
+<div class="example-es">¿Conoces a mi hermana menor?</div>
+</div>
+<div class="example-card">
+<div class="example-zh">你来我们班？</div>
+<div class="example-py">Nǐ lái wǒmen bān?</div>
+<div class="example-es">¿Vienes a nuestra clase?</div>
+</div>
+<div class="example-card">
+<div class="example-zh">你学习英语？</div>
+<div class="example-py">Nǐ xuéxí Yīngyǔ?</div>
+<div class="example-es">¿Estudias inglés?</div>
+</div>
+</div>
+<div class="warning">
+<strong data-es="Atención" data-zh="易错提醒">易错提醒</strong>
+<p data-es="Esta pregunta depende del contexto y la entonación; para una pregunta neutral, «吗» suele ser más claro al principio." data-zh="这种问句依赖语境和语调，初学者在中性提问时使用“吗”更清楚。">这种问句依赖语境和语调，初学者在中性提问时使用“吗”更清楚。</p>
+</div>
+<details class="self-check">
+<summary data-es="Comprueba: Convierte con entonación ascendente: 你认识林娜。" data-zh="小检查：给陈述句加问号并用升调：你认识林娜。">小检查：给陈述句加问号并用升调：你认识林娜。</summary>
+<p class="answer"><span data-es="Respuesta: " data-zh="答案：">答案：</span>你认识林娜？</p>
+</details>
+</article>
+<article class="grammar-card" id="grammar-6">
+<div class="grammar-head">
+<div class="grammar-number">6</div>
+<div>
+<h2 data-es="Resumen gramatical (1): componentes de la oración" data-zh="语法小结（1）：句子成分">语法小结（1）：句子成分</h2>
+<p class="grammar-es-title">Resumen gramatical (1): componentes de la oración</p>
+</div>
+</div>
+<div class="formula">主语 + 谓语；谓语中可含动词、宾语、状语</div>
+<p class="explanation" data-es="La oración china suele dividirse en sujeto y predicado. El objeto va normalmente detrás del verbo; el modificador nominal delante del nombre; el adverbial delante del verbo o adjetivo. En conversación pueden omitirse elementos recuperables por contexto." data-zh="汉语句子通常分为主语和谓语。宾语一般在动词后；定语修饰名词并放在名词前；状语修饰动词或形容词，也放在所修饰成分前。会话中主语或谓语可以在语境明确时省略。">汉语句子通常分为主语和谓语。宾语一般在动词后；定语修饰名词并放在名词前；状语修饰动词或形容词，也放在所修饰成分前。会话中主语或谓语可以在语境明确时省略。</p>
+<div class="example-grid">
+<div class="example-card">
+<div class="example-zh">我认识他。</div>
+<div class="example-py">Wǒ rènshi tā.</div>
+<div class="example-es">Lo conozco.</div>
+</div>
+<div class="example-card">
+<div class="example-zh">我的中国朋友教我做点心。</div>
+<div class="example-py">Wǒ de Zhōngguó péngyou jiāo wǒ zuò diǎnxin.</div>
+<div class="example-es">Mi amigo chino me enseña a preparar aperitivos.</div>
+</div>
+<div class="example-card">
+<div class="example-zh">他星期天去学校。</div>
+<div class="example-py">Tā Xīngqītiān qù xuéxiào.</div>
+<div class="example-es">Él va a la escuela el domingo.</div>
+</div>
+</div>
+<div class="warning">
+<strong data-es="Atención" data-zh="易错提醒">易错提醒</strong>
+<p data-es="Tanto el modificador nominal como el adverbial van delante, pero el primero modifica nombres y el segundo verbos o adjetivos." data-zh="定语和状语都在中心成分前，但定语修饰名词，状语修饰动词或形容词。">定语和状语都在中心成分前，但定语修饰名词，状语修饰动词或形容词。</p>
+</div>
+<details class="self-check">
+<summary data-es="Comprueba: En «我明天学习汉语», ¿qué elemento es el adverbial temporal?" data-zh="小检查：在“我明天学习汉语”中，哪个词是时间状语？">小检查：在“我明天学习汉语”中，哪个词是时间状语？</summary>
+<p class="answer"><span data-es="Respuesta: " data-zh="答案：">答案：</span>明天</p>
+</details>
+</article>
+</section>
+<div class="page-nav">
+<a href="../courses/npcr-1-lesson-5.html">← 第5课目录</a>
+<a href="npcr-1-lesson-5-characters.html">汉字 →</a>
+</div>
+</main>
+<footer><span>© 2026 Ángela</span><span>Aula de Chino</span></footer>
+<script src="../course.js"></script>
+</body>
+</html>

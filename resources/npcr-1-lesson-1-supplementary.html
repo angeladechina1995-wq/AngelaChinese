@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>第1课 · 补充词汇</title>
+<link href="../course.css" rel="stylesheet"/>
+<style>
+.supp-intro{
+  margin:22px 0 20px;
+  padding:24px;
+  border:1px solid var(--line);
+  border-radius:24px;
+  background:var(--card)
+}
+.supp-intro p{max-width:850px;color:var(--muted)}
+.supp-toolbar{
+  position:sticky;
+  top:8px;
+  z-index:5;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:9px;
+  margin:18px 0;
+  padding:14px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:color-mix(in srgb,var(--card) 94%,transparent);
+  backdrop-filter:blur(10px)
+}
+.supp-toolbar button,.supp-toolbar select,.supp-toolbar input{
+  min-height:40px;
+  padding:9px 13px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:var(--card);
+  color:var(--text);
+  font-weight:800
+}
+.supp-toolbar button{cursor:pointer}
+.supp-toolbar button.primary{background:var(--red);border-color:var(--red);color:#fff}
+.supp-search{flex:1;min-width:210px;font-weight:500!important}
+.supp-note,.supp-status{color:var(--muted);font-size:13px}
+.supp-status{min-height:20px;margin:5px 0 16px}
+.supp-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px
+}
+.supp-card{
+  display:grid;
+  grid-template-columns:36px 42px 1fr;
+  gap:12px;
+  padding:20px;
+  border:1px solid var(--line);
+  border-radius:22px;
+  background:var(--card)
+}
+.supp-number{
+  display:grid;
+  place-items:center;
+  width:32px;height:32px;
+  border-radius:50%;
+  background:var(--soft);
+  color:var(--red);
+  font-size:12px;font-weight:900
+}
+.supp-audio,.collocation-audio{
+  display:grid;
+  place-items:center;
+  border:1px solid var(--line);
+  background:var(--soft);
+  color:var(--red);
+  cursor:pointer
+}
+.supp-audio{width:38px;height:38px;border-radius:50%}
+.supp-word h2{
+  margin:0;
+  font:600 33px/1.15 Georgia,"Noto Serif SC",serif
+}
+.supp-pinyin{margin:5px 0 0;color:var(--red);font-weight:800}
+.supp-meta{
+  grid-column:1/-1;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:8px 13px;
+  padding:12px 14px;
+  border-radius:14px;
+  background:var(--soft)
+}
+.supp-pos{color:var(--muted);font-size:12px}
+.supp-meaning{font-weight:900}
+.collocations{
+  grid-column:1/-1;
+  padding-top:4px
+}
+.collocations strong{
+  display:block;
+  margin-bottom:8px;
+  font-size:13px
+}
+.collocation-list{display:flex;flex-wrap:wrap;gap:8px}
+.collocation-audio{
+  display:inline-flex;
+  gap:7px;
+  padding:7px 10px;
+  border-radius:999px;
+  font-weight:800
+}
+.collocation-audio::before{content:"▶";font-size:10px}
+.empty-collocation{color:var(--muted);font-size:13px}
+.lesson-links{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  gap:10px;
+  margin-top:25px
+}
+.lesson-links a{
+  padding:10px 15px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:var(--card);
+  font-weight:800
+}
+body.hide-supp-pinyin .supp-pinyin{display:none}
+body.hide-supp-spanish .supp-meaning{display:none}
+@media(max-width:780px){
+  .supp-grid{grid-template-columns:1fr}
+  .supp-toolbar{position:static}
+}
+
+.real-audio-badge{
+  display:inline-block;
+  margin-bottom:12px;
+  padding:7px 12px;
+  border-radius:999px;
+  background:var(--red);
+  color:#fff;
+  font-size:13px;
+  font-weight:900
+}
+</style>
+</head>
+<body>
+<header>
+<a class="brand" href="../index.html">
+<span class="logo">汉</span>
+<span>
+<b data-es="Aula de Chino con Ángela" data-zh="Ángela的汉语课堂">Ángela的汉语课堂</b>
+<small data-es="Aprender chino y comprender su cultura" data-zh="学中文，也理解中国文化">学中文，也理解中国文化</small>
+</span>
+</a>
+<div class="tools">
+<button id="lang" type="button">ES</button>
+<button id="theme" type="button">☾</button>
+</div>
+</header>
+<main>
+<a class="back" href="../courses/npcr-1-lesson-1.html">←
+    <span data-es="Volver a la lección 1" data-zh="返回第1课">返回第1课</span>
+</a>
+<section class="supp-intro"><div class="real-audio-badge" data-es="✓ Audio humano del manual" data-zh="✓ 教材真人录音">✓ 教材真人录音</div>
+<p class="kicker" data-es="Lección 1 · Vocabulario" data-zh="第1课 · 生词板块">第1课 · 生词板块</p>
+<h1 data-es="Vocabulario adicional: ¿Cómo has estado últimamente?" data-zh="补充词汇：你最近怎么样">
+      补充词汇：你最近怎么样
+    </h1>
+<p data-es="Contenido organizado según la tabla de vocabulario adicional del manual: 7 palabras con pinyin, categoría, significado en español y combinaciones del libro." data-zh="按照教材“补充词语”表整理，共7个词。每个词提供拼音、词性、西班牙语释义和教材搭配。">
+       按照教材“补充词语”表整理，共7个词。每个词提供拼音、词性、西班牙语释义和教材搭配。
+    </p>
+</section>
+<section class="supp-toolbar">
+<input class="supp-search" id="suppSearch" placeholder="搜索汉字、拼音或西语 / Buscar" type="search"/>
+<button data-es="Ocultar pinyin" data-zh="隐藏拼音" id="toggleSuppPinyin" type="button">隐藏拼音</button>
+<button data-es="Ocultar español" data-zh="隐藏西语" id="toggleSuppSpanish" type="button">隐藏西语</button>
+<button class="primary" data-es="▶ Reproducir" data-zh="▶ 连续朗读" id="playSupp" type="button">▶ 连续朗读</button>
+<button data-es="⏸ Pausar/continuar" data-zh="⏸ 暂停/继续" id="pauseSupp" type="button">⏸ 暂停/继续</button>
+<select aria-label="补充词汇朗读速度" id="suppSpeed">
+<option value="0.7">0.7×</option>
+<option value="0.85">0.85×</option>
+<option selected="" value="1">1×</option>
+<option value="1.15">1.15×</option>
+</select>
+<button data-es="■ Detener" data-zh="■ 停止" id="stopSupp" type="button">■ 停止</button>
+</section>
+<p class="supp-note" data-es="La grabación humana del vocabulario adicional ya está incluida. Pulsa «Reproducir» para escucharla; los botones de palabras y combinaciones siguen usando la voz china del navegador." data-zh="教材真人补充词汇录音已经加入。点击“连续朗读”即可播放；单个词语和搭配按钮仍使用浏览器普通话朗读。">教材真人补充词汇录音已经加入。点击“连续朗读”即可播放；单个词语和搭配按钮仍使用浏览器普通话朗读。</p>
+<div class="supp-status" id="suppStatus"></div>
+<audio id="humanSupplementaryAudio" preload="metadata">
+<source src="../audio/npcr-1-lesson-1-supplementary.mp3" type="audio/mpeg"/>
+</audio>
+<section class="supp-grid">
+<article class="supp-card" data-search="困 kùn somnoliento/a; tener sueño 形容词 adjetivo 很困 不困 不太困" data-word="困">
+<div class="supp-number">1</div>
+<button aria-label="朗读困" class="supp-audio" data-speech="困" type="button">▶</button>
+<div class="supp-word">
+<h2>困</h2>
+<p class="supp-pinyin">kùn</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="adjetivo" data-zh="形容词">形容词</span>
+<span class="supp-meaning">somnoliento/a; tener sueño</span>
+</div>
+<div class="collocations">
+<strong data-es="Combinaciones del manual" data-zh="教材常用搭配">教材常用搭配</strong>
+<div class="collocation-list"><button class="collocation-audio" data-speech="很困" type="button">很困</button><button class="collocation-audio" data-speech="不困" type="button">不困</button><button class="collocation-audio" data-speech="不太困" type="button">不太困</button></div>
+</div>
+</article>
+<article class="supp-card" data-search="渴 kě sediento/a; tener sed 形容词 adjetivo 很渴 不渴 不太渴" data-word="渴">
+<div class="supp-number">2</div>
+<button aria-label="朗读渴" class="supp-audio" data-speech="渴" type="button">▶</button>
+<div class="supp-word">
+<h2>渴</h2>
+<p class="supp-pinyin">kě</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="adjetivo" data-zh="形容词">形容词</span>
+<span class="supp-meaning">sediento/a; tener sed</span>
+</div>
+<div class="collocations">
+<strong data-es="Combinaciones del manual" data-zh="教材常用搭配">教材常用搭配</strong>
+<div class="collocation-list"><button class="collocation-audio" data-speech="很渴" type="button">很渴</button><button class="collocation-audio" data-speech="不渴" type="button">不渴</button><button class="collocation-audio" data-speech="不太渴" type="button">不太渴</button></div>
+</div>
+</article>
+<article class="supp-card" data-search="饿 è hambriento/a; tener hambre 形容词 adjetivo 很饿 不饿 不太饿" data-word="饿">
+<div class="supp-number">3</div>
+<button aria-label="朗读饿" class="supp-audio" data-speech="饿" type="button">▶</button>
+<div class="supp-word">
+<h2>饿</h2>
+<p class="supp-pinyin">è</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="adjetivo" data-zh="形容词">形容词</span>
+<span class="supp-meaning">hambriento/a; tener hambre</span>
+</div>
+<div class="collocations">
+<strong data-es="Combinaciones del manual" data-zh="教材常用搭配">教材常用搭配</strong>
+<div class="collocation-list"><button class="collocation-audio" data-speech="很饿" type="button">很饿</button><button class="collocation-audio" data-speech="不饿" type="button">不饿</button><button class="collocation-audio" data-speech="不太饿" type="button">不太饿</button></div>
+</div>
+</article>
+<article class="supp-card" data-search="累 lèi cansado/a 形容词 adjetivo 很累 不累 不太累" data-word="累">
+<div class="supp-number">4</div>
+<button aria-label="朗读累" class="supp-audio" data-speech="累" type="button">▶</button>
+<div class="supp-word">
+<h2>累</h2>
+<p class="supp-pinyin">lèi</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="adjetivo" data-zh="形容词">形容词</span>
+<span class="supp-meaning">cansado/a</span>
+</div>
+<div class="collocations">
+<strong data-es="Combinaciones del manual" data-zh="教材常用搭配">教材常用搭配</strong>
+<div class="collocation-list"><button class="collocation-audio" data-speech="很累" type="button">很累</button><button class="collocation-audio" data-speech="不累" type="button">不累</button><button class="collocation-audio" data-speech="不太累" type="button">不太累</button></div>
+</div>
+</article>
+<article class="supp-card" data-search="还行 hái xíng no está mal; aceptable 惯用表达 expresión" data-word="还行">
+<div class="supp-number">5</div>
+<button aria-label="朗读还行" class="supp-audio" data-speech="还行" type="button">▶</button>
+<div class="supp-word">
+<h2>还行</h2>
+<p class="supp-pinyin">hái xíng</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="expresión" data-zh="惯用表达">惯用表达</span>
+<span class="supp-meaning">no está mal; aceptable</span>
+</div>
+<div class="collocations">
+<span class="empty-collocation" data-es="El manual no ofrece una combinación fija para esta palabra." data-zh="本词在教材表中未列固定搭配。">
+                本词在教材表中未列固定搭配。
+              </span>
+</div>
+</article>
+<article class="supp-card" data-search="马马虎虎 mǎmǎhūhū regular; ni bien ni mal 形容词 adjetivo" data-word="马马虎虎">
+<div class="supp-number">6</div>
+<button aria-label="朗读马马虎虎" class="supp-audio" data-speech="马马虎虎" type="button">▶</button>
+<div class="supp-word">
+<h2>马马虎虎</h2>
+<p class="supp-pinyin">mǎmǎhūhū</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="adjetivo" data-zh="形容词">形容词</span>
+<span class="supp-meaning">regular; ni bien ni mal</span>
+</div>
+<div class="collocations">
+<span class="empty-collocation" data-es="El manual no ofrece una combinación fija para esta palabra." data-zh="本词在教材表中未列固定搭配。">
+                本词在教材表中未列固定搭配。
+              </span>
+</div>
+</article>
+<article class="supp-card" data-search="她 tā ella; a ella 代词 pronombre" data-word="她">
+<div class="supp-number">7</div>
+<button aria-label="朗读她" class="supp-audio" data-speech="她" type="button">▶</button>
+<div class="supp-word">
+<h2>她</h2>
+<p class="supp-pinyin">tā</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="pronombre" data-zh="代词">代词</span>
+<span class="supp-meaning">ella; a ella</span>
+</div>
+<div class="collocations">
+<span class="empty-collocation" data-es="El manual no ofrece una combinación fija para esta palabra." data-zh="本词在教材表中未列固定搭配。">
+                本词在教材表中未列固定搭配。
+              </span>
+</div>
+</article>
+</section>
+<nav class="lesson-links">
+<a href="../courses/npcr-1.html">← 第一册目录</a>
+<a href="../courses/npcr-1-lesson-1.html">第1课目录</a>
+<a href="npcr-1-lesson-2-supplementary.html">第2课补充词汇 →</a>
+</nav>
+</main>
+<footer><span>© 2026 Ángela</span><span>Aula de Chino</span></footer>
+<script src="../course.js"></script>
+<script>
+const cards = [...document.querySelectorAll(".supp-card")];
+const words = cards.map(card => card.dataset.word);
+const humanAudio = document.getElementById("humanSupplementaryAudio");
+const speedSelect = document.getElementById("suppSpeed");
+const statusBox = document.getElementById("suppStatus");
+const searchInput = document.getElementById("suppSearch");
+let pinyinHidden = false;
+let spanishHidden = false;
+
+function currentLanguage(){
+  return typeof language !== "undefined" ? language : "zh";
+}
+function chineseVoice(){
+  const voices = speechSynthesis.getVoices();
+  return voices.find(v => /^zh-CN/i.test(v.lang))
+      || voices.find(v => /^zh/i.test(v.lang))
+      || null;
+}
+function stopAll(){
+  if(humanAudio){
+    humanAudio.pause();
+    humanAudio.currentTime = 0;
+  }
+  speechSynthesis.cancel();
+}
+function speak(text, rate = 0.82){
+  stopAll();
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = "zh-CN";
+  utterance.rate = rate;
+  const voice = chineseVoice();
+  if(voice) utterance.voice = voice;
+  speechSynthesis.speak(utterance);
+}
+document.querySelectorAll(".supp-audio,.collocation-audio").forEach(button => {
+  button.addEventListener("click", () => speak(button.dataset.speech));
+});
+document.getElementById("playSupp").addEventListener("click", async () => {
+  stopAll();
+  if(humanAudio){
+    humanAudio.playbackRate = Number(speedSelect.value);
+    try{
+      await humanAudio.play();
+      statusBox.textContent = currentLanguage() === "zh"
+        ? "正在播放真人补充词汇录音。"
+        : "Reproduciendo la grabación humana del vocabulario adicional.";
+      return;
+    }catch(error){}
+  }
+  const utterance = new SpeechSynthesisUtterance(words.join("。"));
+  utterance.lang = "zh-CN";
+  utterance.rate = Number(speedSelect.value) * 0.72;
+  const voice = chineseVoice();
+  if(voice) utterance.voice = voice;
+  utterance.onstart = () => statusBox.textContent =
+    currentLanguage() === "zh"
+      ? "暂未加入真人录音，正在使用浏览器普通话连续朗读。"
+      : "Todavía no hay MP3; se está usando la voz china del navegador.";
+  utterance.onend = () => statusBox.textContent =
+    currentLanguage() === "zh" ? "朗读结束。" : "Reproducción finalizada.";
+  speechSynthesis.speak(utterance);
+});
+document.getElementById("pauseSupp").addEventListener("click", async () => {
+  if(humanAudio && !humanAudio.paused){
+    humanAudio.pause();
+    return;
+  }
+  if(humanAudio && humanAudio.currentTime > 0 && !humanAudio.ended){
+    try{ await humanAudio.play(); return; }catch(error){}
+  }
+  if(speechSynthesis.paused) speechSynthesis.resume();
+  else if(speechSynthesis.speaking) speechSynthesis.pause();
+});
+document.getElementById("stopSupp").addEventListener("click", () => {
+  stopAll();
+  statusBox.textContent = currentLanguage() === "zh" ? "已停止。" : "Detenido.";
+});
+speedSelect.addEventListener("change", () => {
+  if(humanAudio) humanAudio.playbackRate = Number(speedSelect.value);
+});
+document.getElementById("toggleSuppPinyin").addEventListener("click", event => {
+  pinyinHidden = !pinyinHidden;
+  document.body.classList.toggle("hide-supp-pinyin", pinyinHidden);
+  event.currentTarget.textContent = currentLanguage() === "zh"
+    ? (pinyinHidden ? "显示拼音" : "隐藏拼音")
+    : (pinyinHidden ? "Mostrar pinyin" : "Ocultar pinyin");
+});
+document.getElementById("toggleSuppSpanish").addEventListener("click", event => {
+  spanishHidden = !spanishHidden;
+  document.body.classList.toggle("hide-supp-spanish", spanishHidden);
+  event.currentTarget.textContent = currentLanguage() === "zh"
+    ? (spanishHidden ? "显示西语" : "隐藏西语")
+    : (spanishHidden ? "Mostrar español" : "Ocultar español");
+});
+searchInput.addEventListener("input", () => {
+  const term = searchInput.value.trim().toLowerCase();
+  cards.forEach(card => {
+    card.hidden = term && !card.dataset.search.toLowerCase().includes(term);
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>第10课 · 补充词汇</title>
+<link href="../course.css" rel="stylesheet"/>
+<style>
+.supp-intro{
+  margin:22px 0 20px;
+  padding:24px;
+  border:1px solid var(--line);
+  border-radius:24px;
+  background:var(--card)
+}
+.supp-intro p{max-width:850px;color:var(--muted)}
+.supp-toolbar{
+  position:sticky;
+  top:8px;
+  z-index:5;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:9px;
+  margin:18px 0;
+  padding:14px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:color-mix(in srgb,var(--card) 94%,transparent);
+  backdrop-filter:blur(10px)
+}
+.supp-toolbar button,.supp-toolbar select,.supp-toolbar input{
+  min-height:40px;
+  padding:9px 13px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:var(--card);
+  color:var(--text);
+  font-weight:800
+}
+.supp-toolbar button{cursor:pointer}
+.supp-toolbar button.primary{background:var(--red);border-color:var(--red);color:#fff}
+.supp-search{flex:1;min-width:210px;font-weight:500!important}
+.supp-note,.supp-status{color:var(--muted);font-size:13px}
+.supp-status{min-height:20px;margin:5px 0 16px}
+.supp-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px
+}
+.supp-card{
+  display:grid;
+  grid-template-columns:36px 42px 1fr;
+  gap:12px;
+  padding:20px;
+  border:1px solid var(--line);
+  border-radius:22px;
+  background:var(--card)
+}
+.supp-number{
+  display:grid;
+  place-items:center;
+  width:32px;height:32px;
+  border-radius:50%;
+  background:var(--soft);
+  color:var(--red);
+  font-size:12px;font-weight:900
+}
+.supp-audio,.collocation-audio{
+  display:grid;
+  place-items:center;
+  border:1px solid var(--line);
+  background:var(--soft);
+  color:var(--red);
+  cursor:pointer
+}
+.supp-audio{width:38px;height:38px;border-radius:50%}
+.supp-word h2{
+  margin:0;
+  font:600 33px/1.15 Georgia,"Noto Serif SC",serif
+}
+.supp-pinyin{margin:5px 0 0;color:var(--red);font-weight:800}
+.supp-meta{
+  grid-column:1/-1;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:8px 13px;
+  padding:12px 14px;
+  border-radius:14px;
+  background:var(--soft)
+}
+.supp-pos{color:var(--muted);font-size:12px}
+.supp-meaning{font-weight:900}
+.collocations{
+  grid-column:1/-1;
+  padding-top:4px
+}
+.collocations strong{
+  display:block;
+  margin-bottom:8px;
+  font-size:13px
+}
+.collocation-list{display:flex;flex-wrap:wrap;gap:8px}
+.collocation-audio{
+  display:inline-flex;
+  gap:7px;
+  padding:7px 10px;
+  border-radius:999px;
+  font-weight:800
+}
+.collocation-audio::before{content:"▶";font-size:10px}
+.empty-collocation{color:var(--muted);font-size:13px}
+.lesson-links{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  gap:10px;
+  margin-top:25px
+}
+.lesson-links a{
+  padding:10px 15px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:var(--card);
+  font-weight:800
+}
+body.hide-supp-pinyin .supp-pinyin{display:none}
+body.hide-supp-spanish .supp-meaning{display:none}
+@media(max-width:780px){
+  .supp-grid{grid-template-columns:1fr}
+  .supp-toolbar{position:static}
+}
+
+.real-audio-badge{
+  display:inline-block;
+  margin-bottom:12px;
+  padding:7px 12px;
+  border-radius:999px;
+  background:var(--red);
+  color:#fff;
+  font-size:13px;
+  font-weight:900
+}
+</style>
+</head>
+<body>
+<header>
+<a class="brand" href="../index.html">
+<span class="logo">汉</span>
+<span>
+<b data-es="Aula de Chino con Ángela" data-zh="Ángela的汉语课堂">Ángela的汉语课堂</b>
+<small data-es="Aprender chino y comprender su cultura" data-zh="学中文，也理解中国文化">学中文，也理解中国文化</small>
+</span>
+</a>
+<div class="tools">
+<button id="lang" type="button">ES</button>
+<button id="theme" type="button">☾</button>
+</div>
+</header>
+<main>
+<a class="back" href="../courses/npcr-1-lesson-10.html">←
+    <span data-es="Volver a la lección 10" data-zh="返回第10课">返回第10课</span>
+</a>
+<section class="supp-intro"><div class="real-audio-badge" data-es="✓ Audio humano del manual" data-zh="✓ 教材真人录音">✓ 教材真人录音</div>
+<p class="kicker" data-es="Lección 10 · Vocabulario" data-zh="第10课 · 生词板块">第10课 · 生词板块</p>
+<h1 data-es="Vocabulario adicional: Feliz Navidad" data-zh="补充词汇：祝你圣诞快乐">
+      补充词汇：祝你圣诞快乐
+    </h1>
+<p data-es="Contenido organizado según la tabla de vocabulario adicional del manual: 23 palabras con pinyin, categoría, significado en español y combinaciones del libro." data-zh="按照教材“补充词语”表整理，共23个词。每个词提供拼音、词性、西班牙语释义和教材搭配。">
+       按照教材“补充词语”表整理，共23个词。每个词提供拼音、词性、西班牙语释义和教材搭配。
+    </p>
+</section>
+<section class="supp-toolbar">
+<input class="supp-search" id="suppSearch" placeholder="搜索汉字、拼音或西语 / Buscar" type="search"/>
+<button data-es="Ocultar pinyin" data-zh="隐藏拼音" id="toggleSuppPinyin" type="button">隐藏拼音</button>
+<button data-es="Ocultar español" data-zh="隐藏西语" id="toggleSuppSpanish" type="button">隐藏西语</button>
+<button class="primary" data-es="▶ Reproducir" data-zh="▶ 连续朗读" id="playSupp" type="button">▶ 连续朗读</button>
+<button data-es="⏸ Pausar/continuar" data-zh="⏸ 暂停/继续" id="pauseSupp" type="button">⏸ 暂停/继续</button>
+<select aria-label="补充词汇朗读速度" id="suppSpeed">
+<option value="0.7">0.7×</option>
+<option value="0.85">0.85×</option>
+<option selected="" value="1">1×</option>
+<option value="1.15">1.15×</option>
+</select>
+<button data-es="■ Detener" data-zh="■ 停止" id="stopSupp" type="button">■ 停止</button>
+</section>
+<p class="supp-note" data-es="La grabación humana del vocabulario adicional ya está incluida. Pulsa «Reproducir» para escucharla; los botones de palabras y combinaciones siguen usando la voz china del navegador." data-zh="教材真人补充词汇录音已经加入。点击“连续朗读”即可播放；单个词语和搭配按钮仍使用浏览器普通话朗读。">教材真人补充词汇录音已经加入。点击“连续朗读”即可播放；单个词语和搭配按钮仍使用浏览器普通话朗读。</p>
+<div class="supp-status" id="suppStatus"></div>
+<audio id="humanSupplementaryAudio" preload="metadata">
+<source src="../audio/npcr-1-lesson-10-supplementary.mp3" type="audio/mpeg"/>
+</audio>
+<section class="supp-grid">
+<article class="supp-card" data-search="新年 xīnnián Año Nuevo 名词 sustantivo 过新年" data-word="新年">
+<div class="supp-number">1</div>
+<button aria-label="朗读新年" class="supp-audio" data-speech="新年" type="button">▶</button>
+<div class="supp-word">
+<h2>新年</h2>
+<p class="supp-pinyin">xīnnián</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="sustantivo" data-zh="名词">名词</span>
+<span class="supp-meaning">Año Nuevo</span>
+</div>
+<div class="collocations">
+<strong data-es="Combinaciones del manual" data-zh="教材常用搭配">教材常用搭配</strong>
+<div class="collocation-list"><button class="collocation-audio" data-speech="过新年" type="button">过新年</button></div>
+</div>
+</article>
+<article class="supp-card" data-search="国庆节 Guóqìng Jié Día Nacional de China 专名 nombre propio" data-word="国庆节">
+<div class="supp-number">2</div>
+<button aria-label="朗读国庆节" class="supp-audio" data-speech="国庆节" type="button">▶</button>
+<div class="supp-word">
+<h2>国庆节</h2>
+<p class="supp-pinyin">Guóqìng Jié</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="nombre propio" data-zh="专名">专名</span>
+<span class="supp-meaning">Día Nacional de China</span>
+</div>
+<div class="collocations">
+<span class="empty-collocation" data-es="El manual no ofrece una combinación fija para esta palabra." data-zh="本词在教材表中未列固定搭配。">
+                本词在教材表中未列固定搭配。
+              </span>
+</div>
+</article>
+<article class="supp-card" data-search="清明节 Qīngmíng Jié Fiesta Qingming; Día de Limpieza de Tumbas 专名 nombre propio" data-word="清明节">
+<div class="supp-number">3</div>
+<button aria-label="朗读清明节" class="supp-audio" data-speech="清明节" type="button">▶</button>
+<div class="supp-word">
+<h2>清明节</h2>
+<p class="supp-pinyin">Qīngmíng Jié</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="nombre propio" data-zh="专名">专名</span>
+<span class="supp-meaning">Fiesta Qingming; Día de Limpieza de Tumbas</span>
+</div>
+<div class="collocations">
+<span class="empty-collocation" data-es="El manual no ofrece una combinación fija para esta palabra." data-zh="本词在教材表中未列固定搭配。">
+                本词在教材表中未列固定搭配。
+              </span>
+</div>
+</article>
+<article class="supp-card" data-search="劳动节 Láodòng Jié Día del Trabajo 专名 nombre propio" data-word="劳动节">
+<div class="supp-number">4</div>
+<button aria-label="朗读劳动节" class="supp-audio" data-speech="劳动节" type="button">▶</button>
+<div class="supp-word">
+<h2>劳动节</h2>
+<p class="supp-pinyin">Láodòng Jié</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="nombre propio" data-zh="专名">专名</span>
+<span class="supp-meaning">Día del Trabajo</span>
+</div>
+<div class="collocations">
+<span class="empty-collocation" data-es="El manual no ofrece una combinación fija para esta palabra." data-zh="本词在教材表中未列固定搭配。">
+                本词在教材表中未列固定搭配。
+              </span>
+</div>
+</article>
+<article class="supp-card" data-search="端午节 Duānwǔ Jié Fiesta del Barco Dragón 专名 nombre propio" data-word="端午节">
+<div class="supp-number">5</div>
+<button aria-label="朗读端午节" class="supp-audio" data-speech="端午节" type="button">▶</button>
+<div class="supp-word">
+<h2>端午节</h2>
+<p class="supp-pinyin">Duānwǔ Jié</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="nombre propio" data-zh="专名">专名</span>
+<span class="supp-meaning">Fiesta del Barco Dragón</span>
+</div>
+<div class="collocations">
+<span class="empty-collocation" data-es="El manual no ofrece una combinación fija para esta palabra." data-zh="本词在教材表中未列固定搭配。">
+                本词在教材表中未列固定搭配。
+              </span>
+</div>
+</article>
+<article class="supp-card" data-search="儿童节 Értóng Jié Día del Niño 专名 nombre propio" data-word="儿童节">
+<div class="supp-number">6</div>
+<button aria-label="朗读儿童节" class="supp-audio" data-speech="儿童节" type="button">▶</button>
+<div class="supp-word">
+<h2>儿童节</h2>
+<p class="supp-pinyin">Értóng Jié</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="nombre propio" data-zh="专名">专名</span>
+<span class="supp-meaning">Día del Niño</span>
+</div>
+<div class="collocations">
+<span class="empty-collocation" data-es="El manual no ofrece una combinación fija para esta palabra." data-zh="本词在教材表中未列固定搭配。">
+                本词在教材表中未列固定搭配。
+              </span>
+</div>
+</article>
+<article class="supp-card" data-search="情人节 Qíngrén Jié Día de San Valentín 专名 nombre propio" data-word="情人节">
+<div class="supp-number">7</div>
+<button aria-label="朗读情人节" class="supp-audio" data-speech="情人节" type="button">▶</button>
+<div class="supp-word">
+<h2>情人节</h2>
+<p class="supp-pinyin">Qíngrén Jié</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="nombre propio" data-zh="专名">专名</span>
+<span class="supp-meaning">Día de San Valentín</span>
+</div>
+<div class="collocations">
+<span class="empty-collocation" data-es="El manual no ofrece una combinación fija para esta palabra." data-zh="本词在教材表中未列固定搭配。">
+                本词在教材表中未列固定搭配。
+              </span>
+</div>
+</article>
+<article class="supp-card" data-search="中秋节 Zhōngqiū Jié Fiesta del Medio Otoño 专名 nombre propio" data-word="中秋节">
+<div class="supp-number">8</div>
+<button aria-label="朗读中秋节" class="supp-audio" data-speech="中秋节" type="button">▶</button>
+<div class="supp-word">
+<h2>中秋节</h2>
+<p class="supp-pinyin">Zhōngqiū Jié</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="nombre propio" data-zh="专名">专名</span>
+<span class="supp-meaning">Fiesta del Medio Otoño</span>
+</div>
+<div class="collocations">
+<span class="empty-collocation" data-es="El manual no ofrece una combinación fija para esta palabra." data-zh="本词在教材表中未列固定搭配。">
+                本词在教材表中未列固定搭配。
+              </span>
+</div>
+</article>
+<article class="supp-card" data-search="复活节 Fùhuó Jié Pascua 专名 nombre propio" data-word="复活节">
+<div class="supp-number">9</div>
+<button aria-label="朗读复活节" class="supp-audio" data-speech="复活节" type="button">▶</button>
+<div class="supp-word">
+<h2>复活节</h2>
+<p class="supp-pinyin">Fùhuó Jié</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="nombre propio" data-zh="专名">专名</span>
+<span class="supp-meaning">Pascua</span>
+</div>
+<div class="collocations">
+<span class="empty-collocation" data-es="El manual no ofrece una combinación fija para esta palabra." data-zh="本词在教材表中未列固定搭配。">
+                本词在教材表中未列固定搭配。
+              </span>
+</div>
+</article>
+<article class="supp-card" data-search="电脑 diànnǎo ordenador; computadora 名词 sustantivo 用电脑 买电脑" data-word="电脑">
+<div class="supp-number">10</div>
+<button aria-label="朗读电脑" class="supp-audio" data-speech="电脑" type="button">▶</button>
+<div class="supp-word">
+<h2>电脑</h2>
+<p class="supp-pinyin">diànnǎo</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="sustantivo" data-zh="名词">名词</span>
+<span class="supp-meaning">ordenador; computadora</span>
+</div>
+<div class="collocations">
+<strong data-es="Combinaciones del manual" data-zh="教材常用搭配">教材常用搭配</strong>
+<div class="collocation-list"><button class="collocation-audio" data-speech="用电脑" type="button">用电脑</button><button class="collocation-audio" data-speech="买电脑" type="button">买电脑</button></div>
+</div>
+</article>
+<article class="supp-card" data-search="发 fā enviar 动词 verbo 发短信" data-word="发">
+<div class="supp-number">11</div>
+<button aria-label="朗读发" class="supp-audio" data-speech="发" type="button">▶</button>
+<div class="supp-word">
+<h2>发</h2>
+<p class="supp-pinyin">fā</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="verbo" data-zh="动词">动词</span>
+<span class="supp-meaning">enviar</span>
+</div>
+<div class="collocations">
+<strong data-es="Combinaciones del manual" data-zh="教材常用搭配">教材常用搭配</strong>
+<div class="collocation-list"><button class="collocation-audio" data-speech="发短信" type="button">发短信</button></div>
+</div>
+</article>
+<article class="supp-card" data-search="电子邮件 diànzǐ yóujiàn correo electrónico 名词 sustantivo 发电子邮件" data-word="电子邮件">
+<div class="supp-number">12</div>
+<button aria-label="朗读电子邮件" class="supp-audio" data-speech="电子邮件" type="button">▶</button>
+<div class="supp-word">
+<h2>电子邮件</h2>
+<p class="supp-pinyin">diànzǐ yóujiàn</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="sustantivo" data-zh="名词">名词</span>
+<span class="supp-meaning">correo electrónico</span>
+</div>
+<div class="collocations">
+<strong data-es="Combinaciones del manual" data-zh="教材常用搭配">教材常用搭配</strong>
+<div class="collocation-list"><button class="collocation-audio" data-speech="发电子邮件" type="button">发电子邮件</button></div>
+</div>
+</article>
+<article class="supp-card" data-search="作业 zuòyè deberes; tarea 名词 sustantivo 做作业" data-word="作业">
+<div class="supp-number">13</div>
+<button aria-label="朗读作业" class="supp-audio" data-speech="作业" type="button">▶</button>
+<div class="supp-word">
+<h2>作业</h2>
+<p class="supp-pinyin">zuòyè</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="sustantivo" data-zh="名词">名词</span>
+<span class="supp-meaning">deberes; tarea</span>
+</div>
+<div class="collocations">
+<strong data-es="Combinaciones del manual" data-zh="教材常用搭配">教材常用搭配</strong>
+<div class="collocation-list"><button class="collocation-audio" data-speech="做作业" type="button">做作业</button></div>
+</div>
+</article>
+<article class="supp-card" data-search="录音 lùyīn grabación 名词 sustantivo 听录音" data-word="录音">
+<div class="supp-number">14</div>
+<button aria-label="朗读录音" class="supp-audio" data-speech="录音" type="button">▶</button>
+<div class="supp-word">
+<h2>录音</h2>
+<p class="supp-pinyin">lùyīn</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="sustantivo" data-zh="名词">名词</span>
+<span class="supp-meaning">grabación</span>
+</div>
+<div class="collocations">
+<strong data-es="Combinaciones del manual" data-zh="教材常用搭配">教材常用搭配</strong>
+<div class="collocation-list"><button class="collocation-audio" data-speech="听录音" type="button">听录音</button></div>
+</div>
+</article>
+<article class="supp-card" data-search="祝贺 zhùhè felicitar; dar la enhorabuena 动词 verbo 祝贺你" data-word="祝贺">
+<div class="supp-number">15</div>
+<button aria-label="朗读祝贺" class="supp-audio" data-speech="祝贺" type="button">▶</button>
+<div class="supp-word">
+<h2>祝贺</h2>
+<p class="supp-pinyin">zhùhè</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="verbo" data-zh="动词">动词</span>
+<span class="supp-meaning">felicitar; dar la enhorabuena</span>
+</div>
+<div class="collocations">
+<strong data-es="Combinaciones del manual" data-zh="教材常用搭配">教材常用搭配</strong>
+<div class="collocation-list"><button class="collocation-audio" data-speech="祝贺你" type="button">祝贺你</button></div>
+</div>
+</article>
+<article class="supp-card" data-search="轻松 qīngsōng relajado/a; fácil 形容词 adjetivo 很轻松 太轻松了" data-word="轻松">
+<div class="supp-number">16</div>
+<button aria-label="朗读轻松" class="supp-audio" data-speech="轻松" type="button">▶</button>
+<div class="supp-word">
+<h2>轻松</h2>
+<p class="supp-pinyin">qīngsōng</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="adjetivo" data-zh="形容词">形容词</span>
+<span class="supp-meaning">relajado/a; fácil</span>
+</div>
+<div class="collocations">
+<strong data-es="Combinaciones del manual" data-zh="教材常用搭配">教材常用搭配</strong>
+<div class="collocation-list"><button class="collocation-audio" data-speech="很轻松" type="button">很轻松</button><button class="collocation-audio" data-speech="太轻松了" type="button">太轻松了</button></div>
+</div>
+</article>
+<article class="supp-card" data-search="日记 rìjì diario personal 名词 sustantivo 写日记" data-word="日记">
+<div class="supp-number">17</div>
+<button aria-label="朗读日记" class="supp-audio" data-speech="日记" type="button">▶</button>
+<div class="supp-word">
+<h2>日记</h2>
+<p class="supp-pinyin">rìjì</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="sustantivo" data-zh="名词">名词</span>
+<span class="supp-meaning">diario personal</span>
+</div>
+<div class="collocations">
+<strong data-es="Combinaciones del manual" data-zh="教材常用搭配">教材常用搭配</strong>
+<div class="collocation-list"><button class="collocation-audio" data-speech="写日记" type="button">写日记</button></div>
+</div>
+</article>
+<article class="supp-card" data-search="晴 qíng despejado; soleado 形容词 adjetivo 天气晴" data-word="晴">
+<div class="supp-number">18</div>
+<button aria-label="朗读晴" class="supp-audio" data-speech="晴" type="button">▶</button>
+<div class="supp-word">
+<h2>晴</h2>
+<p class="supp-pinyin">qíng</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="adjetivo" data-zh="形容词">形容词</span>
+<span class="supp-meaning">despejado; soleado</span>
+</div>
+<div class="collocations">
+<strong data-es="Combinaciones del manual" data-zh="教材常用搭配">教材常用搭配</strong>
+<div class="collocation-list"><button class="collocation-audio" data-speech="天气晴" type="button">天气晴</button></div>
+</div>
+</article>
+<article class="supp-card" data-search="第一次 dì-yī cì la primera vez 词汇 vocabulario" data-word="第一次">
+<div class="supp-number">19</div>
+<button aria-label="朗读第一次" class="supp-audio" data-speech="第一次" type="button">▶</button>
+<div class="supp-word">
+<h2>第一次</h2>
+<p class="supp-pinyin">dì-yī cì</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="vocabulario" data-zh="词汇">词汇</span>
+<span class="supp-meaning">la primera vez</span>
+</div>
+<div class="collocations">
+<span class="empty-collocation" data-es="El manual no ofrece una combinación fija para esta palabra." data-zh="本词在教材表中未列固定搭配。">
+                本词在教材表中未列固定搭配。
+              </span>
+</div>
+</article>
+<article class="supp-card" data-search="惊喜 jīngxǐ sorpresa agradable 名词 sustantivo 一个惊喜" data-word="惊喜">
+<div class="supp-number">20</div>
+<button aria-label="朗读惊喜" class="supp-audio" data-speech="惊喜" type="button">▶</button>
+<div class="supp-word">
+<h2>惊喜</h2>
+<p class="supp-pinyin">jīngxǐ</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="sustantivo" data-zh="名词">名词</span>
+<span class="supp-meaning">sorpresa agradable</span>
+</div>
+<div class="collocations">
+<strong data-es="Combinaciones del manual" data-zh="教材常用搭配">教材常用搭配</strong>
+<div class="collocation-list"><button class="collocation-audio" data-speech="一个惊喜" type="button">一个惊喜</button></div>
+</div>
+</article>
+<article class="supp-card" data-search="通 tōng comunicar; conectar 动词 verbo 通电话" data-word="通">
+<div class="supp-number">21</div>
+<button aria-label="朗读通" class="supp-audio" data-speech="通" type="button">▶</button>
+<div class="supp-word">
+<h2>通</h2>
+<p class="supp-pinyin">tōng</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="verbo" data-zh="动词">动词</span>
+<span class="supp-meaning">comunicar; conectar</span>
+</div>
+<div class="collocations">
+<strong data-es="Combinaciones del manual" data-zh="教材常用搭配">教材常用搭配</strong>
+<div class="collocation-list"><button class="collocation-audio" data-speech="通电话" type="button">通电话</button></div>
+</div>
+</article>
+<article class="supp-card" data-search="京剧 jīngjù ópera de Pekín 名词 sustantivo 喜欢京剧 唱京剧" data-word="京剧">
+<div class="supp-number">22</div>
+<button aria-label="朗读京剧" class="supp-audio" data-speech="京剧" type="button">▶</button>
+<div class="supp-word">
+<h2>京剧</h2>
+<p class="supp-pinyin">jīngjù</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="sustantivo" data-zh="名词">名词</span>
+<span class="supp-meaning">ópera de Pekín</span>
+</div>
+<div class="collocations">
+<strong data-es="Combinaciones del manual" data-zh="教材常用搭配">教材常用搭配</strong>
+<div class="collocation-list"><button class="collocation-audio" data-speech="喜欢京剧" type="button">喜欢京剧</button><button class="collocation-audio" data-speech="唱京剧" type="button">唱京剧</button></div>
+</div>
+</article>
+<article class="supp-card" data-search="火锅 huǒguō olla caliente; hot pot 名词 sustantivo 吃火锅" data-word="火锅">
+<div class="supp-number">23</div>
+<button aria-label="朗读火锅" class="supp-audio" data-speech="火锅" type="button">▶</button>
+<div class="supp-word">
+<h2>火锅</h2>
+<p class="supp-pinyin">huǒguō</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="sustantivo" data-zh="名词">名词</span>
+<span class="supp-meaning">olla caliente; hot pot</span>
+</div>
+<div class="collocations">
+<strong data-es="Combinaciones del manual" data-zh="教材常用搭配">教材常用搭配</strong>
+<div class="collocation-list"><button class="collocation-audio" data-speech="吃火锅" type="button">吃火锅</button></div>
+</div>
+</article>
+</section>
+<nav class="lesson-links">
+<a href="npcr-1-lesson-9-supplementary.html">← 第9课补充词汇</a>
+<a href="../courses/npcr-1-lesson-10.html">第10课目录</a>
+<a href="../courses/npcr-1.html">第一册目录 →</a>
+</nav>
+</main>
+<footer><span>© 2026 Ángela</span><span>Aula de Chino</span></footer>
+<script src="../course.js"></script>
+<script>
+const cards = [...document.querySelectorAll(".supp-card")];
+const words = cards.map(card => card.dataset.word);
+const humanAudio = document.getElementById("humanSupplementaryAudio");
+const speedSelect = document.getElementById("suppSpeed");
+const statusBox = document.getElementById("suppStatus");
+const searchInput = document.getElementById("suppSearch");
+let pinyinHidden = false;
+let spanishHidden = false;
+
+function currentLanguage(){
+  return typeof language !== "undefined" ? language : "zh";
+}
+function chineseVoice(){
+  const voices = speechSynthesis.getVoices();
+  return voices.find(v => /^zh-CN/i.test(v.lang))
+      || voices.find(v => /^zh/i.test(v.lang))
+      || null;
+}
+function stopAll(){
+  if(humanAudio){
+    humanAudio.pause();
+    humanAudio.currentTime = 0;
+  }
+  speechSynthesis.cancel();
+}
+function speak(text, rate = 0.82){
+  stopAll();
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = "zh-CN";
+  utterance.rate = rate;
+  const voice = chineseVoice();
+  if(voice) utterance.voice = voice;
+  speechSynthesis.speak(utterance);
+}
+document.querySelectorAll(".supp-audio,.collocation-audio").forEach(button => {
+  button.addEventListener("click", () => speak(button.dataset.speech));
+});
+document.getElementById("playSupp").addEventListener("click", async () => {
+  stopAll();
+  if(humanAudio){
+    humanAudio.playbackRate = Number(speedSelect.value);
+    try{
+      await humanAudio.play();
+      statusBox.textContent = currentLanguage() === "zh"
+        ? "正在播放真人补充词汇录音。"
+        : "Reproduciendo la grabación humana del vocabulario adicional.";
+      return;
+    }catch(error){}
+  }
+  const utterance = new SpeechSynthesisUtterance(words.join("。"));
+  utterance.lang = "zh-CN";
+  utterance.rate = Number(speedSelect.value) * 0.72;
+  const voice = chineseVoice();
+  if(voice) utterance.voice = voice;
+  utterance.onstart = () => statusBox.textContent =
+    currentLanguage() === "zh"
+      ? "暂未加入真人录音，正在使用浏览器普通话连续朗读。"
+      : "Todavía no hay MP3; se está usando la voz china del navegador.";
+  utterance.onend = () => statusBox.textContent =
+    currentLanguage() === "zh" ? "朗读结束。" : "Reproducción finalizada.";
+  speechSynthesis.speak(utterance);
+});
+document.getElementById("pauseSupp").addEventListener("click", async () => {
+  if(humanAudio && !humanAudio.paused){
+    humanAudio.pause();
+    return;
+  }
+  if(humanAudio && humanAudio.currentTime > 0 && !humanAudio.ended){
+    try{ await humanAudio.play(); return; }catch(error){}
+  }
+  if(speechSynthesis.paused) speechSynthesis.resume();
+  else if(speechSynthesis.speaking) speechSynthesis.pause();
+});
+document.getElementById("stopSupp").addEventListener("click", () => {
+  stopAll();
+  statusBox.textContent = currentLanguage() === "zh" ? "已停止。" : "Detenido.";
+});
+speedSelect.addEventListener("change", () => {
+  if(humanAudio) humanAudio.playbackRate = Number(speedSelect.value);
+});
+document.getElementById("toggleSuppPinyin").addEventListener("click", event => {
+  pinyinHidden = !pinyinHidden;
+  document.body.classList.toggle("hide-supp-pinyin", pinyinHidden);
+  event.currentTarget.textContent = currentLanguage() === "zh"
+    ? (pinyinHidden ? "显示拼音" : "隐藏拼音")
+    : (pinyinHidden ? "Mostrar pinyin" : "Ocultar pinyin");
+});
+document.getElementById("toggleSuppSpanish").addEventListener("click", event => {
+  spanishHidden = !spanishHidden;
+  document.body.classList.toggle("hide-supp-spanish", spanishHidden);
+  event.currentTarget.textContent = currentLanguage() === "zh"
+    ? (spanishHidden ? "显示西语" : "隐藏西语")
+    : (spanishHidden ? "Mostrar español" : "Ocultar español");
+});
+searchInput.addEventListener("input", () => {
+  const term = searchInput.value.trim().toLowerCase();
+  cards.forEach(card => {
+    card.hidden = term && !card.dataset.search.toLowerCase().includes(term);
+  });
+});
+</script>
+</body>
+</html>

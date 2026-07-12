@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>课文1：介绍朋友</title>
+<link href="../course.css" rel="stylesheet"/>
+<style>
+.text-shell{max-width:980px;margin:0 auto}
+.text-toolbar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;margin:25px 0;padding:18px 20px;border:1px solid var(--line);border-radius:22px;background:var(--card)}
+.toolbar-group{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.switch-wrap{display:flex;align-items:center;gap:10px;font-weight:800}
+.switch{position:relative;width:54px;height:30px;border:0;border-radius:999px;background:#c9cbd0;cursor:pointer}
+.switch::after{content:"";position:absolute;top:4px;left:4px;width:22px;height:22px;border-radius:50%;background:white;box-shadow:0 1px 4px rgba(0,0,0,.25);transition:.2s}
+.switch.active{background:#3478f6}.switch.active::after{transform:translateX(24px)}
+.audio-button{padding:10px 15px;border:1px solid var(--line);border-radius:999px;background:var(--soft);color:var(--text);font-weight:800;cursor:pointer}
+.audio-button.primary{background:var(--red);color:white;border-color:var(--red)}
+.speed-select{padding:9px 10px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--text)}
+.audio-note,.status{width:100%;color:var(--muted);font-size:12px}
+.text-card{padding:clamp(22px,5vw,52px);border:1px solid var(--line);border-radius:26px;background:var(--card)}
+.context{margin:0 0 32px;padding-bottom:22px;border-bottom:1px solid var(--line);color:var(--muted)}
+.context span{display:block;margin-top:3px;font-size:13px}
+.dialogue-list{display:grid;gap:20px}
+.dialogue-line{display:grid;grid-template-columns:38px 1fr;gap:12px;padding-bottom:18px;border-bottom:1px dashed var(--line)}
+.dialogue-line:last-child{border-bottom:0}
+.line-audio{display:grid;place-items:center;width:34px;height:34px;border:1px solid var(--line);border-radius:50%;background:var(--soft);color:var(--red);cursor:pointer}
+.chinese-line{font-size:clamp(27px,3.8vw,45px);line-height:1.45}
+.speaker{font-weight:800;text-decoration:underline dotted;text-underline-offset:8px}
+.pinyin-line{margin-top:7px;font-size:clamp(16px,2vw,23px)}
+.speaker-pinyin{font-weight:700}
+body.pinyin-hidden .pinyin-line{display:none}
+.nav-row{display:flex;justify-content:space-between;gap:14px;margin-top:22px}
+.nav-row a{padding:11px 16px;border:1px solid var(--line);border-radius:999px;background:var(--card);font-weight:800}
+@media(max-width:600px){.toolbar-group{width:100%}.chinese-line{font-size:29px}.nav-row{display:grid}}
+
+.translation-toggle{
+  padding:10px 15px;
+  border:1px solid var(--red);
+  border-radius:999px;
+  background:var(--red);
+  color:#fff;
+  font-weight:900;
+  cursor:pointer
+}
+.translation-line{
+  margin-top:9px;
+  padding:10px 13px;
+  border-left:3px solid var(--red);
+  border-radius:8px;
+  background:var(--soft);
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.55
+}
+body.translation-hidden .translation-line{display:none}
+.translation-note{
+  width:100%;
+  margin:0;
+  color:var(--muted);
+  font-size:12px
+}
+
+.official-video-card{
+  display:grid;
+  grid-template-columns:64px 1fr auto;
+  gap:16px;
+  align-items:center;
+  margin:18px 0 24px;
+  padding:18px 20px;
+  border:1px solid var(--line);
+  border-radius:20px;
+  background:var(--card)
+}
+.official-video-icon{
+  display:grid;
+  place-items:center;
+  width:54px;
+  height:54px;
+  border-radius:16px;
+  background:color-mix(in srgb,var(--red) 12%,transparent);
+  color:var(--red);
+  font-size:24px
+}
+.official-video-copy h2{
+  margin:0 0 6px;
+  font-size:18px
+}
+.official-video-copy p{
+  margin:0;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.55
+}
+.official-video-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:42px;
+  padding:10px 15px;
+  border:1px solid var(--red);
+  border-radius:999px;
+  background:var(--red);
+  color:#fff;
+  font-weight:900;
+  text-decoration:none;
+  white-space:nowrap
+}
+.official-video-legal{
+  grid-column:2 / -1;
+  margin-top:-4px!important;
+  font-size:11px!important
+}
+@media(max-width:720px){
+  .official-video-card{
+    grid-template-columns:52px 1fr
+  }
+  .official-video-link{
+    grid-column:1/-1;
+    width:100%
+  }
+  .official-video-legal{
+    grid-column:1/-1
+  }
+}
+</style>
+</head>
+<body class="translation-hidden">
+<header>
+<a class="brand" href="../index.html">
+<span class="logo">汉</span>
+<span>
+<b data-es="Aula de Chino con Ángela" data-zh="Ángela的汉语课堂">Ángela的汉语课堂</b>
+<small data-es="Aprender chino y comprender su cultura" data-zh="学中文，也理解中国文化">学中文，也理解中国文化</small>
+</span>
+</a>
+<div class="tools">
+<button id="lang" type="button">ES</button>
+<button id="theme" type="button">☾</button>
+</div>
+</header>
+<main class="text-shell">
+<a class="back" href="../courses/npcr-1-lesson-2.html">← <span data-es="Volver a la lección 2" data-zh="返回第二课">返回第二课</span></a>
+<p class="kicker" data-es="Lección 2 · Texto 1" data-zh="第二课 · 课文1">第二课 · 课文1</p>
+<h1 data-es="Texto 1: Presentar a un amigo" data-zh="课文1：介绍朋友">课文1：介绍朋友</h1>
+<section class="text-toolbar">
+<div class="toolbar-group"><div class="switch-wrap"><button aria-checked="true" class="switch active" id="pinyinSwitch" role="switch" type="button"></button><span>pīnyīn</span></div><button aria-expanded="false" class="translation-toggle" data-es="Mostrar traducción" data-zh="显示翻译" id="translationToggle" type="button">显示翻译</button></div>
+<div class="toolbar-group">
+<button class="audio-button primary" data-es="▶ Reproducir" data-zh="▶ 播放课文" id="playAll">▶ 播放课文</button>
+<button class="audio-button" data-es="⏸ Pausar/continuar" data-zh="⏸ 暂停/继续" id="pauseAudio">⏸ 暂停/继续</button>
+<button class="audio-button" data-es="■ Detener" data-zh="■ 停止" id="stopAudio">■ 停止</button>
+<select class="speed-select" id="speed"><option value=".7">0.7×</option><option value=".85">0.85×</option><option selected="" value="1">1×</option><option value="1.15">1.15×</option></select>
+</div>
+<p class="audio-note" data-es="La grabación humana ya está incluida. Pulsa «Reproducir» para escucharla; los botones de cada frase siguen usando la voz china del navegador." data-zh="真人课文录音已经加入。点击“播放课文”即可播放；逐句按钮继续使用浏览器普通话朗读。">真人课文录音已经加入。点击“播放课文”即可播放；逐句按钮继续使用浏览器普通话朗读。</p><p class="translation-note" data-es="La traducción española está oculta por defecto; pulsa «Mostrar traducción» para verla frase por frase." data-zh="西班牙语翻译默认隐藏，点击“显示翻译”即可逐句查看。">西班牙语翻译默认隐藏，点击“显示翻译”即可逐句查看。</p>
+<div class="status" id="status"></div>
+</section><section aria-label="出版社官方课文视频" class="official-video-card">
+<div aria-hidden="true" class="official-video-icon">▶</div>
+<div class="official-video-copy">
+<h2 data-es="Vídeo oficial de la editorial" data-zh="出版社官方课文视频">出版社官方课文视频</h2>
+<p data-es="El vídeo no está alojado en este sitio. El botón abre la página oficial de recursos de Beijing Language and Culture University Press." data-zh="视频不存放在本站。点击按钮后，将前往北京语言大学出版社官方资源页面观看。">
+      视频不存放在本站。点击按钮后，将前往北京语言大学出版社官方资源页面观看。
+    </p>
+</div>
+<a class="official-video-link" data-es="Ver en la web oficial ↗" data-zh="前往出版社官网观看 ↗" href="https://www.blcup.com/MobileResource?rid=968674d5-aed9-467a-a95e-60b06a8ad9ea" referrerpolicy="no-referrer" rel="noopener noreferrer external" target="_blank">
+    前往出版社官网观看 ↗
+  </a>
+<p class="official-video-legal" data-es="Este sitio solo enlaza la página oficial; no copia, aloja ni redistribuye el vídeo. Los derechos y condiciones de uso dependen de la editorial." data-zh="本站仅提供官方页面链接，不复制、不托管、不重新发布视频。视频版权及使用规则以出版社官方说明为准。">
+    本站仅提供官方页面链接，不复制、不托管、不重新发布视频。视频版权及使用规则以出版社官方说明为准。
+  </p>
+</section>
+<audio id="humanAudio" preload="metadata"><source src="../audio/npcr-1-lesson-2-text-1.mp3" type="audio/mpeg"/></audio>
+<section class="text-card">
+<p class="context"><strong data-es="Ding Libo y Ma Dawei se encuentran con la profesora Chen. La profesora Chen y Ma Dawei todavía no se conocen." data-zh="丁力波和马大为遇到陈老师。陈老师和马大为还不认识。">丁力波和马大为遇到陈老师。陈老师和马大为还不认识。</strong><span>Ding Libo y Ma Dawei se encuentran con la profesora Chen. La profesora Chen y Ma Dawei todavía no se conocen.</span></p>
+<div class="dialogue-list">
+<article class="dialogue-line" data-speech="丁力波：老师，早上好！">
+<button class="line-audio" title="朗读这一句" type="button">▶</button>
+<div>
+<div class="chinese-line"><span class="speaker">丁力波：</span>老师，早上好！</div>
+<div class="pinyin-line"><span class="speaker-pinyin">Dīng Lìbō:</span> Lǎoshī, zǎoshang hǎo!</div>
+<div class="translation-line" lang="es">Profesor/a, ¡buenos días!</div></div>
+</article>
+<article class="dialogue-line" data-speech="陈老师：你们好！">
+<button class="line-audio" title="朗读这一句" type="button">▶</button>
+<div>
+<div class="chinese-line"><span class="speaker">陈老师：</span>你们好！</div>
+<div class="pinyin-line"><span class="speaker-pinyin">Chén lǎoshī:</span> Nǐmen hǎo!</div>
+<div class="translation-line" lang="es">¡Hola a los dos!</div></div>
+</article>
+<article class="dialogue-line" data-speech="丁力波：这是马大为，他是我朋友，刚到北京。">
+<button class="line-audio" title="朗读这一句" type="button">▶</button>
+<div>
+<div class="chinese-line"><span class="speaker">丁力波：</span>这是马大为，他是我朋友，刚到北京。</div>
+<div class="pinyin-line"><span class="speaker-pinyin">Dīng Lìbō:</span> Zhè shì Mǎ Dàwéi, tā shì wǒ péngyou, gāng dào Běijīng.</div>
+<div class="translation-line" lang="es">Este es Ma Dawei. Es amigo mío y acaba de llegar a Pekín.</div></div>
+</article>
+<article class="dialogue-line" data-speech="马大为：您好！老师，您贵姓？">
+<button class="line-audio" title="朗读这一句" type="button">▶</button>
+<div>
+<div class="chinese-line"><span class="speaker">马大为：</span>您好！老师，您贵姓？</div>
+<div class="pinyin-line"><span class="speaker-pinyin">Mǎ Dàwéi:</span> Nín hǎo! Lǎoshī, nín guìxìng?</div>
+<div class="translation-line" lang="es">Hola. Profesor/a, ¿cuál es su apellido?</div></div>
+</article>
+<article class="dialogue-line" data-speech="陈老师：我姓陈。你是哪国人？">
+<button class="line-audio" title="朗读这一句" type="button">▶</button>
+<div>
+<div class="chinese-line"><span class="speaker">陈老师：</span>我姓陈。你是哪国人？</div>
+<div class="pinyin-line"><span class="speaker-pinyin">Chén lǎoshī:</span> Wǒ xìng Chén. Nǐ shì nǎ guó rén?</div>
+<div class="translation-line" lang="es">Me apellido Chen. ¿De qué país eres?</div></div>
+</article>
+<article class="dialogue-line" data-speech="马大为：我是美国人。我也学习汉语。陈老师，认识您很高兴。">
+<button class="line-audio" title="朗读这一句" type="button">▶</button>
+<div>
+<div class="chinese-line"><span class="speaker">马大为：</span>我是美国人。我也学习汉语。陈老师，认识您很高兴。</div>
+<div class="pinyin-line"><span class="speaker-pinyin">Mǎ Dàwéi:</span> Wǒ shì Měiguórén. Wǒ yě xuéxí Hànyǔ. Chén lǎoshī, rènshi nín hěn gāoxìng.</div>
+<div class="translation-line" lang="es">Soy estadounidense. También estudio chino. Profesora Chen, encantado de conocerla.</div></div>
+</article>
+<article class="dialogue-line" data-speech="陈老师：认识你我也很高兴。">
+<button class="line-audio" title="朗读这一句" type="button">▶</button>
+<div>
+<div class="chinese-line"><span class="speaker">陈老师：</span>认识你我也很高兴。</div>
+<div class="pinyin-line"><span class="speaker-pinyin">Chén lǎoshī:</span> Rènshi nǐ wǒ yě hěn gāoxìng.</div>
+<div class="translation-line" lang="es">Yo también estoy encantada de conocerte.</div></div>
+</article>
+<article class="dialogue-line" data-speech="马大为：老师，再见！">
+<button class="line-audio" title="朗读这一句" type="button">▶</button>
+<div>
+<div class="chinese-line"><span class="speaker">马大为：</span>老师，再见！</div>
+<div class="pinyin-line"><span class="speaker-pinyin">Mǎ Dàwéi:</span> Lǎoshī, zàijiàn!</div>
+<div class="translation-line" lang="es">Profesora, ¡hasta luego!</div></div>
+</article>
+<article class="dialogue-line" data-speech="陈老师：再见！">
+<button class="line-audio" title="朗读这一句" type="button">▶</button>
+<div>
+<div class="chinese-line"><span class="speaker">陈老师：</span>再见！</div>
+<div class="pinyin-line"><span class="speaker-pinyin">Chén lǎoshī:</span> Zàijiàn!</div>
+<div class="translation-line" lang="es">¡Hasta luego!</div></div>
+</article></div>
+</section>
+<div class="nav-row"><a href="../courses/npcr-1-lesson-2.html">← 第二课</a><a href="npcr-1-lesson-2-text-2.html">课文2 →</a></div>
+</main>
+<footer><span>© 2026 Ángela</span><span>Aula de Chino</span></footer>
+<script src="../course.js"></script>
+<script>
+const body=document.body,pinyinSwitch=document.getElementById("pinyinSwitch"),humanAudio=document.getElementById("humanAudio"),speed=document.getElementById("speed"),statusBox=document.getElementById("status");
+const fullText="丁力波：老师，早上好！。陈老师：你们好！。丁力波：这是马大为，他是我朋友，刚到北京。。马大为：您好！老师，您贵姓？。陈老师：我姓陈。你是哪国人？。马大为：我是美国人。我也学习汉语。陈老师，认识您很高兴。。陈老师：认识你我也很高兴。。马大为：老师，再见！。陈老师：再见！";
+function voice(){const vs=speechSynthesis.getVoices();return vs.find(v=>/^zh-CN/i.test(v.lang))||vs.find(v=>/^zh/i.test(v.lang))||null}
+function speak(text){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(text);u.lang="zh-CN";u.rate=Number(speed.value);const v=voice();if(v)u.voice=v;speechSynthesis.speak(u)}
+function stopAll(){humanAudio.pause();humanAudio.currentTime=0;speechSynthesis.cancel()}
+pinyinSwitch.onclick=()=>{const hidden=body.classList.toggle("pinyin-hidden");pinyinSwitch.classList.toggle("active",!hidden);pinyinSwitch.setAttribute("aria-checked",String(!hidden))};
+document.getElementById("playAll").onclick=async()=>{stopAll();humanAudio.playbackRate=Number(speed.value);try{await humanAudio.play();statusBox.textContent=language==="zh"?"正在播放真人录音。":"Reproduciendo el MP3.";}catch(e){speak(fullText);statusBox.textContent=language==="zh"?"正在使用浏览器普通话朗读。":"Usando la voz china del navegador.";}};
+document.getElementById("pauseAudio").onclick=()=>{if(!humanAudio.paused)humanAudio.pause();else if(humanAudio.currentTime>0)humanAudio.play();else if(speechSynthesis.paused)speechSynthesis.resume();else if(speechSynthesis.speaking)speechSynthesis.pause()};
+document.getElementById("stopAudio").onclick=stopAll;
+document.querySelectorAll(".line-audio").forEach(b=>b.onclick=()=>speak(b.closest(".dialogue-line").dataset.speech));
+</script>
+<script data-translation-script="true">
+const translationToggle = document.getElementById("translationToggle");
+let translationsHidden = true;
+
+function updateTranslationToggle(){
+  if(!translationToggle) return;
+  const zhText = translationsHidden ? "显示翻译" : "隐藏翻译";
+  const esText = translationsHidden ? "Mostrar traducción" : "Ocultar traducción";
+  translationToggle.dataset.zh = zhText;
+  translationToggle.dataset.es = esText;
+  translationToggle.textContent =
+    (typeof language !== "undefined" && language === "es") ? esText : zhText;
+  translationToggle.setAttribute("aria-expanded", String(!translationsHidden));
+}
+
+if(translationToggle){
+  translationToggle.addEventListener("click", () => {
+    translationsHidden = !translationsHidden;
+    document.body.classList.toggle("translation-hidden", translationsHidden);
+    updateTranslationToggle();
+  });
+  updateTranslationToggle();
+}
+</script></body>
+</html>

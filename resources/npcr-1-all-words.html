@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>新实用汉语1 · 全部词汇</title>
+<link rel="stylesheet" href="../course.css">
+<style>
+.summary-page{
+  padding-bottom:80px
+}
+.summary-hero{
+  margin:22px 0 24px;
+  padding:clamp(24px,4vw,38px);
+  border:1px solid var(--line);
+  border-radius:28px;
+  background:var(--card)
+}
+.summary-hero h1{
+  margin:8px 0 12px;
+  font:600 clamp(36px,5vw,58px)/1.15 Georgia,"Noto Serif SC",serif
+}
+.summary-hero p{
+  max-width:850px;
+  margin:0;
+  color:var(--muted);
+  line-height:1.7
+}
+.summary-stats{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:20px
+}
+.summary-stat{
+  padding:8px 12px;
+  border-radius:999px;
+  background:var(--soft);
+  color:var(--red);
+  font-size:13px;
+  font-weight:900
+}
+.summary-toolbar{
+  position:sticky;
+  top:8px;
+  z-index:5;
+  display:grid;
+  grid-template-columns:minmax(220px,1fr) repeat(4,auto);
+  gap:9px;
+  align-items:center;
+  margin:18px 0 22px;
+  padding:14px;
+  border:1px solid var(--line);
+  border-radius:20px;
+  background:color-mix(in srgb,var(--card) 95%,transparent);
+  backdrop-filter:blur(10px)
+}
+.summary-toolbar input,
+.summary-toolbar select,
+.summary-toolbar button{
+  min-height:42px;
+  padding:9px 13px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:var(--bg);
+  color:var(--text)
+}
+.summary-toolbar button{
+  font-weight:900;
+  cursor:pointer
+}
+.summary-toolbar .primary{
+  border-color:var(--red);
+  background:var(--red);
+  color:#fff
+}
+.summary-live-status{
+  min-height:20px;
+  margin:-9px 0 18px;
+  color:var(--muted);
+  font-size:13px
+}
+.volume-word-groups{
+  display:grid;
+  gap:28px
+}
+.volume-lesson-group{
+  scroll-margin-top:110px
+}
+.volume-lesson-head{
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  align-items:flex-end;
+  margin-bottom:13px
+}
+.volume-lesson-head h2{
+  margin:0;
+  font:600 clamp(25px,3vw,36px)/1.2 Georgia,"Noto Serif SC",serif
+}
+.volume-lesson-head p{
+  margin:4px 0 0;
+  color:var(--muted)
+}
+.volume-lesson-count{
+  flex:0 0 auto;
+  padding:6px 11px;
+  border-radius:999px;
+  background:var(--soft);
+  color:var(--red);
+  font-size:12px;
+  font-weight:900
+}
+.volume-word-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:13px
+}
+.volume-word-card{
+  position:relative;
+  min-height:190px;
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:21px;
+  background:var(--card);
+  transition:.18s
+}
+.volume-word-card:hover{
+  transform:translateY(-3px);
+  border-color:var(--red);
+  box-shadow:0 10px 24px rgba(40,30,20,.08)
+}
+.volume-word-source-row{
+  position:absolute;
+  top:11px;
+  left:11px;
+  right:11px;
+  display:flex;
+  gap:5px;
+  align-items:center;
+  z-index:2
+}
+.volume-word-source{
+  padding:4px 8px;
+  border-radius:999px;
+  background:var(--soft);
+  color:var(--muted);
+  font-size:10px;
+  font-weight:900
+}
+.volume-word-audio{
+  display:grid;
+  place-items:center;
+  width:30px;
+  height:30px;
+  margin-left:auto;
+  border:1px solid var(--line);
+  border-radius:50%;
+  background:var(--bg);
+  color:var(--red);
+  cursor:pointer
+}
+.volume-word-main{
+  display:flex;
+  width:100%;
+  min-height:190px;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:48px 14px 20px;
+  border:0;
+  background:transparent;
+  color:var(--text);
+  cursor:pointer
+}
+.volume-word-hanzi{
+  font:600 clamp(30px,3.4vw,46px)/1.15 Georgia,"Noto Serif SC",serif;
+  text-align:center;
+  overflow-wrap:anywhere
+}
+.volume-word-answer{
+  display:flex;
+  min-height:54px;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  margin-top:15px;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.35;
+  text-align:center
+}
+.volume-word-answer .pinyin{
+  margin-bottom:6px;
+  color:var(--red);
+  font-size:14px;
+  font-weight:900
+}
+.volume-word-answer b{
+  color:var(--text);
+  font-size:14px
+}
+.volume-word-answer small{
+  margin-top:4px;
+  color:var(--muted)
+}
+.volume-word-empty{
+  padding:45px 20px;
+  border:1px dashed var(--line);
+  border-radius:20px;
+  color:var(--muted);
+  text-align:center
+}
+@media(max-width:1100px){
+  .volume-word-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:850px){
+  .summary-toolbar{
+    position:static;
+    grid-template-columns:1fr 1fr
+  }
+  .summary-toolbar input{grid-column:1/-1}
+  .volume-word-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:520px){
+  .summary-toolbar{grid-template-columns:1fr}
+  .summary-toolbar input{grid-column:auto}
+  .volume-word-grid{grid-template-columns:1fr}
+  .volume-lesson-head{display:block}
+  .volume-lesson-count{display:inline-block;margin-top:9px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="brand" href="../index.html">
+    <span class="logo">汉</span>
+    <span>
+      <b data-zh="Ángela的汉语课堂" data-es="Aula de Chino con Ángela">Ángela的汉语课堂</b>
+      <small data-zh="学中文，也理解中国文化" data-es="Aprender chino y comprender su cultura">学中文，也理解中国文化</small>
+    </span>
+  </a>
+  <div class="tools">
+    <button id="lang" type="button">ES</button>
+    <button id="theme" type="button">☾</button>
+  </div>
+</header>
+
+<main class="summary-page">
+  <a class="back" href="../courses/npcr-1.html">←
+    <span data-zh="返回整册目录" data-es="Volver al índice del libro">返回整册目录</span>
+  </a>
+
+  <section class="summary-hero">
+    <p class="kicker" data-zh="整册汇总 · 词汇" data-es="Resumen del volumen · Vocabulario">整册汇总 · 词汇</p>
+    <h1 data-zh="全部词汇" data-es="Todo el vocabulario">全部词汇</h1>
+    <p data-zh="收录生词1、生词2和补充词汇，共544个词。" data-es="Incluye Vocabulario 1, Vocabulario 2 y vocabulario adicional: 544 palabras.">收录生词1、生词2和补充词汇，共544个词。</p>
+    <div class="summary-stats"><span class="summary-stat" data-zh="全部词汇：544" data-es="Total: 544">全部词汇：544</span><span class="summary-stat" data-zh="主生词：387" data-es="Principales: 387">主生词：387</span><span class="summary-stat" data-zh="补充词汇：157" data-es="Adicionales: 157">补充词汇：157</span></div>
+  </section>
+
+  <section id="volumeWordApp" data-mode="all">
+    <div class="summary-toolbar">
+      <input id="summaryWordSearch" type="search" placeholder="搜索汉字、拼音、西语或词性">
+      <select id="summaryLessonFilter" aria-label="选择课次">
+        <option value="all">全部课次</option>
+      </select>
+      <select id="summarySourceFilter" aria-label="选择词汇来源">
+        <option value="all">全部来源</option>
+      </select>
+      <button id="summaryRevealAll" class="primary" type="button">显示全部答案</button>
+      <button id="summaryShuffle" type="button">随机排列</button>
+    </div>
+    <p id="summaryLiveStatus" class="summary-live-status"></p>
+    <div id="volumeWordGroups" class="volume-word-groups"></div>
+    <p id="summaryWordEmpty" class="volume-word-empty" hidden
+       data-zh="没有符合条件的词汇。"
+       data-es="No hay palabras que coincidan con los filtros.">
+       没有符合条件的词汇。
+    </p>
+  </section>
+</main>
+
+<footer><span>© 2026 Ángela</span><span>Aula de Chino</span></footer>
+<script src="../course.js"></script>
+
+<script src="../home-vocabulary-data.js"></script>
+<script src="npcr-1-summary-vocab.js"></script>
+</body>
+</html>

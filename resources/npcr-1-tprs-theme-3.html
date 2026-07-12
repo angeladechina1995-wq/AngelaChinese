@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>找到图书馆 · 初学者校园推理</title>
+<link href="../course.css" rel="stylesheet"/>
+<link href="npcr-1-tprs.css" rel="stylesheet"/>
+</head>
+<body class="world-three-demo">
+<header>
+<a class="brand" href="../index.html">
+<span class="logo">汉</span>
+<span>
+<b data-es="Aula de Chino con Ángela" data-zh="Ángela的汉语课堂">Ángela的汉语课堂</b>
+<small data-es="Aprender chino y comprender su cultura" data-zh="学中文，也理解中国文化">学中文，也理解中国文化</small>
+</span>
+</a>
+<div class="tools">
+<button id="lang" type="button">ES</button>
+<button id="theme" type="button">☾</button>
+</div>
+</header>
+<main class="game-shell">
+<a class="back" href="npcr-1-review.html">←
+    <span data-es="Volver a las historias" data-zh="返回情景推理馆">返回情景推理馆</span>
+</a>
+<section class="game-hero">
+<span class="game-kicker" data-es="Lección 6 · Historia del campus" data-zh="第6课 · 初学者校园故事">第6课 · 初学者校园故事</span>
+<h1 data-es="Encuentra la biblioteca" data-zh="找到图书馆">找到图书馆</h1>
+<p data-es="Han desaparecido los nombres del mapa. Haz unas preguntas sencillas de posición y encuentra el mapa correcto y la biblioteca." data-zh="校园地图上的地点名字掉下来了。问几个简单的方位问题，找出正确地图和图书馆的位置。">校园地图上的地点名字掉下来了。问几个简单的方位问题，找出正确地图和图书馆的位置。</p>
+<section class="beginner-mission-card campus-mission-card">
+<div class="beginner-mission-icon campus-mission-icon">图</div>
+<div class="beginner-mission-copy">
+<small data-es="Una sola misión" data-zh="本关只做一件事">本关只做一件事</small>
+<strong data-es="Encontrar la biblioteca" data-zh="找到图书馆">找到图书馆</strong>
+<p data-es="Escucha → Pregunta posiciones → Mira el mapa → Elige" data-zh="听故事 → 问方位 → 看地图 → 选正确地图">
+      听故事 → 问方位 → 看地图 → 选正确地图
+    </p>
+</div>
+<div class="beginner-case-chip campus-case-chip">
+<span data-es="Misión" data-zh="校园任务">校园任务</span>
+<b>03</b>
+</div>
+</section><div class="game-goals">
+<span data-es="有 / 是" data-zh="有／是">有／是</span><span data-es="在 + lugar" data-zh="在＋地点">在＋地点</span><span data-es="Norte / Derecha" data-zh="北边／右边">北边／右边</span><span data-es="Este / Oeste" data-zh="东边／西边">东边／西边</span><button aria-pressed="false" class="pinyin-toggle" data-es="Mostrar pinyin" data-zh="显示拼音" id="pinyinToggle" type="button">显示拼音</button>
+</div>
+</section>
+<nav aria-label="游戏步骤" class="game-stepper">
+<div aria-disabled="false" aria-label="第1阶段" class="game-step active" data-es="1 Escucha" data-step-indicator="1" data-zh="1 听校园故事" role="button" tabindex="0">1 听校园故事</div>
+<div aria-disabled="true" aria-label="第2阶段" class="game-step" data-es="2 Pregunta" data-step-indicator="2" data-zh="2 问方位" role="button" tabindex="-1">2 问方位</div>
+<div aria-disabled="true" aria-label="第3阶段" class="game-step" data-es="3 Elige" data-step-indicator="3" data-zh="3 选地图" role="button" tabindex="-1">3 选地图</div>
+<div aria-disabled="true" aria-label="第4阶段" class="game-step" data-es="4 Confirma" data-step-indicator="4" data-zh="4 再确认" role="button" tabindex="-1">4 再确认</div>
+<div aria-disabled="true" aria-label="第5阶段" class="game-step" data-es="5 Guía" data-step-indicator="5" data-zh="5 做向导卡" role="button" tabindex="-1">5 做向导卡</div>
+</nav>
+<section class="game-panel" id="panel1">
+<div class="game-panel-head">
+<div>
+<p class="kicker" data-es="Introducción" data-zh="第一步 · 听">第一步 · 听</p>
+<h2 data-es="Han desaparecido los nombres del mapa" data-zh="先听一个校园故事">先听一个校园故事</h2>
+<p data-es="La historia se muestra solo en caracteres. Puedes escucharla con el botón." data-zh="不用全部看懂。注意校门、食堂、图书馆和方向词。">不用全部看懂。注意校门、食堂、图书馆和方向词。</p>
+</div>
+<div class="panel-number">01</div>
+</div>
+<div class="story-box">
+<p id="campusStory">新同学上午刚到学校。她站在校门口，想先去图书馆，可是校园地图上的地点名字都掉下来了。丁力波说：“别着急，你问我问题吧。我给你介绍一下校园。”</p>
+<div class="story-actions">
+<button class="speak-button" data-speech-target="campusStory" type="button">▶</button>
+<button class="game-button primary" data-es="Ya he escuchado. Preguntar →" data-zh="我听完了，开始问方位 →" id="startCampusMystery" type="button">我听完了，开始问方位 →</button>
+</div>
+</div>
+</section>
+<section class="game-panel" hidden="" id="panel2">
+<div class="game-panel-head">
+<div>
+<p class="kicker" data-es="Preguntas de posición" data-zh="第二步 · 问">第二步 · 问</p>
+<h2 data-es="¿Qué lugares ayudan a situar la biblioteca?" data-zh="选择你想问的方位问题">选择你想问的方位问题</h2>
+<p data-es="Debes reunir al menos cuatro pistas para ver los cuatro mapas." data-zh="每点一个问题，就会得到一条校园位置线索。">每点一个问题，就会得到一条校园位置线索。</p>
+</div>
+<div class="panel-number">02</div>
+</div>
+<div class="case-progress-card campus-progress-card">
+<div>
+<small data-es="Pistas encontradas" data-zh="已经找到的校园线索">已经找到的校园线索</small>
+<strong id="campusEvidenceText">0 / 5</strong>
+</div>
+<div class="case-progress-track campus-progress-track"><span id="campusEvidenceBar"></span></div>
+<span class="case-progress-tip" data-es="Encuentra al menos 4 pistas" data-zh="至少找到4条线索">
+        至少找到4条线索
+      </span>
+</div><div class="question-grid">
+<button class="question-button" data-question="canteen" type="button">
+<strong data-pinyin="Shítáng zài nǎr?">食堂在哪儿？</strong><span>＋</span>
+</button>
+<button class="question-button" data-question="library" type="button">
+<strong data-pinyin="Túshūguǎn zài nǎr?">图书馆在哪儿？</strong><span>＋</span>
+</button>
+<button class="question-button" data-question="west" type="button">
+<strong data-pinyin="Túshūguǎn xībian shì shénme?">图书馆西边是什么？</strong><span>＋</span>
+</button>
+<button class="question-button" data-question="east" type="button">
+<strong data-pinyin="Túshūguǎn dōngbian shì shénme?">图书馆东边是什么？</strong><span>＋</span>
+</button>
+<button class="question-button" data-question="teaching" type="button">
+<strong data-pinyin="Jiàoxuélóu zài nǎr?">教学楼在哪儿？</strong><span>＋</span>
+</button>
+</div>
+<div class="clue-board" id="campusClueBoard"></div>
+<div class="game-actions">
+<button class="game-button primary" data-es="Ver los cuatro mapas →" data-zh="查看四张地图 →" disabled="" id="openCampusMaps" type="button">查看四张地图 →</button>
+<span id="campusClueCounter">已收集0/5条线索</span>
+</div>
+</section>
+<section class="game-panel" hidden="" id="panel3">
+<div class="game-panel-head">
+<div>
+<p class="kicker" data-es="Deducción con mapas" data-zh="第三步 · 选">第三步 · 选</p>
+<h2 data-es="¿Qué mapa es correcto?" data-zh="根据线索选择正确地图">根据线索选择正确地图</h2>
+<p data-es="Arriba es norte, abajo es sur; izquierda es oeste y derecha es este." data-zh="上面是北边，下面是南边；左边是西边，右边是东边。">上面是北边，下面是南边；左边是西边，右边是东边。</p>
+</div>
+<div class="panel-number">03</div>
+</div>
+<div class="map-choice-grid">
+<article class="map-option">
+<h3>地图B</h3>
+<div class="mini-map-grid">
+<span data-pinyin="Túshūguǎn">图书馆</span><span data-pinyin="Tǐyùguǎn">体育馆</span><span data-pinyin="Yínháng">银行</span><span data-pinyin="Sùshèlóu">宿舍楼</span>
+<span data-pinyin="Xiàomén">校门</span><span data-pinyin="Shítáng">食堂</span><span data-pinyin="Jiàoxuélóu">教学楼</span><span data-pinyin="Bàngōnglóu">办公楼</span>
+</div>
+<button class="game-button map-choice" data-es="Elegir mapa B" data-map="B" data-zh="选择地图B" type="button">选择地图B</button>
+</article>
+<article class="map-option">
+<h3>地图A</h3>
+<div class="mini-map-grid">
+<span data-pinyin="Tǐyùguǎn">体育馆</span><span data-pinyin="Túshūguǎn">图书馆</span><span data-pinyin="Yínháng">银行</span><span data-pinyin="Sùshèlóu">宿舍楼</span>
+<span data-pinyin="Xiàomén">校门</span><span data-pinyin="Shítáng">食堂</span><span data-pinyin="Jiàoxuélóu">教学楼</span><span data-pinyin="Bàngōnglóu">办公楼</span>
+</div>
+<button class="game-button map-choice" data-es="Elegir mapa A" data-map="A" data-zh="选择地图A" type="button">选择地图A</button>
+</article><article class="map-option">
+<h3>地图C</h3>
+<div class="mini-map-grid">
+<span data-pinyin="Tǐyùguǎn">体育馆</span><span data-pinyin="Yínháng">银行</span><span data-pinyin="Túshūguǎn">图书馆</span><span data-pinyin="Sùshèlóu">宿舍楼</span>
+<span data-pinyin="Xiàomén">校门</span><span data-pinyin="Shítáng">食堂</span><span data-pinyin="Jiàoxuélóu">教学楼</span><span data-pinyin="Bàngōnglóu">办公楼</span>
+</div>
+<button class="game-button map-choice" data-es="Elegir mapa C" data-map="C" data-zh="选择地图C" type="button">选择地图C</button>
+</article>
+<article class="map-option">
+<h3>地图D</h3>
+<div class="mini-map-grid">
+<span data-pinyin="Tǐyùguǎn">体育馆</span><span data-pinyin="Túshūguǎn">图书馆</span><span data-pinyin="Yínháng">银行</span><span data-pinyin="Sùshèlóu">宿舍楼</span>
+<span data-pinyin="Xiàomén">校门</span><span data-pinyin="Jiàoxuélóu">教学楼</span><span data-pinyin="Shítáng">食堂</span><span data-pinyin="Bàngōnglóu">办公楼</span>
+</div>
+<button class="game-button map-choice" data-es="Elegir mapa D" data-map="D" data-zh="选择地图D" type="button">选择地图D</button>
+</article>
+</div>
+<div class="game-feedback" id="campusMapFeedback">选择一张地图。</div>
+<div class="identity-reveal" hidden="" id="campusRecap">
+<article class="profile-card compact-profile" id="campusSolvedCard">
+<div class="profile-card-topline">
+<span class="profile-file-number">路线档案 · 03</span>
+<span class="profile-solved-stamp">✓ 地图匹配成功</span>
+</div>
+<div class="profile-card-body">
+<div class="profile-portrait-column">
+<div aria-hidden="true" class="profile-avatar-large">路</div>
+<span class="profile-role-badge">校园路线图</span>
+</div>
+<div class="profile-information">
+<p class="profile-eyebrow">CAMPUS GUIDE</p>
+<h3 class="profile-name">正确地图A</h3>
+<p class="profile-subtitle">根据方位线索还原校园布局</p>
+<div class="profile-mini-grid">
+<div class="profile-mini-card"><strong>起点</strong><span>校门</span></div>
+<div class="profile-mini-card"><strong>右边</strong><span>食堂</span></div>
+<div class="profile-mini-card"><strong>食堂北边</strong><span>图书馆</span></div>
+<div class="profile-mini-card"><strong>图书馆西边</strong><span>体育馆</span></div>
+<div class="profile-mini-card"><strong>图书馆东边</strong><span>银行</span></div>
+<div class="profile-mini-card"><strong>食堂东边</strong><span>教学楼</span></div>
+</div>
+</div>
+</div>
+<div class="profile-conclusion">
+<span class="profile-conclusion-mark">✓</span>
+<div><small>最终结论</small><strong>你已经找到正确的校园地图。</strong></div>
+</div>
+</article>
+<div class="profile-summary-strip">
+<strong>故事复述</strong>
+<p id="campusRecapText">食堂在校门右边。图书馆在食堂北边。体育馆在图书馆西边，银行在图书馆东边。教学楼在食堂东边。</p>
+</div>
+<div class="game-actions">
+<button class="speak-button" data-speech-target="campusRecapText" type="button">▶</button>
+<button class="game-button" id="printCampusSolvedCard" type="button">打印路线档案</button>
+<button class="game-button primary" data-es="Confirmar la ruta →" data-zh="进入路线确认 →" id="startCampusQuiz" type="button">进入路线确认 →</button>
+</div>
+</div>
+</section>
+<section class="game-panel" hidden="" id="panel4">
+<div class="game-panel-head">
+<div>
+<p class="kicker" data-es="Confirmación repetida" data-zh="第四步 · 确认">第四步 · 确认</p>
+<h2 data-es="Ayuda a la estudiante a encontrar la biblioteca" data-zh="帮助新同学找到图书馆">帮助新同学找到图书馆</h2>
+<p data-es="En cada escena alguien necesita tu ayuda. Elige la respuesta más adecuada en chino." data-zh="每个场景里都有人需要你的帮助。选择最合适的中文回答。">每个场景里都有人需要你的帮助。选择最合适的中文回答。</p>
+</div>
+<div class="panel-number">04</div>
+</div>
+<div class="quiz-card">
+<div class="quiz-progress" id="campusQuizProgress">1 / 7</div><div class="communicative-scene-card" id="campusSceneCard">
+<div class="scene-icon" id="campusSceneIcon">🏫</div>
+<div class="scene-copy">
+<small id="campusSceneLabel">场景一 · 校门口</small>
+<strong id="campusSceneWho">新同学第一次来到学校。</strong>
+<p id="campusScenePrompt">她问：“图书馆在哪儿？”</p>
+</div>
+</div>
+<h3 class="quiz-question" id="campusQuizQuestion"></h3>
+<div class="quiz-options" id="campusQuizOptions"></div>
+<div class="game-feedback" id="campusQuizFeedback">选择一个答案。</div>
+<div class="game-actions">
+<button class="game-button primary" disabled="" id="nextCampusQuiz" type="button">下一题 →</button>
+</div>
+</div>
+</section>
+<section class="game-panel" hidden="" id="panel5">
+<div class="game-panel-head">
+<div>
+<p class="kicker" data-es="Producción personalizada" data-zh="第五步 · 做">第五步 · 做</p>
+<h2 data-es="Crea una tarjeta de guía del campus" data-zh="建立我的校园向导卡">建立我的校园向导卡</h2>
+<p data-es="Elige a un amigo y un destino y usa «ven conmigo» y «te lo explico» para dar indicaciones reales." data-zh="选择朋友和目的地，生成一张可以朗读和打印的向导卡。">选择朋友和目的地，生成一张可以朗读和打印的向导卡。</p>
+</div>
+<div class="panel-number">05</div>
+</div>
+<div class="final-form">
+<div class="final-field">
+<label data-pinyin="Nǐ de Zhōngwén míngzi" for="guideName">你的中文名字</label>
+<input id="guideName" maxlength="20" placeholder="例如：安娜" type="text"/>
+</div>
+<div class="final-field">
+<label data-pinyin="Nǐ xiǎng gěi shéi jièshào?" for="guideFriend">你想给谁介绍？</label>
+<input id="guideFriend" maxlength="20" placeholder="例如：大卫" type="text"/>
+</div>
+<div class="final-field">
+<label data-pinyin="Tā xiǎng qù nǎr?" for="guideDestination">他想去哪儿？</label>
+<select id="guideDestination">
+<option value="">请选择</option>
+<option value="图书馆">图书馆</option>
+<option value="教学楼">教学楼</option>
+<option value="食堂">食堂</option>
+<option value="银行">银行</option>
+</select>
+</div>
+</div>
+<div class="game-actions">
+<button class="game-button primary" id="generateCampusCard" type="button">生成校园向导卡</button>
+<button class="game-button" id="resetCampusTheme" type="button">重新开始故事</button>
+</div>
+<div class="profile-output-wrapper" hidden="" id="campusFinalCard">
+<article class="profile-card compact-profile" id="printableCampusCard">
+<div class="profile-card-topline">
+<span class="profile-file-number">我的校园向导卡</span>
+<span class="profile-level-chip">Theme 03</span>
+</div>
+<div class="profile-card-body">
+<div class="profile-portrait-column">
+<div aria-hidden="true" class="profile-avatar-large personal-avatar">导</div>
+<span class="profile-role-badge">校园向导</span>
+</div>
+<div class="profile-information">
+<p class="profile-eyebrow">CAMPUS ROUTE CARD</p>
+<h3 class="profile-name"><span id="campusCardGuide">—</span></h3>
+<p class="profile-subtitle">带朋友认识校园</p>
+<dl class="profile-data-grid">
+<div><dt>朋友</dt><dd><span id="campusCardFriend">—</span></dd></div>
+<div><dt>目的地</dt><dd><span id="campusCardDestination">—</span></dd></div>
+<div><dt>起点</dt><dd>校门</dd></div>
+<div><dt>任务</dt><dd>介绍校园路线</dd></div>
+</dl>
+</div>
+</div>
+<div class="profile-route-box">
+<strong>路线说明</strong>
+<p id="campusCardRoute"></p>
+<span class="learning-pinyin" id="campusCardRoutePinyin"></span>
+</div>
+<section class="profile-self-introduction">
+<small>完整向导语</small>
+<p id="campusFinalText"></p>
+<span class="learning-pinyin final-card-pinyin" id="campusFinalPinyin"></span>
+</section>
+<div class="profile-completion-seal">
+<span>路</span>
+<div><strong>向导卡已建立</strong><small>Ángela的汉语课堂 · 主题03</small></div>
+</div>
+</article>
+<small class="profile-save-note">这张卡已经保存在当前浏览器中。</small>
+<div class="game-actions">
+<button class="game-button" id="speakCampusCard" type="button">听一遍</button>
+<button class="game-button" id="copyCampusCard" type="button">复制中文</button>
+<button class="game-button" id="printCampusCard" type="button">打印向导卡</button>
+<a class="game-button primary" href="npcr-1-review.html">返回主题馆 →</a>
+</div>
+</div>
+<div class="result-box" hidden="" id="campusThemeResult"><div class="world-achievement-badge campus-achievement-badge">
+<span class="world-achievement-icon campus-achievement-icon">导</span>
+<div>
+<small data-es="Título obtenido" data-zh="获得称号">获得称号</small>
+<strong data-es="Guía del campus" data-zh="校园向导">校园向导</strong>
+</div>
+</div>
+<div class="result-stars" id="campusResultStars">★★★</div>
+<h3>主题3完成！</h3>
+<p id="campusResultMessage"></p>
+</div>
+</section>
+</main>
+<footer><span>© 2026 Ángela</span><span>Aula de Chino</span></footer>
+<script src="../course.js"></script>
+<script src="npcr-1-tprs-pinyin.js"></script>
+<script src="npcr-1-tprs-theme3.js"></script>
+</body>
+</html>

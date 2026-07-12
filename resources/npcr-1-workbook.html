@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>新实用汉语1 · 综合练习</title>
+<link href="../course.css" rel="stylesheet"/>
+<link href="npcr-1-practice.css" rel="stylesheet"/>
+</head>
+<body>
+<header>
+<a class="brand" href="../index.html"><span class="logo">汉</span><span><b data-es="Aula de Chino con Ángela" data-zh="Ángela的汉语课堂">Ángela的汉语课堂</b><small data-es="Aprender chino y comprender su cultura" data-zh="学中文，也理解中国文化">学中文，也理解中国文化</small></span></a>
+<div class="tools"><button id="lang" type="button">ES</button><button id="theme" type="button">☾</button></div>
+</header>
+<main class="practice-shell">
+<button aria-label="返回上一级" class="back practice-page-back" id="practiceBack" type="button">← <span data-es="Volver al nivel anterior" data-zh="返回上一级">返回上一级</span></button>
+<section id="practiceHome">
+<div class="practice-hero">
+<div>
+<p class="kicker" data-es="Centro de práctica original · Versión 1" data-zh="原创练习中心 · 第一版">原创练习中心 · 第一版</p>
+<h1 data-es="Repasa el Libro 1 mediante diez misiones cotidianas" data-zh="在十个生活任务中复习第一册">在十个生活任务中复习第一册</h1>
+<p data-es="Cada lección incluye 5 retos de vocabulario, 3 de orden, 3 de comprensión auditiva, un diálogo ramificado y una tarea final. El progreso, los errores y los resultados se guardan solo en este navegador。" data-zh="每课包含5道词汇速配、3道语序解谜、3道听力题、1个分支对话和1个最终情景任务。答题记录、错题和成果只保存在当前浏览器。">每课包含5道词汇速配、3道语序解谜、3道听力题、1个分支对话和1个最终情景任务。答题记录、错题和成果只保存在当前浏览器。</p>
+</div>
+<div class="practice-hero-stats">
+<div class="practice-stat"><strong id="completedCount">0/10</strong><span data-es="Lecciones completadas" data-zh="完成课次">完成课次</span></div>
+<div class="practice-stat"><strong id="starCount">0/30</strong><span data-es="Estrellas" data-zh="获得星星">获得星星</span></div>
+<div class="practice-stat"><strong id="errorCount">0</strong><span data-es="Errores pendientes" data-zh="待复习错题">待复习错题</span></div>
+<div class="practice-stat"><strong id="productCount">0</strong><span data-es="Resultados guardados" data-zh="学习成果">学习成果</span></div>
+</div>
+</div>
+<div class="practice-mode-grid">
+<button class="practice-mode-card" id="modeLessons"><span class="mode-index">01</span><strong data-es="Misiones por lección" data-zh="按课闯关">按课闯关</strong><p data-es="Completa la ruta de diez misiones cotidianas." data-zh="沿着十课生活路线完成完整练习。">沿着十课生活路线完成完整练习。</p><span data-es="Elegir lección →" data-zh="选择课次 →">选择课次 →</span></button>
+<button class="practice-mode-card" id="modeRandom"><span class="mode-index">02</span><strong data-es="Reto aleatorio" data-zh="随机挑战">随机挑战</strong><p data-es="Diez preguntas aleatorias del Libro 1." data-zh="从第一册客观题中随机抽取10题。">从第一册客观题中随机抽取10题。</p><span data-es="Comenzar →" data-zh="开始挑战 →">开始挑战 →</span></button>
+<button class="practice-mode-card" id="modeErrors"><span class="mode-index">03</span><strong data-es="Repaso de errores" data-zh="错题复习">错题复习</strong><p data-es="Los errores de vocabulario, orden y audición se guardan automáticamente." data-zh="答错的词汇、语序和听力题会自动收集。">答错的词汇、语序和听力题会自动收集。</p><span data-es="Ver errores →" data-zh="查看错题 →">查看错题 →</span></button>
+<button class="practice-mode-card" id="modeAchievements"><span class="mode-index">04</span><strong data-es="Mis logros" data-zh="我的成果">我的成果</strong><p data-es="Consulta insignias, etapas y tarjetas generadas." data-zh="查看徽章、阶段进度和每课生成的情景卡。">查看徽章、阶段进度和每课生成的情景卡。</p><span data-es="Ver logros →" data-zh="查看成果 →">查看成果 →</span></button>
+</div>
+<section class="practice-panel">
+<div class="panel-head"><div><p class="kicker" data-es="Ruta de aprendizaje" data-zh="学习路线">学习路线</p><h2 data-es="Diez misiones cotidianas" data-zh="十课生活任务">十课生活任务</h2></div><p data-es="Completa dos lecciones consecutivas para desbloquear una etapa." data-zh="完成相邻两课，点亮一个阶段徽章。">完成相邻两课，点亮一个阶段徽章。</p></div>
+<div class="lesson-route" id="lessonRoute"></div><div class="stage-strip" id="stageStrip"></div>
+</section>
+<p class="original-note" data-es="Los ejercicios de esta página son originales y se han diseñado de nuevo a partir del vocabulario, la gramática y las funciones comunicativas ya estudiadas; no reproducen el cuaderno del manual。" data-zh="本页练习为教学网站原创内容，依据本课程已经学习的词汇、语法和交际功能重新设计，不复制教材练习册。">本页练习为教学网站原创内容，依据本课程已经学习的词汇、语法和交际功能重新设计，不复制教材练习册。</p>
+</section>
+<section class="practice-hidden practice-view" id="lessonPicker">
+<div class="panel-head"><div><p class="kicker" data-es="Misiones por lección" data-zh="按课闯关" id="lessonPickerKicker">按课闯关</p><h2 data-es="Elige una misión cotidiana" data-zh="选择一项生活任务" id="lessonPickerTitle">选择一项生活任务</h2></div><button class="practice-button" data-es="Volver" data-zh="返回首页" id="lessonPickerHome" type="button">返回首页</button></div>
+<div class="lesson-route" id="lessonRoutePicker"></div>
+<div class="empty-state practice-hidden" id="emptyMessage"></div>
+</section>
+<section class="practice-hidden practice-view" id="exerciseView">
+<div class="exercise-topbar"><button class="icon-button" id="backToLessons" type="button">←</button><div><div class="exercise-progress"><span id="exerciseProgressFill"></span></div><div class="exercise-meta"><span id="exerciseCounter"></span><span id="exerciseScore"></span></div></div><button class="practice-button" data-es="Salir" data-practice-home="" data-zh="退出挑战" type="button">退出挑战</button></div>
+<div class="panel-head"><div><p class="kicker" data-es="Misión actual" data-zh="当前任务">当前任务</p><h2 id="exerciseTitle"></h2></div></div>
+<article class="exercise-card" id="exerciseCard"></article><div class="feedback-box practice-hidden" id="feedbackBox"></div>
+</section>
+<section class="practice-hidden practice-view" id="resultView">
+<div class="result-card"><p class="kicker" data-es="Reto completado" data-zh="挑战完成">挑战完成</p><h2 id="resultTitle"></h2><div id="resultStars"></div><div class="result-score" id="resultScore"></div><div class="result-breakdown"><div><span data-es="Primer intento" data-zh="首次正确">首次正确</span><strong id="resultFirstTry"></strong></div><div><span data-es="Pistas usadas" data-zh="使用提示">使用提示</span><strong id="resultHints"></strong></div><div><span data-es="Errores pendientes" data-zh="剩余错题">剩余错题</span><strong id="resultErrors"></strong></div><div class="practice-hidden" id="resultClearedWrap"><span data-es="Eliminados" data-zh="本次清除">本次清除</span><strong id="resultCleared"></strong></div></div><div class="result-actions"><button class="practice-button" data-es="Repetir" data-zh="再挑战一次" id="retryButton" type="button">再挑战一次</button><button class="practice-button primary" data-es="Volver al inicio" data-zh="返回练习首页" id="resultHome" type="button">返回练习首页</button></div></div>
+</section>
+<section class="practice-hidden practice-view" id="achievementView">
+<div class="panel-head"><div><p class="kicker" data-es="Registro de aprendizaje" data-zh="学习记录">学习记录</p><h2 data-es="Insignias y resultados" data-zh="徽章与成果">徽章与成果</h2></div><button class="practice-button" data-es="Volver" data-zh="返回首页" id="achievementHome" type="button">返回首页</button></div>
+<section class="achievement-storage-tools" id="achievementStorageTools">
+<div class="storage-copy">
+<strong data-es="Dónde se guardan los datos" data-zh="学习记录保存位置">学习记录保存位置</strong>
+<p data-es="Los resultados, estrellas y errores se guardan solo en este navegador. Antes de cambiar de navegador, dispositivo o carpeta, exporta el registro e impórtalo en la nueva versión." data-zh="成果、星级和错题只保存在当前浏览器中。更换浏览器、设备或解压到新文件夹时，请先导出记录，再在新版网站中导入。">
+          成果、星级和错题只保存在当前浏览器中。更换浏览器、设备或解压到新文件夹时，请先导出记录，再在新版网站中导入。
+        </p>
+<p class="storage-status" id="storageStatus"></p>
+</div>
+<div class="storage-actions">
+<button class="practice-button primary" data-es="Exportar registro" data-zh="导出学习记录" id="exportProgress" type="button">导出学习记录</button>
+<button class="practice-button" data-es="Importar registro" data-zh="导入学习记录" id="importProgress" type="button">导入学习记录</button>
+<input accept=".json,application/json" hidden="" id="importProgressFile" type="file"/>
+</div>
+</section><div class="panel-head" style="margin-top:35px"><div><p class="kicker" data-es="Tareas finales" data-zh="最终任务">最终任务</p><h2 data-es="Mis tarjetas" data-zh="我的情景卡">我的情景卡</h2><span class="saved-product-count" data-es="0 tarjetas" data-zh="0张" id="savedProductCount">0张</span></div></div><div class="empty-state" data-es="Al generar la tarjeta de la tarea final, el resultado se guarda inmediatamente y aparece aquí." data-zh="完成每课最后的情景任务并生成成果卡后，成果会立即保存在这里。" id="productEmpty">完成每课最后的情景任务并生成成果卡后，成果会立即保存在这里。</div><div class="product-list" id="productList"></div><div class="panel-head badge-section-heading" id="badgeSectionHeading">
+<div>
+<p class="kicker" data-es="Insignias" data-zh="学习徽章">学习徽章</p>
+<h2 data-es="Insignias de etapa y habilidad" data-zh="阶段与能力徽章">阶段与能力徽章</h2>
+</div>
+</div><div class="achievement-grid" id="achievementGrid"></div>
+</section>
+</main>
+<footer><span>© 2026 Ángela</span><span>Aula de Chino</span></footer>
+<script src="../course.js"></script>
+<script src="npcr-1-practice-data.js"></script>
+<script src="npcr-1-practice.js"></script>
+</body></html>

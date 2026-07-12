@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>帮助朋友顺利看医生 · 初学者情景推理</title>
+<link href="../course.css" rel="stylesheet"/>
+<link href="npcr-1-tprs.css" rel="stylesheet"/>
+</head>
+<body class="world-four-demo">
+<header>
+<a class="brand" href="../index.html">
+<span class="logo">汉</span>
+<span>
+<b data-es="Aula de Chino con Ángela" data-zh="Ángela的汉语课堂">Ángela的汉语课堂</b>
+<small data-es="Aprender chino y comprender su cultura" data-zh="学中文，也理解中国文化">学中文，也理解中国文化</small>
+</span>
+</a>
+<div class="tools">
+<button id="lang" type="button">ES</button>
+<button id="theme" type="button">☾</button>
+</div>
+</header>
+<main class="game-shell">
+<a class="back" href="npcr-1-review.html">← <span data-es="Volver a las historias" data-zh="返回情景推理馆">返回情景推理馆</span></a>
+<section class="game-hero">
+<span class="game-kicker" data-es="Lecciones 7–8 · Historia de ayuda" data-zh="第7—8课 · 初学者帮助故事">第7—8课 · 初学者帮助故事</span>
+<h1 data-es="Ayuda a tu amigo a comunicarse con el médico" data-zh="帮助朋友顺利看医生">帮助朋友顺利看医生</h1>
+<p data-es="Tu amigo se encuentra mal. Haz unas preguntas sencillas, descubre los síntomas y ayúdale en una visita médica." data-zh="朋友今天身体不舒服。问几个简单问题，找出症状和需要的东西，帮助他完成一次看病交流。">朋友今天身体不舒服。问几个简单问题，找出症状和需要的东西，帮助他完成一次看病交流。</p>
+<section class="beginner-mission-card health-mission-card">
+<div class="beginner-mission-icon health-mission-icon">护</div>
+<div class="beginner-mission-copy">
+<small data-es="Hoy solo hay una misión" data-zh="今天只有一个任务">今天只有一个任务</small>
+<strong data-es="Ayuda a tu amigo a comunicarse con el médico" data-zh="帮助朋友顺利看医生">帮助朋友顺利看医生</strong>
+<p data-es="Escucha → Pregunta por los síntomas → Detecta el problema → Ayuda a responder" data-zh="听故事 → 问症状 → 找出问题 → 帮朋友回答">
+      听故事 → 问症状 → 找出问题 → 帮朋友回答
+    </p>
+</div>
+<div class="beginner-case-chip health-case-chip">
+<span data-es="Misión de ayuda" data-zh="帮助任务">帮助任务</span>
+<b>04</b>
+</div>
+</section><div class="game-goals">
+<span data-es="Ir al médico" data-zh="去医院看病">去医院看病</span><span data-es="应该 + recomendación" data-zh="应该＋建议">应该＋建议</span><span data-es="Dolor de cabeza / garganta" data-zh="头疼／嗓子疼">头疼／嗓子疼</span><span data-es="¿Dónde le duele?" data-zh="哪儿不舒服">哪儿不舒服</span><button aria-pressed="false" class="pinyin-toggle" data-es="Mostrar pinyin" data-zh="显示拼音" id="pinyinToggle" type="button">显示拼音</button>
+</div>
+</section>
+<nav class="game-stepper">
+<div aria-disabled="false" aria-label="第1阶段" class="game-step active" data-es="1 Escucha" data-step-indicator="1" data-zh="1 听帮助故事" role="button" tabindex="0">1 听帮助故事</div>
+<div aria-disabled="true" aria-label="第2阶段" class="game-step" data-es="2 Pregunta" data-step-indicator="2" data-zh="2 问症状" role="button" tabindex="-1">2 问症状</div>
+<div aria-disabled="true" aria-label="第3阶段" class="game-step" data-es="3 Detecta" data-step-indicator="3" data-zh="3 找出问题" role="button" tabindex="-1">3 找出问题</div>
+<div aria-disabled="true" aria-label="第4阶段" class="game-step" data-es="4 Ayuda" data-step-indicator="4" data-zh="4 帮朋友回答" role="button" tabindex="-1">4 帮朋友回答</div>
+<div aria-disabled="true" aria-label="第5阶段" class="game-step" data-es="5 Tarjeta" data-step-indicator="5" data-zh="5 做关怀卡" role="button" tabindex="-1">5 做关怀卡</div>
+</nav>
+<section class="game-panel" id="panel1">
+<div class="game-panel-head">
+<div><p class="kicker" data-es="Paso 1 · Escucha" data-zh="第一步 · 听">第一步 · 听</p><h2 data-es="Escucha primero una historia breve de ayuda" data-zh="先听一个帮助朋友的故事">先听一个帮助朋友的故事</h2><p data-es="No necesitas entenderlo todo. Fíjate en qué le duele y qué debería hacer." data-zh="不用全部看懂。注意朋友哪里不舒服、应该做什么。">不用全部看懂。注意朋友哪里不舒服、应该做什么。</p></div>
+<div class="panel-number">01</div>
+</div>
+<div class="story-box">
+<p id="shoppingStory">马大为今天全身都不舒服。他头疼，嗓子也疼，应该去医院看病。四位同学决定帮他买东西：有人去市场买水果，有人去商店买衣服，有人去药店买中药，还有人去超市买水。可是回到宿舍以后，大家发现有一个人买错了。</p>
+<div class="story-actions">
+<button class="speak-button" data-speech-target="shoppingStory" type="button">▶</button>
+<button class="game-button primary" data-es="Ya he escuchado. Preguntar por los síntomas →" data-zh="我听完了，开始问症状 →" id="startShoppingMystery" type="button">我听完了，开始问症状 →</button>
+</div>
+</div>
+</section>
+<section class="game-panel" hidden="" id="panel2">
+<div class="game-panel-head">
+<div><p class="kicker" data-es="Paso 2 · Pregunta" data-zh="第二步 · 问">第二步 · 问</p><h2 data-es="Elige qué quieres preguntar sobre su salud" data-zh="选择你想问的健康问题">选择你想问的健康问题</h2><p data-es="Cada pregunta te da una pista sobre su estado o sobre lo que necesita comprar." data-zh="每点一个问题，就会得到一条身体或购物线索。">每点一个问题，就会得到一条身体或购物线索。</p></div>
+<div class="panel-number">02</div>
+</div>
+<div class="health-thermometer-card">
+<div aria-hidden="true" class="thermometer-visual">
+<div class="thermometer-scale">
+<span>39°</span><span>38°</span><span>37°</span><span>36°</span>
+</div>
+<div class="thermometer-tube">
+<span id="healthThermometerFill"></span>
+</div>
+<div class="thermometer-bulb"></div>
+</div>
+<div class="thermometer-info">
+<small data-es="Pistas de salud encontradas" data-zh="已经找到的健康线索">已经找到的健康线索</small>
+<strong id="healthEvidenceText">0 / 5</strong>
+<p data-es="Encuentra al menos 4 pistas para ver los registros de compra." data-zh="至少找到4条线索，才能查看购物记录。">
+          至少找到4条线索，才能查看购物记录。
+        </p>
+</div>
+</div><div class="question-grid">
+<button class="question-button" data-question="symptom" type="button"><strong data-pinyin="Dàwèi nǎr bù shūfu?">大为哪儿不舒服？</strong><span>＋</span></button>
+<button class="question-button" data-question="xiaoyun" type="button"><strong data-pinyin="Xiǎoyún yīnggāi mǎi shénme?">小云应该买什么？</strong><span>＋</span></button>
+<button class="question-button" data-question="linna" type="button"><strong data-pinyin="Lín Nà yīnggāi mǎi shénme yīfu?">林娜应该买什么衣服？</strong><span>＋</span></button>
+<button class="question-button" data-question="songhua" type="button"><strong data-pinyin="Sòng Huá qù yàodiàn zuò shénme?">宋华去药店做什么？</strong><span>＋</span></button>
+<button class="question-button" data-question="libo" type="button"><strong data-pinyin="Lìbō yīnggāi mǎi shénme hē de?">力波应该买什么喝的？</strong><span>＋</span></button>
+</div>
+<div class="clue-board" id="shoppingClueBoard"></div>
+<div class="game-actions">
+<button class="game-button primary" disabled="" id="openShoppingRecords" type="button">查看购物记录 →</button>
+<span id="shoppingClueCounter">已收集0/5条线索</span>
+</div>
+</section>
+<section class="game-panel" hidden="" id="panel3">
+<div class="game-panel-head">
+<div><p class="kicker" data-es="Paso 3 · Detecta" data-zh="第三步 · 找">第三步 · 找</p><h2 data-es="¿Quién se equivocó al ayudar al amigo?" data-zh="谁把帮助朋友的任务做错了？">谁把帮助朋友的任务做错了？</h2><p data-es="Compara lo que compró cada persona y encuentra la opción que no ayuda al enfermo." data-zh="比较每个人买的东西，找出不适合病人的选择。">比较每个人买的东西，找出不适合病人的选择。</p></div>
+<div class="panel-number">03</div>
+</div>
+<div class="candidate-grid">
+<article class="candidate-card">
+<div class="candidate-head"><div class="candidate-avatar">云</div><h3 data-pinyin="Wáng Xiǎoyún">王小云</h3></div>
+<div class="candidate-facts"><span data-pinyin="Mǎi le sì jīn píngguǒ">买了四斤苹果</span><span data-pinyin="Wǔ kuài wǔ yì jīn">五块五一斤</span><span data-pinyin="Yígòng èrshí'èr kuài">一共二十二块</span></div>
+<button class="game-button shopping-choice" data-person="xiaoyun" type="button">选择小云</button>
+</article>
+<article class="candidate-card">
+<div class="candidate-head"><div class="candidate-avatar">娜</div><h3 data-pinyin="Lín Nà">林娜</h3></div>
+<div class="candidate-facts"><span data-pinyin="Mǎi le yí jiàn lǜsè yǔróngfú">买了一件绿色羽绒服</span><span data-pinyin="Dà hào">大号</span><span data-pinyin="Kěyǐ chuān zhe qù yīyuàn">可以穿着去医院</span></div>
+<button class="game-button shopping-choice" data-person="linna" type="button">选择林娜</button>
+</article>
+<article class="candidate-card">
+<div class="candidate-head"><div class="candidate-avatar">华</div><h3 data-pinyin="Sòng Huá">宋华</h3></div>
+<div class="candidate-facts"><span data-pinyin="Qù yàodiàn mǎi le Zhōngyào">去药店买了中药</span><span data-pinyin="Bù yòng dǎzhēn">不用打针</span><span data-pinyin="Xiān chī yìdiǎnr Zhōngyào">先吃一点儿中药</span></div>
+<button class="game-button shopping-choice" data-person="songhua" type="button">选择宋华</button>
+</article>
+<article class="candidate-card">
+<div class="candidate-head"><div class="candidate-avatar">波</div><h3 data-pinyin="Dīng Lìbō">丁力波</h3></div>
+<div class="candidate-facts"><span data-pinyin="Yīnggāi mǎi yì píng shuǐ">应该买一瓶水</span><span data-pinyin="Shíjì mǎi le kāfēi">实际买了咖啡</span><span data-pinyin="Dàwèi sǎngzi téng">大为嗓子疼</span></div>
+<button class="game-button shopping-choice" data-person="libo" type="button">选择力波</button>
+</article>
+</div>
+<div class="game-feedback" id="shoppingFeedback">选择一个人。</div>
+<div class="identity-reveal" hidden="" id="shoppingRecap">
+<article class="profile-card compact-profile" id="shoppingSolvedCard">
+<div class="profile-card-topline">
+<span class="profile-file-number">案例档案 · 04</span>
+<span class="profile-solved-stamp">✓ 已找到买错的人</span>
+</div>
+<div class="profile-card-body">
+<div class="profile-portrait-column">
+<div aria-hidden="true" class="profile-avatar-large">力</div>
+<span class="profile-role-badge">购物与看病案例</span>
+</div>
+<div class="profile-information">
+<p class="profile-eyebrow">CARE CASE FILE</p>
+<h3 class="profile-name">力波 <span class="learning-pinyin profile-name-pinyin">Lìbō</span></h3>
+<p class="profile-subtitle">买错东西的人</p>
+<dl class="profile-data-grid">
+<div><dt>本来应该买</dt><dd>一瓶水</dd></div>
+<div><dt>实际买了</dt><dd>咖啡</dd></div>
+<div><dt>同伴1</dt><dd>小云买了四斤苹果</dd></div>
+<div><dt>同伴2</dt><dd>林娜买了绿色大号羽绒服</dd></div>
+<div><dt>同伴3</dt><dd>宋华去药店买中药</dd></div>
+<div><dt>病人情况</dt><dd>大为头疼、嗓子疼</dd></div>
+</dl>
+</div>
+</div>
+<div class="profile-conclusion">
+<span class="profile-conclusion-mark">✓</span>
+<div><small>最终结论</small><strong>力波本来应该买水，可是他买了咖啡，所以他买错了。</strong></div>
+</div>
+</article>
+<div class="profile-summary-strip">
+<strong>故事复述</strong>
+<p id="shoppingRecapText">大为头疼，嗓子也疼，应该去医院看病。小云买了四斤苹果，林娜买了一件绿色大号羽绒服，宋华去药店买了中药。力波本来应该买水，可是他买了咖啡，所以力波买错了。</p>
+</div>
+<div class="game-actions">
+<button class="speak-button" data-speech-target="shoppingRecapText" type="button">▶</button>
+<button class="game-button" data-es="Imprimir expediente" data-zh="打印案例档案" id="printShoppingSolvedCard" type="button">打印案例档案</button>
+<button class="game-button primary" id="startShoppingQuiz" type="button">进入购物与看病确认 →</button>
+</div>
+</div>
+</section>
+<section class="game-panel" hidden="" id="panel4">
+<div class="game-panel-head">
+<div><p class="kicker" data-es="Paso 4 · Ayuda" data-zh="第四步 · 帮">第四步 · 帮</p><h2 data-es="Ayuda a tu amigo a comunicarse con el médico" data-zh="帮助朋友完成看病交流">帮助朋友完成看病交流</h2><p data-es="En cada escena tu amigo necesita que le ayudes a responder en chino." data-zh="每个场景里都有人需要你的中文帮助。">每个场景里都有人需要你的中文帮助。</p></div>
+<div class="panel-number">04</div>
+</div><div class="pronoun-scaffold-note">
+<strong data-es="Atención a la persona gramatical" data-zh="注意人称">注意人称</strong>
+<p data-es="Tú ayudas a tu amigo a responder. La narración habla de «él», pero cuando tu amigo responde por sí mismo usa «我» (yo)." data-zh="你是在帮助朋友回答。场景介绍说“他”，但朋友替自己回答时要说“我”。">
+        你是在帮助朋友回答。场景介绍说“他”，但朋友替自己回答时要说“我”。
+      </p>
+</div>
+<div class="quiz-card">
+<div class="quiz-progress" id="shoppingQuizProgress">1 / 8</div><div class="communicative-scene-card health-scene-card" id="healthSceneCard">
+<div class="scene-icon" id="healthSceneIcon">🏥</div>
+<div class="scene-copy">
+<small data-es="Escena 1 · Hospital" data-zh="场景一 · 医院" id="healthSceneLabel">场景一 · 医院</small>
+<strong data-es="El médico está preguntando a tu amigo." data-zh="医生正在问你的朋友。" id="healthSceneWho">医生正在问你的朋友。</strong>
+<p data-es="El médico pregunta: «¿Dónde te duele?»" data-zh="医生问：“哪儿不舒服？”" id="healthScenePrompt">医生问：“哪儿不舒服？”</p>
+</div>
+</div>
+<h3 class="quiz-question" id="shoppingQuizQuestion"></h3>
+<div class="quiz-options" id="shoppingQuizOptions"></div>
+<div class="game-feedback" id="shoppingQuizFeedback">选择一个答案。</div>
+<div class="game-actions"><button class="game-button primary" disabled="" id="nextShoppingQuiz" type="button">下一题 →</button></div>
+</div>
+</section>
+<section class="game-panel" hidden="" id="panel5">
+<div class="game-panel-head">
+<div><p class="kicker" data-es="Paso 5 · Crea" data-zh="第五步 · 做">第五步 · 做</p><h2 data-es="Crea mi tarjeta de apoyo y salud" data-zh="建立我的健康关怀卡">建立我的健康关怀卡</h2><p data-es="Elige a la persona, el síntoma, el consejo y el objeto para crear una tarjeta que se puede escuchar e imprimir." data-zh="选择朋友、症状、建议和物品，生成一张可以朗读和打印的关怀卡。">选择朋友、症状、建议和物品，生成一张可以朗读和打印的关怀卡。</p></div>
+<div class="panel-number">05</div>
+</div>
+<div class="final-form">
+<div class="final-field"><label data-pinyin="Péngyou jiào shénme?" for="careFriend">朋友叫什么？</label><input id="careFriend" maxlength="20" placeholder="例如：玛丽" type="text"/></div>
+<div class="final-field"><label data-pinyin="Tā nǎr bù shūfu?" for="careSymptom">他哪儿不舒服？</label><select id="careSymptom"><option value="">请选择</option><option value="头疼">头疼</option><option value="嗓子疼">嗓子疼</option><option value="肚子疼">肚子疼</option><option value="发烧了">发烧了</option></select></div>
+<div class="final-field"><label data-pinyin="Tā yīnggāi zuò shénme?" for="careAdvice">他应该做什么？</label><select id="careAdvice"><option value="">请选择</option><option value="去医院看病">去医院看病</option><option value="多喝水">多喝水</option><option value="多休息">多休息</option><option value="多穿点儿衣服">多穿点儿衣服</option></select></div>
+<div class="final-field"><label data-pinyin="Nǐ gěi tā mǎi shénme?" for="careItem">你给他买什么？</label><select id="careItem"><option value="">请选择</option><option value="四斤苹果">四斤苹果</option><option value="两瓶水">两瓶水</option><option value="一点儿中药">一点儿中药</option><option value="一件羽绒服">一件羽绒服</option></select></div>
+</div>
+<div class="game-actions">
+<button class="game-button primary" id="generateCareCard" type="button">生成健康关怀卡</button>
+<button class="game-button" id="resetShoppingTheme" type="button">重新开始故事</button>
+</div>
+<div class="profile-output-wrapper" hidden="" id="careFinalCard">
+<article class="profile-card compact-profile" id="printableCareCard">
+<div class="profile-card-topline">
+<span class="profile-file-number">我的健康关怀卡</span>
+<span class="profile-level-chip">Theme 04</span>
+</div>
+<div class="profile-card-body">
+<div class="profile-portrait-column">
+<div aria-hidden="true" class="profile-avatar-large personal-avatar">护</div>
+<span class="profile-role-badge">健康关怀</span>
+</div>
+<div class="profile-information">
+<p class="profile-eyebrow">CARE SUPPORT CARD</p>
+<h3 class="profile-name"><span id="careCardFriend">—</span></h3>
+<p class="profile-subtitle">给朋友的关心与建议</p>
+<dl class="profile-data-grid">
+<div><dt>不舒服的人</dt><dd><span id="careFriendValue">—</span></dd></div>
+<div><dt>症状</dt><dd><span id="careSymptomValue">—</span> <span class="learning-pinyin" id="careSymptomPy"></span></dd></div>
+<div><dt>建议</dt><dd><span id="careAdviceValue">—</span> <span class="learning-pinyin" id="careAdvicePy"></span></dd></div>
+<div><dt>我去买</dt><dd><span id="careItemValue">—</span> <span class="learning-pinyin" id="careItemPy"></span></dd></div>
+</dl>
+</div>
+</div>
+<section class="profile-self-introduction">
+<small>完整关怀语</small>
+<p id="careFinalText"></p>
+<span class="learning-pinyin final-card-pinyin" id="careFinalPinyin"></span>
+</section>
+<div class="profile-completion-seal">
+<span>医</span>
+<div><strong>关怀卡已建立</strong><small>Ángela的汉语课堂 · 主题04</small></div>
+</div>
+</article>
+<small class="profile-save-note">这张卡已经保存在当前浏览器中。</small>
+<div class="game-actions">
+<button class="game-button" data-es="Escuchar" data-zh="听一遍" id="speakCareCard" type="button">听一遍</button>
+<button class="game-button" data-es="Copiar chino" data-zh="复制中文" id="copyCareCard" type="button">复制中文</button>
+<button class="game-button" data-es="Imprimir tarjeta" data-zh="打印关怀卡" id="printCareCard" type="button">打印关怀卡</button>
+<a class="game-button primary" href="npcr-1-review.html">返回主题馆 →</a>
+</div>
+</div>
+<div class="result-box" hidden="" id="shoppingThemeResult"><div class="world-achievement-badge health-achievement-badge">
+<span class="world-achievement-icon health-achievement-icon">护</span>
+<div>
+<small data-es="Título obtenido" data-zh="获得称号">获得称号</small>
+<strong data-es="Ayudante de salud" data-zh="健康小帮手">健康小帮手</strong>
+</div>
+</div>
+<div class="result-stars" id="shoppingResultStars">★★★</div>
+<h3>主题4完成！</h3><p id="shoppingResultMessage"></p>
+</div>
+</section>
+</main>
+<footer><span>© 2026 Ángela</span><span>Aula de Chino</span></footer>
+<script src="../course.js"></script>
+<script src="npcr-1-tprs-pinyin.js"></script>
+<script src="npcr-1-tprs-theme4.js"></script>
+</body>
+</html>

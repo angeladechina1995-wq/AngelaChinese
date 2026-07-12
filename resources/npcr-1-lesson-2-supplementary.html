@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>第2课 · 补充词汇</title>
+<link href="../course.css" rel="stylesheet"/>
+<style>
+.supp-intro{
+  margin:22px 0 20px;
+  padding:24px;
+  border:1px solid var(--line);
+  border-radius:24px;
+  background:var(--card)
+}
+.supp-intro p{max-width:850px;color:var(--muted)}
+.supp-toolbar{
+  position:sticky;
+  top:8px;
+  z-index:5;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:9px;
+  margin:18px 0;
+  padding:14px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:color-mix(in srgb,var(--card) 94%,transparent);
+  backdrop-filter:blur(10px)
+}
+.supp-toolbar button,.supp-toolbar select,.supp-toolbar input{
+  min-height:40px;
+  padding:9px 13px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:var(--card);
+  color:var(--text);
+  font-weight:800
+}
+.supp-toolbar button{cursor:pointer}
+.supp-toolbar button.primary{background:var(--red);border-color:var(--red);color:#fff}
+.supp-search{flex:1;min-width:210px;font-weight:500!important}
+.supp-note,.supp-status{color:var(--muted);font-size:13px}
+.supp-status{min-height:20px;margin:5px 0 16px}
+.supp-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px
+}
+.supp-card{
+  display:grid;
+  grid-template-columns:36px 42px 1fr;
+  gap:12px;
+  padding:20px;
+  border:1px solid var(--line);
+  border-radius:22px;
+  background:var(--card)
+}
+.supp-number{
+  display:grid;
+  place-items:center;
+  width:32px;height:32px;
+  border-radius:50%;
+  background:var(--soft);
+  color:var(--red);
+  font-size:12px;font-weight:900
+}
+.supp-audio,.collocation-audio{
+  display:grid;
+  place-items:center;
+  border:1px solid var(--line);
+  background:var(--soft);
+  color:var(--red);
+  cursor:pointer
+}
+.supp-audio{width:38px;height:38px;border-radius:50%}
+.supp-word h2{
+  margin:0;
+  font:600 33px/1.15 Georgia,"Noto Serif SC",serif
+}
+.supp-pinyin{margin:5px 0 0;color:var(--red);font-weight:800}
+.supp-meta{
+  grid-column:1/-1;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:8px 13px;
+  padding:12px 14px;
+  border-radius:14px;
+  background:var(--soft)
+}
+.supp-pos{color:var(--muted);font-size:12px}
+.supp-meaning{font-weight:900}
+.collocations{
+  grid-column:1/-1;
+  padding-top:4px
+}
+.collocations strong{
+  display:block;
+  margin-bottom:8px;
+  font-size:13px
+}
+.collocation-list{display:flex;flex-wrap:wrap;gap:8px}
+.collocation-audio{
+  display:inline-flex;
+  gap:7px;
+  padding:7px 10px;
+  border-radius:999px;
+  font-weight:800
+}
+.collocation-audio::before{content:"▶";font-size:10px}
+.empty-collocation{color:var(--muted);font-size:13px}
+.lesson-links{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  gap:10px;
+  margin-top:25px
+}
+.lesson-links a{
+  padding:10px 15px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:var(--card);
+  font-weight:800
+}
+body.hide-supp-pinyin .supp-pinyin{display:none}
+body.hide-supp-spanish .supp-meaning{display:none}
+@media(max-width:780px){
+  .supp-grid{grid-template-columns:1fr}
+  .supp-toolbar{position:static}
+}
+
+.real-audio-badge{
+  display:inline-block;
+  margin-bottom:12px;
+  padding:7px 12px;
+  border-radius:999px;
+  background:var(--red);
+  color:#fff;
+  font-size:13px;
+  font-weight:900
+}
+</style>
+</head>
+<body>
+<header>
+<a class="brand" href="../index.html">
+<span class="logo">汉</span>
+<span>
+<b data-es="Aula de Chino con Ángela" data-zh="Ángela的汉语课堂">Ángela的汉语课堂</b>
+<small data-es="Aprender chino y comprender su cultura" data-zh="学中文，也理解中国文化">学中文，也理解中国文化</small>
+</span>
+</a>
+<div class="tools">
+<button id="lang" type="button">ES</button>
+<button id="theme" type="button">☾</button>
+</div>
+</header>
+<main>
+<a class="back" href="../courses/npcr-1-lesson-2.html">←
+    <span data-es="Volver a la lección 2" data-zh="返回第2课">返回第2课</span>
+</a>
+<section class="supp-intro"><div class="real-audio-badge" data-es="✓ Audio humano del manual" data-zh="✓ 教材真人录音">✓ 教材真人录音</div>
+<p class="kicker" data-es="Lección 2 · Vocabulario" data-zh="第2课 · 生词板块">第2课 · 生词板块</p>
+<h1 data-es="Vocabulario adicional: ¿De qué país eres?" data-zh="补充词汇：你是哪国人">
+      补充词汇：你是哪国人
+    </h1>
+<p data-es="Contenido organizado según la tabla de vocabulario adicional del manual: 10 palabras con pinyin, categoría, significado en español y combinaciones del libro." data-zh="按照教材“补充词语”表整理，共10个词。每个词提供拼音、词性、西班牙语释义和教材搭配。">
+       按照教材“补充词语”表整理，共10个词。每个词提供拼音、词性、西班牙语释义和教材搭配。
+    </p>
+</section>
+<section class="supp-toolbar">
+<input class="supp-search" id="suppSearch" placeholder="搜索汉字、拼音或西语 / Buscar" type="search"/>
+<button data-es="Ocultar pinyin" data-zh="隐藏拼音" id="toggleSuppPinyin" type="button">隐藏拼音</button>
+<button data-es="Ocultar español" data-zh="隐藏西语" id="toggleSuppSpanish" type="button">隐藏西语</button>
+<button class="primary" data-es="▶ Reproducir" data-zh="▶ 连续朗读" id="playSupp" type="button">▶ 连续朗读</button>
+<button data-es="⏸ Pausar/continuar" data-zh="⏸ 暂停/继续" id="pauseSupp" type="button">⏸ 暂停/继续</button>
+<select aria-label="补充词汇朗读速度" id="suppSpeed">
+<option value="0.7">0.7×</option>
+<option value="0.85">0.85×</option>
+<option selected="" value="1">1×</option>
+<option value="1.15">1.15×</option>
+</select>
+<button data-es="■ Detener" data-zh="■ 停止" id="stopSupp" type="button">■ 停止</button>
+</section>
+<p class="supp-note" data-es="La grabación humana del vocabulario adicional ya está incluida. Pulsa «Reproducir» para escucharla; los botones de palabras y combinaciones siguen usando la voz china del navegador." data-zh="教材真人补充词汇录音已经加入。点击“连续朗读”即可播放；单个词语和搭配按钮仍使用浏览器普通话朗读。">教材真人补充词汇录音已经加入。点击“连续朗读”即可播放；单个词语和搭配按钮仍使用浏览器普通话朗读。</p>
+<div class="supp-status" id="suppStatus"></div>
+<audio id="humanSupplementaryAudio" preload="metadata">
+<source src="../audio/npcr-1-lesson-2-supplementary.mp3" type="audio/mpeg"/>
+</audio>
+<section class="supp-grid">
+<article class="supp-card" data-search="中国 Zhōngguó China 专名 nombre propio" data-word="中国">
+<div class="supp-number">1</div>
+<button aria-label="朗读中国" class="supp-audio" data-speech="中国" type="button">▶</button>
+<div class="supp-word">
+<h2>中国</h2>
+<p class="supp-pinyin">Zhōngguó</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="nombre propio" data-zh="专名">专名</span>
+<span class="supp-meaning">China</span>
+</div>
+<div class="collocations">
+<span class="empty-collocation" data-es="El manual no ofrece una combinación fija para esta palabra." data-zh="本词在教材表中未列固定搭配。">
+                本词在教材表中未列固定搭配。
+              </span>
+</div>
+</article>
+<article class="supp-card" data-search="法国 Fǎguó Francia 专名 nombre propio" data-word="法国">
+<div class="supp-number">2</div>
+<button aria-label="朗读法国" class="supp-audio" data-speech="法国" type="button">▶</button>
+<div class="supp-word">
+<h2>法国</h2>
+<p class="supp-pinyin">Fǎguó</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="nombre propio" data-zh="专名">专名</span>
+<span class="supp-meaning">Francia</span>
+</div>
+<div class="collocations">
+<span class="empty-collocation" data-es="El manual no ofrece una combinación fija para esta palabra." data-zh="本词在教材表中未列固定搭配。">
+                本词在教材表中未列固定搭配。
+              </span>
+</div>
+</article>
+<article class="supp-card" data-search="德国 Déguó Alemania 专名 nombre propio" data-word="德国">
+<div class="supp-number">3</div>
+<button aria-label="朗读德国" class="supp-audio" data-speech="德国" type="button">▶</button>
+<div class="supp-word">
+<h2>德国</h2>
+<p class="supp-pinyin">Déguó</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="nombre propio" data-zh="专名">专名</span>
+<span class="supp-meaning">Alemania</span>
+</div>
+<div class="collocations">
+<span class="empty-collocation" data-es="El manual no ofrece una combinación fija para esta palabra." data-zh="本词在教材表中未列固定搭配。">
+                本词在教材表中未列固定搭配。
+              </span>
+</div>
+</article>
+<article class="supp-card" data-search="加拿大 Jiānádà Canadá 专名 nombre propio" data-word="加拿大">
+<div class="supp-number">4</div>
+<button aria-label="朗读加拿大" class="supp-audio" data-speech="加拿大" type="button">▶</button>
+<div class="supp-word">
+<h2>加拿大</h2>
+<p class="supp-pinyin">Jiānádà</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="nombre propio" data-zh="专名">专名</span>
+<span class="supp-meaning">Canadá</span>
+</div>
+<div class="collocations">
+<span class="empty-collocation" data-es="El manual no ofrece una combinación fija para esta palabra." data-zh="本词在教材表中未列固定搭配。">
+                本词在教材表中未列固定搭配。
+              </span>
+</div>
+</article>
+<article class="supp-card" data-search="英国 Yīngguó Reino Unido; Inglaterra 专名 nombre propio" data-word="英国">
+<div class="supp-number">5</div>
+<button aria-label="朗读英国" class="supp-audio" data-speech="英国" type="button">▶</button>
+<div class="supp-word">
+<h2>英国</h2>
+<p class="supp-pinyin">Yīngguó</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="nombre propio" data-zh="专名">专名</span>
+<span class="supp-meaning">Reino Unido; Inglaterra</span>
+</div>
+<div class="collocations">
+<span class="empty-collocation" data-es="El manual no ofrece una combinación fija para esta palabra." data-zh="本词在教材表中未列固定搭配。">
+                本词在教材表中未列固定搭配。
+              </span>
+</div>
+</article>
+<article class="supp-card" data-search="澳大利亚 Àodàlìyà Australia 专名 nombre propio" data-word="澳大利亚">
+<div class="supp-number">6</div>
+<button aria-label="朗读澳大利亚" class="supp-audio" data-speech="澳大利亚" type="button">▶</button>
+<div class="supp-word">
+<h2>澳大利亚</h2>
+<p class="supp-pinyin">Àodàlìyà</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="nombre propio" data-zh="专名">专名</span>
+<span class="supp-meaning">Australia</span>
+</div>
+<div class="collocations">
+<span class="empty-collocation" data-es="El manual no ofrece una combinación fija para esta palabra." data-zh="本词在教材表中未列固定搭配。">
+                本词在教材表中未列固定搭配。
+              </span>
+</div>
+</article>
+<article class="supp-card" data-search="俄罗斯 Éluósī Rusia 专名 nombre propio" data-word="俄罗斯">
+<div class="supp-number">7</div>
+<button aria-label="朗读俄罗斯" class="supp-audio" data-speech="俄罗斯" type="button">▶</button>
+<div class="supp-word">
+<h2>俄罗斯</h2>
+<p class="supp-pinyin">Éluósī</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="nombre propio" data-zh="专名">专名</span>
+<span class="supp-meaning">Rusia</span>
+</div>
+<div class="collocations">
+<span class="empty-collocation" data-es="El manual no ofrece una combinación fija para esta palabra." data-zh="本词在教材表中未列固定搭配。">
+                本词在教材表中未列固定搭配。
+              </span>
+</div>
+</article>
+<article class="supp-card" data-search="西班牙 Xībānyá España 专名 nombre propio" data-word="西班牙">
+<div class="supp-number">8</div>
+<button aria-label="朗读西班牙" class="supp-audio" data-speech="西班牙" type="button">▶</button>
+<div class="supp-word">
+<h2>西班牙</h2>
+<p class="supp-pinyin">Xībānyá</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="nombre propio" data-zh="专名">专名</span>
+<span class="supp-meaning">España</span>
+</div>
+<div class="collocations">
+<span class="empty-collocation" data-es="El manual no ofrece una combinación fija para esta palabra." data-zh="本词在教材表中未列固定搭配。">
+                本词在教材表中未列固定搭配。
+              </span>
+</div>
+</article>
+<article class="supp-card" data-search="日本 Rìběn Japón 专名 nombre propio" data-word="日本">
+<div class="supp-number">9</div>
+<button aria-label="朗读日本" class="supp-audio" data-speech="日本" type="button">▶</button>
+<div class="supp-word">
+<h2>日本</h2>
+<p class="supp-pinyin">Rìběn</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="nombre propio" data-zh="专名">专名</span>
+<span class="supp-meaning">Japón</span>
+</div>
+<div class="collocations">
+<span class="empty-collocation" data-es="El manual no ofrece una combinación fija para esta palabra." data-zh="本词在教材表中未列固定搭配。">
+                本词在教材表中未列固定搭配。
+              </span>
+</div>
+</article>
+<article class="supp-card" data-search="韩国 Hánguó Corea del Sur 专名 nombre propio" data-word="韩国">
+<div class="supp-number">10</div>
+<button aria-label="朗读韩国" class="supp-audio" data-speech="韩国" type="button">▶</button>
+<div class="supp-word">
+<h2>韩国</h2>
+<p class="supp-pinyin">Hánguó</p>
+</div>
+<div class="supp-meta">
+<span class="supp-pos" data-es="nombre propio" data-zh="专名">专名</span>
+<span class="supp-meaning">Corea del Sur</span>
+</div>
+<div class="collocations">
+<span class="empty-collocation" data-es="El manual no ofrece una combinación fija para esta palabra." data-zh="本词在教材表中未列固定搭配。">
+                本词在教材表中未列固定搭配。
+              </span>
+</div>
+</article>
+</section>
+<nav class="lesson-links">
+<a href="npcr-1-lesson-1-supplementary.html">← 第1课补充词汇</a>
+<a href="../courses/npcr-1-lesson-2.html">第2课目录</a>
+<a href="npcr-1-lesson-3-supplementary.html">第3课补充词汇 →</a>
+</nav>
+</main>
+<footer><span>© 2026 Ángela</span><span>Aula de Chino</span></footer>
+<script src="../course.js"></script>
+<script>
+const cards = [...document.querySelectorAll(".supp-card")];
+const words = cards.map(card => card.dataset.word);
+const humanAudio = document.getElementById("humanSupplementaryAudio");
+const speedSelect = document.getElementById("suppSpeed");
+const statusBox = document.getElementById("suppStatus");
+const searchInput = document.getElementById("suppSearch");
+let pinyinHidden = false;
+let spanishHidden = false;
+
+function currentLanguage(){
+  return typeof language !== "undefined" ? language : "zh";
+}
+function chineseVoice(){
+  const voices = speechSynthesis.getVoices();
+  return voices.find(v => /^zh-CN/i.test(v.lang))
+      || voices.find(v => /^zh/i.test(v.lang))
+      || null;
+}
+function stopAll(){
+  if(humanAudio){
+    humanAudio.pause();
+    humanAudio.currentTime = 0;
+  }
+  speechSynthesis.cancel();
+}
+function speak(text, rate = 0.82){
+  stopAll();
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = "zh-CN";
+  utterance.rate = rate;
+  const voice = chineseVoice();
+  if(voice) utterance.voice = voice;
+  speechSynthesis.speak(utterance);
+}
+document.querySelectorAll(".supp-audio,.collocation-audio").forEach(button => {
+  button.addEventListener("click", () => speak(button.dataset.speech));
+});
+document.getElementById("playSupp").addEventListener("click", async () => {
+  stopAll();
+  if(humanAudio){
+    humanAudio.playbackRate = Number(speedSelect.value);
+    try{
+      await humanAudio.play();
+      statusBox.textContent = currentLanguage() === "zh"
+        ? "正在播放真人补充词汇录音。"
+        : "Reproduciendo la grabación humana del vocabulario adicional.";
+      return;
+    }catch(error){}
+  }
+  const utterance = new SpeechSynthesisUtterance(words.join("。"));
+  utterance.lang = "zh-CN";
+  utterance.rate = Number(speedSelect.value) * 0.72;
+  const voice = chineseVoice();
+  if(voice) utterance.voice = voice;
+  utterance.onstart = () => statusBox.textContent =
+    currentLanguage() === "zh"
+      ? "暂未加入真人录音，正在使用浏览器普通话连续朗读。"
+      : "Todavía no hay MP3; se está usando la voz china del navegador.";
+  utterance.onend = () => statusBox.textContent =
+    currentLanguage() === "zh" ? "朗读结束。" : "Reproducción finalizada.";
+  speechSynthesis.speak(utterance);
+});
+document.getElementById("pauseSupp").addEventListener("click", async () => {
+  if(humanAudio && !humanAudio.paused){
+    humanAudio.pause();
+    return;
+  }
+  if(humanAudio && humanAudio.currentTime > 0 && !humanAudio.ended){
+    try{ await humanAudio.play(); return; }catch(error){}
+  }
+  if(speechSynthesis.paused) speechSynthesis.resume();
+  else if(speechSynthesis.speaking) speechSynthesis.pause();
+});
+document.getElementById("stopSupp").addEventListener("click", () => {
+  stopAll();
+  statusBox.textContent = currentLanguage() === "zh" ? "已停止。" : "Detenido.";
+});
+speedSelect.addEventListener("change", () => {
+  if(humanAudio) humanAudio.playbackRate = Number(speedSelect.value);
+});
+document.getElementById("toggleSuppPinyin").addEventListener("click", event => {
+  pinyinHidden = !pinyinHidden;
+  document.body.classList.toggle("hide-supp-pinyin", pinyinHidden);
+  event.currentTarget.textContent = currentLanguage() === "zh"
+    ? (pinyinHidden ? "显示拼音" : "隐藏拼音")
+    : (pinyinHidden ? "Mostrar pinyin" : "Ocultar pinyin");
+});
+document.getElementById("toggleSuppSpanish").addEventListener("click", event => {
+  spanishHidden = !spanishHidden;
+  document.body.classList.toggle("hide-supp-spanish", spanishHidden);
+  event.currentTarget.textContent = currentLanguage() === "zh"
+    ? (spanishHidden ? "显示西语" : "隐藏西语")
+    : (spanishHidden ? "Mostrar español" : "Ocultar español");
+});
+searchInput.addEventListener("input", () => {
+  const term = searchInput.value.trim().toLowerCase();
+  cards.forEach(card => {
+    card.hidden = term && !card.dataset.search.toLowerCase().includes(term);
+  });
+});
+</script>
+</body>
+</html>

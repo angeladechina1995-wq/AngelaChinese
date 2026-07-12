@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>《新实用汉语1》词卡 · Ángela的汉语课堂</title>
+<style>
+:root{--bg:#f7f3ec;--card:#fff;--text:#22231f;--muted:#67685f;--line:#ded8cc;--red:#8c3025}
+body.dark{--bg:#171814;--card:#22231e;--text:#f5f0e7;--muted:#bbb7ae;--line:#3d3e37;--red:#df7d6d}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7}
+header{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:14px 5vw;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(12px)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text)}.logo{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:var(--red);color:white;font:26px Georgia,serif}.brand small{display:block;color:var(--muted);font-size:11px}
+nav{display:flex;gap:22px}nav a{text-decoration:none;color:var(--muted);font-weight:700;font-size:14px}nav a:hover{color:var(--red)}
+.tools{display:flex;gap:8px}.tools button{width:40px;height:40px;border:1px solid var(--line);border-radius:50%;background:var(--card);color:var(--text);cursor:pointer}
+main{width:min(1160px,calc(100% - 40px));margin:auto}
+.hero{min-height:650px;display:grid;grid-template-columns:1.3fr .7fr;gap:70px;align-items:center;padding:70px 0}.tag{color:var(--red);font-size:13px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}.hero h1{margin:8px 0 24px;font:600 clamp(42px,6vw,76px)/1.08 Georgia,"Noto Serif SC",serif;letter-spacing:-.04em}.hero p{max-width:680px;color:var(--muted);font-size:19px}
+.actions{display:flex;gap:12px;margin-top:28px}.btn{padding:12px 22px;border-radius:999px;text-decoration:none;font-weight:800}.primary{background:var(--red);color:white}.secondary{border:1px solid var(--line);background:var(--card)}
+.hero-card{padding:34px;border:1px solid var(--line);border-radius:30px;background:var(--card);box-shadow:0 18px 45px rgba(40,30,20,.12);text-align:center;transform:rotate(2deg)}.hero-card .han{font:140px/1 Georgia,"Noto Serif SC",serif}.pinyin{color:var(--red);font-weight:800}
+section{padding:85px 0}.heading{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:35px}.heading h2{margin:0;font:600 clamp(32px,4vw,50px)/1.2 Georgia,"Noto Serif SC",serif}.heading p{max-width:440px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.card{min-height:245px;padding:25px;border:1px solid var(--line);border-radius:24px;background:var(--card);transition:.2s}.card:hover{transform:translateY(-5px);box-shadow:0 15px 35px rgba(30,25,20,.1)}.level{display:inline-block;padding:4px 10px;border-radius:99px;background:color-mix(in srgb,var(--red) 13%,transparent);color:var(--red);font-size:12px;font-weight:900}.card h3{margin-top:38px;font-size:22px}.card p{color:var(--muted)}.card a{color:var(--red);font-weight:800;text-decoration:none}
+.words{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.word{min-height:220px;border:1px solid var(--line);border-radius:24px;background:var(--card);color:var(--text);cursor:pointer}.word strong{display:block;font:58px Georgia,"Noto Serif SC",serif}.word span{display:block;color:var(--red);font-weight:800}.answer{margin-top:22px!important;color:var(--muted)!important;font-size:13px}
+.culture{display:grid;grid-template-columns:1fr 1fr;gap:50px;padding:55px;border-radius:32px;background:#3a342e;color:#fff8ef}.culture p{color:#d5cec4}.culture-list{display:grid;gap:12px}.culture-list div{padding:15px 18px;border:1px solid rgba(255,255,255,.18);border-radius:15px;background:rgba(255,255,255,.06)}
+footer{display:flex;justify-content:space-between;padding:25px 5vw;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+@media(max-width:900px){nav{display:none}.hero{grid-template-columns:1fr}.hero-card{max-width:430px}.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.brand small{display:none}.hero{min-height:auto;padding:55px 0}.hero h1{font-size:43px}.heading,.culture{display:block}.grid,.words{grid-template-columns:1fr}.culture{padding:34px 24px}.culture-list{margin-top:25px}footer{display:block}}
+
+.course-track{
+  margin-top:28px;
+  padding:30px;
+  border:1px solid var(--line);
+  border-radius:28px;
+  background:var(--card)
+}
+.track-heading{
+  display:flex;
+  justify-content:space-between;
+  gap:30px;
+  align-items:end;
+  margin-bottom:24px
+}
+.track-heading>div{
+  display:flex;
+  gap:14px;
+  align-items:center
+}
+.track-number{
+  display:grid;
+  place-items:center;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:var(--red);
+  color:white;
+  font-size:12px;
+  font-weight:900
+}
+.track-heading h3{
+  margin:0;
+  font:600 clamp(25px,3vw,36px)/1.2 Georgia,"Noto Serif SC",serif
+}
+.track-heading p{
+  max-width:470px;
+  margin:0;
+  color:var(--muted)
+}
+.level-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:14px
+}
+.level-card{
+  display:flex;
+  min-height:175px;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:20px;
+  border:1px solid var(--line);
+  border-radius:20px;
+  color:var(--text);
+  background:var(--bg);
+  text-decoration:none;
+  transition:transform .2s,box-shadow .2s,border-color .2s
+}
+.level-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--red);
+  box-shadow:0 12px 28px rgba(30,25,20,.10)
+}
+.book-icon{
+  display:grid;
+  place-items:center;
+  width:46px;
+  height:58px;
+  margin-bottom:24px;
+  border-radius:5px 12px 12px 5px;
+  background:var(--red);
+  color:white;
+  font:700 22px Georgia,serif;
+  box-shadow:inset 5px 0 rgba(255,255,255,.14)
+}
+.level-card strong{
+  font-size:17px
+}
+.level-card small{
+  margin-top:4px;
+  color:var(--muted)
+}
+.hsk-card .book-icon{
+  border-radius:50%;
+  box-shadow:none
+}
+@media(max-width:1000px){
+  .level-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:620px){
+  .track-heading{display:block}
+  .track-heading>div{margin-bottom:12px}
+  .course-track{padding:22px 18px}
+  .level-grid{grid-template-columns:1fr}
+  .level-card{min-height:135px}
+}
+
+
+.home-vocabulary-section{padding-top:70px}
+.vocabulary-heading{margin-bottom:24px}
+.lesson-vocab-tabs{
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  padding:5px 2px 15px;
+  scrollbar-width:thin
+}
+.lesson-vocab-tab{
+  flex:0 0 150px;
+  min-height:82px;
+  padding:12px 14px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:var(--card);
+  color:var(--text);
+  text-align:left;
+  cursor:pointer;
+  transition:.2s
+}
+.lesson-vocab-tab:hover{
+  transform:translateY(-2px);
+  border-color:var(--red)
+}
+.lesson-vocab-tab.active{
+  border-color:var(--red);
+  background:var(--red);
+  color:#fff;
+  box-shadow:0 12px 24px rgba(80,35,28,.17)
+}
+.lesson-vocab-tab strong{
+  display:block;
+  font-size:14px
+}
+.lesson-vocab-tab span{
+  display:block;
+  margin-top:5px;
+  font-size:12px;
+  line-height:1.35;
+  opacity:.78
+}
+.vocabulary-browser{
+  padding:clamp(18px,4vw,34px);
+  border:1px solid var(--line);
+  border-radius:28px;
+  background:var(--card)
+}
+.vocabulary-browser-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:22px;
+  padding-bottom:20px;
+  border-bottom:1px solid var(--line)
+}
+.vocabulary-count{
+  display:inline-block;
+  padding:5px 10px;
+  border-radius:999px;
+  background:color-mix(in srgb,var(--red) 12%,transparent);
+  color:var(--red);
+  font-size:12px;
+  font-weight:900
+}
+.vocabulary-browser-head h3{
+  margin:9px 0 2px;
+  font:600 clamp(27px,3.4vw,41px)/1.2 Georgia,"Noto Serif SC",serif
+}
+.vocabulary-browser-head p{
+  margin:0;
+  color:var(--muted)
+}
+.lesson-vocab-links{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+  gap:8px
+}
+.lesson-vocab-links a{
+  padding:8px 12px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:var(--bg);
+  color:var(--text);
+  text-decoration:none;
+  font-size:12px;
+  font-weight:900
+}
+.lesson-vocab-links a.primary{
+  border-color:var(--red);
+  background:var(--red);
+  color:#fff
+}
+.home-vocab-toolbar{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin:20px 0 10px
+}
+.home-vocab-toolbar input{
+  flex:1;
+  min-width:230px
+}
+.home-vocab-toolbar input,
+.home-vocab-toolbar button{
+  min-height:42px;
+  padding:9px 14px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:var(--bg);
+  color:var(--text)
+}
+.home-vocab-toolbar button{
+  font-weight:900;
+  cursor:pointer
+}
+.vocabulary-instruction{
+  margin:0 0 17px;
+  color:var(--muted);
+  font-size:13px
+}
+.lesson-word-grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px
+}
+.home-vocab-card{
+  position:relative;
+  min-height:205px;
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:22px;
+  background:var(--bg);
+  transition:transform .18s,box-shadow .18s,border-color .18s
+}
+.home-vocab-card:hover{
+  transform:translateY(-3px);
+  border-color:var(--red);
+  box-shadow:0 10px 24px rgba(40,30,20,.09)
+}
+.home-vocab-card.revealed{
+  border-color:color-mix(in srgb,var(--red) 65%,var(--line))
+}
+.home-vocab-source-row{
+  position:absolute;
+  top:11px;
+  left:11px;
+  right:11px;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  gap:5px
+}
+.home-vocab-source{
+  padding:4px 8px;
+  border-radius:999px;
+  background:var(--card);
+  color:var(--muted);
+  font-size:10px;
+  font-weight:900
+}
+.home-vocab-audio{
+  display:grid;
+  place-items:center;
+  width:30px;
+  height:30px;
+  margin-left:auto;
+  border:1px solid var(--line);
+  border-radius:50%;
+  background:var(--card);
+  color:var(--red);
+  cursor:pointer
+}
+.home-vocab-main{
+  display:flex;
+  width:100%;
+  min-height:205px;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:50px 16px 20px;
+  border:0;
+  background:transparent;
+  color:var(--text);
+  cursor:pointer
+}
+.home-vocab-hanzi{
+  display:block;
+  max-width:100%;
+  font:600 clamp(33px,4vw,52px)/1.15 Georgia,"Noto Serif SC",serif;
+  overflow-wrap:anywhere
+}
+.home-vocab-pinyin{
+  display:block;
+  margin-top:7px;
+  color:var(--red);
+  font-size:14px;
+  font-weight:900
+}
+.home-vocab-answer{
+  display:flex;
+  min-height:48px;
+  flex-direction:column;
+  justify-content:center;
+  margin-top:17px;
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.35;
+  text-align:center
+}
+.home-vocab-answer b{
+  color:var(--text);
+  font-size:14px
+}
+.home-vocab-answer small{
+  margin-top:4px;
+  color:var(--muted);
+  font-size:10px
+}
+.vocab-empty{
+  padding:35px;
+  border:1px dashed var(--line);
+  border-radius:18px;
+  color:var(--muted);
+  text-align:center
+}
+@media(max-width:1050px){
+  .lesson-word-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:760px){
+  .vocabulary-browser-head{display:block}
+  .lesson-vocab-links{justify-content:flex-start;margin-top:15px}
+  .lesson-word-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:480px){
+  .lesson-word-grid{grid-template-columns:1fr}
+  .home-vocab-card,.home-vocab-main{min-height:185px}
+}
+
+.page-shell{padding:58px 0 90px}
+.breadcrumbs{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:28px;
+  color:var(--muted);
+  font-size:13px
+}
+.breadcrumbs a{color:var(--red);text-decoration:none;font-weight:800}
+.page-intro{
+  padding:34px;
+  border:1px solid var(--line);
+  border-radius:28px;
+  background:var(--card)
+}
+.page-intro h1{
+  margin:8px 0 12px;
+  font:600 clamp(38px,5vw,62px)/1.12 Georgia,"Noto Serif SC",serif
+}
+.page-intro p{max-width:760px;margin:0;color:var(--muted);font-size:17px}
+.course-category{
+  margin-top:42px
+}
+.course-category h2{
+  margin:0 0 18px;
+  font:600 clamp(28px,4vw,42px)/1.2 Georgia,"Noto Serif SC",serif
+}
+.center-course-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px
+}
+@media(max-width:900px){
+  .center-course-grid{grid-template-columns:1fr}
+}
+
+.home-vocab-answer .home-vocab-pinyin{
+  display:block;
+  margin:0 0 7px;
+  color:var(--red);
+  font-size:14px;
+  font-weight:900
+}
+.home-vocab-card:not(.revealed) .home-vocab-hanzi{
+  transform:translateY(10px)
+}
+
+</style>
+</head>
+<body>
+<header>
+  <a class="brand" href="../index.html">
+    <span class="logo">汉</span>
+    <span>
+      <b data-zh="Ángela的汉语课堂" data-es="Aula de Chino con Ángela">Ángela的汉语课堂</b>
+      <small data-zh="学中文，也理解中国文化" data-es="Aprender chino y comprender su cultura">学中文，也理解中国文化</small>
+    </span>
+  </a>
+  <nav>
+    <a href="../index.html#cursos" data-zh="课程" data-es="Cursos">课程</a>
+    <a href="index.html" data-zh="词汇" data-es="Vocabulario">词汇</a>
+    <a href="../index.html#cultura" data-zh="文化" data-es="Cultura">文化</a>
+  </nav>
+  <div class="tools">
+    <button id="lang" type="button">ES</button>
+    <button id="theme" type="button">☾</button>
+  </div>
+</header>
+
+<main class="page-shell">
+  <nav class="breadcrumbs">
+    <a href="../index.html" data-zh="首页" data-es="Inicio">首页</a>
+    <span>›</span>
+    <a href="index.html" data-zh="词汇中心" data-es="Centro de vocabulario">词汇中心</a>
+    <span>›</span>
+    <span data-zh="《新实用汉语1》" data-es="Nuevo Chino Práctico 1">《新实用汉语1》</span>
+  </nav>
+  <section class="home-vocabulary-section" id="vocabulario">
+<div class="heading vocabulary-heading">
+<div>
+<div class="tag" data-es="Vocabulario del manual · Nuevo Chino Práctico 1" data-zh="教材词汇 · 新实用汉语1">教材词汇 · 新实用汉语1</div>
+<h2 data-es="Repasa todo el vocabulario por lecciones" data-zh="按课复习全部词汇">按课复习全部词汇</h2>
+</div>
+<p data-es="Las tarjetas incluyen Vocabulario 1, Vocabulario 2 y vocabulario adicional de cada lección: 544 palabras en total. Elige una lección y pulsa una tarjeta para ver el significado." data-zh="词卡来源包括每课的生词1、生词2和补充词汇，共544个词。选择课次后，点击词卡查看西班牙语释义。">
+      词卡来源包括每课的生词1、生词2和补充词汇，共544个词。选择课次后，点击词卡查看西班牙语释义。
+    </p>
+</div>
+<nav aria-label="按课选择词汇" class="lesson-vocab-tabs" id="lessonVocabTabs"></nav>
+<div class="vocabulary-browser">
+<div class="vocabulary-browser-head">
+<div>
+<span class="vocabulary-count" id="currentLessonCount"></span>
+<h3 id="currentLessonTitle"></h3>
+<p id="currentLessonSubtitle"></p>
+</div>
+<div class="lesson-vocab-links" id="lessonVocabLinks"></div>
+</div>
+<div class="home-vocab-toolbar">
+<input data-placeholder-es="Buscar carácter, pinyin o español" data-placeholder-zh="搜索汉字、拼音或西语" id="homeVocabSearch" placeholder="搜索汉字、拼音或西语" type="search"/>
+<button id="revealAllWords" type="button">显示全部答案</button>
+<button id="shuffleWords" type="button">随机排列</button>
+</div>
+<p class="vocabulary-instruction" data-es="Las tarjetas muestran solo los caracteres al principio. Púlsalas para ver el pinyin y el significado en español; usa el botón de reproducción para escuchar la palabra." data-zh="词卡默认只显示汉字。点击词卡后显示拼音和西班牙语释义；点击播放按钮可以听单词。">
+      词卡默认只显示汉字。点击词卡后显示拼音和西班牙语释义；点击播放按钮可以听单词。
+    </p>
+<div class="lesson-word-grid" id="lessonWordGrid"></div>
+<p class="vocab-empty" hidden="" id="vocabEmpty"></p>
+</div>
+</section>
+</main>
+
+<footer>
+  <span>© <span id="year"></span> Ángela</span>
+  <span>Aula de Chino</span>
+</footer>
+<script>
+let language=localStorage.getItem("lang")||"zh";
+const lang=document.getElementById("lang"),theme=document.getElementById("theme");
+function apply(){
+  document.documentElement.lang=language==="zh"?"zh-CN":"es";
+  document.querySelectorAll("[data-zh][data-es]").forEach(e=>e.textContent=e.dataset[language]);
+  lang.textContent=language==="zh"?"ES":"中";
+}
+lang.onclick=()=>{
+  language=language==="zh"?"es":"zh";
+  localStorage.setItem("lang",language);
+  apply();
+};
+if(localStorage.getItem("theme")==="dark"){
+  document.body.classList.add("dark");
+  theme.textContent="☀";
+}
+theme.onclick=()=>{
+  document.body.classList.toggle("dark");
+  const dark=document.body.classList.contains("dark");
+  theme.textContent=dark?"☀":"☾";
+  localStorage.setItem("theme",dark?"dark":"light");
+};
+document.getElementById("year").textContent=new Date().getFullYear();
+apply();
+</script>
+<script src="../home-vocabulary-data.js"></script>
+<script src="../home-vocabulary.js"></script>
+</body>
+</html>

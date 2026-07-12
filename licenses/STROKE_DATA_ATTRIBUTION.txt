@@ -1,0 +1,50 @@
+Stroke data attribution
+
+The verified Chinese-character stroke vector data used in:
+resources/npcr-1-lesson-1-characters.html
+
+Source:
+- Hanzi Writer Data: https://github.com/chanind/hanzi-writer-data
+- Original data project: Make Me a Hanzi
+
+License:
+Arphic Public License.
+
+Characters included in this version:
+你、好、叫、姓、么、名、最、近、认、识、样、林、进、坐
+
+The website embeds only the stroke paths needed for these four characters so
+that the step-by-step display works offline.
+
+
+Lesson 2 verified stroke characters:
+老、友、贵、国、饭、看
+
+
+Lesson 3 verified stroke characters:
+家、有、狗、张、茶、岁、英、语
+Source: hanzi-writer-data 2.0.1 / Make Me a Hanzi
+License: Arphic Public License
+
+
+Lesson 4 verified stroke characters:
+明、特、别、时、分、男、意、刻
+Lesson 5 verified stroke characters:
+期、聚、蛋、盒、属、惜、快、礼、祝
+
+
+Lesson 6 verified stroke characters:
+宿、超、知、等、跟、路、行、街
+
+Lesson 7 verified stroke characters:
+宜、钱、衬、衫、裤、打、折
+
+
+Lesson 8 verified stroke characters:
+疼、病、肚、睡、穿、炎、床、度、应
+Lesson 9 verified stroke characters:
+秋、空、凉、热、游、泳、滑、雪、汽、线
+
+
+Lesson 10 verified stroke characters:
+事、教、复、夏、帮、寄、找

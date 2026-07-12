@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>课文2：到朋友家做客</title><link href="../course.css" rel="stylesheet"/><style>
+.text-shell{max-width:980px;margin:0 auto}.text-toolbar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;margin:25px 0;padding:18px 20px;border:1px solid var(--line);border-radius:22px;background:var(--card)}.toolbar-group{display:flex;flex-wrap:wrap;align-items:center;gap:10px}.switch-wrap{display:flex;align-items:center;gap:10px;font-weight:800}.switch{position:relative;width:54px;height:30px;border:0;border-radius:999px;background:#c9cbd0;cursor:pointer}.switch::after{content:"";position:absolute;top:4px;left:4px;width:22px;height:22px;border-radius:50%;background:white;box-shadow:0 1px 4px rgba(0,0,0,.25);transition:.2s}.switch.active{background:#3478f6}.switch.active::after{transform:translateX(24px)}.audio-button{padding:10px 15px;border:1px solid var(--line);border-radius:999px;background:var(--soft);color:var(--text);font-weight:800;cursor:pointer}.audio-button.primary{background:var(--red);color:white;border-color:var(--red)}.speed-select{padding:9px 10px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--text)}.audio-note,.status{width:100%;color:var(--muted);font-size:12px}.text-card{padding:clamp(22px,5vw,52px);border:1px solid var(--line);border-radius:26px;background:var(--card)}.context{margin:0 0 32px;padding-bottom:22px;border-bottom:1px solid var(--line);color:var(--muted)}.context span{display:block;margin-top:3px;font-size:13px}.dialogue-list{display:grid;gap:20px}.dialogue-line{display:grid;grid-template-columns:38px 1fr;gap:12px;padding-bottom:18px;border-bottom:1px dashed var(--line)}.dialogue-line:last-child{border-bottom:0}.line-audio{display:grid;place-items:center;width:34px;height:34px;border:1px solid var(--line);border-radius:50%;background:var(--soft);color:var(--red);cursor:pointer}.chinese-line{font-size:clamp(26px,3.5vw,43px);line-height:1.5}.speaker{font-weight:800;text-decoration:underline dotted;text-underline-offset:8px}.pinyin-line{margin-top:7px;font-size:clamp(16px,2vw,23px)}.speaker-pinyin{font-weight:700}body.pinyin-hidden .pinyin-line{display:none}.nav-row{display:flex;justify-content:space-between;gap:14px;margin-top:22px}.nav-row a{padding:11px 16px;border:1px solid var(--line);border-radius:999px;background:var(--card);font-weight:800}@media(max-width:600px){.toolbar-group{width:100%}.chinese-line{font-size:28px}.nav-row{display:grid}}
+
+.translation-toggle{
+  padding:10px 15px;
+  border:1px solid var(--red);
+  border-radius:999px;
+  background:var(--red);
+  color:#fff;
+  font-weight:900;
+  cursor:pointer
+}
+.translation-line{
+  margin-top:9px;
+  padding:10px 13px;
+  border-left:3px solid var(--red);
+  border-radius:8px;
+  background:var(--soft);
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.55
+}
+body.translation-hidden .translation-line{display:none}
+.translation-note{
+  width:100%;
+  margin:0;
+  color:var(--muted);
+  font-size:12px
+}
+
+.official-video-card{
+  display:grid;
+  grid-template-columns:64px 1fr auto;
+  gap:16px;
+  align-items:center;
+  margin:18px 0 24px;
+  padding:18px 20px;
+  border:1px solid var(--line);
+  border-radius:20px;
+  background:var(--card)
+}
+.official-video-icon{
+  display:grid;
+  place-items:center;
+  width:54px;
+  height:54px;
+  border-radius:16px;
+  background:color-mix(in srgb,var(--red) 12%,transparent);
+  color:var(--red);
+  font-size:24px
+}
+.official-video-copy h2{
+  margin:0 0 6px;
+  font-size:18px
+}
+.official-video-copy p{
+  margin:0;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.55
+}
+.official-video-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:42px;
+  padding:10px 15px;
+  border:1px solid var(--red);
+  border-radius:999px;
+  background:var(--red);
+  color:#fff;
+  font-weight:900;
+  text-decoration:none;
+  white-space:nowrap
+}
+.official-video-legal{
+  grid-column:2 / -1;
+  margin-top:-4px!important;
+  font-size:11px!important
+}
+@media(max-width:720px){
+  .official-video-card{
+    grid-template-columns:52px 1fr
+  }
+  .official-video-link{
+    grid-column:1/-1;
+    width:100%
+  }
+  .official-video-legal{
+    grid-column:1/-1
+  }
+}
+</style></head><body class="translation-hidden">
+<header>
+<a class="brand" href="../index.html">
+<span class="logo">汉</span>
+<span>
+<b data-es="Aula de Chino con Ángela" data-zh="Ángela的汉语课堂">Ángela的汉语课堂</b>
+<small data-es="Aprender chino y comprender su cultura" data-zh="学中文，也理解中国文化">学中文，也理解中国文化</small>
+</span>
+</a>
+<div class="tools">
+<button id="lang" type="button">ES</button>
+<button id="theme" type="button">☾</button>
+</div>
+</header><main class="text-shell"><a class="back" href="../courses/npcr-1-lesson-3.html">← <span data-es="Volver a la lección 3" data-zh="返回第三课">返回第三课</span></a><p class="kicker" data-es="Lección 3 · Texto 2" data-zh="第三课 · 课文2">第三课 · 课文2</p><h1 data-es="Texto 2: Visitar la casa de una amiga" data-zh="课文2：到朋友家做客">课文2：到朋友家做客</h1>
+<section class="text-toolbar"><div class="toolbar-group"><div class="switch-wrap"><button aria-checked="true" class="switch active" id="pinyinSwitch" role="switch" type="button"></button><span>pīnyīn</span></div><button aria-expanded="false" class="translation-toggle" data-es="Mostrar traducción" data-zh="显示翻译" id="translationToggle" type="button">显示翻译</button></div><div class="toolbar-group"><button class="audio-button primary" data-es="▶ Reproducir" data-zh="▶ 播放课文" id="playAll">▶ 播放课文</button><button class="audio-button" data-es="⏸ Pausar/continuar" data-zh="⏸ 暂停/继续" id="pauseAudio">⏸ 暂停/继续</button><button class="audio-button" data-es="■ Detener" data-zh="■ 停止" id="stopAudio">■ 停止</button><select class="speed-select" id="speed"><option value=".7">0.7×</option><option value=".85">0.85×</option><option selected="" value="1">1×</option><option value="1.15">1.15×</option></select></div><p class="audio-note" data-es="El audio humano ya está incluido. La reproducción completa usa el MP3 y cada frase utiliza la voz china del navegador." data-zh="真人课文录音已经加入。整篇播放使用真人录音；逐句按钮使用浏览器普通话朗读。">真人课文录音已经加入。整篇播放使用真人录音；逐句按钮使用浏览器普通话朗读。</p><p class="translation-note" data-es="La traducción española está oculta por defecto; pulsa «Mostrar traducción» para verla frase por frase." data-zh="西班牙语翻译默认隐藏，点击“显示翻译”即可逐句查看。">西班牙语翻译默认隐藏，点击“显示翻译”即可逐句查看。</p><div class="status" id="status"></div></section><section aria-label="出版社官方课文视频" class="official-video-card">
+<div aria-hidden="true" class="official-video-icon">▶</div>
+<div class="official-video-copy">
+<h2 data-es="Vídeo oficial de la editorial" data-zh="出版社官方课文视频">出版社官方课文视频</h2>
+<p data-es="El vídeo no está alojado en este sitio. El botón abre la página oficial de recursos de Beijing Language and Culture University Press." data-zh="视频不存放在本站。点击按钮后，将前往北京语言大学出版社官方资源页面观看。">
+      视频不存放在本站。点击按钮后，将前往北京语言大学出版社官方资源页面观看。
+    </p>
+</div>
+<a class="official-video-link" data-es="Ver en la web oficial ↗" data-zh="前往出版社官网观看 ↗" href="https://www.blcup.com/MobileResource?rid=c45b355f-182b-46f8-9e35-c4f92d73508a" referrerpolicy="no-referrer" rel="noopener noreferrer external" target="_blank">
+    前往出版社官网观看 ↗
+  </a>
+<p class="official-video-legal" data-es="Este sitio solo enlaza la página oficial; no copia, aloja ni redistribuye el vídeo. Los derechos y condiciones de uso dependen de la editorial." data-zh="本站仅提供官方页面链接，不复制、不托管、不重新发布视频。视频版权及使用规则以出版社官方说明为准。">
+    本站仅提供官方页面链接，不复制、不托管、不重新发布视频。视频版权及使用规则以出版社官方说明为准。
+  </p>
+</section>
+<audio id="humanAudio" preload="metadata"><source src="../audio/npcr-1-lesson-3-text-2.mp3" type="audio/mpeg"/></audio><section class="text-card"><p class="context"><strong data-es="El fin de semana, Lin Na y Song Hua visitan la casa de Lu Yuping." data-zh="周末，林娜和宋华到陆雨平家玩儿。">周末，林娜和宋华到陆雨平家玩儿。</strong><span>El fin de semana, Lin Na y Song Hua visitan la casa de Lu Yuping.</span></p><div class="dialogue-list"><article class="dialogue-line" data-speech="陆雨平：你们好！请进！"><button class="line-audio" title="朗读这一句" type="button">▶</button><div><div class="chinese-line"><span class="speaker">陆雨平：</span>你们好！请进！</div><div class="pinyin-line"><span class="speaker-pinyin">Lù Yǔpíng:</span> Nǐmen hǎo! Qǐng jìn!</div><div class="translation-line" lang="es">¡Hola! ¡Pasad!</div></div></article><article class="dialogue-line" data-speech="林娜：您好！你们家真漂亮！"><button class="line-audio" title="朗读这一句" type="button">▶</button><div><div class="chinese-line"><span class="speaker">林娜：</span>您好！你们家真漂亮！</div><div class="pinyin-line"><span class="speaker-pinyin">Lín Nà:</span> Nín hǎo! Nǐmen jiā zhēn piàoliang!</div><div class="translation-line" lang="es">Hola. ¡Qué bonita es su casa!</div></div></article><article class="dialogue-line" data-speech="陆雨平：谢谢。请坐。你们喝什么？我们家有茶和咖啡。"><button class="line-audio" title="朗读这一句" type="button">▶</button><div><div class="chinese-line"><span class="speaker">陆雨平：</span>谢谢。请坐。你们喝什么？我们家有茶和咖啡。</div><div class="pinyin-line"><span class="speaker-pinyin">Lù Yǔpíng:</span> Xièxie. Qǐng zuò. Nǐmen hē shénme? Wǒmen jiā yǒu chá hé kāfēi.</div><div class="translation-line" lang="es">Gracias. Sentaos. ¿Qué queréis beber? En casa tenemos té y café.</div></div></article><article class="dialogue-line" data-speech="宋华：我喝咖啡。"><button class="line-audio" title="朗读这一句" type="button">▶</button><div><div class="chinese-line"><span class="speaker">宋华：</span>我喝咖啡。</div><div class="pinyin-line"><span class="speaker-pinyin">Sòng Huá:</span> Wǒ hē kāfēi.</div><div class="translation-line" lang="es">Yo tomo café.</div></div></article><article class="dialogue-line" data-speech="林娜：我要茶。"><button class="line-audio" title="朗读这一句" type="button">▶</button><div><div class="chinese-line"><span class="speaker">林娜：</span>我要茶。</div><div class="pinyin-line"><span class="speaker-pinyin">Lín Nà:</span> Wǒ yào chá.</div><div class="translation-line" lang="es">Yo quiero té.</div></div></article><article class="dialogue-line" data-speech="宋华：这张照片真漂亮！这是你女儿吗？"><button class="line-audio" title="朗读这一句" type="button">▶</button><div><div class="chinese-line"><span class="speaker">宋华：</span>这张照片真漂亮！这是你女儿吗？</div><div class="pinyin-line"><span class="speaker-pinyin">Sòng Huá:</span> Zhè zhāng zhàopiàn zhēn piàoliang! Zhè shì nǐ nǚ’ér ma?</div><div class="translation-line" lang="es">¡Qué bonita es esta foto! ¿Es su hija?</div></div></article><article class="dialogue-line" data-speech="陆雨平：是。这是我女儿。"><button class="line-audio" title="朗读这一句" type="button">▶</button><div><div class="chinese-line"><span class="speaker">陆雨平：</span>是。这是我女儿。</div><div class="pinyin-line"><span class="speaker-pinyin">Lù Yǔpíng:</span> Shì. Zhè shì wǒ nǚ’ér.</div><div class="translation-line" lang="es">Sí, es mi hija.</div></div></article><article class="dialogue-line" data-speech="宋华：你女儿今年几岁？"><button class="line-audio" title="朗读这一句" type="button">▶</button><div><div class="chinese-line"><span class="speaker">宋华：</span>你女儿今年几岁？</div><div class="pinyin-line"><span class="speaker-pinyin">Sòng Huá:</span> Nǐ nǚ’ér jīnnián jǐ suì?</div><div class="translation-line" lang="es">¿Cuántos años tiene su hija?</div></div></article><article class="dialogue-line" data-speech="陆雨平：五岁。今天她有钢琴课，不在家。"><button class="line-audio" title="朗读这一句" type="button">▶</button><div><div class="chinese-line"><span class="speaker">陆雨平：</span>五岁。今天她有钢琴课，不在家。</div><div class="pinyin-line"><span class="speaker-pinyin">Lù Yǔpíng:</span> Wǔ suì. Jīntiān tā yǒu gāngqínkè, bú zài jiā.</div><div class="translation-line" lang="es">Cinco. Hoy tiene clase de piano y no está en casa.</div></div></article><article class="dialogue-line" data-speech="林娜：中国的孩子真忙！"><button class="line-audio" title="朗读这一句" type="button">▶</button><div><div class="chinese-line"><span class="speaker">林娜：</span>中国的孩子真忙！</div><div class="pinyin-line"><span class="speaker-pinyin">Lín Nà:</span> Zhōngguó de háizi zhēn máng!</div><div class="translation-line" lang="es">¡Qué ocupados están los niños chinos!</div></div></article><article class="dialogue-line" data-speech="陆雨平：是啊。晚上她还有英语课。"><button class="line-audio" title="朗读这一句" type="button">▶</button><div><div class="chinese-line"><span class="speaker">陆雨平：</span>是啊。晚上她还有英语课。</div><div class="pinyin-line"><span class="speaker-pinyin">Lù Yǔpíng:</span> Shì a. Wǎnshang tā hái yǒu Yīngyǔkè.</div><div class="translation-line" lang="es">Sí. Por la noche también tiene clase de inglés.</div></div></article></div></section><div class="nav-row"><a href="../courses/npcr-1-lesson-3.html">← 第三课</a><a href="npcr-1-lesson-3-text-1.html">课文1 →</a></div></main>
+<footer><span>© 2026 Ángela</span><span>Aula de Chino</span></footer>
+<script src="../course.js"></script>
+<script>
+const body=document.body,pinyinSwitch=document.getElementById('pinyinSwitch'),humanAudio=document.getElementById('humanAudio'),speed=document.getElementById('speed'),statusBox=document.getElementById('status');
+const fullText="陆雨平：你们好！请进！。林娜：您好！你们家真漂亮！。陆雨平：谢谢。请坐。你们喝什么？我们家有茶和咖啡。。宋华：我喝咖啡。。林娜：我要茶。。宋华：这张照片真漂亮！这是你女儿吗？。陆雨平：是。这是我女儿。。宋华：你女儿今年几岁？。陆雨平：五岁。今天她有钢琴课，不在家。。林娜：中国的孩子真忙！。陆雨平：是啊。晚上她还有英语课。";
+function currentLang(){return typeof language!=='undefined'?language:'zh'}
+function getVoice(){const vs=speechSynthesis.getVoices();return vs.find(v=>/^zh-CN/i.test(v.lang))||vs.find(v=>/^zh/i.test(v.lang))||null}
+function stopAll(){humanAudio.pause();humanAudio.currentTime=0;speechSynthesis.cancel()}
+function speak(text){stopAll();const u=new SpeechSynthesisUtterance(text);u.lang='zh-CN';u.rate=Number(speed.value);const v=getVoice();if(v)u.voice=v;speechSynthesis.speak(u)}
+pinyinSwitch.onclick=()=>{const hidden=body.classList.toggle('pinyin-hidden');pinyinSwitch.classList.toggle('active',!hidden);pinyinSwitch.setAttribute('aria-checked',String(!hidden))};
+document.getElementById('playAll').onclick=async()=>{stopAll();humanAudio.playbackRate=Number(speed.value);try{await humanAudio.play();statusBox.textContent=currentLang()==='zh'?'正在播放真人课文录音。':'Reproduciendo el audio humano.'}catch(e){speak(fullText);statusBox.textContent=currentLang()==='zh'?'正在使用浏览器普通话朗读。':'Usando la voz china del navegador.'}};
+document.getElementById('pauseAudio').onclick=async()=>{if(!humanAudio.paused){humanAudio.pause();statusBox.textContent=currentLang()==='zh'?'已暂停。':'Pausado.';return}if(humanAudio.currentTime>0&&!humanAudio.ended){try{await humanAudio.play();statusBox.textContent=currentLang()==='zh'?'继续播放。':'Reanudado.';return}catch(e){}}if(speechSynthesis.paused)speechSynthesis.resume();else if(speechSynthesis.speaking)speechSynthesis.pause()};
+document.getElementById('stopAudio').onclick=()=>{stopAll();statusBox.textContent=currentLang()==='zh'?'已停止。':'Detenido.'};
+speed.onchange=()=>humanAudio.playbackRate=Number(speed.value);
+document.querySelectorAll('.line-audio').forEach(b=>b.onclick=()=>speak(b.closest('.dialogue-line').dataset.speech));
+humanAudio.onended=()=>statusBox.textContent=currentLang()==='zh'?'真人录音播放结束。':'El audio ha terminado.';
+</script><script data-translation-script="true">
+const translationToggle = document.getElementById("translationToggle");
+let translationsHidden = true;
+
+function updateTranslationToggle(){
+  if(!translationToggle) return;
+  const zhText = translationsHidden ? "显示翻译" : "隐藏翻译";
+  const esText = translationsHidden ? "Mostrar traducción" : "Ocultar traducción";
+  translationToggle.dataset.zh = zhText;
+  translationToggle.dataset.es = esText;
+  translationToggle.textContent =
+    (typeof language !== "undefined" && language === "es") ? esText : zhText;
+  translationToggle.setAttribute("aria-expanded", String(!translationsHidden));
+}
+
+if(translationToggle){
+  translationToggle.addEventListener("click", () => {
+    translationsHidden = !translationsHidden;
+    document.body.classList.toggle("translation-hidden", translationsHidden);
+    updateTranslationToggle();
+  });
+  updateTranslationToggle();
+}
+</script></body></html>
