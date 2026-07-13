@@ -199,6 +199,32 @@
   }
   distributeQuizAnswers([2,0,1,2,1,0,2,1]);
 
+  function randomizeThemeQuizOptions(){
+    const targetPositions=quiz.map((_,index)=>index%3);
+    for(let i=targetPositions.length-1;i>0;i-=1){
+      const j=Math.floor(Math.random()*(i+1));
+      [targetPositions[i],targetPositions[j]]=[targetPositions[j],targetPositions[i]];
+    }
+
+    quiz.forEach((item,index)=>{
+      const entries=item.o.map((option,originalIndex)=>({
+        option,
+        pinyin:item.py[originalIndex],
+        correct:originalIndex===item.c
+      }));
+      const correctEntry=entries.find(entry=>entry.correct);
+      const wrongEntries=entries.filter(entry=>!entry.correct);
+      const target=targetPositions[index];
+      const arranged=[...wrongEntries];
+      arranged.splice(target,0,correctEntry);
+      item.o=arranged.map(entry=>entry.option);
+      item.py=arranged.map(entry=>entry.pinyin);
+      item.c=target;
+    });
+  }
+  randomizeThemeQuizOptions();
+
+
   let state={step:1,clues:[],wrongPeople:0,identified:false,quizIndex:0,quizScore:0,answered:false,finalText:"",finalPinyin:"",finalProfile:null,completed:false,stars:0};
   try{state=Object.assign(state,JSON.parse(localStorage.getItem(STATE_KEY)||"{}"));}catch{}
   const lang=()=>typeof language!=="undefined"&&language==="es"?"es":"zh";
@@ -436,7 +462,7 @@
       const b=document.createElement("button");
       b.className="quiz-option";
       b.type="button";
-      b.innerHTML=`<span>${o}</span>${py(item.py[i])}`;
+      b.innerHTML=`<span class="quiz-option-letter">${["A","B","C","D"][i]||i+1}</span><span class="quiz-option-body"><span>${o}</span>${py(item.py[i])}</span>`;
       b.onclick=()=>answer(i,b);
       options.appendChild(b)
     });

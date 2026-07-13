@@ -195,6 +195,33 @@
   }
   distributeQuizAnswers([1,2,0,2,1,0]);
 
+  function randomizeThemeQuizOptions(){
+    const targetPositions=quiz.map((_,index)=>index%3);
+    for(let i=targetPositions.length-1;i>0;i-=1){
+      const j=Math.floor(Math.random()*(i+1));
+      [targetPositions[i],targetPositions[j]]=[targetPositions[j],targetPositions[i]];
+    }
+
+    quiz.forEach((item,index)=>{
+      const py=quizPinyin[index];
+      const entries=item.options.map((option,originalIndex)=>({
+        option,
+        pinyin:py.options[originalIndex],
+        correct:originalIndex===item.correct
+      }));
+      const correctEntry=entries.find(entry=>entry.correct);
+      const wrongEntries=entries.filter(entry=>!entry.correct);
+      const target=targetPositions[index];
+      const arranged=[...wrongEntries];
+      arranged.splice(target,0,correctEntry);
+      item.options=arranged.map(entry=>entry.option);
+      py.options=arranged.map(entry=>entry.pinyin);
+      item.correct=target;
+    });
+  }
+  randomizeThemeQuizOptions();
+
+
   let state = {
     step: 1,
     clues: [],
@@ -552,7 +579,7 @@
       const button = document.createElement("button");
       button.type = "button";
       button.className = "quiz-option";
-      button.innerHTML = `<span>${option}</span>${pinyinSpan(py.options[index])}`;
+      button.innerHTML = `<span class="quiz-option-letter">${["A","B","C","D"][index]||index+1}</span><span class="quiz-option-body"><span>${option}</span>${pinyinSpan(py.options[index])}</span>`;
       button.onclick = () => answerQuiz(index, button);
       quizOptions.appendChild(button);
     });

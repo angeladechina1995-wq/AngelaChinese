@@ -164,6 +164,32 @@
   }
   distributeQuizAnswers([1,2,0,2,1,0,1]);
 
+  function randomizeThemeQuizOptions(){
+    const targetPositions=quiz.map((_,index)=>index%3);
+    for(let i=targetPositions.length-1;i>0;i-=1){
+      const j=Math.floor(Math.random()*(i+1));
+      [targetPositions[i],targetPositions[j]]=[targetPositions[j],targetPositions[i]];
+    }
+
+    quiz.forEach((item,index)=>{
+      const entries=item.o.map((option,originalIndex)=>({
+        option,
+        pinyin:item.py[originalIndex],
+        correct:originalIndex===item.c
+      }));
+      const correctEntry=entries.find(entry=>entry.correct);
+      const wrongEntries=entries.filter(entry=>!entry.correct);
+      const target=targetPositions[index];
+      const arranged=[...wrongEntries];
+      arranged.splice(target,0,correctEntry);
+      item.o=arranged.map(entry=>entry.option);
+      item.py=arranged.map(entry=>entry.pinyin);
+      item.c=target;
+    });
+  }
+  randomizeThemeQuizOptions();
+
+
   let state={step:1,clues:[],wrongMaps:0,identified:false,quizIndex:0,quizScore:0,answered:false,finalText:"",finalPinyin:"",finalProfile:null,completed:false,stars:0};
   try{state=Object.assign(state,JSON.parse(localStorage.getItem(STATE_KEY)||"{}"));}catch{}
 
@@ -417,7 +443,7 @@
 
     qQuestion.innerHTML=(lang()==="zh"?item.q.zh:`${item.q.es}<span class="quiz-chinese-source">${item.q.zh}</span>`)+pySpan(item.pyQ);
     qOptions.innerHTML="";state.answered=false;qNext.disabled=true;qFeedback.className="game-feedback";qFeedback.textContent=lang()==="zh"?"选择一个答案。":"Elige una respuesta.";
-    item.o.forEach((o,i)=>{const b=document.createElement("button");b.className="quiz-option";b.type="button";b.innerHTML=`<span>${o}</span>${pySpan(item.py[i])}`;b.onclick=()=>answerQuiz(i,b);qOptions.appendChild(b);});
+    item.o.forEach((o,i)=>{const b=document.createElement("button");b.className="quiz-option";b.type="button";b.innerHTML=`<span class="quiz-option-letter">${["A","B","C","D"][i]||i+1}</span><span class="quiz-option-body"><span>${o}</span>${pySpan(item.py[i])}</span>`;b.onclick=()=>answerQuiz(i,b);qOptions.appendChild(b);});
     qNext.textContent=state.quizIndex===quiz.length-1?(lang()==="zh"?"查看结果 →":"Ver resultado →"):(lang()==="zh"?"下一题 →":"Siguiente →");
   }
   function answerQuiz(i,b){

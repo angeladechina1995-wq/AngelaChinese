@@ -105,6 +105,34 @@
     return OPTION_SCAFFOLDS[String(option).trim()] || null;
   }
 
+
+  const optionOrderCache = new Map();
+  const OPTION_LETTERS = ["A","B","C","D","E","F"];
+
+  function shuffledOptionEntries(options, answerIndex, cacheKey) {
+    const key = String(cacheKey || options.join("|"));
+    if (!optionOrderCache.has(key)) {
+      const order = options.map((_, index) => index);
+      for (let i = order.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [order[i], order[j]] = [order[j], order[i]];
+      }
+      optionOrderCache.set(key, order);
+    }
+
+    return optionOrderCache.get(key).map(originalIndex => ({
+      option: options[originalIndex],
+      originalIndex,
+      correct: originalIndex === answerIndex
+    }));
+  }
+
+  function labelledOptionContent(option, displayIndex) {
+    return `
+      <span class="option-letter" aria-hidden="true">${OPTION_LETTERS[displayIndex] || displayIndex + 1}</span>
+      <span class="option-labelled-body">${optionContent(option)}</span>`;
+  }
+
   function optionContent(option) {
     const scaffold = optionScaffold(option);
     if (!scaffold) return `<span class="option-main">${escapeHtml(option)}</span>`;
@@ -284,23 +312,80 @@
   function showNext(){ const n=el('nextQuestion'); if(n)n.classList.remove('practice-hidden'); }
 
   function renderChoice(q,card){
-    baseCard(q,card);const grid=document.createElement('div');grid.className='choice-grid';
-    q.options.forEach((opt,i)=>{const b=document.createElement('button');b.type='button';b.className='choice-option';b.innerHTML=optionContent(opt);b.onclick=()=>{
-      if(itemState().done)return;
-      if(i===q.answer){b.classList.add('correct');markCorrect(q);renderFeedback('good',`<strong>${escapeHtml(L().correct)}</strong><br>${escapeHtml(t(q.explanation))}`);[...grid.children].forEach(x=>x.disabled=true);showNext();}
-      else{b.classList.add('wrong');setTimeout(()=>b.classList.remove('wrong'),450);markWrong(q);renderFeedback('bad',escapeHtml(L().wrong));}
-    };grid.appendChild(b);});card.appendChild(grid);addCommonActions(card,q);
+    baseCard(q,card);
+    const grid=document.createElement('div');
+    grid.className='choice-grid';
+    const entries=shuffledOptionEntries(q.options,q.answer,`choice-${q.id||t(q.prompt)||session.index}`);
+
+    entries.forEach((entry,displayIndex)=>{
+      const b=document.createElement('button');
+      b.type='button';
+      b.className='choice-option';
+      b.innerHTML=labelledOptionContent(entry.option,displayIndex);
+      b.onclick=()=>{
+        if(itemState().done)return;
+        if(entry.correct){
+          b.classList.add('correct');
+          markCorrect(q);
+          renderFeedback('good',`<strong>${escapeHtml(L().correct)}</strong><br>${escapeHtml(t(q.explanation))}`);
+          [...grid.children].forEach(x=>x.disabled=true);
+          showNext();
+        }else{
+          b.classList.add('wrong');
+          setTimeout(()=>b.classList.remove('wrong'),450);
+          markWrong(q);
+          renderFeedback('bad',escapeHtml(L().wrong));
+        }
+      };
+      grid.appendChild(b);
+    });
+    card.appendChild(grid);
+    addCommonActions(card,q);
   }
   function renderListen(q,card){
-    baseCard(q,card);const sound=document.createElement('div');sound.className='sound-row';
-    const play=document.createElement('button');play.type='button';play.className='practice-button primary';play.textContent=`▶ ${L().play}`;play.onclick=()=>speak(q.speech);sound.appendChild(play);
-    const tip=document.createElement('span');tip.className='question-subtitle';tip.textContent=L().listenTip;sound.appendChild(tip);card.appendChild(sound);
-    const grid=document.createElement('div');grid.className='choice-grid';
-    q.options.forEach((opt,i)=>{const b=document.createElement('button');b.type='button';b.className='choice-option';b.innerHTML=optionContent(opt);b.onclick=()=>{
-      if(itemState().done)return;
-      if(i===q.answer){b.classList.add('correct');markCorrect(q);renderFeedback('good',`<strong>${escapeHtml(L().correct)}</strong><br>${escapeHtml(t(q.explanation))}`);[...grid.children].forEach(x=>x.disabled=true);showNext();}
-      else{b.classList.add('wrong');setTimeout(()=>b.classList.remove('wrong'),450);markWrong(q);renderFeedback('bad',escapeHtml(L().wrong));}
-    };grid.appendChild(b);});card.appendChild(grid);addCommonActions(card,q);
+    baseCard(q,card);
+    const sound=document.createElement('div');
+    sound.className='sound-row';
+    const play=document.createElement('button');
+    play.type='button';
+    play.className='practice-button primary';
+    play.textContent=`▶ ${L().play}`;
+    play.onclick=()=>speak(q.speech);
+    sound.appendChild(play);
+    const tip=document.createElement('span');
+    tip.className='question-subtitle';
+    tip.textContent=L().listenTip;
+    sound.appendChild(tip);
+    card.appendChild(sound);
+
+    const grid=document.createElement('div');
+    grid.className='choice-grid';
+    const entries=shuffledOptionEntries(q.options,q.answer,`listen-${q.id||q.speech||session.index}`);
+
+    entries.forEach((entry,displayIndex)=>{
+      const b=document.createElement('button');
+      b.type='button';
+      b.className='choice-option';
+      b.innerHTML=labelledOptionContent(entry.option,displayIndex);
+      b.onclick=()=>{
+        if(itemState().done)return;
+        if(entry.correct){
+          b.classList.add('correct');
+          markCorrect(q);
+          renderFeedback('good',`<strong>${escapeHtml(L().correct)}</strong><br>${escapeHtml(t(q.explanation))}`);
+          [...grid.children].forEach(x=>x.disabled=true);
+          showNext();
+        }else{
+          b.classList.add('wrong');
+          setTimeout(()=>b.classList.remove('wrong'),450);
+          markWrong(q);
+          renderFeedback('bad',escapeHtml(L().wrong));
+        }
+      };
+      grid.appendChild(b);
+    });
+    card.appendChild(grid);
+    addCommonActions(card,q);
   }
   function renderOrder(q,card){
     baseCard(q,card);let selected=[];const zone=document.createElement('div');zone.className='order-zone empty';zone.dataset.empty=L().emptyOrder;const bank=document.createElement('div');bank.className='token-bank';
@@ -319,9 +404,36 @@
     const win=document.createElement('div');win.className='dialogue-window';const hist=document.createElement('div');hist.className='dialogue-history';
     ds.history.forEach(h=>{const b=document.createElement('div');b.className='bubble '+h.who;b.textContent=h.text;hist.appendChild(b);});
     const step=q.steps[ds.step];if(step){const a=document.createElement('div');a.className='bubble';a.textContent=step.line;hist.appendChild(a);}win.appendChild(hist);
-    if(step){const choices=document.createElement('div');choices.className='choice-grid';step.options.forEach((opt,i)=>{const b=document.createElement('button');b.type='button';b.className='choice-option';b.innerHTML=optionContent(opt);b.onclick=()=>{
-      if(i===step.answer){clearFeedback();ds.history.push({who:'other',text:step.line},{who:'user',text:opt});ds.step++;if(ds.step>=q.steps.length){if(ds.eligible){session.score++;session.categoryHits.dialogue++;state.stats.dialogue++;}itemState().done=true;renderDialogue(q,card);renderFeedback('good',escapeHtml(langNow()==='zh'?'对话完成，交流很自然。':'Diálogo completado de forma natural.'));}else renderDialogue(q,card);}else{ds.eligible=false;markWrong({id:null,category:'dialogue'});renderFeedback('bad',escapeHtml(t(step.feedback)));}
-    };choices.appendChild(b);});win.appendChild(choices);}else{const end=document.createElement('div');end.className='product-card';end.textContent=langNow()==='zh'?'对话任务完成。':'Diálogo completado.';win.appendChild(end);const next=document.createElement('button');next.className='practice-button primary';next.textContent=L().next;next.onclick=()=>{session.dialogueState=null;nextItem();};win.appendChild(next);}card.appendChild(win);
+    if(step){
+      const choices=document.createElement('div');
+      choices.className='choice-grid';
+      const entries=shuffledOptionEntries(step.options,step.answer,`dialogue-${q.id||t(q.title)}-${ds.step}`);
+      entries.forEach((entry,displayIndex)=>{
+        const b=document.createElement('button');
+        b.type='button';
+        b.className='choice-option';
+        b.innerHTML=labelledOptionContent(entry.option,displayIndex);
+        b.onclick=()=>{
+          if(entry.correct){
+            clearFeedback();
+            ds.history.push({who:'other',text:step.line},{who:'user',text:entry.option});
+            ds.step++;
+            if(ds.step>=q.steps.length){
+              if(ds.eligible){session.score++;session.categoryHits.dialogue++;state.stats.dialogue++;}
+              itemState().done=true;
+              renderDialogue(q,card);
+              renderFeedback('good',escapeHtml(langNow()==='zh'?'对话完成，交流很自然。':'Diálogo completado de forma natural.'));
+            }else renderDialogue(q,card);
+          }else{
+            ds.eligible=false;
+            markWrong({id:null,category:'dialogue'});
+            renderFeedback('bad',escapeHtml(t(step.feedback)));
+          }
+        };
+        choices.appendChild(b);
+      });
+      win.appendChild(choices);
+    }else{const end=document.createElement('div');end.className='product-card';end.textContent=langNow()==='zh'?'对话任务完成。':'Diálogo completado.';win.appendChild(end);const next=document.createElement('button');next.className='practice-button primary';next.textContent=L().next;next.onclick=()=>{session.dialogueState=null;nextItem();};win.appendChild(next);}card.appendChild(win);
   }
 
   function renderTask(q,card){
